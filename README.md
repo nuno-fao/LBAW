@@ -1,5 +1,4 @@
-# Movie Club
-##### The first rule about Movie club is you don't talk about Movie club
+# Social network
 
 ## Team
 
