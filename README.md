@@ -1,6 +1,6 @@
 # Social Network
 
-> This project aims to develop a social network for movie aficionados, allowing them to share and discuss their passion for movies with others.
+> Movie Club is a Social network for the movie aficionados that allows people to talk, discuss and share their thoughts about the movies, also recommend and get recommendations for the next film to watch.
 
 ## Project Components
 
