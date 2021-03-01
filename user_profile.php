@@ -3,6 +3,8 @@ include_once "main_templates.php";
 draw_head();
 draw_header_normal_user();
 ?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-5">
     <div class="row">
         <div class="col col-12 col-lg-6" id="user-left-block">
@@ -75,7 +77,96 @@ draw_header_normal_user();
                 </div>
             </div>
         </div>
-        <div class="col col-lg-6 col-12" id="user-right-block">
+        <div class="col col-lg-6 col-12 d-flex flex-column mt-3 mb-3" id="user-right-block">
+            <h4>
+                Latest Reviews
+            </h4>
+            <div class="review card mt-3">
+                <div class="card-header row review-header">
+                    <div class="col col-12 col-lg-9 no-padding">
+                        Great Actors, Dreadful Movie</div>
+                    <div class="col col-12 col-lg-3 review-author no-padding">
+                        <small>
+                            by John Doe
+                        </small>
+                    </div>
+                    <div class="col col-12 no-padding">
+                        <small col>
+                            Fight Club
+                        </small>
+                    </div>
+                </div>
+                <div class="card-body">
+                    The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
+                    the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
+                    they come from Arkham Asylum
+                </div>
+                <div class="card-footer row review-footer">
+                    <div class="like_button col no-padding">
+                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                    </div>
+                    <div class="col no-padding text-end">
+                        0 comments
+                    </div>
+                </div>
+            </div>
+            <div class="review card mt-3">
+                <div class="card-header row review-header">
+                    <div class="col col-12 col-lg-9 no-padding">
+                        Best Movie Ever</div>
+                    <div class="col col-12 col-lg-3 review-author no-padding">
+                        <small>
+                            by John Doe
+                        </small>
+                    </div>
+                    <div class="col col-12 no-padding">
+                        <small col>
+                            V for Vendetta
+                        </small>
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
+                    who is afraid but at the same time wants so change the things.
+                    However, the end is a bit sad and i was expenting that V could live another day and continue to
+                    inpire the revolution.
+                </div>
+                <div class="card-footer row review-footer">
+                    <div class="like_button col no-padding">
+                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                    </div>
+                    <div class="col no-padding text-end">
+                        10 comments
+                    </div>
+                </div>
+                <div class="d-flex flex-column comment-section mt-3">
+                    <div class="comment">
+                        <div class="comment-author d-flex">
+                            <img class="card-img-top img-responsive user-pic" src="images/user_pic.png"
+                                alt="fight club poster">
+                            <span class="mt-auto mb-auto">
+                                Beauty
+                            </span>
+                        </div>
+                        <div class="comment-data">
+                            Bla Bla Bla, you don't now anything about movies!!!!!! you "basterd"!!!
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-author d-flex">
+                            <img class="card-img-top img-responsive user-pic" src="images/user_pic.png"
+                                alt="fight club poster">
+                            <span class="mt-auto mb-auto">
+                                Donald Duck
+                            </span>
+                        </div>
+                        <div class="comment-data">
+                            I've seen better.. but yes it is a great movie, but it doesn't quite transmits the same
+                            feeling as the comic
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

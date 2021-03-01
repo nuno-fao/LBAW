@@ -49,3 +49,47 @@ body {
     padding: 0 0.5em;
     margin-top: 1em;
 }
+
+.review-header {
+    width: 100%;
+    margin: auto;
+}
+
+.review-footer {
+    width: 100%;
+    margin: auto;
+}
+
+.review-author {
+    text-align: right;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.comment-section {
+    width: 95%;
+    margin: auto;
+}
+
+.comment-author img {
+    max-height: 40px;
+    max-width: 40px;
+    margin-left: 1em;
+}
+
+.comment-author span {
+    text-align: end;
+    margin-left: 1em;
+}
+
+.comment-data {
+    display: inline-block;
+    background-color: lightgray;
+    border-radius: 15px;
+    margin: 1em;
+    margin-top: 0.3em;
+    padding: 1em;
+}
