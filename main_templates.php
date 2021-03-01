@@ -76,6 +76,41 @@ function draw_header_visitor(){ ?>
 <?php
 }
 
+function draw_header_normal_user(){ ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="main_page.php">Movie Club</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Friends Reviews</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-5">
+                <form class="d-flex nav-item">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <button class="btn btn-success me-2 nav-item" type="button"
+                    onclick="window.location.href='edit_profile.php'">Edit Profile</button>
+                <button class="btn btn-outline-success me-2 nav-item" type="button"
+                    onclick="window.location.href='user_profile.php'">johndoe</button>
+            </ul>
+        </div>
+    </div>
+</nav>
+<?php
+}
+
 function draw_top_main_list(){
     
 ?>

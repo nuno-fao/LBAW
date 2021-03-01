@@ -35,3 +35,17 @@ body {
         max-width: 100%;
     }
 }
+
+#user-info-card {
+    padding: 3em;
+    border-radius: 15px;
+}
+
+.user-pic {
+    border-radius: 100%;
+}
+
+.funny-list {
+    padding: 0 0.5em;
+    margin-top: 1em;
+}
