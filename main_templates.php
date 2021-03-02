@@ -45,7 +45,7 @@ function draw_footer(){
 }
 
 function draw_header_visitor(){ ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="main_page.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -77,7 +77,7 @@ function draw_header_visitor(){ ?>
 }
 
 function draw_header_normal_user(){ ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="main_page.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
