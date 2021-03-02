@@ -103,7 +103,7 @@ draw_header_normal_user();
                 </div>
                 <div class="card-footer row review-footer">
                     <div class="like_button col no-padding">
-                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 23</i>
                     </div>
                     <div class="col no-padding text-end">
                         0 comments
@@ -133,7 +133,7 @@ draw_header_normal_user();
                 </div>
                 <div class="card-footer row review-footer">
                     <div class="like_button col no-padding">
-                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 56</i>
                     </div>
                     <div class="col no-padding text-end">
                         10 comments
