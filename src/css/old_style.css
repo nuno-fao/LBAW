@@ -95,18 +95,6 @@ body {
     padding: 1em;
 }
 
-.add-comment {
-    margin: 1em;
-    margin-top: 0.3em;
-    border-radius: 500px;
-}
-
-.comment-textarea {
-    border-radius: 15px;
-    background-color: lightgray;
-    resize: none;
-}
-
 #logo-img {
     max-height: 60px;
 }
@@ -122,12 +110,4 @@ body {
 
 .feed>card {
     margin: auto;
-}
-
-.review-poster {
-    max-width: 322px;
-    
-}
-#dropdownMenuButton {
-    background-color: #0a4275;
 }
