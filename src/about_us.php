@@ -4,7 +4,7 @@ draw_head();
 draw_navbar_normal_user();
 ?>
 <div class="container">
-    <h1 class="display-4 mt-5">
+    <h1 class="display-4 mt-3">
         About Us
     </h1>
     <div class="row mt-3">
@@ -20,6 +20,44 @@ draw_navbar_normal_user();
             will focus around seeing all the latest reviews.
         </h6>
         <div class="lead col-12 col-lg-4">
+        </div>
+    </div>
+    <div class=" row my-5">
+        <div class="col card col-lg-3 col-md-6 col-12 card mb-3 no-padding">
+            <img class="card-img-top img-responsive" src="images/rocas777.jpeg" alt="fight club poster">
+            <div class="card-body">
+                <h5 class="card-title text-nowrap">
+                    <a href="#" class="btn btn-primary  stretched-link wide">Miguel Pinto</a>
+                </h5>
+                <a href="#" class="btn btn-primary  stretched-link wide">up201806206@fe.up.pt</a>
+            </div>
+        </div>
+        <div class="col card col-lg-3 col-md-6 col-12 card mb-3 no-padding">
+            <img class="card-img-top img-responsive" src="images/nunation.png" alt="fight club poster">
+            <div class="card-body">
+                <h5 class="card-title text-nowrap">
+                    <a href="#" class="btn btn-primary stretched-link wide">Nuno Oliveira</a>
+                </h5>
+                <a href="#" class="btn btn-primary  stretched-link wide">up201806525@fe.up.pt</a>
+            </div>
+        </div>
+        <div class="col  card col-lg-3 col-md-6  col-12 card mb-3 no-padding">
+            <img class="card-img-top img-responsive" src="images/luis.png" alt="fight club poster">
+            <div class="card-body">
+                <h5 class="card-title text-nowrap">
+                    <a href="#" class="btn btn-primary  stretched-link wide">Luís Miranda</a>
+                </h5>
+                <a href="#" class="btn btn-primary  stretched-link wide">up201704093@fe.up.pt</a>
+            </div>
+        </div>
+        <div class="col  card col-lg-3 col-md-6 col-12 card mb-3 no-padding">
+            <img class="card-img-top img-responsive" src="images/francisco.png" alt="fight club poster">
+            <div class="card-body">
+                <h5 class="card-title text-nowrap">
+                    <a href="#" class="btn btn-primary  stretched-link wide ">Francisco Marques</a>
+                </h5>
+                <a href="#" class="btn btn-primary  stretched-link wide">up201603694@fe.up.pt</a>
+            </div>
         </div>
     </div>
 </div>
