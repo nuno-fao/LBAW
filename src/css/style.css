@@ -1,3 +1,133 @@
+body {
+    background-color: whitesmoke;
+    font-family: sans-serif;
+}
+
+#login_block {
+    max-width: 75%;
+    padding: 2em 2em;
+    margin: auto;
+}
+
+#login_form {
+    background-color: white;
+    max-width: 50%;
+    margin: auto;
+    padding: 3em;
+    text-align: left;
+}
+
+.wide {
+    width: 100%;
+}
+
+#login_form .form-control {
+    background-color: #efefef;
+    color: #6c757d;
+    padding: 1em;
+    border: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #login_form {
+        max-width: 100%;
+    }
+    #login_block {
+        max-width: 100%;
+    }
+}
+
+#user-info-card {
+    padding: 3em;
+    border-radius: 15px;
+}
+
+.user-pic {
+    border-radius: 100%;
+}
+
+.funny-list {
+    padding: 0 0.5em;
+    margin-top: 1em;
+}
+
+.review-header {
+    width: 100%;
+    margin: auto;
+}
+
+.review-footer {
+    width: 100%;
+    margin: auto;
+}
+
+.review-author {
+    text-align: right;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.comment-section {
+    width: 95%;
+    margin: auto;
+}
+
+.comment-author img {
+    max-height: 40px;
+    max-width: 40px;
+    margin-left: 1em;
+}
+
+.comment-author span {
+    text-align: end;
+    margin-left: 1em;
+}
+
+.comment-data {
+    display: inline-block;
+    background-color: lightgray;
+    border-radius: 15px;
+    margin: 1em;
+    margin-top: 0.3em;
+    padding: 1em;
+}
+
+.add-comment {
+    margin: 1em;
+    margin-top: 0.3em;
+    border-radius: 500px;
+}
+
+.comment-textarea {
+    border-radius: 15px;
+    background-color: lightgray;
+    resize: none;
+}
+
+#logo-img {
+    max-height: 60px;
+}
+
+.feed {
+    width: 80%;
+    margin: auto;
+}
+
+.feed .film {
+    margin: auto;
+}
+
+.feed>card {
+    margin: auto;
+}
+
+.review-poster {
+    max-width: 322px;
+    
+}
 #dropdownMenuButton {
     background-color: #0a4275;
 }
