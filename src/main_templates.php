@@ -142,8 +142,7 @@ function draw_navbar_normal_user(){ ?>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" aria-current="page" href="#">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="#">Groups</a>
-                        <a class="dropdown-item" href="friends_feed.php" href="friends_feed.php" aria-current="page"
-                            href="#">Friends Feed</a>
+                        <a class="dropdown-item" href="friends_feed.php" aria-current="page">Friends Feed</a>
                     </div>
                 </div>
             </div>
