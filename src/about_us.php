@@ -20,6 +20,7 @@ draw_navbar_normal_user();
             will focus around seeing all the latest reviews.
         </h6>
         <div class="lead col-12 col-lg-4">
+            <img class="card-img-top img-responsive" src="images/main_page_print.png" alt="main_page">
         </div>
     </div>
     <div class=" row my-5">
