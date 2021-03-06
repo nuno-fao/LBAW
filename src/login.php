@@ -1,7 +1,7 @@
 <?php
 include_once "main_templates.php";
 draw_head();
-draw_header_visitor();
+draw_navbar_visitor();
 draw_top_main_list();
 ?>
 <div id="login_block">

@@ -1,7 +1,7 @@
 <?php
 include_once "main_templates.php";
 draw_head();
-draw_header_normal_user();
+draw_navbar_normal_user();
 ?>
 <div class="row feed">
     <div class="col col-12 col-lg-9">
