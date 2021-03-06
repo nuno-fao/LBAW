@@ -76,9 +76,9 @@ function draw_navbar_visitor(){ ?>
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4">
-                <button class="btn btn-outline-primary nav-item me-lg-3 mb-lg-auto mb-2" type="button"
+                <button class="btn btn-secondary nav-item me-lg-3 mb-lg-auto mb-2" type="button"
                     onclick="window.location.href='login.php'">Login</button>
-                <button class="btn btn-outline-primary nav-item" type="button"
+                <button class="btn btn-secondary nav-item" type="button"
                     onclick="window.location.href='signup.php'">Sign Up</button>
             </div>
         </div>
@@ -106,7 +106,8 @@ function draw_navbar_normal_user(){ ?>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" aria-current="page" href="#">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="#">Groups</a>
-                        <a class="dropdown-item" aria-current="page" href="#">Friends Feed</a>
+                        <a class="dropdown-item" href="friends_feed.php" href="friends_feed.php" aria-current="page"
+                            href="#">Friends Feed</a>
                     </div>
                 </div>
             </div>
@@ -120,12 +121,11 @@ function draw_navbar_normal_user(){ ?>
                 <i class="fa fa-bell" style="font-size:24px"></i>
             </div>
             <div class="nav-item me-3">
-                <a class="nav-link" aria-current="page" href="#">johndoe</a>
+                <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
             </div>
             <button class="btn btn-primary me-2 nav-item" type="button"
-                onclick="window.location.href='user_profile.php'">Logout</button>
+                onclick="window.location.href='index.php'">Logout</button>
         </div>
-    </div>
     </div>
 </nav>
 <?php
@@ -152,7 +152,8 @@ function draw_navbar_admin_usermode(){ ?>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" aria-current="page" href="#">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Groups</a>
-                                <a class="dropdown-item" aria-current="page" href="#">Friends Feed</a>
+                                <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
+                                    Feed</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Management</a>
                             </div>
                         </div>
@@ -170,10 +171,10 @@ function draw_navbar_admin_usermode(){ ?>
                     <i class="fa fa-bell" style="font-size:24px"></i>
                 </div>
                 <div class="nav-item me-3">
-                    <a class="nav-link" aria-current="page" href="#">johndoe</a>
+                    <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
                 </div>
                 <button class="btn btn-primary me-2 nav-item" type="button"
-                    onclick="window.location.href='user_profile.php'">Logout</button>
+                    onclick="window.location.href='index.php'">Logout</button>
             </div>
         </div>
     </div>
@@ -206,7 +207,8 @@ function draw_navbar_admin_adminmode(){ ?>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" aria-current="page" href="#">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Groups</a>
-                                <a class="dropdown-item" aria-current="page" href="#">Friends Feed</a>
+                                <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
+                                    Feed</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Management</a>
                             </div>
                         </div>
@@ -224,10 +226,10 @@ function draw_navbar_admin_adminmode(){ ?>
                     <i class="fa fa-bell" style="font-size:24px"></i>
                 </div>
                 <div class="nav-item me-3">
-                    <a class="nav-link" aria-current="page" href="#">johndoe</a>
+                    <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
                 </div>
                 <button class="btn btn-primary me-2 nav-item" type="button"
-                    onclick="window.location.href='user_profile.php'">Logout</button>
+                    onclick="window.location.href='index.php'">Logout</button>
             </div>
         </div>
     </div>
