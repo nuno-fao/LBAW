@@ -171,3 +171,119 @@ function draw_bottom_main_list()
 </div>
 <?php
 }
+
+function draw_review_1(){ ?>
+<div class="col review card mt-3">
+    <div class="card-header row review-header">
+        <div class="col col-12 col-lg-9 no-padding">
+            Great Actors, Dreadful Movie</div>
+        <div class="col col-12 col-lg-3 review-author no-padding">
+            <small>
+                by John Doe
+            </small>
+        </div>
+        <div class="col col-12 no-padding">
+            <small col>
+                Fight Club
+            </small>
+        </div>
+    </div>
+    <div class="card-body">
+        The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
+        the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
+        they come from Arkham Asylum
+    </div>
+    <div class="card-footer row review-footer">
+        <div class="like_button col no-padding">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 23</i>
+        </div>
+        <div class="col no-padding text-end">
+            <a class="nav-link" data-toggle="collapse" href="" role="button" aria-expanded="false"
+                aria-controls="comments0">
+                0 Comments
+            </a>
+        </div>
+        <div class="d-flex flex-column comment-section mt-3 collapse" id="comments0">
+            dsadsasad
+        </div>
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Link with href
+            </a>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                Button with data-target
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+}
+
+function draw_review_2(){ /*?>
+
+<div class="review card mt-3">
+    <div class="card-header row review-header">
+        <div class="col col-12 col-lg-9 no-padding">
+            Best Movie Ever</div>
+        <div class="col col-12 col-lg-3 review-author no-padding">
+            <small>
+                by John Doe
+            </small>
+        </div>
+        <div class="col col-12 no-padding">
+            <small col>
+                V for Vendetta
+            </small>
+        </div>
+    </div>
+    <div class="card-body d-flex flex-column">
+        The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
+        who is afraid but at the same time wants so change the things.
+        However, the end is a bit sad and i was expenting that V could live another day and continue to
+        inpire the revolution.
+    </div>
+    <div class="card-footer row review-footer">
+        <div class="like_button col no-padding">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 56</i>
+        </div>
+        <a class="nav-link" data-toggle="collapse" href="#comments1" role="button" aria-expanded="false"
+            aria-controls="comments1">
+            10 Comments
+        </a>
+    </div>
+    <div class="d-flex flex-column comment-section mt-3 collapse" id="comments1">
+        <div class="comment">
+            <div class="comment-author d-flex">
+                <img class="card-img-top img-responsive user-pic" src="images/user_pic.png" alt="fight club poster">
+                <span class="mt-auto mb-auto">
+                    Beauty
+                </span>
+            </div>
+            <div class="comment-data">
+                Bla Bla Bla, you don't now anything about movies!!!!!! you "basterd"!!!
+            </div>
+        </div>
+        <div class="comment">
+            <div class="comment-author d-flex">
+                <img class="card-img-top img-responsive user-pic" src="images/user_pic.png" alt="fight club poster">
+                <span class="mt-auto mb-auto">
+                    Donald Duck
+                </span>
+            </div>
+            <div class="comment-data">
+                I've seen better.. but yes it is a great movie, but it doesn't quite transmits the same
+                feeling as the comic
+            </div>
+        </div>
+    </div>
+</div>
+<?php*/
+}
