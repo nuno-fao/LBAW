@@ -98,9 +98,9 @@ function draw_navbar_normal_user(){ ?>
         <div class="collapse navbar-collapse mt-lg-auto ms-5 me-3 row my-auto mt-lg-auto mt-4"
             id="navbarSupportedContent">
             <div class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-3 col-12">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown text-center">
+                    <button class="btn btn-secondary dropdown-toggle mx-auto mt-lg-auto mt-5" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </button>
                     <div class="dropdown-menu">
@@ -111,20 +111,21 @@ function draw_navbar_normal_user(){ ?>
                     </div>
                 </div>
             </div>
-        </div>
-        <form class="d-flex nav-item col-lg-5 col-12">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary" type="submit">Search</button>
-        </form>
-        <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4">
-            <div class="mt-auto mb-auto me-3">
-                <i class="fa fa-bell" style="font-size:24px"></i>
+            <form class="d-flex nav-item col-lg-5 col-12">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary" type="submit">Search</button>
+            </form>
+
+            <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
+                <div class="mt-auto mb-auto ">
+                    <i class="fa fa-bell" style="font-size:24px"></i>
+                </div>
+                <div class="nav-item ">
+                    <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
+                </div>
+                <button class="btn btn-primary nav-item" type="button"
+                    onclick="window.location.href='index.php'">Logout</button>
             </div>
-            <div class="nav-item me-3">
-                <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
-            </div>
-            <button class="btn btn-primary me-2 nav-item" type="button"
-                onclick="window.location.href='index.php'">Logout</button>
         </div>
     </div>
 </nav>
@@ -237,27 +238,20 @@ function draw_navbar_admin_adminmode(){ ?>
 <?php
 }
 
-function draw_top_main_list(){
+function draw_main_list(){
 ?>
 <div class="welcome-header px-3 py-auto pt-md-4 pb-md-4 mx-auto text-center mt-2 mt-md-5">
-    <h1 class="display-1">
-        Welcome to Movie Club
+    <h1 class="display-3">
+        Welcome
     </h1>
-    <h4 class="display-7">
-        The first rule of Movie Club is we do(n't) talk about Movie Club.
-    </h4>
 </div>
 <div class="container text-center mt-2 mt-md-5">
-    <?php
-}
 
-function draw_bottom_main_list()
-{
- ?>
-    <button type="button" class="btn btn-lg btn-block btn-primary mt-3 mt-md-5 wide" onclick="window.location.href='#'">
+    <button type="button" class="btn btn-lg btn-block btn-primary mt-3 mt-md-5 wide w-50"
+        onclick="window.location.href='#'">
         Or check out the most recent reviews
-
     </button>
+
     <div class=" row">
         <div class="col card col-lg-3 col-md-6 col-12 card mb-3">
             <img class="card-img-top img-responsive" src="images/fightclubposter.jpg" alt="fight club poster">
