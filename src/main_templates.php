@@ -132,6 +132,116 @@ function draw_navbar_normal_user(){ ?>
 <?php
 }
 
+function draw_navbar_admin_usermode(){ ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid d-flex">
+        <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mt-lg-auto ms-5 me-3 row my-auto mt-lg-auto mt-4"
+            id="navbarSupportedContent">
+            <div class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-3 col-12">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Movies</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Groups</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Friends Feed</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Management</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="d-flex nav-item me-auto col-lg-4 col-12 ps-0">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="navbar-nav col-lg-5 col-12 d-flex justify-content-end mt-lg-auto mt-4">
+                <button class="btn btn-outline-success me-lg-4 nav-item me-2 mb-2 mb-lg-auto" type="button"
+                    onclick="window.location.href='user_profile.php'">User Mode</button>
+                <div class="mt-auto mb-auto me-3">
+                    <i class="fa fa-bell" style="font-size:24px"></i>
+                </div>
+                <div class="nav-item me-3">
+                    <a class="nav-link" aria-current="page" href="#">johndoe</a>
+                </div>
+                <button class="btn btn-outline-success me-2 nav-item" type="button"
+                    onclick="window.location.href='user_profile.php'">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<?php
+}
+
+function draw_navbar_admin_adminmode(){ ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid d-flex">
+        <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mt-lg-auto ms-5 me-3 row my-auto mt-lg-auto mt-4"
+            id="navbarSupportedContent">
+            <div class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-3 col-12">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Movies</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Groups</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Friends Feed</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="nav-link" aria-current="page" href="#">Management</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="d-flex nav-item me-auto col-lg-4 col-12 ps-0">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="navbar-nav col-lg-5 col-12 d-flex justify-content-end mt-lg-auto mt-4">
+                <button class="btn btn-outline-success me-lg-4 nav-item me-2 mb-2 mb-lg-auto" type="button"
+                    onclick="window.location.href='user_profile.php'">Admin Mode</button>
+                <div class="mt-auto mb-auto me-3">
+                    <i class="fa fa-bell" style="font-size:24px"></i>
+                </div>
+                <div class="nav-item me-3">
+                    <a class="nav-link" aria-current="page" href="#">johndoe</a>
+                </div>
+                <button class="btn btn-outline-success me-2 nav-item" type="button"
+                    onclick="window.location.href='user_profile.php'">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<?php
+}
+
 function draw_top_main_list(){
     
 ?>
