@@ -238,59 +238,6 @@ function draw_navbar_admin_adminmode(){ ?>
 <?php
 }
 
-function draw_main_list(){
-?>
-<div class="welcome-header px-3 py-auto pt-md-4 pb-md-4 mx-auto text-center mt-2 mt-md-5">
-    <h1 class="display-3">
-        Welcome
-    </h1>
-</div>
-<div class="container text-center mt-2 mt-md-5">
-
-    <button type="button" class="btn btn-lg btn-block btn-primary mt-3 mt-md-5 wide w-50"
-        onclick="window.location.href='#'">
-        Or check out the most recent reviews
-    </button>
-
-    <div class=" row">
-        <div class="col card col-lg-3 col-md-6 col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="images/fightclubposter.jpg" alt="fight club poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary stretched-link wide">Fight Club</a>
-                </h5>
-            </div>
-        </div>
-
-        <div class="col card col-lg-3 col-md-6 col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="images/djangounchainedposter.jpg" alt="fight club poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide">Django Unchained</a>
-                </h5>
-            </div>
-        </div>
-        <div class="col  card col-lg-3 col-md-6  col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="images/vforvendettaposter.jpg" alt="fight club poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide">V for Vendetta</a>
-                </h5>
-            </div>
-        </div>
-        <div class="col  card col-lg-3 col-md-6 col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="images/inceptionposter.jpg" alt="fight club poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide ">Inception</a>
-                </h5>
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-}
-
 function draw_review_1(){ ?>
 <div class="row align-items-center my-4">
     <div class="col col-12 col-lg-1">
