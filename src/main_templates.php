@@ -1,4 +1,23 @@
 <?php
+
+class Breadcrumb{
+    public string $name;
+    public string $link;
+    
+    function Breadcrumb($name, $link)
+    {
+        $this->name = $name;
+        $this->link = $link;
+    }
+
+    function n(){
+        return $this->$name;
+    }
+    function l(){
+        return $this->$link;
+    }
+}
+
 function draw_head(){ ?>
 <!doctype html>
 <html lang="en">
@@ -87,8 +106,25 @@ function draw_navbar_visitor(){ ?>
 <?php
 }
 
+function draw_breadcrumb($arr){ ?>
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <?php
+    foreach ($arr as &$breadcrumb) { 
+        $link = 'link';
+        $name = 'name';
+        ?>
+        <li class="breadcrumb-item"><a href="<?=$breadcrumb->$link?>"><?=$breadcrumb->$name?></a></li>
+        <?php
+    } ?>
+    </ol>
+</nav>
+<?php
+}
+
 function draw_navbar_normal_user(){ ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
+<nav class=" navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
         <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
