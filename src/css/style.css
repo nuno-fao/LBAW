@@ -109,3 +109,8 @@
     #navbar {
         padding: 0.5em;
     }
+    /*https://stackoverflow.com/questions/51775461/why-is-flex-fill-not-creating-equal-width-in-bootstrap*/
+    
+    .flex-even {
+        flex: 1;
+    }

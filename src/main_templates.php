@@ -30,6 +30,8 @@ function draw_head(){ ?>
 
 function draw_footer(){
  ?>
+    <div style="height:65px">
+    </div>
     <footer class="text-center text-white fixed-bottom scroll bg-primary"">
         <div class=" d-flex p-2 justify-content-around">
         Copyright &copy; 2021
