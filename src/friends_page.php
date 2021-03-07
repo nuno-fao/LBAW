@@ -8,7 +8,7 @@ draw_navbar_normal_user(); ?>
             John Doe's Friends
         </h3>
         <div class="my-auto">
-            <a href="profile_page.php" class="btn btn-primary me-3 ms-auto">
+            <a href="user_profile.php" class="btn btn-primary me-3 ms-auto">
                 Go Back
             </a>
         </div>
@@ -22,7 +22,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column d-flex justify-content-center">
                     <p class="card-text text-center">Luís Santos</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">luisdosgolos</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">luisdosgolos</a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Jõao Batata</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">jb4ever</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">jb4ever</a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Vasco Santorini</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">v5sant</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">v5sant</a>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Jimmy Page</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">guitargod</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">guitargod</a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column d-flex justify-content-center">
                     <p class="card-text text-center">Jake Holmes</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">dazedandconfused</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">dazedandconfused</a>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Lucille</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">es355</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">es355</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column d-flex justify-content-center">
                     <p class="card-text text-center">Jorge Pais</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">jjpais</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">jjpais</a>
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">John Bonham</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">greatbonzo</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">greatbonzo</a>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column d-flex justify-content-center">
                     <p class="card-text text-center">Tyler Durden</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">maniacboy</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">maniacboy</a>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Levine Longbottom</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">weirdboy</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">weirdboy</a>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Tom Riddle</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">topmurderer</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">topmurderer</a>
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@ draw_navbar_normal_user(); ?>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text text-center">Marc Bolan</p>
 
-                    <a href="personal_profile.php" class="btn btn-primary mx-auto stretched-link">glamgod</a>
+                    <a href="user_profile.php" class="btn btn-primary mx-auto stretched-link">glamgod</a>
                 </div>
             </div>
         </div>
