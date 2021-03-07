@@ -114,3 +114,17 @@
     .flex-even {
         flex: 1;
     }
+    
+    .fixed {
+        position: fixed;
+    }
+    
+    .scrollit {
+        float: right;
+    }
+    
+    @media screen and (max-width: 980px) {
+        .fixed {
+            position: static;
+        }
+    }
