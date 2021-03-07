@@ -254,14 +254,19 @@ function draw_review_1(){ ?>
 <div class="row align-items-center my-4">
     <div class="col col-12 col-lg-1">
     </div>
-    <div class="my-auto me-2 col-12 col-lg-2 d-flex flex-column">
-        <div class="d-flex">
-            <p class="text-center badge bg-primary">
-                Fight Club
-            </p>
-            <p class="text-center badge bg-primary ms-2">
-                (1999)
-            </p>
+
+    <div class="my-auto me-2 col-12 col-lg-2">
+        <div class=" d-flex flex-column flex-xl-row">
+            <div>
+                <p class="text-center badge bg-primary">
+                    Fight Club
+                </p>
+            </div>
+            <div>
+                <p class="text-center badge bg-primary">
+                    (1999)
+                </p>
+            </div>
         </div>
         <img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster">
     </div>
@@ -317,15 +322,22 @@ function draw_review_2(){ ?>
     <div class="col col-12 col-lg-1">
     </div>
     <div class="my-auto me-2 col-12 col-lg-2">
-        <p class="text-center badge bg-primary">
-            V for Vendetta
-        </p>
-        <p class="text-center badge bg-primary">
-            (2005)
-        </p>
+        <div class=" d-flex flex-column flex-xl-row">
+            <div>
+                <p class="text-center badge bg-primary">
+                    V for Vendetta
+                </p>
+            </div>
+            <div>
+                <p class="text-center badge bg-primary">
+                    (2005)
+                </p>
+            </div>
+        </div>
         <img class="card-img-top img-responsive review-poster" src="images/vforvendettaposter.jpg"
             alt="v for vendetta poster">
     </div>
+
     <div class="review card mt-3 col-12 col-lg-8 px-0">
         <div class="card-header row review-header">
             <div class="col col-12 col-lg-9 no-padding">
