@@ -5,10 +5,10 @@ draw_navbar_normal_user(); ?>
 <section class="container">
     <div class="text-center my-5">
         <h3 class="display-5">
-            John Doe's Friends
+            Justice League Members
         </h3>
         <div class="my-auto">
-            <a href="user_profile.php" class="btn btn-primary me-3 ms-auto">
+            <a href="group_page.php" class="btn btn-primary me-3 ms-auto">
                 Go Back
             </a>
         </div>
