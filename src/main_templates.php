@@ -49,7 +49,8 @@ function draw_footer(){
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" defer
         crossorigin="anonymous">
     </script>
-    <script src="js/footer.js"></script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/notification.js" defer></script>
 </body>
 
 </html>
@@ -119,8 +120,11 @@ function draw_navbar_normal_user(){ ?>
             </form>
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
-                <div class="mt-auto mb-auto ">
-                    <i class="fa fa-bell" style="font-size:24px"></i>
+                <div class="mt-auto mb-auto me-lg-3">
+                    <a class="" href="notifications_page.php">
+                        <i class="fa fa-bell" style="font-size:24px">
+                        </i>
+                    </a>
                 </div>
                 <div class="nav-item ">
                     <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
@@ -171,7 +175,10 @@ function draw_navbar_admin_usermode(){ ?>
                 <button class="btn btn-primary me-lg-4 nav-item me-2 mb-2 mb-lg-auto" type="button"
                     onclick="window.location.href='user_profile.php'">User Mode</button>
                 <div class="mt-auto mb-auto me-3">
-                    <i class="fa fa-bell" style="font-size:24px"></i>
+                    <a class="" href="notifications_page.php">
+                        <i class="fa fa-bell" style="font-size:24px">
+                        </i>
+                    </a>
                 </div>
                 <div class="nav-item me-3">
                     <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
@@ -223,10 +230,13 @@ function draw_navbar_admin_adminmode(){ ?>
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
             <div class="navbar-nav col-lg-5 col-12 d-flex justify-content-end my-lg-auto mt-4">
-                <button class="btn btn-primary me-lg-4 nav-item me-2 mb-2 mb-lg-auto" type="button"
+                <button class="btn btn-primary me-lg-4 nav- item me-2 mb-2 mb-lg-auto" type="button"
                     onclick="window.location.href='user_profile.php'">Admin Mode</button>
                 <div class="mt-auto mb-auto me-3">
-                    <i class="fa fa-bell" style="font-size:24px"></i>
+                    <a class="" href="notifications_page.php">
+                        <i class="fa fa-bell" style="font-size:24px">
+                        </i>
+                    </a>
                 </div>
                 <div class="nav-item me-3">
                     <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
