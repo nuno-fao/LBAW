@@ -275,9 +275,12 @@ function draw_review_1(){ ?>
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
-                <small>
+                <a class="btn text-dark" href="user_profile.php">
                     by John Doe
-                </small>
+                </a>
+                <!--<small>
+                    John Doe
+                </small>-->
             </div>
             <div class="col col-12 no-padding">
                 <small col>Fight Club
@@ -343,9 +346,9 @@ function draw_review_2(){ ?>
             <div class="col col-12 col-lg-9 no-padding">
                 Best Movie Ever</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
-                <small>
+                <a class="btn text-dark" href="user_profile.php">
                     by John Doe
-                </small>
+                </a>
             </div>
             <div class="col col-12 no-padding">
                 <small col>
@@ -417,9 +420,9 @@ function draw_review_nofilm_1(){ ?>
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
-                <small>
+                <a class="btn text-dark" href="user_profile.php">
                     by John Doe
-                </small>
+                </a>
             </div>
             <div class="col col-12 no-padding">
                 <small col>Fight Club
@@ -466,9 +469,9 @@ function draw_review_nofilm_2(){ ?>
             <div class="col col-12 col-lg-9 no-padding">
                 Best Movie Ever</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
-                <small>
+                <a class="btn text-dark" href="user_profile.php">
                     by John Doe
-                </small>
+                </a>
             </div>
             <div class="col col-12 no-padding">
                 <small col>
