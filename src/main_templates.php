@@ -283,11 +283,15 @@ function draw_review_1(){ ?>
                 </small>-->
             </div>
             <div class="col col-12 no-padding">
-                <small col>Fight Club
+                <small col>
+                    Fight Club
                 </small>
             </div>
         </div>
         <div class="card-body d-flex flex-column">
+            <a class="stretched-link" href="review_page.php">
+
+            </a>
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
