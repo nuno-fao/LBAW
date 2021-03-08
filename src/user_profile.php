@@ -26,7 +26,7 @@ draw_navbar_normal_user();
                 <a class="nav-link" href="friends_page.php">Friends</a>
             </h4>
             <section class="d-flex flex-lg-row flex-row">
-                <div class="row ms-auto me-auto my-4 mx-1">
+                <div class="row col-md-6 ms-auto me-auto my-4 mx-1">
                     <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Mickey Mouse</h5>
@@ -52,7 +52,7 @@ draw_navbar_normal_user();
                         <p class="mb-1">@quack_like_champ</p>
                     </a>
                 </div>
-                <div class="row ms-auto me-auto my-4 mx-1">
+                <div class="row col-md-6 ms-auto me-auto my-4 mx-1">
                     <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Sonic</h5>

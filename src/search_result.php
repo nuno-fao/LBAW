@@ -40,11 +40,6 @@ draw_navbar_normal_user(); ?>
                 <div class="col fs-5">1</div>
             </button>
 
-            <button class="row border border-1 my-3 btn-outline-dark rounded-1">
-                <div class="col fs-5">Genre</div>
-                <div class="col fs-5">0</div>
-            </button>
-
         </div>
         <div class="col-7 ml-5">
             
