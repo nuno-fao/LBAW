@@ -114,9 +114,9 @@ function draw_navbar_normal_user(){ ?>
                     </div>
                 </div>
             </div>
-            <form class="d-flex nav-item col-lg-5 col-12">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">Search</button>
+            <form class="d-flex nav-item col-lg-5 col-12 " >
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                <button  class="btn btn-secondary" type="submit">Search</button>
             </form>
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
