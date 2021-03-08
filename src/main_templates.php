@@ -107,7 +107,7 @@ function draw_navbar_normal_user(){ ?>
                         Menu
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" aria-current="page" href="#">Movies</a>
+                        <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="#">Groups</a>
                         <a class="dropdown-item" href="friends_feed.php" href="friends_feed.php" aria-current="page"
                             href="#">Friends Feed</a>
@@ -157,7 +157,7 @@ function draw_navbar_admin_usermode(){ ?>
                                 Menu
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" aria-current="page" href="#">Movies</a>
+                                <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Groups</a>
                                 <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
                                     Feed</a>
@@ -215,7 +215,7 @@ function draw_navbar_admin_adminmode(){ ?>
                                 Menu
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" aria-current="page" href="#">Movies</a>
+                                <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Groups</a>
                                 <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
                                     Feed</a>
