@@ -5,7 +5,7 @@ draw_navbar_visitor();
 ?>
 <div class="welcome-header px-3 py-auto pt-md-4 pb-md-4 mx-auto text-center mt-2 mt-md-5">
     <h1 class="display-3">
-        Welcome
+        Welcomee
     </h1>
     <div>
         <p class="col-12 col-lg-6 mx-auto">Movie Club is a Social network for the movie aficionados that allows people

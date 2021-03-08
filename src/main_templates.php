@@ -71,7 +71,7 @@ function draw_navbar_visitor(){ ?>
             id="navbarSupportedContent">
             <div class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-3 col-12">
                 <div class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Movies</a>
+                    <a class="nav-link" aria-current="page" href="movie_list.php">Movies</a>
                 </div>
             </div>
             <form class="d-flex nav-item me-auto col-lg-5 col-12 ps-0">
