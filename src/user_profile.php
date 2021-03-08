@@ -23,7 +23,7 @@ draw_navbar_normal_user();
         </div>
         <section>
             <h4 class="mt-3 text-center">
-                Friends
+                <a class="nav-link" href="friends_page.php">Friends</a>
             </h4>
             <section class="d-flex flex-lg-row flex-row">
                 <div class="row ms-auto me-auto my-4 mx-1">
