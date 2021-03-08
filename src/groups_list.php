@@ -4,9 +4,9 @@ draw_head();
 draw_navbar_normal_user(); ?>
 <section class="container">
     <div class="text-center my-5">
-        <h3 class="display-5">
+        <h4 class="display-5">
             John Doe's Groups
-        </h3>
+        </h4>
     </div>
 </section>
 <div class="col-xl-8 col-lg-10 col-12  mx-auto my-2">
