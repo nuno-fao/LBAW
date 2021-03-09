@@ -2,6 +2,13 @@
 include_once "main_templates.php";
 draw_head();
 draw_navbar_visitor();
+
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Signup","#"));
+
+draw_breadcrumb($arr);
+
 ?>
 <div class="mt-lg-5 mt-3 container">
     <div class="text-center mb-4">

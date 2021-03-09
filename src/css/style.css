@@ -115,8 +115,10 @@
         flex: 1;
     }
     
-    .fixed {
-        position: fixed;
+    @media (min-width: 980px) {
+        .fixed {
+            position: fixed;
+        }
     }
     
     .scrollit {

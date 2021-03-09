@@ -1,7 +1,16 @@
 <?php
 include_once "main_templates.php";
 draw_head();
-draw_navbar_normal_user(); ?>
+draw_navbar_normal_user(); 
+
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Profile","user_profile.php"));
+$arr->append(new Breadcrumb("Friends","friends_page.php"));
+
+draw_breadcrumb($arr);
+
+?>
 <section class="container">
     <div class="text-center my-5">
         <h4 class="display-5">

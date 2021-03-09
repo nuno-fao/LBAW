@@ -1,22 +1,32 @@
 <?php
 include_once "main_templates.php";
 draw_head();
-draw_navbar_admin_adminmode(); ?>
+draw_navbar_admin_adminmode(); 
+
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Management Board","management_board.php"));
+$arr->append(new Breadcrumb("Banned Users","#"));
+
+
+draw_breadcrumb($arr);
+
+?>
 
 <section class="container">
     <div class="text-center my-4">
         <h3 class="display-7">
             Banned Users
         </h3>
-        
+
     </div>
 </section>
 
 <section class="container">
     <div class="row align-items-center justify-content-center">
-        
+
         <div class="col-8 ml-5">
-            
+
             <div class="">
                 <a href="#" class="row border border-1  text-dark bg-light rounded-2 py-3">
                     <div class="col fs-5 mx-5">FeanorDidNothingWrong</div>
@@ -24,7 +34,7 @@ draw_navbar_admin_adminmode(); ?>
                 </a>
                 <a href="#" class="d-flex justify-content-end text-dark">
                     Revoke
-                </a>        
+                </a>
             </div>
 
             <div class="">
@@ -34,7 +44,7 @@ draw_navbar_admin_adminmode(); ?>
                 </a>
                 <a href="#" class="d-flex justify-content-end text-dark">
                     Revoke
-                </a>        
+                </a>
             </div>
 
             <div class="">
@@ -44,14 +54,14 @@ draw_navbar_admin_adminmode(); ?>
                 </a>
                 <a href="#" class="d-flex justify-content-end text-dark">
                     Revoke
-                </a>        
+                </a>
             </div>
 
-            
+
         </div>
     </div>
 </section>
-    
+
 
 
 

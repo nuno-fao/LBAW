@@ -2,6 +2,14 @@
 include_once "main_templates.php";
 draw_head();
 draw_navbar_normal_user();
+
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Notifications","#"));
+
+
+draw_breadcrumb($arr);
+
 ?>
 <div class="container d-flex flex-column">
     <div class="display-5 text-center my-5">

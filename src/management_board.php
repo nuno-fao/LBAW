@@ -3,6 +3,12 @@ include_once "main_templates.php";
 draw_head();
 draw_navbar_normal_user();
 
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Management Board","management_board.php"));
+
+draw_breadcrumb($arr);
+
 function draw_report($title,$user,$movie, $reports) { ?>
 
 <div class="review card mt-3 bg-primary text-light">
