@@ -3,38 +3,16 @@
         font-family: sans-serif;
     }
     
-    #login_block {
-        max-width: 75%;
-        padding: 2em 2em;
-        margin: auto;
-    }
-    
-    #login_form {
-        background-color: white;
-        max-width: 50%;
-        margin: auto;
-        padding: 3em;
-        text-align: left;
-    }
-    
     .wide {
         width: 100%;
     }
     
-    #login_form .form-control {
-        background-color: #efefef;
-        color: #6c757d;
-        padding: 1em;
-        border: none;
+    .login_form {
+        border-radius: 20px;
     }
     
-    @media only screen and (max-width: 600px) {
-        #login_form {
-            max-width: 100%;
-        }
-        #login_block {
-            max-width: 100%;
-        }
+    .form-control {
+        background-color: #efefef;
     }
     
     #user-info-card {
@@ -130,4 +108,25 @@
     
     #navbar {
         padding: 0.5em;
+    }
+    /*https://stackoverflow.com/questions/51775461/why-is-flex-fill-not-creating-equal-width-in-bootstrap*/
+    
+    .flex-even {
+        flex: 1;
+    }
+    
+    @media (min-width: 980px) {
+        .fixed {
+            position: fixed;
+        }
+    }
+    
+    .scrollit {
+        float: right;
+    }
+    
+    @media screen and (max-width: 980px) {
+        .fixed {
+            position: static;
+        }
     }

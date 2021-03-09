@@ -4,7 +4,7 @@ draw_head();
 draw_navbar_normal_user();
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
-$arr->append(new Breadcrumb("Public Feed","public_feed.php"));
+$arr->append(new Breadcrumb("Public Feed","#"));
 
 draw_breadcrumb($arr);
 ?>

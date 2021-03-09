@@ -2,6 +2,11 @@
 include_once "main_templates.php";
 draw_head();
 draw_navbar_normal_user();
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("About Us","#"));
+
+draw_breadcrumb($arr);
 ?>
 <div class="container">
     <h1 class="display-4 mt-3">
