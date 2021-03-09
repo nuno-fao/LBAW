@@ -2,19 +2,19 @@
 
 class Breadcrumb{
     public string $name;
-    public string $link;
+    public string $link; 
     
-    function Breadcrumb($name, $link)
+    function __construct($name,$link)
     {
         $this->name = $name;
         $this->link = $link;
     }
 
     function n(){
-        return $this->$name;
+        return $this->name;
     }
     function l(){
-        return $this->$link;
+        return $this->link;
     }
 }
 
@@ -120,7 +120,7 @@ function draw_breadcrumb($arr){ ?>
         $name = 'name';
         ?>
         <li class="breadcrumb-item">
-            <?="<a href='{$breadcrumb->$link}''>"?><?=$breadcrumb->$name?></a></li>
+            <?="<a href='{$breadcrumb->l()}''>"?><?=$breadcrumb->$name?></a></li>
         <?php
     } ?>
     </ol>
