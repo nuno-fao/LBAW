@@ -2,6 +2,10 @@
 include_once "main_templates.php";
 draw_head();
 draw_navbar_visitor();
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+
+draw_breadcrumb($arr);
 ?>
 <div class="welcome-header px-3 py-auto pt-md-4 pb-md-4 mx-auto text-center mt-2 mt-md-5">
     <h1 class="display-3">

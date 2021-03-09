@@ -1,14 +1,22 @@
 <?php
 include_once "main_templates.php";
 draw_head();
-draw_navbar_normal_user(); ?>
+draw_navbar_normal_user(); 
+
+
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Search Results","#"));
+
+draw_breadcrumb($arr);
+?>
 
 <section class="container">
     <div class="text-center my-4">
         <h3 class="display-7">
             Search Results For Fight Club
         </h3>
-        
+
     </div>
 </section>
 
@@ -42,7 +50,7 @@ draw_navbar_normal_user(); ?>
 
         </div>
         <div class="col-7 ml-5">
-            
+
             <a href="#" class="row border border-1  text-dark bg-light rounded-2 py-3">
                 <div class="col fs-5 mx-5">FightClub_Fan101</div>
                 <div class="col fs-5 ml-5">João Batata</div>
@@ -57,11 +65,11 @@ draw_navbar_normal_user(); ?>
                 <div class="col fs-5 mx-5">FightClubIsLife</div>
                 <div class="col fs-5 ml-5">Chuck Sherman</div>
             </a>
-            
+
         </div>
     </div>
 </section>
-    
+
 
 
 
