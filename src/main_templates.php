@@ -247,10 +247,6 @@ function draw_navbar_admin_adminmode(){ ?>
                     </button>
                     <div class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-3 col-12">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Menu
-                            </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>

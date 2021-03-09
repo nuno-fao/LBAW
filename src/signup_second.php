@@ -5,7 +5,7 @@ draw_navbar_visitor();
 
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
-$arr->append(new Breadcrumb("Signup","login.php"));
+$arr->append(new Breadcrumb("Signup","#"));
 
 draw_breadcrumb($arr);
 
