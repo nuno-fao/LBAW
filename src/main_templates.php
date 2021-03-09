@@ -357,6 +357,91 @@ function draw_review_1(){ ?>
 <?php
 }
 
+function draw_review_1_admin(){ ?>
+    <div class="row align-items-center my-4">
+        <div class="col col-12 col-lg-1">
+        </div>
+    
+        <div class="my-auto me-2 col-12 col-lg-2">
+            <div class=" d-flex flex-column flex-xl-row">
+                <div>
+                    <p class="text-center badge bg-primary">
+                        Fight Club
+                    </p>
+                </div>
+                <div>
+                    <p class="text-center badge bg-primary">
+                        (1999)
+                    </p>
+                </div>
+            </div>
+            <img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster">
+        </div>
+
+        <div class="review card mt-3 col-12 col-lg-8 px-0">
+            <div class="card-header row review-header">
+                <div class="col col-12 col-lg-9 no-padding">
+                    Great Actors, Dreadful Movie</div>
+                <div class="col col-12 col-lg-3 review-author no-padding">
+                    <a class="btn text-dark" href="user_profile.php">
+                        by John Doe
+                    </a>
+                    <!--<small>
+                        John Doe
+                    </small>-->
+                </div>
+                <div class="col col-12 no-padding">
+                    <small col>
+                        Fight Club
+                    </small>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <a class="stretched-link" href="review_page.php">
+    
+                </a>
+                The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
+                the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
+                they come from Arkham Asylum
+            </div>
+            <div class="card-footer d-flex d-flex justify-content-between review-footer">
+                <div class="like_button no-padding">
+                    <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 113</i>
+                </div>
+                <a class="btn" data-toggle="collapse" href="#comments0" role="button" aria-expanded="false"
+                    aria-controls="comments0">
+                    0 Comments
+                </a>
+            </div>
+            <div class="comment-section mt-3 collapse" id="comments0">
+                <form class="add-comment">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Add a commment</label>
+                        <div class=" d-flex ">
+                            <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                                rows="1"></textarea>
+                            <button class="btn btn-primary ms-3">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="my-auto text-end text-danger mr-2">
+                <a class="text-danger" href="#">Remove Review</a>
+            </div>
+
+            
+        </div>
+
+        
+        
+    </div>
+    
+    <?php
+    }
+
 function draw_review_2(){ ?>
 <div class="row align-items-center my-4">
     <div class="col col-12 col-lg-1">
