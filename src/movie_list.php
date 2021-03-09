@@ -6,14 +6,14 @@ draw_navbar_normal_user(); ?>
 <div class="col-xl-8 col-lg-10 col-12  mx-auto my-2">
     <div class="row">
         <div class="col-lg-3 col-6 mx-auto mt-1">
-            <div class="card  no-padding">
+            <a class="card  no-padding" href="movie_page.php">
                 <div class="card-body d-flex flex-column d-flex justify-content-center fs-6 gap-0 p-3">
                     <p class="card-text text-center mb-0">Django Unchained</p>
                     <p class="card-text text-center mt-0">(2012)</p>
                 </div>
                 <img src="images/djangounchainedposter.jpg" class="card-img-top" alt="...">
                 
-            </div>
+            </a>
         </div>
         <div class="col-lg-3 col-6 mx-auto mt-1">
             <div class="card  no-padding">
