@@ -16,11 +16,7 @@ draw_breadcrumb($arr);
         <h4 class="display-5">
             John Doe's Friends
         </h4>
-        <div class="my-auto">
-            <a href="user_profile.php" class="btn btn-primary me-3 ms-auto">
-                Go Back
-            </a>
-        </div>
+        
     </div>
 </section>
 <div class="col-xl-8 col-lg-10 col-12  mx-auto my-2">
