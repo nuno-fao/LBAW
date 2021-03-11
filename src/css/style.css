@@ -130,3 +130,8 @@
             position: static;
         }
     }
+
+    .search-table td,
+    .search-table th{
+        text-align: center;
+    }
