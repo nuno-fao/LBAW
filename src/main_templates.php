@@ -199,7 +199,9 @@ function draw_navbar_admin_usermode(){ ?>
                                 <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
                                 <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
                                     Feed</a>
-                                <a class="dropdown-item" aria-current="page" href="#">Management</a>
+                                <a class="dropdown-item" href="review_board.php">
+                                    Management
+                                </a>
                             </div>
                         </div>
                     </div>
