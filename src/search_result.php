@@ -20,29 +20,32 @@ draw_breadcrumb($arr);
 </section>
 
 <section class="container">
+
+
     <div class="row align-items-start">
 
-        <div class="col-3 border border-3 border-dark rounded-2 mr-5 px-4 d-grid">
+        <div class="col-3 border border-3 border-dark rounded-2 px-4 d-grid">
+
             <div class="btn-group-vertical">
-                <button type="button" class="btn btn-primary rounded-1 my-3">
-                    <span class="col fs-5 ">All</span>
-                    <span class="col fs-6 ">347</span>
+                <button type="button" class="btn btn-primary rounded-1 my-3 d-flex align-items-center justify-content-between">
+                    <span class="fs-5 ">All</span>
+                    <div ><span class="fs-6 badge badge-secondary badge-pill">347</span></div>
                 </button>
-                <button type="button" class="btn btn-primary rounded-1 mb-3">
-                    <span class="col fs-5 ">User</span>
-                    <span class="col fs-6 ">3</span>
+                <button type="button" class="btn btn-primary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    <span class=" fs-5 ">User</span>
+                    <div ><span class="fs-6 badge badge-secondary badge-pill">3</span></div>
                 </button>
-                <button type="button" class="btn btn-primary rounded-1 mb-3">
-                    <span class="col fs-5 ">Movie</span>
-                    <span class="col fs-6 ">1</span>
+                <button type="button" class="btn btn-primary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    <span class="fs-5 ">Movie</span>
+                    <div ><span class="fs-6 badge badge-secondary badge-pill">1</span></div>
                 </button>
-                <button type="button" class="btn btn-primary rounded-1 mb-3">
-                    <span class="col fs-5 ">Group</span>
-                    <span class="col fs-6 ">1</span>
+                <button type="button" class="btn btn-primary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    <span class=" fs-5 ">Group</span>
+                    <div ><span class="fs-6 badge badge-secondary badge-pill">1</span></div>
                 </button>
-                <button type="button" class="btn btn-primary rounded-1 mb-3">
-                    <span class="col fs-5 ">Review</span>
-                    <span class="col fs-6 ">5</span>
+                <button type="button" class="btn btn-primary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    <span class="fs-5 ">Review</span>
+                    <div ><span class="fs-6 badge badge-secondary badge-pill">5</span></div>
                 </button>
             </div>
         </div>
