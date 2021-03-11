@@ -5,8 +5,8 @@ draw_navbar_visitor();
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="col-lg-12 col-12 mt-2 row mx-auto">
-    <aside id="user_info" class="col-xl-4 col-lg-5 col-12 fixed">
+<div class="col-lg-12 col-12 mt-2 row  ">
+    <section id="user_info" class="col-xl-4 col-lg-5 col-12 mt-3">
         <div class="card ">
             <div class="card-body ">
                 <div class="d-flex flex-row justify-content-around align-items-start text-start ">
@@ -24,16 +24,19 @@ draw_navbar_visitor();
         </div>
         <section>
 
-        
+  
             
         </section>
-    </aside>
-    <section class="col-xl-8 col-lg-7 col-12 scrollit me-3 ms-auto">
-        
+    </section>
+    <section class="col-xl-8 col-lg-7 col-12 scrollit mt-2">
+        <h4 class="text-center">
+            Group Exclusive Reviews
+        </h4>
         <?php
-        draw_review_1();
-        draw_review_1();
-        draw_review_1();
+        draw_review_nofilm_1();
+        draw_review_nofilm_1();
+        draw_review_nofilm_1();
+        draw_review_nofilm_1();
         ?>
     </section>
 </div>
