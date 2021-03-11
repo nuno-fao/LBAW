@@ -14,13 +14,13 @@ draw_breadcrumb($arr);
 
 function draw_report($title,$user,$movie, $reports) { ?>
 
-<div class="review card mt-3 bg-dark text-light">
+<div class="review card mt-3 bg-light text-dark text-dark">
     <div class="card-header row review-header">
         <h4 class="col col-12 col-lg-9 no-padding">
             <?=$title?>
         </h4>
         <div class="col col-12 col-lg-3 review-author no-padding">
-            <a class="btn text-light" href="user_profile.php">
+            <a class="btn text-dark" href="user_profile.php">
                 <?=$user?>
             </a>
         </div>
@@ -32,18 +32,18 @@ function draw_report($title,$user,$movie, $reports) { ?>
     </div>
     <div class="d-flex justify-content-between">
         <div class="d-flex justify-content-end">
-            <span class="text-light my-auto ms-3">
+            <span class="text-dark my-auto ms-3">
                 Reported <?=$reports?> times
             </span>
         </div>
         <div class="d-flex justify-content-end">
-            <a class="btn text-light">
+            <a class="btn text-dark">
                 View
             </a>
-            <a class="btn text-light">
+            <a class="btn text-dark">
                 Discard
             </a>
-            <a class="btn text-light">
+            <a class="btn text-dark">
                 Delete
             </a>
         </div>
@@ -57,8 +57,8 @@ function draw_report($title,$user,$movie, $reports) { ?>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="col-lg-12 col-12 mt-5 row mx-auto">
-    <?=draw_aside()?>
+<div class="col-lg-12 col-12 row mx-auto">
+    <?=draw_aside_r()?>
     <section class="col-xl-7 col-lg-6 col-12 scrollit me-auto ms-auto">
         <h4 class="mt-3 text-center mb-5">
             Reported Reviews
