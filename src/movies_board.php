@@ -8,7 +8,7 @@ draw_navbar_admin_usermode();
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
 $arr->append(new Breadcrumb("Management","#"));
-$arr->append(new Breadcrumb("Review Board","review_board.php"));
+$arr->append(new Breadcrumb("Movie Board","movies_board.php"));
 
 draw_breadcrumb($arr);
 

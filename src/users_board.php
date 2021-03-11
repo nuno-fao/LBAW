@@ -6,8 +6,8 @@ draw_navbar_admin_adminmode();
 
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
-$arr->append(new Breadcrumb("Management Board","management_board.php"));
-$arr->append(new Breadcrumb("Banned Users","#"));
+$arr->append(new Breadcrumb("Management","#"));
+$arr->append(new Breadcrumb("Users Board","users_board.php"));
 
 
 draw_breadcrumb($arr);
