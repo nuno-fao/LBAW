@@ -6,8 +6,6 @@ $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
 $arr->append(new Breadcrumb("About Us","#"));
 
-print_r($arr);
-
 draw_breadcrumb($arr);
 ?>
 <div class="container">
