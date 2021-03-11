@@ -30,9 +30,11 @@ draw_breadcrumb($arr);
             </div>
         </div>
         <section id="collapsable_section">
-            <h4 class="mt-3 text-center">
-                <a class="nav-link" href="friends_page.php">Friends</a>
-            </h4>
+            <div class="text-center">
+                <h4 class="mt-3 text-center">Friends</h4>
+                <a class="nav-link py-0" href="friends_page.php">view all</a>
+                
+            </div>
             <section class="d-flex flex-lg-row flex-column" id="down_section">
                 <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
                     <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
@@ -75,6 +77,7 @@ draw_breadcrumb($arr);
                     </a>
                 </div>
             </section>
+            
         </section>
     </aside>
     <section class="col-xl-8 col-lg-7 col-12 scrollit me-3 ms-auto">
