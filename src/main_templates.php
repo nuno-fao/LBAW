@@ -70,6 +70,7 @@ function draw_footer(){
     </script>
     <script src="js/footer.js" defer></script>
     <script src="js/notification.js" defer></script>
+    <script src="js/feed_selector.js" defer></script>
     <script src="js/sticky.js" defer></script>
 </body>
 
@@ -81,7 +82,7 @@ function draw_footer(){
 function draw_navbar_visitor(){ ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
-        <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
+        <a class="navbar-brand" href="feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="btn btn-secondary navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -113,7 +114,7 @@ function draw_navbar_visitor(){ ?>
 function draw_breadcrumb($arr){ ?>
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
     aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb mb-0">
         <?php
     foreach ($arr as &$breadcrumb) { 
         $link = 'link';
@@ -131,7 +132,7 @@ function draw_breadcrumb($arr){ ?>
 function draw_navbar_normal_user(){ ?>
 <nav class=" navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
-        <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
+        <a class="navbar-brand" href="feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -144,11 +145,9 @@ function draw_navbar_normal_user(){ ?>
                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" style="z-index: 999">
                         <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
-                        <a class="dropdown-item" href="friends_feed.php" href="friends_feed.php" aria-current="page"
-                            href="#">Friends Feed</a>
                     </div>
                 </div>
             </div>
@@ -179,7 +178,7 @@ function draw_navbar_normal_user(){ ?>
 function draw_navbar_admin_usermode(){ ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
-        <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
+        <a class="navbar-brand" href="feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -197,8 +196,6 @@ function draw_navbar_admin_usermode(){ ?>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
-                                <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
-                                    Feed</a>
                                 <a class="dropdown-item" href="review_board.php">
                                     Management
                                 </a>
@@ -235,7 +232,7 @@ function draw_navbar_admin_usermode(){ ?>
 function draw_navbar_admin_adminmode(){ ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
-        <a class="navbar-brand" href="public_feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
+        <a class="navbar-brand" href="feed.php"><img id="logo-img" src="images/logo.png" alt="Movie Club"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -253,8 +250,6 @@ function draw_navbar_admin_adminmode(){ ?>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                                 <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
-                                <a class="dropdown-item" href="friends_feed.php" aria-current="page" href="#">Friends
-                                    Feed</a>
                                 <a class="dropdown-item" aria-current="page" href="#">Management</a>
                             </div>
                         </div>
@@ -588,55 +583,55 @@ function draw_review_nofilm_1(){ ?>
 }
 
 function draw_review_nofilm_1_admin(){ ?>
-    <div class="my-4">
-        <div class="review card mt-3">
-            <div class="card-header row review-header">
-                <div class="col col-12 col-lg-9 no-padding">
-                    Great Actors, Dreadful Movie</div>
-                <div class="col col-12 col-lg-3 review-author no-padding">
-                    <a class="btn text-dark" href="user_profile.php">
-                        by John Doe
-                    </a>
-                </div>
-                <div class="col col-12 no-padding">
-                    <small col>Fight Club
-                    </small>
-                </div>
-            </div>
-            <div class="card-body d-flex flex-column">
-                The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
-                the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
-                they come from Arkham Asylum
-            </div>
-            <div class="card-footer d-flex d-flex justify-content-between review-footer">
-                <div class="like_button no-padding">
-                    <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 113</i>
-                </div>
-                <a class="btn" data-toggle="collapse" href="#comments0" role="button" aria-expanded="false"
-                    aria-controls="comments0">
-                    0 Comments
+<div class="my-4">
+    <div class="review card mt-3">
+        <div class="card-header row review-header">
+            <div class="col col-12 col-lg-9 no-padding">
+                Great Actors, Dreadful Movie</div>
+            <div class="col col-12 col-lg-3 review-author no-padding">
+                <a class="btn text-dark" href="user_profile.php">
+                    by John Doe
                 </a>
             </div>
-            <div class="comment-section mt-3 collapse" id="comments0">
-                <form class="add-comment">
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Add a commment</label>
-                        <div class=" d-flex ">
-                            <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
-                                rows="1"></textarea>
-                            <button class="btn btn-primary ms-3">
-                                Send
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="my-auto text-end text-danger mr-2">
-                <a class="text-danger" href="#">Remove Review</a>
+            <div class="col col-12 no-padding">
+                <small col>Fight Club
+                </small>
             </div>
         </div>
+        <div class="card-body d-flex flex-column">
+            The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
+            the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
+            they come from Arkham Asylum
+        </div>
+        <div class="card-footer d-flex d-flex justify-content-between review-footer">
+            <div class="like_button no-padding">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 113</i>
+            </div>
+            <a class="btn" data-toggle="collapse" href="#comments0" role="button" aria-expanded="false"
+                aria-controls="comments0">
+                0 Comments
+            </a>
+        </div>
+        <div class="comment-section mt-3 collapse" id="comments0">
+            <form class="add-comment">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Add a commment</label>
+                    <div class=" d-flex ">
+                        <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                            rows="1"></textarea>
+                        <button class="btn btn-primary ms-3">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="my-auto text-end text-danger mr-2">
+            <a class="text-danger" href="#">Remove Review</a>
+        </div>
     </div>
-    <?php
+</div>
+<?php
     }
 
 function draw_review_nofilm_2(){ ?>
@@ -711,4 +706,9 @@ function draw_review_nofilm_2(){ ?>
     </div>
 </div>
 <?php
+}
+
+function feedChooser()
+{
+    
 }

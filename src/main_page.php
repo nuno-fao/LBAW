@@ -22,7 +22,7 @@ draw_breadcrumb($arr);
 </div>
 <div class="container text-center">
     <button type="button" class="btn btn-lg btn-block btn-primary my-3 mx-auto wide w-50"
-        onclick="window.location.href='public_feed.php'">
+        onclick="window.location.href='feed.php'">
         Or check out the most recent reviews
     </button>
 
