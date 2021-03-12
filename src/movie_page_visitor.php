@@ -30,13 +30,11 @@ draw_navbar_visitor();
     </section>
     <section class="col-xl-8 col-lg-7 col-12 scrollit mt-2">
         <h4 class="text-center">
-            Group Exclusive Reviews
+            Reviews
         </h4>
         <?php
-        draw_review_nofilm_1();
-        draw_review_nofilm_1();
-        draw_review_nofilm_1();
-        draw_review_nofilm_1();
+        draw_review_moviepg_1();
+        draw_review_moviepg_2();
         ?>
     </section>
 </div>
