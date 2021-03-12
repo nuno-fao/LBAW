@@ -281,7 +281,7 @@ function draw_navbar_admin_adminmode(){ ?>
 }
 
 function draw_review_1(){ ?>
-<div class="row align-items-center my-4">
+<div class="row align-items-center my-4 review-section">
     <div class="col col-12 col-lg-1">
     </div>
 
@@ -319,7 +319,7 @@ function draw_review_1(){ ?>
             </div>
         </div>
         <div class="card-body d-flex flex-column">
-            <a class="stretched-link" href="review_page.php">
+            <a class="stretched-link review-link" href="review_page.php">
 
             </a>
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
@@ -394,7 +394,7 @@ function draw_review_1_admin(){ ?>
             </div>
         </div>
         <div class="card-body d-flex flex-column">
-            <a class="stretched-link" href="review_page.php">
+            <a class="stretched-link review-link" href="review_page.php">
 
             </a>
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
@@ -440,7 +440,7 @@ function draw_review_1_admin(){ ?>
     }
 
 function draw_review_2(){ ?>
-<div class="row align-items-center my-4">
+<div class="row align-items-center my-4 review-section">
     <div class="col col-12 col-lg-1">
     </div>
     <div class="my-auto me-2 col-12 col-lg-2">
@@ -476,6 +476,9 @@ function draw_review_2(){ ?>
             </div>
         </div>
         <div class="card-body">
+            <a class="stretched-link review-link" href="review_page.php">
+
+            </a>
             The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
             who is afraid but at the same time wants so change the things.
             However, the end is a bit sad and i was expenting that V could live another day and continue to
