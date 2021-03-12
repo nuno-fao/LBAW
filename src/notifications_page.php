@@ -40,7 +40,7 @@ draw_breadcrumb($arr);
             <p class="card-text  my-auto"><a href="group_page.php">Justice League</a> invited you to join their group
             </p>
             <div class="d-flex justify-content-end">
-                <a href="#" class="btn btn-primary ms-3 request_button" id="request_2_accept">Accept</a>
+                <a href="#" class="btn btn-primary ms-3 request_button" id="request_2_accept">Join</a>
                 <a href="#" class="btn btn-primary ms-3 request_button" id="request_2_decline">Decline</a>
             </div>
         </div>
