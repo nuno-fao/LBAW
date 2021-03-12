@@ -135,3 +135,24 @@
     .search-table th{
         text-align: center;
     }
+
+    #feed-selector {
+        top:84px; 
+        z-index:9
+    }
+
+    #friends_feed {
+        display: none;
+    }
+
+    #footer-spacer {
+        height:65px;
+    }
+
+    .dropdown-menu{
+        z-index: 999;
+    }
+
+    .notification-symbol {
+        font-size:24px;
+    }

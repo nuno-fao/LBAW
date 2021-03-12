@@ -49,7 +49,7 @@ function draw_head(){ ?>
 
 function draw_footer(){
  ?>
-    <div style="height:65px">
+    <div id="footer-spacer">
     </div>
     <footer class="text-center text-white fixed-bottom scroll bg-primary"">
         <div class=" d-flex p-2 justify-content-around">
@@ -112,8 +112,7 @@ function draw_navbar_visitor(){ ?>
 }
 
 function draw_breadcrumb($arr){ ?>
-<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
-    aria-label="breadcrumb">
+<nav aria-label="breadcrumb">
     <ol class="breadcrumb mb-0">
         <?php
     foreach ($arr as &$breadcrumb) { 
@@ -145,7 +144,7 @@ function draw_navbar_normal_user(){ ?>
                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </button>
-                    <div class="dropdown-menu" style="z-index: 999">
+                    <div class="dropdown-menu" >
                         <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
                     </div>
@@ -159,7 +158,7 @@ function draw_navbar_normal_user(){ ?>
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
                 <div class="mt-auto mb-auto me-lg-3">
                     <a class="" href="notifications_page.php">
-                        <i class="fa fa-bell" style="font-size:24px">
+                        <i class="fa fa-bell notification-symbol">
                         </i>
                     </a>
                 </div>
@@ -213,7 +212,7 @@ function draw_navbar_admin_usermode(){ ?>
                     onclick="window.location.href='user_profile.php'">User Mode</button>
                 <div class="mt-auto mb-auto me-3">
                     <a class="" href="notifications_page.php">
-                        <i class="fa fa-bell" style="font-size:24px">
+                        <i class="fa fa-bell notification-symbol">
                         </i>
                     </a>
                 </div>
@@ -265,7 +264,7 @@ function draw_navbar_admin_adminmode(){ ?>
                     onclick="window.location.href='user_profile.php'">Admin Mode</button>
                 <div class="mt-auto mb-auto me-3">
                     <a class="" href="notifications_page.php">
-                        <i class="fa fa-bell" style="font-size:24px">
+                        <i class="fa fa-bell notification-symbol">
                         </i>
                     </a>
                 </div>

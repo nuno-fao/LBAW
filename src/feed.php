@@ -8,7 +8,7 @@ $arr->append(new Breadcrumb("Feed","#"));
 
 draw_breadcrumb($arr);
 ?>
-<div class="d-flex me-auto justify-content-center mt-0 sticky-top bg-light" style="top:84px; z-index:9">
+<div id="feed-selector" class="d-flex me-auto justify-content-center mt-0 sticky-top bg-light">
     <div class="mx-1" id="btn-public">
         <button class="btn btn-secondary rounded-0">
             Public Feed
@@ -29,7 +29,7 @@ draw_breadcrumb($arr);
         draw_review_2();
         ?>
 </div>
-<div class="feed mt-5" id="friends_feed" style="display:none">
+<div class="feed mt-5" id="friends_feed">
     <h4 class="display-6 text-center">Friends Reviews Feed</h4>
     <?php
         draw_review_1();
