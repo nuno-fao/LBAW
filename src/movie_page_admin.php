@@ -36,7 +36,20 @@ draw_navbar_normal_user();
                         <h4 class="mt-0">Add a Review</h4>
 
                         <label for="title" class="form-label mt-1 ">Title</label>
-                        <input type="text" class="col-7 form-control border border-1rounded-1 " id="title" aria-describedby="title">
+                        <div class="row ">
+                            <input type="text" class="col-7 form-control border border-1 rounded-1 ml-3" id="title" aria-describedby="title">
+
+                            <div class="dropdown col-2 show d-flex flex-row">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Public</a>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item">Public</div>
+                                    <div class="dropdown-item">Fight Frenzy</div>
+                                    <div class="dropdown-item">Yolo</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
 
                         <label for="description" class="form-label mt-3 ">Description</label>
                         <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 mt-0" id="description" aria-describedby="description"></textarea>
@@ -54,13 +67,11 @@ draw_navbar_normal_user();
     </section>
     <section class="col-xl-8 col-lg-7 col-12 scrollit mt-2">
         <h4 class="text-center">
-            Group Exclusive Reviews
+            Reviews
         </h4>
         <?php
-        draw_review_nofilm_1_admin();
-        draw_review_nofilm_1_admin();
-        draw_review_nofilm_1_admin();
-        draw_review_nofilm_1_admin();
+        draw_review_moviepg_1_admin();
+        draw_review_moviepg_2_admin();
         ?>
     </section>
 </div>

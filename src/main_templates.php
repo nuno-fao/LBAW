@@ -64,6 +64,7 @@ function draw_footer(){
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" defer
         crossorigin="anonymous">
@@ -534,12 +535,57 @@ function draw_review_nofilm_1(){ ?>
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
                 <a class="btn text-dark" href="user_profile.php">
-                    by John Doe
+                    by Soraia Felgueiras
                 </a>
             </div>
             <div class="col col-12 no-padding">
                 <small col>Fight Club
                 </small>
+            </div>
+        </div>
+        <div class="card-body d-flex flex-column">
+            The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
+            the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
+            they come from Arkham Asylum
+        </div>
+        <div class="card-footer d-flex d-flex justify-content-between review-footer">
+            <div class="like_button no-padding">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 113</i>
+            </div>
+            <a class="btn" data-toggle="collapse" href="#comments0" role="button" aria-expanded="false"
+                aria-controls="comments0">
+                0 Comments
+            </a>
+        </div>
+        <div class="comment-section mt-3 collapse" id="comments0">
+            <form class="add-comment">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Add a commment</label>
+                    <div class=" d-flex ">
+                        <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                            rows="1"></textarea>
+                        <button class="btn btn-primary ms-3">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+}
+
+function draw_review_moviepg_1(){ ?>
+<div class="my-4">
+    <div class="review card mt-3">
+        <div class="card-header row review-header">
+            <div class="col col-12 col-lg-9 no-padding">
+                Great Actors, Dreadful Movie</div>
+            <div class="col col-12 col-lg-3 review-author no-padding">
+                <a class="btn text-dark" href="user_profile.php">
+                    by Soraia Felgueiras
+                </a>
             </div>
         </div>
         <div class="card-body d-flex flex-column">
@@ -583,7 +629,7 @@ function draw_review_nofilm_1_admin(){ ?>
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
                 <a class="btn text-dark" href="user_profile.php">
-                    by John Doe
+                    by Soraia Felgueiras
                 </a>
             </div>
             <div class="col col-12 no-padding">
@@ -627,6 +673,126 @@ function draw_review_nofilm_1_admin(){ ?>
 <?php
     }
 
+function draw_review_moviepg_1_admin(){ ?>
+<div class="my-4">
+    <div class="review card mt-3">
+        <div class="card-header row review-header">
+            <div class="col col-12 col-lg-9 no-padding">
+                Great Actors, Dreadful Movie</div>
+            <div class="col col-12 col-lg-3 review-author no-padding">
+                <a class="btn text-dark" href="user_profile.php">
+                    by Soraia Felgueiras
+                </a>
+            </div>
+        </div>
+        <div class="card-body d-flex flex-column">
+            The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
+            the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
+            they come from Arkham Asylum
+        </div>
+        <div class="card-footer d-flex d-flex justify-content-between review-footer">
+            <div class="like_button no-padding">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 113</i>
+            </div>
+            <a class="btn" data-toggle="collapse" href="#comments0" role="button" aria-expanded="false"
+                aria-controls="comments0">
+                0 Comments
+            </a>
+        </div>
+        <div class="comment-section mt-3 collapse" id="comments0">
+            <form class="add-comment">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Add a commment</label>
+                    <div class=" d-flex ">
+                        <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                            rows="1"></textarea>
+                        <button class="btn btn-primary ms-3">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="my-auto text-end text-danger mr-2">
+            <a class="text-danger" href="#">Remove Review</a>
+        </div>
+    </div>
+</div>
+<?php
+    }
+
+function draw_review_moviepg_2_admin(){ ?>
+<div class="my-4">
+    <div class="review card mt-3 ">
+        <div class="card-header row review-header ">
+            <div class="col col-12 col-lg-9 no-padding">
+                Best Movie Ever</div>
+            <div class="col col-12 col-lg-3 review-author no-padding">
+                <a class="btn text-dark" href="user_profile.php">
+                    by Joao Cheiroso
+                </a>
+            </div>
+        </div>
+        <div class="card-body d-flex flex-column">
+            The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
+            who is afraid but at the same time wants so change the things.
+            However, the end is a bit sad and i was expenting that V could live another day and continue to
+            inpire the revolution.
+        </div>
+        <div class="card-footer d-flex d-flex justify-content-between review-footer">
+            <div class="like_button no-padding">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 56</i>
+            </div>
+            <a class="btn" data-toggle="collapse" href="#comments1" role="button" aria-expanded="false"
+                aria-controls="comments1">
+                2 Comments
+            </a>
+        </div>
+        <div class="comment-section mt-3 collapse" id="comments1">
+            <div class="comment">
+                <div class="comment-author d-flex">
+                    <img class="card-img-top img-responsive user-pic" src="images/user_pic.png" alt="fight club poster">
+                    <span class="mt-auto mb-auto">
+                        Beauty
+                    </span>
+                </div>
+                <div class="comment-data">
+                    Bla Bla Bla, you don't now anything about movies!!!!!! you "basterd"!!!
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-author d-flex">
+                    <img class="card-img-top img-responsive user-pic" src="images/user_pic.png" alt="fight club poster">
+                    <span class="mt-auto mb-auto">
+                        Donald Duck
+                    </span>
+                </div>
+                <div class="comment-data">
+                    I've seen better.. but yes it is a great movie, but it doesn't quite transmits the same
+                    feeling as the comic
+                </div>
+            </div>
+            <form class="add-comment">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Add a commment</label>
+                    <div class=" d-flex ">
+                        <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                            rows="1"></textarea>
+                        <button class="btn btn-primary ms-3">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="my-auto text-end text-danger mr-2">
+            <a class="text-danger" href="#">Remove Review</a>
+        </div>
+    </div>
+</div>
+<?php
+}
+
 function draw_review_nofilm_2(){ ?>
 <div class="my-4">
     <div class="review card mt-3 ">
@@ -642,6 +808,75 @@ function draw_review_nofilm_2(){ ?>
                 <small col>
                     V for Vendetta
                 </small>
+            </div>
+        </div>
+        <div class="card-body d-flex flex-column">
+            The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
+            who is afraid but at the same time wants so change the things.
+            However, the end is a bit sad and i was expenting that V could live another day and continue to
+            inpire the revolution.
+        </div>
+        <div class="card-footer d-flex d-flex justify-content-between review-footer">
+            <div class="like_button no-padding">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> 56</i>
+            </div>
+            <a class="btn" data-toggle="collapse" href="#comments1" role="button" aria-expanded="false"
+                aria-controls="comments1">
+                2 Comments
+            </a>
+        </div>
+        <div class="comment-section mt-3 collapse" id="comments1">
+            <div class="comment">
+                <div class="comment-author d-flex">
+                    <img class="card-img-top img-responsive user-pic" src="images/user_pic.png" alt="fight club poster">
+                    <span class="mt-auto mb-auto">
+                        Beauty
+                    </span>
+                </div>
+                <div class="comment-data">
+                    Bla Bla Bla, you don't now anything about movies!!!!!! you "basterd"!!!
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-author d-flex">
+                    <img class="card-img-top img-responsive user-pic" src="images/user_pic.png" alt="fight club poster">
+                    <span class="mt-auto mb-auto">
+                        Donald Duck
+                    </span>
+                </div>
+                <div class="comment-data">
+                    I've seen better.. but yes it is a great movie, but it doesn't quite transmits the same
+                    feeling as the comic
+                </div>
+            </div>
+            <form class="add-comment">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Add a commment</label>
+                    <div class=" d-flex ">
+                        <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                            rows="1"></textarea>
+                        <button class="btn btn-primary ms-3">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+}
+
+function draw_review_moviepg_2(){ ?>
+<div class="my-4">
+    <div class="review card mt-3 ">
+        <div class="card-header row review-header ">
+            <div class="col col-12 col-lg-9 no-padding">
+                Best Movie Ever</div>
+            <div class="col col-12 col-lg-3 review-author no-padding">
+                <a class="btn text-dark" href="user_profile.php">
+                    by Joao Cheiroso
+                </a>
             </div>
         </div>
         <div class="card-body d-flex flex-column">
