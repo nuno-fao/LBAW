@@ -301,7 +301,7 @@ function draw_review_1(){ ?>
         <img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster">
     </div>
     <div class="review card mt-3 col-12 col-lg-8 px-0">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header" onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -318,10 +318,7 @@ function draw_review_1(){ ?>
                 </small>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
-            <a class="stretched-link review-link" href="review_page.php">
-
-            </a>
+        <div class="review-body card-body d-flex flex-column" onclick="location.href='review_page.php'">
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
@@ -376,7 +373,7 @@ function draw_review_1_admin(){ ?>
     </div>
 
     <div class="review card mt-3 col-12 col-lg-8 px-0">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header" onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -393,10 +390,7 @@ function draw_review_1_admin(){ ?>
                 </small>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
-            <a class="stretched-link review-link" href="review_page.php">
-
-            </a>
+        <div class="review-body card-body d-flex flex-column" onclick="location.href='review_page.php'">
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
@@ -460,8 +454,8 @@ function draw_review_2(){ ?>
             alt="v for vendetta poster">
     </div>
 
-    <div class="review card mt-3 col-12 col-lg-8 px-0">
-        <div class="card-header row review-header">
+    <div class="review-body review card mt-3 col-12 col-lg-8 px-0">
+        <div class="card-header row review-header" onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Best Movie Ever</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -475,10 +469,7 @@ function draw_review_2(){ ?>
                 </small>
             </div>
         </div>
-        <div class="card-body">
-            <a class="stretched-link review-link" href="review_page.php">
-
-            </a>
+        <div class="card-body" onclick="location.href='review_page.php'">
             The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
             who is afraid but at the same time wants so change the things.
             However, the end is a bit sad and i was expenting that V could live another day and continue to

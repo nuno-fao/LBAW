@@ -32,6 +32,7 @@
     .review-header {
         width: 100%;
         margin: auto;
+        cursor: pointer;
     }
     
     .review-footer {
@@ -165,4 +166,8 @@
     .review-section a {
         z-index: 999;
         position: relative;
+    }
+    
+    .review-body {
+        cursor: pointer;
     }
