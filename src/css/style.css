@@ -171,3 +171,7 @@
     .review-body {
         cursor: pointer;
     }
+    
+    .comment-area {
+        resize: none;
+    }
