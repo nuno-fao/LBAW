@@ -144,7 +144,7 @@ function draw_navbar_normal_user(){ ?>
                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </button>
-                    <div class="dropdown-menu" >
+                    <div class="dropdown-menu">
                         <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
                     </div>
@@ -158,7 +158,7 @@ function draw_navbar_normal_user(){ ?>
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
                 <div class="mt-auto mb-auto me-lg-3">
                     <a class="" href="notifications_page.php">
-                        <i class="fa fa-bell notification-symbol">
+                        <i class="fa fa-bell" id="notification-symbol">
                         </i>
                     </a>
                 </div>
@@ -212,7 +212,7 @@ function draw_navbar_admin_usermode(){ ?>
                     onclick="window.location.href='user_profile.php'">User Mode</button>
                 <div class="mt-auto mb-auto me-3">
                     <a class="" href="notifications_page.php">
-                        <i class="fa fa-bell notification-symbol">
+                        <i class="fa fa-bell" id="notification-symbol">
                         </i>
                     </a>
                 </div>
@@ -264,7 +264,7 @@ function draw_navbar_admin_adminmode(){ ?>
                     onclick="window.location.href='user_profile.php'">Admin Mode</button>
                 <div class="mt-auto mb-auto me-3">
                     <a class="" href="notifications_page.php">
-                        <i class="fa fa-bell notification-symbol">
+                        <i class="fa fa-bell" id="notification-symbol">
                         </i>
                     </a>
                 </div>
