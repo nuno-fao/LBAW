@@ -2,6 +2,14 @@
 include_once "main_templates.php";
 draw_head();
 draw_navbar_normal_user();
+
+$arr =  new ArrayObject();
+$arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Movies","movie_list.php"));
+$arr->append(new Breadcrumb("Movie Page","#"));
+
+draw_breadcrumb($arr);
+
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,21 +41,22 @@ draw_navbar_normal_user();
                     <div class=" align-items-start text-start ">
                         <div class="mt-0 ">
 
-                            <h4 class="mt-0">Add a Review</h4>
-
-                            <label for="title" class="form-label mt-1 ">Title</label>
-                            <div class="row ">
-                                <input type="text" class="col-7 form-control border border-1 rounded-1 ml-3" id="title"
-                                    aria-describedby="title">
-
-                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <div class="d-flex justify-content-between mx-auto">
+                                <h4 class="my-auto">Add a Review</h4>
+                                <select class="col-5 my-auto show form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
                                     <option value="1" selected>Public</option>
                                     <option value="2">Fight Frenzy</option>
                                     <option value="3">Yolo</option>
                                 </select>
                             </div>
 
+                            <label for="title" class="form-label mt-1 ">Title</label>
+                            <div class="row">
+                                <input type="text" class="col-7 form-control border border-1 rounded-1 ml-3" id="title"
+                                    aria-describedby="title">
 
+                            </div>
 
                             <label for="description" class="form-label mt-3 ">Description</label>
                             <textarea type="text" rows="3"

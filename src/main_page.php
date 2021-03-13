@@ -31,7 +31,7 @@ draw_breadcrumb($arr);
             <img class="card-img-top img-responsive" src="images/fightclubposter.jpg" alt="fight club poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary stretched-link wide">Fight Club</a>
+                    <a href="movie_page_visitor.php" class="btn btn-primary stretched-link wide">Fight Club</a>
                 </h5>
             </div>
         </div>
@@ -40,7 +40,7 @@ draw_breadcrumb($arr);
             <img class="card-img-top img-responsive" src="images/djangounchainedposter.jpg" alt="fight club poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide">Django Unchained</a>
+                    <a href="movie_page_visitor.php" class="btn btn-primary  stretched-link wide">Django Unchained</a>
                 </h5>
             </div>
         </div>
@@ -48,7 +48,7 @@ draw_breadcrumb($arr);
             <img class="card-img-top img-responsive" src="images/vforvendettaposter.jpg" alt="fight club poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide">V for Vendetta</a>
+                    <a href="movie_page_visitor.php" class="btn btn-primary  stretched-link wide">V for Vendetta</a>
                 </h5>
             </div>
         </div>
@@ -56,7 +56,7 @@ draw_breadcrumb($arr);
             <img class="card-img-top img-responsive" src="images/inceptionposter.jpg" alt="fight club poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide ">Inception</a>
+                    <a href="movie_page_visitor.php" class="btn btn-primary  stretched-link wide ">Inception</a>
                 </h5>
             </div>
         </div>

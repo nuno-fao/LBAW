@@ -18,7 +18,7 @@ draw_breadcrumb($arr);
 
     <div class="card col-12 col-lg-7 no-padding mx-auto mt-3" id="request_0">
         <div class="card-body d-flex justify-content-between">
-            <p class="card-text my-auto"><a href="group_page.php">Beast</a> sent you a friend request</p>
+            <p class="card-text my-auto"><a href="user_profile.php">Beast</a> sent you a friend request</p>
             <div class="d-flex justify-content-end">
                 <a href="#" class="btn btn-primary ms-3 request_button" id="request_0_accept">Accept</a>
                 <a href="#" class="btn btn-primary ms-3 request_button" id="request_0_decline">Decline</a>
@@ -47,7 +47,7 @@ draw_breadcrumb($arr);
     </div>
     <div class="card col-12 col-lg-7 no-padding mx-auto mt-3" id="request_3">
         <div class="card-body  d-flex justify-content-between">
-            <p class="card-text my-auto"><a href="group_page.php">Gervásio</a> sent you a friend request</p>
+            <p class="card-text my-auto"><a href="user_profile.php">Gervásio</a> sent you a friend request</p>
             <div class="d-flex justify-content-end">
                 <a href="#" class="btn btn-primary ms-3 request_button" id="request_3_accept">Accept</a>
                 <a href="#" class="btn btn-primary ms-3 request_button" id="request_3_decline">Decline</a>

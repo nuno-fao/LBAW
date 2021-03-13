@@ -5,6 +5,7 @@ draw_navbar_normal_user();
 
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
+$arr->append(new Breadcrumb("Groups List","groups_list.php"));
 $arr->append(new Breadcrumb("Group","group_page.php"));
 $arr->append(new Breadcrumb("Group Members","#"));
 
@@ -17,11 +18,6 @@ draw_breadcrumb($arr);
         <h3 class="display-5">
             Justice League Members
         </h3>
-        <div class="my-auto">
-            <a href="group_page.php" class="btn btn-primary me-3 ms-auto">
-                Go Back
-            </a>
-        </div>
     </div>
 </section>
 <div class="col-xl-8 col-lg-10 col-12  mx-auto my-2">
