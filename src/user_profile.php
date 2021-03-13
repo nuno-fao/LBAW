@@ -37,19 +37,19 @@ draw_breadcrumb($arr);
             </div>
             <section class="d-flex flex-lg-row flex-column" id="down_section">
                 <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
-                    <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Mickey Mouse</h5>
                         </div>
                         <p class="mb-1">@the_real_mickey</p>
                     </a>
-                    <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">The Beast</h5>
                         </div>
                         <p class="mb-1">@im_the_beast</p>
                     </a>
-                    <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Beauty</h5>
                         </div>
@@ -57,19 +57,19 @@ draw_breadcrumb($arr);
                     </a>
                 </div>
                 <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
-                    <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href=" user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Sonic</h5>
                         </div>
                         <p class="mb-1">@fasterthanflash</p>
                     </a>
-                    <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href=" user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Androis</h5>
                         </div>
                         <p class="mb-1">@imagreendroid</p>
                     </a>
-                    <a href=" #" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Sleepy Beaty</h5>
                         </div>

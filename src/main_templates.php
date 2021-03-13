@@ -98,7 +98,8 @@ function draw_navbar_visitor(){ ?>
             </div>
             <form class="d-flex nav-item me-auto col-lg-5 col-12 ps-0">
                 <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">Search</button>
+                <!-- <button class="btn btn-secondary" type="submit">Search</button> stayings as link while there is no JS --> 
+                <a class="btn btn-secondary" href="search_result.php">Search</a>
             </form>
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4">
                 <button class="btn btn-secondary nav-item me-lg-3 mb-lg-auto mb-2" type="button"
@@ -153,7 +154,8 @@ function draw_navbar_normal_user(){ ?>
             </div>
             <form class="d-flex nav-item col-lg-5 col-12 ">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">Search</button>
+                <!-- <button class="btn btn-secondary" type="submit">Search</button> stayings as link while there is no JS --> 
+                <a class="btn btn-secondary" href="search_result.php">Search</a>
             </form>
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
@@ -206,7 +208,8 @@ function draw_navbar_admin_usermode(){ ?>
             </div>
             <form class="d-flex nav-item me-auto col-lg-4 col-12 ps-0">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">Search</button>
+                <!-- <button class="btn btn-secondary" type="submit">Search</button> stayings as link while there is no JS --> 
+                <a class="btn btn-secondary" href="search_result.php">Search</a>
             </form>
             <div class="navbar-nav col-lg-5 col-12 d-flex justify-content-end my-lg-auto mt-4">
                 <button class="btn btn-primary me-lg-4 nav-item me-2 mb-2 mb-lg-auto" type="button"
@@ -286,7 +289,7 @@ function draw_review_1(){ ?>
     <div class="col col-12 col-lg-1">
     </div>
 
-    <div class="my-auto me-2 col-12 col-lg-2">
+    <div href="movie_page.php" class="my-auto me-2 col-12 col-lg-2">
         <div class=" d-flex flex-column flex-xl-row">
             <div>
                 <p class="text-center badge bg-primary">
@@ -299,7 +302,7 @@ function draw_review_1(){ ?>
                 </p>
             </div>
         </div>
-        <img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster">
+        <a href="movie_page.php"><img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster"></a>
     </div>
     <div class="review card mt-3 col-12 col-lg-8 px-0">
         <div class="card-header row review-header" onclick="location.href='review_page.php'">
@@ -370,7 +373,7 @@ function draw_review_1_admin(){ ?>
                 </p>
             </div>
         </div>
-        <img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster">
+        <a href="movie_page.php"><img class="card-img-top img-responsive review-poster" src="images/fightclubposter.jpg" alt="fight club poster"></a>
     </div>
 
     <div class="review card mt-3 col-12 col-lg-8 px-0">
@@ -451,8 +454,8 @@ function draw_review_2(){ ?>
                 </p>
             </div>
         </div>
-        <img class="card-img-top img-responsive review-poster" src="images/vforvendettaposter.jpg"
-            alt="v for vendetta poster">
+        <a href="movie_page.php"><img class="card-img-top img-responsive review-poster" src="images/vforvendettaposter.jpg"
+            alt="v for vendetta poster"></a>
     </div>
 
     <div class="review-body review card mt-3 col-12 col-lg-8 px-0">
