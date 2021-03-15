@@ -11,11 +11,17 @@ draw_breadcrumb($arr);
     
 ?>
 <section class="container">
+
     <div class="text-center my-5">
         <h4 class="display-5">
             John Doe's Groups
         </h4>
+        <div class="align-middle">   
+            <a href="create_group.php" class="btn btn-primary">Create Group</a>
+        </div>
     </div>
+    
+    
 </section>
 <div class="col-xl-8 col-lg-10 col-12  mx-auto my-2">
     <div class="row">

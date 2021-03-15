@@ -5,8 +5,10 @@ draw_navbar_normal_user();
 
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
-$arr->append(new Breadcrumb("Groups List","groups_list.php"));
-$arr->append(new Breadcrumb("Create a Group","#"));
+$arr->append(new Breadcrumb("Management","#"));
+$arr->append(new Breadcrumb("Movie Board","movies_board.php"));
+$arr->append(new Breadcrumb("Add Movie","add_movie.php"));
+
 
 draw_breadcrumb($arr);
 ?>

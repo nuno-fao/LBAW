@@ -29,7 +29,7 @@ draw_breadcrumb($arr);
         </div>
         <section>
             <div class="text-center">
-                <h4 class="mt-3 text-center">Group Members</h4>
+                <h4 class="mt-3">Group Members</h4>
                 <a class="nav-link py-0" href="group_members_page.php">view all</a>
                 
             </div>
@@ -87,6 +87,10 @@ draw_breadcrumb($arr);
                     </a>
                 </div>
             </section>
+            <div class="text-right">   
+                <a href="group_invite.php" class="btn btn-primary">Invite Friends</a>
+            </div>
+            
         </section>
     </aside>
     <section class="col-xl-8 col-lg-7 col-12 scrollit me-3 ms-auto">

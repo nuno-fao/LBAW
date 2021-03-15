@@ -5,7 +5,9 @@ draw_navbar_normal_user();
 
 $arr =  new ArrayObject();
 $arr->append(new Breadcrumb("Home","main_page.php"));
-$arr->append(new Breadcrumb("Notifications","#"));
+$arr->append(new Breadcrumb("Groups List","groups_list.php"));
+$arr->append(new Breadcrumb("Group Page","group_page.php"));
+$arr->append(new Breadcrumb("Group Invite","group_invite.php"));
 
 
 draw_breadcrumb($arr);
