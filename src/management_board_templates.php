@@ -64,9 +64,9 @@ function draw_aside_m(){ ?>
         </button>
         <strong class="ms-auto me-3">0 Updates</strong>
     </div>
-    <button class="btn btn-primary mt-3">
+    <a class="btn btn-primary mt-3" href="add_movie.php" >
         <h4 class="">Add a Movie</h4>
-    </button>
+    </a>
     <div class="mt-3 d-flex flex-column container">
         <strong class="">Total Movies</strong>
         <span>
