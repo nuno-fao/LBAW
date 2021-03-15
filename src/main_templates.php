@@ -533,7 +533,7 @@ function draw_review_2(){ ?>
 function draw_review_nofilm_1(){ ?>
 <div class="my-4">
     <div class="review card mt-3">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header " onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -546,7 +546,7 @@ function draw_review_nofilm_1(){ ?>
                 </small>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column " onclick="location.href='review_page.php'">
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
@@ -582,7 +582,7 @@ function draw_review_nofilm_1(){ ?>
 function draw_review_moviepg_1(){ ?>
 <div class="my-4">
     <div class="review card mt-3">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header " onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -591,7 +591,7 @@ function draw_review_moviepg_1(){ ?>
                 </a>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column " onclick="location.href='review_page.php'">
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
@@ -627,7 +627,7 @@ function draw_review_moviepg_1(){ ?>
 function draw_review_nofilm_1_admin(){ ?>
 <div class="my-4">
     <div class="review card mt-3">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header " onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -640,7 +640,7 @@ function draw_review_nofilm_1_admin(){ ?>
                 </small>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column " onclick="location.href='review_page.php'">
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
@@ -679,7 +679,7 @@ function draw_review_nofilm_1_admin(){ ?>
 function draw_review_moviepg_1_admin(){ ?>
 <div class="my-4">
     <div class="review card mt-3">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header " onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Great Actors, Dreadful Movie</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -688,7 +688,7 @@ function draw_review_moviepg_1_admin(){ ?>
                 </a>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column " onclick="location.href='review_page.php'">
             The movie has wonderful actors, both Brad Pitt and Edward Norton pull an amazing job.... but God !!!
             the movie is so boring with long and not understandable dialogs. Worst of all, they all look like
             they come from Arkham Asylum
@@ -727,7 +727,7 @@ function draw_review_moviepg_1_admin(){ ?>
 function draw_review_moviepg_2_admin(){ ?>
 <div class="my-4">
     <div class="review card mt-3 ">
-        <div class="card-header row review-header ">
+        <div class="card-header row review-header " onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Best Movie Ever</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -736,7 +736,7 @@ function draw_review_moviepg_2_admin(){ ?>
                 </a>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column " onclick="location.href='review_page.php'">
             The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
             who is afraid but at the same time wants so change the things.
             However, the end is a bit sad and i was expenting that V could live another day and continue to
@@ -799,7 +799,7 @@ function draw_review_moviepg_2_admin(){ ?>
 function draw_review_nofilm_2(){ ?>
 <div class="my-4">
     <div class="review card mt-3 ">
-        <div class="card-header row review-header">
+        <div class="card-header row review-header" onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 Best Movie Ever</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -813,7 +813,7 @@ function draw_review_nofilm_2(){ ?>
                 </small>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column" onclick="location.href='review_page.php'">
             The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
             who is afraid but at the same time wants so change the things.
             However, the end is a bit sad and i was expenting that V could live another day and continue to
@@ -873,7 +873,7 @@ function draw_review_nofilm_2(){ ?>
 function draw_review_moviepg_2(){ ?>
 <div class="my-4">
     <div class="review card mt-3 ">
-        <div class="card-header row review-header ">
+        <div class="card-header row review-header onclick="location.href='review_page.php'"">
             <div class="col col-12 col-lg-9 no-padding">
                 Best Movie Ever</div>
             <div class="col col-12 col-lg-3 review-author no-padding">
@@ -882,7 +882,7 @@ function draw_review_moviepg_2(){ ?>
                 </a>
             </div>
         </div>
-        <div class="card-body d-flex flex-column">
+        <div class="card-body d-flex flex-column" onclick="location.href='review_page.php'">
             The movie is worderful, Natalie Portamans does a great job in capturing all the feelings of someone
             who is afraid but at the same time wants so change the things.
             However, the end is a bit sad and i was expenting that V could live another day and continue to
