@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS movie CASCADE;
 CREATE TABLE movie
 (
