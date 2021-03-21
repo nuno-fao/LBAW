@@ -1,0 +1,177 @@
+    body {
+        background-color: whitesmoke;
+        font-family: sans-serif;
+    }
+    
+    .wide {
+        width: 100%;
+    }
+    
+    .login_form {
+        border-radius: 20px;
+    }
+    
+    .form-control {
+        background-color: #efefef;
+    }
+    
+    #user-info-card {
+        padding: 3em;
+        border-radius: 15px;
+    }
+    
+    .user-pic {
+        border-radius: 100%;
+    }
+    
+    .funny-list {
+        padding: 0 0.5em;
+        margin-top: 1em;
+    }
+    
+    .review-header {
+        width: 100%;
+        margin: auto;
+        cursor: pointer;
+    }
+    
+    .review-footer {
+        width: 100%;
+        margin: auto;
+    }
+    
+    .review-author {
+        text-align: right;
+    }
+    
+    .no-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .comment-section {
+        width: 95%;
+        margin: auto;
+    }
+    
+    .comment-author img {
+        max-height: 40px;
+        max-width: 40px;
+        margin-left: 1em;
+    }
+    
+    .comment-author span {
+        text-align: end;
+        margin-left: 1em;
+    }
+    
+    .comment-data {
+        display: inline-block;
+        background-color: lightgray;
+        border-radius: 15px;
+        margin: 1em;
+        margin-top: 0.3em;
+        padding: 1em;
+    }
+    
+    #logo-img {
+        max-height: 60px;
+    }
+    
+    .feed {
+        width: 80%;
+        margin: auto;
+    }
+    
+    .feed .film {
+        margin: auto;
+    }
+    
+    .feed>card {
+        margin: auto;
+    }
+    
+    .add-comment {
+        margin: 1em;
+        margin-top: 0.3em;
+        border-radius: 500px;
+    }
+    
+    .comment-textarea {
+        border-radius: 15px;
+        background-color: lightgray;
+        resize: none;
+    }
+    
+    .review-poster {
+        max-width: 200px;
+    }
+    
+    #navbar {
+        padding: 0.5em;
+    }
+    /*https://stackoverflow.com/questions/51775461/why-is-flex-fill-not-creating-equal-width-in-bootstrap*/
+    
+    .flex-even {
+        flex: 1;
+    }
+    
+    @media (min-width: 980px) {
+        .fixed {
+            position: fixed;
+        }
+    }
+    
+    .scrollit {
+        float: right;
+    }
+    
+    @media screen and (max-width: 980px) {
+        .fixed {
+            position: static;
+        }
+    }
+    
+    .search-table td,
+    .search-table th {
+        text-align: center;
+    }
+    
+    #feed-selector {
+        top: 84px;
+        z-index: 9
+    }
+    
+    #friends_feed {
+        display: none;
+    }
+    
+    #footer-spacer {
+        height: 65px;
+    }
+    
+    .dropdown-menu {
+        z-index: 999;
+    }
+    
+    #notification-symbol {
+        font-size: 24px;
+    }
+    
+    a.stretched-link.review-link {
+        z-index: 0;
+        position: static;
+    }
+    
+    .review-section a {
+        z-index: 999;
+        position: relative;
+    }
+    
+    .review-body {
+        cursor: pointer;
+    }
+    
+    .comment-area {
+        resize: none;
+    }
