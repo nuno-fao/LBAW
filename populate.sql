@@ -99,3 +99,71 @@ INSERT INTO "group" (id,title,description,photo,admin) VALUES (2,'Theodens Rider
 INSERT INTO "group" (id,title,description,photo,admin) VALUES (3,'SIMBAlino','I just cant wait.. to be admin','Photo',37);
 INSERT INTO "group" (id,title,description,photo,admin) VALUES (4,'Os Padrinhos (De Crisma)','Were gonna make you an offer you cant refuse','Photo',36);
 INSERT INTO "group" (id,title,description,photo,admin) VALUES (5,'Gatinhos","Cute cat pics','Photo',35);
+
+INSERT INTO "group_member" (group_id,user_id) VALUES (1,39);
+INSERT INTO "group_member" (group_id,user_id) VALUES (1,1);
+INSERT INTO "group_member" (group_id,user_id) VALUES (1,2);
+INSERT INTO "group_member" (group_id,user_id) VALUES (1,3);
+INSERT INTO "group_member" (group_id,user_id) VALUES (1,4);
+INSERT INTO "group_member" (group_id,user_id) VALUES (1,5);
+INSERT INTO "group_member" (group_id,user_id) VALUES (2,38);
+INSERT INTO "group_member" (group_id,user_id) VALUES (2,6);
+INSERT INTO "group_member" (group_id,user_id) VALUES (2,7);
+INSERT INTO "group_member" (group_id,user_id) VALUES (2,8);
+INSERT INTO "group_member" (group_id,user_id) VALUES (2,9);
+INSERT INTO "group_member" (group_id,user_id) VALUES (2,10);
+INSERT INTO "group_member" (group_id,user_id) VALUES (3,37);
+INSERT INTO "group_member" (group_id,user_id) VALUES (3,11);
+INSERT INTO "group_member" (group_id,user_id) VALUES (3,12);
+INSERT INTO "group_member" (group_id,user_id) VALUES (3,13);
+INSERT INTO "group_member" (group_id,user_id) VALUES (3,14);
+INSERT INTO "group_member" (group_id,user_id) VALUES (3,15);
+INSERT INTO "group_member" (group_id,user_id) VALUES (4,36);
+INSERT INTO "group_member" (group_id,user_id) VALUES (4,16);
+INSERT INTO "group_member" (group_id,user_id) VALUES (4,17);
+INSERT INTO "group_member" (group_id,user_id) VALUES (4,18);
+INSERT INTO "group_member" (group_id,user_id) VALUES (4,19);
+INSERT INTO "group_member" (group_id,user_id) VALUES (4,20);
+INSERT INTO "group_member" (group_id,user_id) VALUES (5,35);
+INSERT INTO "group_member" (group_id,user_id) VALUES (5,21);
+INSERT INTO "group_member" (group_id,user_id) VALUES (5,22);
+INSERT INTO "group_member" (group_id,user_id) VALUES (5,23);
+INSERT INTO "group_member" (group_id,user_id) VALUES (5,24);
+INSERT INTO "group_member" (group_id,user_id) VALUES (5,25);
+
+INSERT INTO "review" (id,title,text,group,movie,author) VALUES (1,'Great movie', 'Really good movie',1,1,1);
+INSERT INTO "review" (id,title,text,group,movie,author) VALUES (2,'Came for the fight scenes', 'Stayed for Samuel L Jackson',2,2,6);
+INSERT INTO "review" (id,title,text,group,movie,author) VALUES (3,'Best movie ever', 'Its really long tho',3,3,11);
+INSERT INTO "review" (id,title,text,group,movie,author) VALUES (4,'Perfect movie except for Jenny', 'Forrest is really funny',4,4,16);
+INSERT INTO "review" (id,title,text,group,movie,author) VALUES (5,'My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,5,24);
+
+INSERT INTO "like" (user,review) VALUES (1,2);
+INSERT INTO "like" (user,review) VALUES (1,3);
+INSERT INTO "like" (user,review) VALUES (2,7);
+INSERT INTO "like" (user,review) VALUES (2,8);
+INSERT INTO "like" (user,review) VALUES (3,14);
+INSERT INTO "like" (user,review) VALUES (4,16);
+INSERT INTO "like" (user,review) VALUES (4,19);
+
+INSERT INTO "comment" (id,text,author,review) VALUES (1,"I Totally agree, but your review could be a little longer",5,1);
+INSERT INTO "comment" (id,text,author,review) VALUES (2,"How dare you make a review about Pulp Fiction and only mention Samuel L Jackson",8,2);
+INSERT INTO "comment" (id,text,author,review) VALUES (3,"I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat",14,3);
+INSERT INTO "comment" (id,text,author,review) VALUES (4,"Jenny is a complex character and i just cant understand the hate she gets in this site",18,3);
+
+INSERT INTO "rating" (id,rating,movie,user) VALUES (1,10,1,1);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (2,8,1,2);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (3,9,1,3);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (4,7,4,4);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (5,8,1,5);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (6,10,10,6);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (7,9,3,7);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (8,9,2,8);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (9,8,5,9);
+INSERT INTO "rating" (id,rating,movie,user) VALUES (10,8,2,10);
+
+INSERT INTO "notifications" (id,recipient,group_invite) VALUES (1,10,1);
+INSERT INTO "notifications" (id,recipient,group_invite) VALUES (2,16,3);
+INSERT INTO "notifications" (id,recipient,group_invite) VALUES (3,35,4);
+INSERT INTO "notifications" (id,recipient,friend_invite) VALUES (4,2,21);
+INSERT INTO "notifications" (id,recipient,friend_invite) VALUES (5,33,12);
+INSERT INTO "notifications" (id,recipient,friend_invite) VALUES (6,25,4);
