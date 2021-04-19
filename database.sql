@@ -1,5 +1,12 @@
+-----------------------------------------
+-- TYPES
+-----------------------------------------
 DROP TYPE IF EXISTS state CASCADE;
 CREATE TYPE state AS ENUM ('pending', 'accepted', 'rejected');
+
+-----------------------------------------
+-- TABLES
+-----------------------------------------
 
 DROP TABLE IF EXISTS movie CASCADE;
 CREATE TABLE movie
@@ -171,6 +178,7 @@ CREATE TABLE rating
     rating integer NOT NULL,
     movie integer NOT NULL,
     "user" integer NOT NULL,
+    date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT rating_pkey PRIMARY KEY (id),
     CONSTRAINT rating_user_movie_key UNIQUE ("user", movie),
     CONSTRAINT rating_movie_fkey FOREIGN KEY (movie)
@@ -212,3 +220,134 @@ CREATE TABLE notifications
         ON DELETE CASCADE,
     CONSTRAINT notifications_check CHECK (group_invite IS NULL AND friend_invite IS NULL AND reported_review IS NOT NULL OR group_invite IS NULL AND friend_invite IS NOT NULL AND reported_review IS NULL OR group_invite IS NOT NULL AND friend_invite IS NULL AND reported_review IS NULL) NOT VALID
 );
+
+-----------------------------------------
+-- TRIGGERS
+-----------------------------------------
+
+DROP FUNCTION IF EXISTS  check_review_date  CASCADE;
+CREATE FUNCTION check_review_date() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT * FROM (SELECT * FROM review 
+        INNER JOIN movie ON movie.id = review.movie
+        WHERE NEW.movie = movie.id ) TMP where EXTRACT(YEAR FROM NEW.date) < year  ) THEN
+            RAISE EXCEPTION 'A Review cannot be published before the movie official debut';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER review_date
+    BEFORE INSERT OR UPDATE ON review
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_review_date(); 
+
+DROP FUNCTION IF EXISTS  check_rating_date  CASCADE;
+CREATE FUNCTION check_rating_date() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT * FROM (SELECT * FROM rating 
+        INNER JOIN movie ON movie.id = rating.movie
+        WHERE NEW.movie = movie.id ) TMP where EXTRACT(YEAR FROM New.date) < year  ) THEN
+            RAISE EXCEPTION 'A Movie cannot be rated before its official debut';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER rating_date
+    BEFORE INSERT OR UPDATE ON rating
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_rating_date();
+
+DROP FUNCTION IF EXISTS  add_auto_notification_friend  CASCADE;
+CREATE FUNCTION add_auto_notification_friend() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    INSERT INTO "notifications" (recipient,friend_invite) VALUES (NEW.signed_user_id1,NEW.signed_user_id2);
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER auto_notification_friend
+    AFTER INSERT OR UPDATE ON friend
+    FOR EACH ROW
+    EXECUTE PROCEDURE add_auto_notification_friend(); 
+
+
+
+DROP FUNCTION IF EXISTS  add_auto_notification_group CASCADE;
+CREATE FUNCTION add_auto_notification_group() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    INSERT INTO "notifications" (recipient,group_invite) VALUES (NEW.user_id,NEW.group_id);
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER auto_notification_group
+    AFTER INSERT OR UPDATE ON group_member
+    FOR EACH ROW
+    EXECUTE PROCEDURE add_auto_notification_group(); 
+
+DROP FUNCTION IF EXISTS  check_friend  CASCADE;
+CREATE FUNCTION check_friend() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT * FROM friend where friend.signed_user_id1 = NEW.signed_user_id2 and friend.signed_user_id2 = NEW.signed_user_id1) THEN
+            RAISE EXCEPTION 'A Relationship already exists between these users';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER friend_relation
+    BEFORE INSERT OR UPDATE ON friend
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_friend();  
+
+ DROP FUNCTION IF EXISTS  check_if_admin CASCADE;
+CREATE FUNCTION check_if_admin() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+	IF NEW.reported_review IS NOT NULL AND EXISTS (SELECT * FROM signed_user WHERE NEW.recipient = signed_user.id AND signed_user.admin = false) THEN
+            RAISE EXCEPTION 'Only Admin user can receive reported reviews notifications';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER is_admin
+    BEFORE INSERT OR UPDATE ON notifications
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_if_admin();
+
+-----------------------------------------
+-- INDEXES
+-----------------------------------------
+
+CREATE INDEX friend_right ON "friend" USING btree (signed_user_id2);
+
+CREATE INDEX friend_left ON "friend" USING btree (signed_user_id1);
+
+CREATE INDEX review_date ON "review" USING btree ("date");
+
+CREATE INDEX search_user ON signed_user USING GIN (to_tsvector('english', name));
+
+CREATE INDEX search_movie ON movie USING GIN (to_tsvector('english', title ));
+
+CREATE INDEX search_group ON "group" USING GIN (to_tsvector('english', title));
+
