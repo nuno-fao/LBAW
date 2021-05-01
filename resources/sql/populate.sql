@@ -39,17 +39,17 @@ INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admi
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('convallis','Hall','Beck Ochoa','05-10-72','lorem.luctus@neque.org','Fusce','False');
 
 
-INSERT INTO "movie" (title,year,photo) VALUES ('Lion King','1994','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Pulp Fiction','1994','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('The Lord of the Rings the Return of the King','2003','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Forrest Gump','1995','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Toy Story','1997','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Interstellar','2012','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Roma','2019','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Star Wars The Rise of Skywalker','2019','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Coco','2018','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('Fight Club','1999','Photo');
-INSERT INTO "movie" (title,year,photo) VALUES ('The Godfather ','1972','Photo');
+INSERT INTO "movie" (title,year,photo) VALUES ('Lion King','1994','img/lionkingposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Pulp Fiction','1994','img/pulpfiction.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('The Lord of the Rings the Return of the King','2003','img/lordoftheringsposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Forrest Gump','1995','img/forrestgumpposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Toy Story','1997','img/toystoryposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Interstellar','2012','img/interstellarposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Roma','2019','img/romaposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Star Wars The Rise of Skywalker','2019','img/starwarsposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Coco','2018','img/cocoposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Fight Club','1999','img/fightclubposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('The Godfather ','1972','img/thegodfatherposter.jpg');
 
 INSERT INTO "genre" (genre) VALUES ('Action');
 INSERT INTO "genre" (genre) VALUES ('Drama');

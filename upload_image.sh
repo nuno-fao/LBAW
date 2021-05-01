@@ -3,8 +3,8 @@
 # Stop execution if a step fails
 set -e
 
-DOCKER_USERNAME=YOUR_DOCKER_ACCOUNT # Replace by your docker hub username
-IMAGE_NAME=lbaw21GG                 # Replace with your group's image name
+DOCKER_USERNAME=lmarques03 # Replace by your docker hub username
+IMAGE_NAME=lbaw2125                 # Replace with your group's image name
 
 # Ensure that dependencies are available
 composer install
