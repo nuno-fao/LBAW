@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -67,5 +69,25 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    protected function register(Request $request){
+        
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'birthday' => 'required',
+            'username' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'date_of_birth' => $request->birthday,
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
+
     }
 }

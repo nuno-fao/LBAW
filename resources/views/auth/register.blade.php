@@ -17,7 +17,8 @@
             <div class="text-center mb-5 text-light pb-2">
                 <h3>Register in <strong>Movie Club</strong></h3>
             </div>
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
                 <div class="form-group mb-3 text-light">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" placeholder="John Doe" id="name">
@@ -40,7 +41,7 @@
                 </div>
                 <div class="form-group mb-3  text-light">
                     <label for="cpass">Confirm Password</label>
-                    <input type="password" name="cpassword" class="form-control" id="cpassword">
+                    <input type="password" name="password_confirmation" class="form-control" id="cpassword">
                 </div>
                 <input type="submit" value="Submit" class="btn btn-block btn-secondary wide mt-5">
             </form>
