@@ -25,7 +25,7 @@
                         </p>
 
                     </div>
-                    <img src="/img/{{$movie->photo}}" alt="movie photo" class="rounded ml-5" width="150">
+                    <img src="{{$movie->photo}}" alt="movie photo" class="rounded ml-5" width="150">
 
                 </div>
             </div>
