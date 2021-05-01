@@ -10,6 +10,6 @@ class ReviewController extends Controller
 {
     static public function movieReviews(Movie $movie,int $page)
     {   
-        return Review::where('movie',$movie->id)->orderBy('date', 'DESC')->skip($page)->take(10)->get();
+        return Review::where('movie',$movie->id)->where('group')->orderBy('date', 'DESC')->skip($page*10)->take(10)->get();
     }
 }

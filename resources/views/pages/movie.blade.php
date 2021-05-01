@@ -25,7 +25,7 @@
                         </p>
 
                     </div>
-                    <img src="images/fightclubposter.jpg" alt="Admin" class="rounded ml-5" width="150">
+                    <img src="/img/{{$movie->photo}}" alt="movie photo" class="rounded ml-5" width="150">
 
                 </div>
             </div>
@@ -64,7 +64,6 @@
                               <input class="btn btn-outline-secondary mt-3 mb-3 " type="submit" value="Submit">
                           </div>
                       </div>
-
                   </div>
               </div>
           </form>
