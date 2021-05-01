@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
-        <a class="navbar-brand" href="feed.php"><img id="logo-img" src="img/logo.png" alt="Movie Club"></a>
+        <a class="navbar-brand" href="{{route('landing_page')}}"><img id="logo-img" src="img/logo.png" alt="Movie Club"></a>
         <button class="btn btn-secondary navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -19,10 +19,10 @@
                 <a class="btn btn-secondary" href="search_result.php">Search</a>
             </form>
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4">
-                <button class="btn btn-secondary nav-item me-lg-3 mb-lg-auto mb-2" type="button"
-                    onclick="window.location.href='login.php'">Login</button>
-                <button class="btn btn-secondary nav-item" type="button"
-                    onclick="window.location.href='signup.php'">Sign Up</button>
+                <a class="btn btn-secondary nav-item me-lg-3 mb-lg-auto mb-2" type="button"
+                    href = "{{route('login')}}">Login</a>
+                <a class="btn btn-secondary nav-item" type="button"
+                    href="{{ route('register')}}">Sign Up</a>
             </div>
         </div>
     </div>

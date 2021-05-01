@@ -11,7 +11,7 @@
 |
 */
 // Home
-Route::get('/', 'Auth\LoginController@home');
+Route::get('/', 'LandingController@index')->name('landing_page');
 
 // Cards
 Route::get('cards', 'CardController@list');
