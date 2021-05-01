@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -43,6 +44,22 @@ class LoginController extends Controller
 
     public function home() {
         return redirect('login');
+    }
+
+    public function login(Request $request) {
+
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        if(!auth()->attempt($request->only('username', 'password'))){
+            //return back()->with('status', 'Invalid login details');
+            dd('falhou o login');
+        }
+
+        dd('ok');
+        
     }
 
 }
