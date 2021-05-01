@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
+    private Movie $movie;
     public function show($id)
     {
-      $movie = Movie::find($id);
-      $this->getGenres($id,$movie);
-      return view('pages.movie', ['movie' => $movie]);
+      $this->movie = Movie::find($id);
+      $this->movie->genres = $this->getGenres($id);
+      $this->movie->reviews = ReviewController::movieReviews($this->movie,0);
+      return view('pages.movie', ['movie' => $this->movie]);
     }
 
     /**
@@ -39,7 +42,7 @@ class MovieController extends Controller
       return $movie;
     }
 
-    private function getGenres(int $id,Movie $movie){
-      $movie->genres = DB::select('SELECT genre.genre FROM genre INNER JOIN movie_genre ON genre.id = movie_genre.genre INNER JOIN movie ON movie_genre.movie = movie.id WHERE (movie.id = :id) ',['id' => $id]);
+    private function getGenres(int $id){
+      return DB::select('SELECT genre.genre FROM genre INNER JOIN movie_genre ON genre.id = movie_genre.genre INNER JOIN movie ON movie_genre.movie = movie.id WHERE (movie.id = :id) ',['id' => $this->movie->id]);
     }
 }

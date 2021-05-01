@@ -74,6 +74,7 @@
     <section class="col-xl-8 col-lg-7 col-12 scrollit mt-2">
         <h4 class="text-center">
             Reviews
+            @each('partials.review', $movie->reviews, 'review')
         </h4>
     </section>
 
