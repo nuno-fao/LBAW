@@ -11,6 +11,6 @@
       <input type="text" name="name" placeholder="new card">
     </form>
   </article>
-</section>
+</section> 
 
 @endsection
