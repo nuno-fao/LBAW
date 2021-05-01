@@ -14,4 +14,9 @@ class Movie extends Model
     public $incrementing = true;
     public $timestamps = false;
     public $genres;
+    protected $fillable = [
+        'title',
+        'year',
+        'photo'
+    ];
 }

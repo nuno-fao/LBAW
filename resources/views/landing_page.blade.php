@@ -27,39 +27,19 @@
     </button>
 
     <div class=" row">
+        @foreach($movies as $movie)
+
         <div class="col card col-lg-3 col-md-6 col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="img/fightclubposter.jpg" alt="poster">
+            <img class="card-img-top img-responsive" src="{{$movie->photo}}" alt="poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary stretched-link wide">Fight Club</a>
+                    <a href="#" class="btn btn-primary stretched-link wide">{{$movie->title}}</a>
                 </h5>
             </div>
         </div>
 
-        <div class="col card col-lg-3 col-md-6 col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="img/djangounchainedposter.jpg" alt="poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide">Django Unchained</a>
-                </h5>
-            </div>
-        </div>
-        <div class="col  card col-lg-3 col-md-6  col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="img/vforvendettaposter.jpg" alt="poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide">V for Vendetta</a>
-                </h5>
-            </div>
-        </div>
-        <div class="col  card col-lg-3 col-md-6 col-12 card mb-3">
-            <img class="card-img-top img-responsive" src="img/inceptionposter.jpg" alt="poster">
-            <div class="card-body">
-                <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary  stretched-link wide ">Inception</a>
-                </h5>
-            </div>
-        </div>
+        @endforeach
+        
     </div>
 </div>
  
