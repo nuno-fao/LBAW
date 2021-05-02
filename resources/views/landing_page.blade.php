@@ -33,7 +33,7 @@
             <img class="card-img-top img-responsive" src="{{asset($movie->photo)}}" alt="poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <a href="#" class="btn btn-primary stretched-link wide">{{$movie->title}}</a>
+                    <a href="{{url("/movie/{$movie->id}")}}" class="btn btn-primary stretched-link wide">{{$movie->title}}</a>
                 </h5>
             </div>
         </div>
