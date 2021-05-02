@@ -15,7 +15,7 @@ class Review extends Model
     public $timestamps = false;
 
     public $comments;
-    public $movie;
+    public $moviep;
     public $likes;
     public $user;
 

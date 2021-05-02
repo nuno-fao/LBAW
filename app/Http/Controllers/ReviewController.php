@@ -26,7 +26,7 @@ class ReviewController extends Controller
       }
 
       $this->review = $r;
-      $this->review->movie = $this->getMovie($id);
+      $this->review->moviep = $this->getMovie($r->movie);
       $this->review->user = $this->getUser($r);
       $this->review->comments = $this->getComments($id);
       $this->review->likes = $this->getLikes($id);

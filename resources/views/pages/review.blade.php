@@ -22,16 +22,16 @@
             <div class=" d-flex flex-column flex-xl-row">
                 <div>
                     <p class="text-center badge bg-primary">
-                        {{$review->movie->title}}
+                        {{$review->moviep->title}}
                     </p>
                 </div>
                 <div>
                     <p class="text-center badge bg-primary">
-                        {{$review->movie->year}}
+                        {{$review->moviep->year}}
                     </p>
                 </div>
             </div>
-            <a href="{{route('movie',[$review->movie])}}"><img class="card-img-top img-responsive review-poster" src="{{asset($review->movie->photo)}}" alt="movie poster"></a>
+            <a href="{{route('movie',[$review->moviep])}}"><img class="card-img-top img-responsive review-poster" src="{{asset($review->moviep->photo)}}" alt="movie poster"></a>
         </div>
         <div class="review card mt-3 col-12 col-lg-8 px-0">
             <div class="card-header row review-header">
