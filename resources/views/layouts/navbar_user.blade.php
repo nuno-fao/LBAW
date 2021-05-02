@@ -33,7 +33,7 @@
                     </a>
                 </div>
                 <div class="nav-item ">
-                    <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
+                    <a class="nav-link" aria-current="page" href="user_profile.php">{{auth()->user()->name}}</a>
                 </div>
                 <div class="nav-item ">
                     <a class="nav-link" aria-current="page" href="{{route('logout')}}">Logout</a>
