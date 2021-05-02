@@ -69,7 +69,7 @@ class ReviewController extends Controller
 
     static public function getUser ($review)
     {   
-        return User::find($review->author);
+        return User::find($review->user_id);
     }
     
     public function store(Request $request){
