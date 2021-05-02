@@ -12,6 +12,9 @@ class MovieController extends Controller
     private Movie $movie;
     public function show($id)
     {
+      if(!ctype_digit($id)){
+        return view('errors.404');
+      }
       $r = Movie::find($id);
       if ($r == null){
         return redirect('/');

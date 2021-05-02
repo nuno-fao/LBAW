@@ -14,6 +14,9 @@ class ReviewController extends Controller
     private Review $review;
     public function show($id)
     {
+      if(!ctype_digit($id)){
+        return view('errors.404');
+      }
       $r = Review::find($id);
 
       if ($r == null){
