@@ -29,6 +29,8 @@
   <body>
     @if (!Auth::check())
       @include('layouts.navbar_visitor')
+    @else
+      @include('layouts.navbar_user')
     @endif
 
     {{-- @include('layouts.navbar') --}}
