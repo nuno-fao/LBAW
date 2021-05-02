@@ -1,4 +1,4 @@
-@if(auth()->user())
+@if(!auth()->user())
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
@@ -70,7 +70,7 @@
                     <a class="nav-link" aria-current="page" href="user_profile.php">johndoe</a>
                 </div>
                 <button class="btn btn-primary nav-item" type="button"
-                    onclick="window.location.href='index.php'">Logout</button>
+                    onclick="window.location.href={{route('logout')}}">Logout</button>
             </div>
         </div>
     </div>

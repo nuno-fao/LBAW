@@ -54,12 +54,16 @@ class LoginController extends Controller
         ]);
 
         if(!auth()->attempt($request->only('username', 'password'))){
-            //return back()->with('status', 'Invalid login details');
+            return back()->with('status', 'Invalid login details');
             dd('falhou o login');
         }
 
         dd('ok');
         
+    }
+
+    public function logout(){
+        auth()->logout();
     }
 
 }
