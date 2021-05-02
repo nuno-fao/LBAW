@@ -15,6 +15,9 @@ class ReviewController extends Controller
     private Review $review;
     public function show($id)
     {
+      if(!ctype_digit($id)){
+        return view('errors.404');
+      }
       $r = Review::find($id);
 
       if ($r == null){
@@ -67,6 +70,28 @@ class ReviewController extends Controller
     static public function getUser ($review)
     {   
         return User::find($review->author);
+    }
+    
+    public function store(Request $request){
+
+      $this->validate($request, [
+        'title' => 'required',
+        'description' => 'required',
+      ]);
+
+
+      $request->user()->reviews()->create([
+        'title' => $request->title,
+        'text' => $request->description,
+        'date' => date('Y-m-d H:i:s'),
+        'movie' => $request->id,
+        'group' => $request->group,
+        'user_id' => $request->user()->id,
+       
+      ]);
+
+      return back();
+
     }
 
 }

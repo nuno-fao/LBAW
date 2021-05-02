@@ -26,6 +26,6 @@ class Review extends Model
         'date',
         'movie',
         'group',
-        'author'
+        'user_id'
     ];
 }

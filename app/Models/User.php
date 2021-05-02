@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Review;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -36,10 +37,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The cards this user owns.
-     */
-     public function cards() {
-      return $this->hasMany('App\Models\Card');
+    
+     public function reviews() {
+      return $this->hasMany(Review::class);
     }
 }

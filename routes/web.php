@@ -14,9 +14,6 @@
 
 Route::get('/', 'LandingController@index')->name('landing_page');
 
-// Cards
-Route::get('cards', 'CardController@list');
-Route::get('cards/{id}', 'CardController@show');
 
 // API
 Route::put('api/cards', 'CardController@create');
@@ -34,6 +31,8 @@ Route::post('register', 'Auth\RegisterController@register');
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
+Route::get('/api/movie/{movie_id}/feed/{page}','MovieController@getPage');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');
+Route::post('review/{id}','ReviewController@store');

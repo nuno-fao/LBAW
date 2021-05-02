@@ -119,10 +119,10 @@ CREATE TABLE review
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "group" integer,
     movie integer NOT NULL,
-    author integer NOT NULL,
+    user_id integer NOT NULL,
     CONSTRAINT review_pkey PRIMARY KEY (id),
-    CONSTRAINT review_group_movie_author_key UNIQUE ("group", movie, author),
-    CONSTRAINT review_author_fkey FOREIGN KEY (author)
+    CONSTRAINT review_group_movie_user_id_key UNIQUE ("group", movie, user_id),
+    CONSTRAINT review_user_id_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
@@ -157,11 +157,11 @@ CREATE TABLE comment
 (
     id serial NOT NULL ,
     text text NOT NULL,
-    author integer NOT NULL,
+    user_id integer NOT NULL,
     review integer NOT NULL,
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT comment_pkey PRIMARY KEY (id),
-    CONSTRAINT comment_author_fkey FOREIGN KEY (author)
+    CONSTRAINT comment_user_id_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
