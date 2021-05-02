@@ -15,6 +15,8 @@ class Comment extends Model
     public $incrementing = true;
     public $timestamps = false;
 
+    public $user;
+
     protected $fillable = [
         'text',
         'author',

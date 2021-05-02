@@ -7,6 +7,7 @@ use App\Models\Movie;
 use App\Models\Review;
 use App\Models\Comment;
 use App\Models\Like;
+use App\Models\User;
 
 class ReviewController extends Controller
 {
@@ -23,17 +24,25 @@ class ReviewController extends Controller
 
       $this->review = $r;
       $this->review->movie = $this->getMovie($id);
+      $this->review->user = $this->getUser($r);
       $this->review->comments = $this->getComments($id);
       $this->review->likes = $this->getLikes($id);
 
-      //TODO ADD USER TANTO NA REVIEW COMO NOS COMMENTS
+      //TODO ADD GROUP
 
       return view('pages.review',['review'=>$this->review]);
     }
     
     static public function movieReviews(Movie $movie,int $page)
     {   
-        return Review::where('movie',$movie->id)->where('group')->orderBy('date', 'DESC')->skip($page*10)->take(10)->get();
+        
+        $r = Review::where('movie',$movie->id)->where('group')->orderBy('date', 'DESC')->skip($page*10)->take(10)->get();
+        foreach($r as $aux){
+            $aux->user = ReviewController::getUser($aux);
+            $aux->likes = ReviewController::getLikes($aux->id);
+            $aux->comments = ReviewController::getComments($aux->id);
+        }
+        return $r;
     }
 
     static public function getMovie($movie)
@@ -43,12 +52,21 @@ class ReviewController extends Controller
 
     static public function getComments ($review)
     {   
-        return Comment::where('review',$review)->orderBy('date')->get();
+        $c = Comment::where('review',$review)->orderBy('date')->get();
+        foreach($c as $comment){
+            $comment->user = CommentController::getUser($comment->author);
+        }
+        return $c;
     }
 
     static public function getLikes ($review)
     {   
         return Like::where('review',$review)->count();
+    }
+
+    static public function getUser ($review)
+    {   
+        return User::find($review->author);
     }
 
 }

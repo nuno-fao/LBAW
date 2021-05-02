@@ -17,8 +17,10 @@ class Review extends Model
     public $comments;
     public $movie;
     public $likes;
+    public $user;
 
     protected $fillable = [
+        'id',
         'title',
         'text',
         'date',
