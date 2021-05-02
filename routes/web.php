@@ -11,6 +11,7 @@
 |
 */
 // Home
+
 Route::get('/', 'LandingController@index')->name('landing_page');
 
 // Cards
@@ -31,4 +32,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+//Movies
 Route::get('movie/{id}', 'MovieController@show');
+
+//Reviews
+Route::get('review/{id}','ReviewController@show');

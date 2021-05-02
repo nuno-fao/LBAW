@@ -5,25 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $table = 'review';
+    
+    protected $table = 'comment';
     protected $primaryKey = 'id';
 
     public $incrementing = true;
     public $timestamps = false;
 
-    public $comments;
-    public $movie;
-    public $likes;
-
     protected $fillable = [
-        'title',
         'text',
+        'author',
+        'review',
         'date',
-        'movie',
-        'group',
-        'author'
     ];
 }
