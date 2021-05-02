@@ -12,7 +12,12 @@ class MovieController extends Controller
     private Movie $movie;
     public function show($id)
     {
-      $this->movie = Movie::find($id);
+      $r = Movie::find($id);
+      if ($r == null){
+        return redirect('/');
+        
+      }
+      $this->movie = $r;
       $this->movie->genres = $this->getGenres($id);
       $this->movie->reviews = ReviewController::movieReviews($this->movie,0);
       return view('pages.movie', ['movie' => $this->movie]);

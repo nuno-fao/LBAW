@@ -1,8 +1,6 @@
-<div class="row align-items-center my-4 review-section">
-    <div class="col col-12 col-lg-1">
-    </div>
-    <div class="review card mt-3 col-12 col-lg-8 px-0">
-        <div class="card-header row review-header" onclick="location.href='review_page.php'">
+<div class="my-4">
+    <div class="review card mt-3">
+        <div class="card-header row review-header " onclick="location.href='review_page.php'">
             <div class="col col-12 col-lg-9 no-padding">
                 {{$review->title}}
             </div>
@@ -12,7 +10,7 @@
                 </a>
             </div>
         </div>
-        <div class="review-body card-body d-flex flex-column" onclick="location.href='review_page.php'">
+        <div class="card-body d-flex flex-column " onclick="location.href='review_page.php'">
             {{$review->text}}
         </div>
         <div class="card-footer d-flex d-flex justify-content-between review-footer">
@@ -38,7 +36,7 @@
                     </div>
                 </div>
             </form>
-        </div>            
+        </div>      
         @endauth
     </div>
 </div>
