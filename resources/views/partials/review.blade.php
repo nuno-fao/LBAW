@@ -9,6 +9,11 @@
                     by {{$review->user->username}}
                 </a>
             </div>
+            <div class="col col-12 no-padding">
+                <small col>
+                    {{$review->date}}
+                </small>
+            </div>
         </div>
         <div class="card-body d-flex flex-column " onclick="location.href='{{route('review',[$review->id])}}'">
             {{$review->text}}

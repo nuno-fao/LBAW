@@ -57,7 +57,7 @@ class ReviewController extends Controller
     {   
         $c = Comment::where('review',$review)->orderBy('date')->get();
         foreach($c as $comment){
-            $comment->user = CommentController::getUser($comment->author);
+            $comment->user = CommentController::getUser($comment->user_id);
         }
         return $c;
     }
@@ -69,9 +69,9 @@ class ReviewController extends Controller
 
     static public function getUser ($review)
     {   
-        return User::find($review->author);
+        return User::find($review->user_id);
     }
-    
+
     public function store(Request $request){
 
       $this->validate($request, [
