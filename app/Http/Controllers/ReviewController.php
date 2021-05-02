@@ -72,10 +72,10 @@ class ReviewController extends Controller
         return User::find($review->user_id);
     }
 
-    public function store(Request $request){
+    public function store(Request $request,$movie_id){
 
-      $r = Review::where('movie', $request->id)->where('user_id', $request->user()->id)->where('group');
-      if($r != null && $request->group == null){
+      $r = Review::where('movie', $request->id)->where('user_id', $request->user()->id)->where('group')->get();
+      if(count($r) != 0 && $request->group == null){
         return back();
       }
 
