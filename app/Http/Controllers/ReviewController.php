@@ -54,4 +54,26 @@ class ReviewController extends Controller
         return Like::where('review',$review)->count();
     }
 
+    public function store(Request $request){
+
+      $this->validate($request, [
+        'title' => 'required',
+        'description' => 'required',
+      ]);
+
+
+      $request->user()->reviews()->create([
+        'title' => $request->title,
+        'text' => $request->description,
+        'date' => date('Y-m-d H:i:s'),
+        'movie' => $request->id,
+        'group' => $request->group,
+        'user_id' => $request->user()->id,
+       
+      ]);
+
+      return back();
+
+    }
+
 }

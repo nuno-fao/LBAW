@@ -14,9 +14,6 @@
 
 Route::get('/', 'LandingController@index')->name('landing_page');
 
-// Cards
-Route::get('cards', 'CardController@list');
-Route::get('cards/{id}', 'CardController@show');
 
 // API
 Route::put('api/cards', 'CardController@create');
@@ -37,3 +34,4 @@ Route::get('movie/{id}', 'MovieController@show')->name('movie');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');
+Route::post('review/{id}','ReviewController@store');
