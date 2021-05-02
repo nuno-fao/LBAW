@@ -74,6 +74,11 @@ class ReviewController extends Controller
 
     public function store(Request $request){
 
+      $r = Review::where('movie', $request->id)->where('user_id', $request->user()->id)->where('group');
+      if($r != null && $request->group == null){
+        return back();
+      }
+
       $this->validate($request, [
         'title' => 'required',
         'description' => 'required',
@@ -95,8 +100,6 @@ class ReviewController extends Controller
 
     public function delete(Request $request,$review_id){
       $r = Review::find($review_id);
-      print_r("ee \n".$r->author);
-      print_r("outro ".auth()->user()->id);
       if($r != null && $r->user_id == auth()->user()->id){
         $r->delete();
       }

@@ -42,7 +42,7 @@
                         by {{$review->user->username}}
                     </a>
                     @auth
-                        @if ($review->author == auth()->user()->id)
+                        @if ($review->user_id == auth()->user()->id)
                             <button class="btn btn-primary" id="deleteButton">
                                 Delete
                             </button>
