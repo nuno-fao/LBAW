@@ -8,7 +8,9 @@
     <li class="breadcrumb-item"><a href="#">Movie</a></li>
   </ol>
 </nav>
-
+<script>
+    var movie_id = {{$movie->id}}
+</script>
 <div class="col-lg-12 col-12 mt-2 row  mx-auto">
     <section id="user_info" class="col-xl-4 col-lg-5 col-12 mt-3">
         <div class="card ">
@@ -58,7 +60,6 @@
                           <textarea type="text" rows="3"
                               class="row-4 form-control border border-1rounded-1 mt-0 comment-area" id="description"
                               aria-describedby="description"></textarea>
-
                           <div class="d-flex justify-content-end ">
                               <input class="btn btn-outline-secondary mt-3 mb-3 " type="submit" value="Submit">
                           </div>
@@ -73,7 +74,12 @@
         <h4 class="text-center">
             Reviews
         </h4>
+        <section id="review_section">
             @each('partials.review', $movie->reviews, 'review')
+        </section>
+            <button class="btn btn-primary ms-3" id="nextPage">
+                Next Page
+            </button>
     </section>
 
 @endsection

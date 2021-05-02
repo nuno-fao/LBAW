@@ -34,6 +34,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
+Route::get('/api/movie/{movie_id}/feed/{page}','MovieController@getPage');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');

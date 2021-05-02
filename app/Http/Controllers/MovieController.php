@@ -10,20 +10,37 @@ use Illuminate\Support\Facades\DB;
 class MovieController extends Controller
 {
     private Movie $movie;
+    const ERROR_404_PAGE = 'errors.404';
     public function show($id)
     {
       if(!ctype_digit($id)){
-        return view('errors.404');
+        return view(self::ERROR_404_PAGE);
       }
       $r = Movie::find($id);
       if ($r == null){
-        return redirect('/');
+        return view(self::ERROR_404_PAGE);
         
       }
       $this->movie = $r;
       $this->movie->genres = $this->getGenres($id);
       $this->movie->reviews = ReviewController::movieReviews($this->movie,0);
       return view('pages.movie', ['movie' => $this->movie]);
+    }
+
+    public function getPage($id,$page)
+    {
+      if(!ctype_digit($id) || !ctype_digit($page)){
+        return view(self::ERROR_404_PAGE);
+      }
+      $r = Movie::find($id);
+      if ($r == null){
+        return view(self::ERROR_404_PAGE);
+        
+      }
+      $this->movie = $r;
+      $this->movie->genres = $this->getGenres($id);
+      $this->movie->reviews = ReviewController::movieReviews($this->movie,$page);
+      return view('pagination.movie', ['movie' => $this->movie]);
     }
 
     /**
