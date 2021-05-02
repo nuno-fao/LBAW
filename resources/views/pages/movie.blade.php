@@ -76,10 +76,17 @@
         </h4>
         <section id="review_section">
             @each('partials.review', $movie->reviews, 'review')
+            
         </section>
-            <button class="btn btn-primary ms-3" id="nextPage">
-                Next Page
-            </button>
+            @if (count($movie->reviews) == 10)
+                <button class="btn btn-primary ms-3" id="nextPage">
+                    Next Page
+                </button>
+            @else
+                <p class="text-center">
+                    Nothing else to show
+                </p>
+            @endif
     </section>
 
 @endsection
