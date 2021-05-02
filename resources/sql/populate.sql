@@ -136,7 +136,7 @@ INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Came for the fig
 INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Best movie ever', 'Its really long tho',3,3,11);
 INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,4,16);
 INSERT INTO "review" (title,text,"group",movie,author) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,5,24);
-INSERT INTO "review" (title,text,"group",movie,author) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,5,24);
+INSERT INTO "review" (title,text,movie,author) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
 
 INSERT INTO "like" ("user",review) VALUES (2,1);
 INSERT INTO "like" ("user",review) VALUES (3,1);
