@@ -131,12 +131,12 @@ INSERT INTO "group_member" (group_id,user_id) VALUES (5,23);
 INSERT INTO "group_member" (group_id,user_id) VALUES (5,24);
 INSERT INTO "group_member" (group_id,user_id) VALUES (5,25);
 
-INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Great movie', 'Really good movie',1,1,1);
-INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Came for the fight scenes', 'Stayed for Samuel L Jackson',2,2,6);
-INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Best movie ever', 'Its really long tho',3,3,11);
-INSERT INTO "review" (title,text,"group",movie,author) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,4,16);
-INSERT INTO "review" (title,text,"group",movie,author) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,5,24);
-INSERT INTO "review" (title,text,movie,author) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
+INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('Great movie', 'Really good movie',1,1,1);
+INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('Came for the fight scenes', 'Stayed for Samuel L Jackson',2,2,6);
+INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('Best movie ever', 'Its really long tho',3,3,11);
+INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,4,16);
+INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,5,24);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
 
 INSERT INTO "like" ("user",review) VALUES (2,1);
 INSERT INTO "like" ("user",review) VALUES (3,1);
@@ -146,10 +146,10 @@ INSERT INTO "like" ("user",review) VALUES (14,3);
 INSERT INTO "like" ("user",review) VALUES (16,4);
 INSERT INTO "like" ("user",review) VALUES (19,4);
 
-INSERT INTO "comment" (text,author,review) VALUES ('I Totally agree, but your review could be a little longer',5,1);
-INSERT INTO "comment" (text,author,review) VALUES ('How dare you make a review about Pulp Fiction and only mention Samuel L Jackson',8,2);
-INSERT INTO "comment" (text,author,review) VALUES ('I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat',14,3);
-INSERT INTO "comment" (text,author,review) VALUES ('Jenny is a complex character and i just cant understand the hate she gets in this site',18,3);
+INSERT INTO "comment" (text,user_id,review) VALUES ('I Totally agree, but your review could be a little longer',5,1);
+INSERT INTO "comment" (text,user_id,review) VALUES ('How dare you make a review about Pulp Fiction and only mention Samuel L Jackson',8,2);
+INSERT INTO "comment" (text,user_id,review) VALUES ('I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat',14,3);
+INSERT INTO "comment" (text,user_id,review) VALUES ('Jenny is a complex character and i just cant understand the hate she gets in this site',18,3);
 
 INSERT INTO "rating" (rating,movie,"user") VALUES (10,1,1);
 INSERT INTO "rating" (rating,movie,"user") VALUES (8,1,2);
