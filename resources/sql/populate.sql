@@ -133,9 +133,9 @@ INSERT INTO "group_member" (group_id,user_id) VALUES (5,25);
 
 INSERT INTO "review" (title,text,movie,user_id) VALUES ('Great movie', 'Really good movie',1,1);
 INSERT INTO "review" (title,text,movie,user_id) VALUES ('Came for the fight scenes', 'Stayed for Samuel L Jackson',2,6);
-INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('Best movie ever', 'Its really long tho',3,3,11);
-INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,4,16);
-INSERT INTO "review" (title,text,"group",movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,5,24);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Best movie ever', 'Its really long tho',3,11);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,16);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
 INSERT INTO "review" (title,text,movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
 
 INSERT INTO "like" ("user",review) VALUES (2,1);
