@@ -33,7 +33,7 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 //Movies
-Route::get('movie/{id}', 'MovieController@show');
+Route::get('movie/{id}', 'MovieController@show')->name('movie');
 
 //Reviews
-Route::get('review/{id}','ReviewController@show');
+Route::get('review/{id}','ReviewController@show')->name('review');

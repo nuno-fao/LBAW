@@ -26,7 +26,7 @@ class ReviewController extends Controller
       $this->review->comments = $this->getComments($id);
       $this->review->likes = $this->getLikes($id);
 
-      //TODO ADD USER
+      //TODO ADD USER TANTO NA REVIEW COMO NOS COMMENTS
 
       return view('pages.review',['review'=>$this->review]);
     }
