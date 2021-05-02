@@ -91,7 +91,14 @@ class ReviewController extends Controller
       ]);
 
       return back();
-
     }
 
+    public function delete(Request $request,$review_id){
+      $r = Review::find($review_id);
+      print_r("ee \n".$r->author);
+      print_r("outro ".auth()->user()->id);
+      if($r != null && $r->user_id == auth()->user()->id){
+        $r->delete();
+      }
+    }
 }
