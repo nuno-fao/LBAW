@@ -79,6 +79,7 @@ class RegisterController extends Controller
             'birthday' => 'required',
             'username' => 'required',
             'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
         ]);
 
         User::create([
