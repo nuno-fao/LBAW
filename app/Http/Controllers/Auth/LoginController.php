@@ -55,15 +55,16 @@ class LoginController extends Controller
 
         if(!auth()->attempt($request->only('username', 'password'))){
             return back()->with('status', 'Invalid login details');
-            dd('falhou o login');
         }
 
-        dd('ok');
+        return redirect()->route('landing_page');
         
     }
 
     public function logout(){
         auth()->logout();
+
+        return redirect()->route('landing_page');
     }
 
 }
