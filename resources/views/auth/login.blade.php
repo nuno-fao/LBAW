@@ -14,7 +14,7 @@
         <div class="text-center mb-5 text-light pb-2">
             <h3>Login to <strong>Movie Club</strong></h3>
         </div>
-        @if(session('status'))
+            @if(session('status'))
                 <div class=".bg-danger text-danger text-center">
                     {{session('status')}}
                 </div>
