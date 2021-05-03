@@ -1,0 +1,1758 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: LBAW MovieClub Web API
+  description: Web Resources Specification (A7) for MovieClub
+paths: 
+  /movie/{id}:
+    get:
+      operationId: R100
+      summary: 'R100: Movie Page'
+      description: 'Show the Movie Page: PUB'
+      tags:
+        - 'M01: Movie'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Show [UI08](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui08-movie-page-movie-page-visitor-movie-page-admin)'
+          
+  /api/movie/{id}:
+    patch:
+      operationId: R101
+      summary: 'R101:Edit a Movie'
+      description: 'Show the Movie Page: ADM'
+      tags:
+        - 'M01: Movie'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                year:
+                  type: string
+                photo:
+                  type: string
+                  format: binary
+                genres:
+                  type: string
+      responses:
+        '200':
+          description: 'Ok. Successfully edited the movie'
+
+  /api/movie/{movie_id}/feed/{page}:
+    get:
+      operationId: R102
+      summary: 'R101: Movie Page'
+      description: 'Show the Movie Page: PUB'
+      tags:
+        - 'M01: Movie'
+      parameters:
+        - in: path
+          name: movie_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    date:
+                      type: string
+                    title:
+                      type: string
+                    likes:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type:
+                              string
+                    comments:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type: string
+                          date:
+                            type: string
+                          text:
+                            type: string
+                            
+  /movie/list:
+    get:
+      operationId: R103
+      summary: 'R103: Movies List'
+      description: 'Show the Movies List: PUB'
+      tags:
+        - 'M01: Movie'
+      responses:
+        '200':
+          description: 'Ok. Show [UI09](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui09-movie-list)'
+  
+  /api/movie/list/{page}:
+    get:
+      operationId: R104
+      summary: 'R104: Movies List'
+      description: 'Retrieve the Movies List: PUB'
+      tags:
+        - 'M01: Movie'
+      parameters:
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    year:
+                      type: string
+                    title:
+                      type: string
+                    photo: 
+                      type: string
+                      format: binary
+  
+  /api/movie/{movie_id}/review:
+    post:
+      operationId: R105
+      summary: 'R105: Add Review'
+      description: 'Add A review to a movie in a context. Access: USR'
+      tags:
+        - 'M01: Movie'
+      parameters:
+        - in: path
+          name: movie_id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                group:
+                  type: integer
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+                - title
+                - text
+      responses:
+        '201':
+          description: 'Success of error code'
+          
+  /api/movie/{movie_id}/rate:
+    patch:
+      operationId: R106
+      summary:  'R106: Add Rating'
+      description: 'Add A rating to a movie. Access: USR'
+      tags:
+        - 'M01: Movie'
+      parameters:
+        - in: path
+          name: movie_id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: integer
+              required:
+                - rating
+                
+      responses:
+        '201':
+          description: 'Success or error code'
+          
+          
+  /:
+    get:
+      operationId: R200
+      summary: "R200: Landing Page"
+      description: "Provide Landing page. Access: PUB"
+      tags: 
+        - 'M02: Public'
+      responses:
+        '200':
+          description: "Ok. Show [UI01](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui01-landing-page)"
+  /public_feed:
+    get:
+      operationId: R201
+      summary: "R201: Public Feed"
+      description: "Provide the generic public feed. Access: PUB"
+      tags: 
+        - 'M02: Public'
+      responses:
+        '200':
+          description: "Ok. Show [UI05](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui05-feed)"
+          
+  /api/public_feed/{id}:
+    get:
+      operationId: R202
+      summary: "R202: Public Feed"
+      description: "Provide the generic public feed. Access: PUB"
+      tags: 
+        - 'M02: Public'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    movie:
+                      type: object
+                      properties:
+                        movie_name:
+                          type: string
+                        movie_year:
+                          type: integer
+                        movie_photo:
+                          type: string
+                          format: binary
+                    date:
+                      type: string
+                    title:
+                      type: string
+                    likes:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type:
+                              string
+                    comments:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type: string
+                          date:
+                            type: string
+                          text:
+                            type: string
+                            
+  /friends_feed:
+    get:
+      operationId: R203
+      summary: "R203: Friends Feed"
+      description: "Provide the friends feed. Access: USR"
+      tags: 
+        - 'M02: Public'
+      responses:
+        '200':
+          description: "Ok. Show [UI05](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui05-feed)"
+          
+  /api/friends_feed/{id}:
+    get:
+      operationId: R204
+      summary: "R204: Friends Feed"
+      description: "Provide the friends feed. Access: PUB"
+      tags: 
+        - 'M02: Public'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    movie:
+                      type: object
+                      properties:
+                        movie_name:
+                          type: string
+                        movie_year:
+                          type: integer
+                        movie_photo:
+                          type: string
+                          format: binary
+                    date:
+                      type: string
+                    title:
+                      type: string
+                    likes:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type:
+                              string
+                    comments:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type: string
+                          date:
+                            type: string
+                          text:
+                            type: string
+  
+  /about_us:
+    get:
+      operationId: R205
+      summary: 'R205: Get User feed'
+      description: 'Get the about Us page. Access: PUB'
+      
+      tags: 
+        - 'M02: Public'
+      
+      
+      responses:
+        '200':
+          description: 'Ok. Show [UI06](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui06-about-us)'
+  
+  /search:
+    get:
+      operationId: R206
+      summary: 'R206: Get Search Result'
+      description: 'Get Search Result. Access: PUB'
+      tags: 
+        - 'M02: Public'
+      
+      parameters: 
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+            
+      responses:
+        '200':
+          description: 'Ok. Show [UI07](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui07-search-result)'
+          
+  /api/search/review/{page}:
+    get:
+      operationId: R207
+      summary: 'R207: Get Search Result'
+      description: 'Get Search Result. Access: PUB'
+      tags: 
+        - 'M02: Public'
+      
+      parameters: 
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    movie:
+                      type: object
+                      properties:
+                        movie_name:
+                          type: string
+                        movie_year:
+                          type: integer
+                        movie_photo:
+                          type: string
+                          format: binary
+                    date:
+                      type: string
+                    title:
+                      type: string
+                    likes:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type:
+                              string
+                    comments:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type: string
+                          date:
+                            type: string
+                          text:
+                            type: string
+                            
+  /api/search/users/{page}:
+    get:
+      operationId: R208
+      summary: 'R208: Get Search Result'
+      description: 'Get Search Result. Access: PUB'
+      tags: 
+        - 'M02: Public'
+      
+      parameters: 
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    result:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        username:
+                          type: string
+                        photo:
+                          type: string
+                      
+  /api/search/group/{page}:
+    get:
+      operationId: R209
+      summary: 'R209: Get Search Result'
+      description: 'Get Search Result. Access: PUB'
+      tags: 
+        - 'M02: Public'
+      
+      parameters: 
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    result:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        owner:
+                          type: string
+                        member_count:
+                          type: integer
+                        photo:
+                          type: string
+                          
+  /api/search/movie/{page}:
+    get:
+      operationId: R210
+      summary: 'R210: Get Search Result'
+      description: 'Get Search Result. Access: PUB'
+      tags: 
+        - 'M02: Public'
+      
+      parameters: 
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    result:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        year:
+                          type: integer
+                        photo:
+                          type: string
+                  
+                  
+                  
+                  
+  /login: 
+    get:  
+      operationId: R300
+      summary: 'R300: Login Form'
+      description: "Provide login form. Access: PUB"
+      tags: 
+        - 'M03: Authentication and Users Profile'
+      responses:
+        '200':
+          description: "Ok. Show [UI02](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui02-login-page)"
+    post:
+      operationId: R301
+      summary: 'R301: Login Action'
+      description: 'Process the login form submission. Access: PUB'
+      tags: 
+        - 'M03: Authentication and Users Profile'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required: 
+                - username
+                - password
+      responses:
+        '302':
+          description: 'Redirect after login'
+  /logout:
+    post:
+      operationId: R302
+      summary: 'R302: Logout Action'
+      description: 'Logout the current authenticated user. Access: USR, ADM'
+      tags: 
+        - 'M03: Authentication and Users Profile'
+      responses:
+        '302':
+          description: 'Redirect after processing logout'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Sucess:
+                  description: 'Successful logout. Redirect to Landing page.'
+                  value: '/'
+   
+  /register:
+    get:
+      operationId: R303
+      summary: 'R303: Register Form'
+      description: 'Provide new user registration form. Access: PUB'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      responses:
+        '200':
+          description: 'Ok. Show [UI03](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui03-sign-up-page)'
+
+    post:
+      operationId: R304
+      summary: 'R303: Register Action'
+      description: 'Processes the new user registration form submission. Access: PUB'
+      tags:
+        - 'M03: Authentication and Users Profile'
+
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                birthday:
+                  type: string
+                username:
+                  type: string
+                password:
+                  type: string
+                photo:
+                  type: string
+                  format: binary
+              required:
+                - name
+                - email
+                - birthday
+                - username
+                - password
+
+      responses:
+        '302':
+          description: 'Redirect after processing the new user information.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successful authentication. Redirect to user profile.'
+                  value: '/users/{id}'
+                302Failure:
+                  description: 'Failed authentication'
+                  value: '/register'
+                  
+  /users/{id}:
+    get:
+      operationId: R305
+      summary: 'R305: View user profile'
+      description: 'Show the individual user profile. Access: PUB'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI04](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui04-user-profile)'
+    delete:
+      operationId: R306
+      summary: 'R306: Delete Account.'
+      description: 'Delete the specified account. Access: OWN'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '302':
+          description: 'Redirect after deleting the user.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successfully deleted. Redirect to landing page.'
+                  value: '/'
+                302Failure:
+                  description: 'Failed to deletre user'
+                  value: '/users/{id}'
+                  
+  /api/users/{user_id}/edit:
+    patch:
+      operationId: R307
+      summary: 'R307: Edit User'
+      description: 'Edit user. Access: OWN'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+          
+        - in: query
+          name: name
+          schema:
+            type: string
+        - in: query
+          name: email
+          schema:
+            type: string
+        - in: query
+          name: birthday
+          schema:
+            type: string
+        - in: query
+          name: username
+          schema:
+            type: string
+        - in: query
+          name: photo
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    response:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        email:
+                          type: string
+                        birthday:
+                          type: string
+                        username:
+                          type: string
+                        photo:
+                          type: string
+  
+  /users/{user_id}/edit_password:
+    patch:
+      operationId: R308
+      summary: 'R308: Edit User password'
+      description: 'Edit user password. Access: OWN'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+          
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+              required:
+                - password
+                
+      responses:
+        '302':
+          description: 'Redirect after editing password.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successfully edited password. Redirect to user page.'
+                  value: '/user/{id}'
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    response:
+                      type: string
+                  example: 
+                    value: 'Password too short'
+        
+                    
+  /api/users/{user_id}/feed/{page}:
+    get:
+      operationId: R309
+      summary: "R309: User profile Feed"
+      description: 'Show the individual user feed. Access: PUB'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema: 
+            type: integer
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    movie:
+                      type: object
+                      properties:
+                        movie_name:
+                          type: string
+                        movie_year:
+                          type: integer
+                        movie_photo:
+                          type: string
+                          format: binary
+                    date:
+                      type: string
+                    title:
+                      type: string
+                    likes:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type:
+                              string
+                    comments:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type: string
+                          date:
+                            type: string
+                          text:
+                            type: string
+  /api/users/{user_id}/request/friend/accept/{request_id}:
+    patch:
+      operationId: R310
+      summary: 'R310: accept friend request'
+      description: ' Access: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: request_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Accepted request'
+  /api/users/{user_id}/request/friend/reject/{request_id}:
+    patch:
+      operationId: R311
+      summary: 'R311: reject friend request'
+      description: ' Access: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: request_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Rejected request'
+          
+  /api/users/{user_id}/request/group/accept/{request_id}:
+    patch:
+      operationId: R312
+      summary: 'R312: accept group request'
+      description: 'accept group request. Access: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: request_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Accepted request'
+  /api/users/{user_id}/request/group/reject/{request_id}:
+    patch:
+      operationId: R313
+      summary: 'R307: Reject group request'
+      description: ' Access: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: request_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Rejected request'
+    
+  
+  /api/users/{user_id}/notifications/{page}:
+    get:
+      operationId: R314
+      summary: 'R314: Notifications'
+      description: 'Show the notification page. Access: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      
+      responses:
+        '200':
+          description: 'Ok. Sent html code'
+
+  /users/{user_id}/friends:
+    get:
+      operationId: R315
+      summary: 'R315: Friends'
+      description: 'Show the users friend page: PUB'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Show [UI11](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui11-friends-list)'
+    
+  /api/users/{user_id}/friends/{page}:
+    get:
+      operationId: R316
+      summary: 'R316: Friends list api'
+      description: 'Show the users friend s page: PUB'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    user:
+                      type: object
+                      properties:
+                        usename:
+                          type: string
+                        name: 
+                          type: string
+                        photo:
+                          type: string
+                          
+  /api/users/{user_id}/friend_request/{asker_id}:
+    post:
+      operationId: R317
+      summary: 'R317: Friend Request'
+      description: 'Send friend request to user: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: asker_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '201':
+          description: 'Successfully created thy request'
+          
+          
+      
+  /users/{user_id}/notifications:
+    get:
+      operationId: R318
+      summary: 'R318: Notifications'
+      description: 'Show the notification page. Access: USR'
+      tags:
+        - 'M03: Authentication and Users Profile'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+      
+      responses:
+        '200':
+          description: 'Ok. Show [UI12](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui12-notification-page)'
+          
+  /api/review/{id}/like:
+    post:
+      operationId: R400
+      summary: 'R400: Like a review'
+      description: 'Add a like to review. Access: USR'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: integer
+          required: true
+      responses:
+        '201':
+          description: 'Sucess or error code'
+          
+  /api/review/{id}/comment:
+    post:
+      operationId: R401
+      summary: 'R401: Commend a review'
+      description: 'Add a comment to review. Access: USR'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                comment_text:
+                  type: string
+              required:
+                - comment_text
+      responses:
+        '201':
+          description: 'Sucess or error code'
+          
+  /api/review/{id}/report:
+    post:
+      operationId: R402
+      summary: 'R402: Report a review'
+      description: 'Add a report to review. Access: USR'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: integer
+          required: true
+      responses:
+        '201':
+          description: 'Sucess or error code'
+                      
+  /api/review/comment/{comment_id}:
+    delete:
+      operationId: R403
+      summary: 'R403: Remove a comment'
+      description: 'Add a Remove a comment. Access: USR'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: comment_id
+          schema: 
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'ok. Successfully deleted comment'
+          
+          
+  /review/{id}:
+    get:
+      operationId: R404
+      summary: 'R404: Review Page'
+      description: 'Show the Review Page'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Show [UI10](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui10-review-page)'
+          
+            
+  /api/review/{review_id}:
+    delete:
+      operationId: R405
+      summary: 'R405: Delete a review'
+      description: 'Delete a review. Access: OWN,ADM'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: review_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'ok. Successfully deleted review'
+    patch:
+      operationId: R406
+      summary: 'R406: Edit Review'
+      description: 'Edit a Review. Access: OWN'
+      tags:
+        - 'M04: Review'
+      parameters:
+        - in: path
+          name: review_id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+      responses:
+        '200':
+          description: 'Sucess editing review'
+          
+          
+  /admin/movies/board:
+    get:
+      operationId: R500
+      summary: 'R106: View Movies Admin Page'
+      description: 'Show the individual user profile. Access: ADM'
+      tags:
+        - 'M05: Administration'
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI013.1](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui131-movies-board)'
+          
+  /api/admin/movies/board/{page}:
+    get:
+      operationId: R501
+      summary: 'R501: Get Movie admin page ajax for pagination'
+      description: ' Access: ADM'
+      tags:
+        - 'M05: Administration'
+      
+      parameters: 
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    title:
+                      type: string
+                    year:
+                      type: integer
+                    photo:
+                      type: string
+  
+  /admin/reviews/board:
+    get:
+      operationId: R502
+      summary: 'R502: View Reviews Admin Page'
+      description: 'Show the individual user profile. Access: ADM'
+      tags:
+        - 'M05: Administration'
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI013.2](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui132-reviews-board)'
+  /api/admin/reviews/board/{page}:
+    get:
+      operationId: R503
+      summary: 'R503: Get Review admin page ajax for pagination'
+      description: 'Access: PUB'
+      tags:
+        - 'M05: Administration'
+      
+      parameters: 
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    movie:
+                      type: string
+                    title:
+                      type: string
+                    user:
+                      type: string
+                    times_reported:
+                      type: integer
+                      
+  
+  /admin/users/board:
+    get:
+      operationId: R504
+      summary: 'R504: View Users Admin Page'
+      description: 'Show the individual user profile. Access: ADM'
+      tags:
+        - 'M05: Administration'
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI013.3](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui133-users-board)'
+          
+  /api/admin/users/board/{page}:
+    get:
+      operationId: R505
+      summary: 'R505: Get User admin page ajax for pagination'
+      description: 'Get User admin page ajax for pagination. Access: PUB'
+      tags:
+        - 'M05: Administration'
+      
+      parameters: 
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+            
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    user:
+                      type: string
+  
+  
+  
+          
+  /api/admin/users/{user_id}/ban:
+    patch:
+      operationId: R506
+      summary: 'R506: Ban User'
+      description: 'Ban a user. Access: ADM'
+      tags:
+        - 'M05: Administration'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description:
+            'ok. Successfully banned user'
+            
+  /api/admin/users/{user_id}/unban:
+    patch:
+      operationId: R507
+      summary: 'R507: Unban User'
+      description: 'Unban a user. Access: ADM'
+      tags:
+        - 'M05: Administration'
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description:
+            'ok. Successfully unnbanned user'
+            
+  /admin/movies/add:
+    get:
+      operationId: R508
+      summary: 'R508: View Add a Movie  Page'
+      description: ' Access: ADM'
+      tags:
+        - 'M05: Administration'
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI014](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui14-add-movie)'
+  
+    post:
+      operationId:  R509
+      summary: 'R509: Add a movie'
+      description: 'Add a movie to the site. Access: ADM'
+      tags:
+        - 'M05: Administration'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                year:
+                  type: string
+                photo:
+                  type: string
+                  format: binary
+                genres:
+                  type: string
+              required:
+                - title
+                - year
+                - photo
+                - genres 
+      responses:
+        '302':
+          description: 'Redirect after adding a movie.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successfully added. Redirect to board page.'
+                  value: '/movie/{id}'
+                302Failure:
+                  description: 'Failed to add movie'
+                  value: '/admin/movies/add'
+                  
+  /api/admin/reviews/board/report/{report_id}:
+    delete:
+      operationId: R510
+      summary: 'R510: Delete a report'
+      description: 'Delete a report. Access: ADM'
+      tags:
+        - 'M05: Administration'
+      parameters:
+        - in: path
+          name: report_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'ok. Successfully deleted report'
+          
+          
+          
+          
+  /groups/list:   
+    get:
+      operationId: R600
+      summary: 'R600: View group list'
+      description: 'Show the group list. Access: PUB'
+      tags:
+        - 'M06: Group'
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI15](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui15-groups-list)'
+          
+  /groups/{group_id}:   
+    get:
+      operationId: R601
+      summary: 'R601: View group profile'
+      description: 'Show the group profile. Access: GRP'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI16](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui16-group-page)'
+          
+          
+          
+  /api/groups/{group_id}/feed/{page}:
+    get:
+      operationId: R602
+      summary: "R602: Group profile Feed"
+      description: 'Show the individual user feed. Access: GRP'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema: 
+            type: integer
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    movie:
+                      type: object
+                      properties:
+                        movie_name:
+                          type: string
+                        movie_year:
+                          type: integer
+                        movie_photo:
+                          type: string
+                          format: binary
+                    date:
+                      type: string
+                    title:
+                      type: string
+                    likes:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type:
+                              string
+                    comments:
+                      type: array
+                      items:
+                        properties:
+                          username:
+                            type: string
+                          date:
+                            type: string
+                          text:
+                            type: string  
+                      
+                      
+  /groups/{group_id}/members:
+    get:
+      operationId: R603
+      summary: 'R: Members'
+      description: 'Show the member of the group page. Access: GRP'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Show [UI17](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui17-group-members)'
+    
+  /api/groups/{group_id}/members/{page}:
+    get:
+      operationId: R604
+      summary: 'R604: Mempers list api'
+      description: 'Show the Members of the group'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: page
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    user:
+                      type: object
+                      properties:
+                        usename:
+                          type: string
+                        name: 
+                          type: string
+                        photo:
+                          type: string
+                      
+                      
+  /groups/add:
+    get:
+      operationId: R605
+      summary: 'R605: View Group add page'
+      description: 'Show the group add page. Access: USR'
+      tags:
+        - 'M06: Group'
+
+      responses:
+        '200':
+          description: 'Ok. Show [UI018](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui18-create-group-page)'
+  
+    post:
+      operationId:  R606
+      summary: 'R506: Add a group'
+      description: 'Add a group to the site. Access: USR'
+      tags:
+        - 'M06: Group'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                photo:
+                  type: string
+                  format: binary
+              required:
+                - name
+                - description
+                - photo
+      responses:
+        '302':
+          description: 'Redirect after adding a Group.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302:
+                  description: 'Successfully added. Redirect to Group page.'
+                  value: '/groups/{id}'
+                  
+  /groups/{group_id}/invitation_page:
+    get:
+      operationId: R607
+      summary: 'R607: Invitation Page'
+      description: 'Show the invitation pager of the group. Access: OWN'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: 'Ok. Show [UI19](https://git.fe.up.pt/lbaw/lbaw2021/lbaw2125/-/wikis/er#ui19-group-invite)'
+          
+  /groups/{group_id}/member/{user_id}/leave:
+    delete:
+      operationId:  R608
+      summary: 'R608: Add a group'
+      description: 'Add a group to the site. Access: USR'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '302':
+          description: 'Redirect after leaving a Group.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302:
+                  description: 'Successfully left . Redirect to User page.'
+                  value: '/users/{user_id}'
+  
+  /api/groups/{group_id}/invite/{user_id}:
+    post:
+      operationId: R609
+      summary: 'R609: Invitate Page'
+      description: 'Show the invitation pager of the group. Access: OWN'
+      tags:
+        - 'M06: Group'
+      parameters:
+        - in: path
+          name: group_id
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: user_id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: "ok."
+      
+                  
+  
+                      
+
+
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/rocas777/LBAW_MovieClub/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: http://lbaw-prod.fe.up.pt/
+tags:
+  - name: 'M01: Movie'
+  - name: 'M02: Public'
+  - name: 'M03: Authentication and Users Profile'
+  - name: 'M04: Review'
+  - name: 'M05: Administration'
+  - name: 'M06: Group'
