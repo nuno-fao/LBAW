@@ -14,26 +14,26 @@
                         Menu
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" aria-current="page" href="movie_list.php">Movies</a>
-                        <a class="dropdown-item" aria-current="page" href="groups_list.php">Groups</a>
+                        <a class="dropdown-item" aria-current="page" href="movie_list">Movies</a>
+                        <a class="dropdown-item" aria-current="page" href="groups_list">Groups</a>
                     </div>
                 </div>
             </div>
             <form class="d-flex nav-item col-lg-5 col-12 ">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <!-- <button class="btn btn-secondary" type="submit">Search</button> stayings as link while there is no JS --> 
-                <a class="btn btn-secondary" href="search_result.php">Search</a>
+                <a class="btn btn-secondary" href="search_result">Search</a>
             </form>
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
                 <div class="mt-auto mb-auto me-lg-3">
-                    <a class="" href="notifications_page.php">
+                    <a class="" href="notifications_page">
                         <i class="fa fa-bell" id="notification-symbol">
                         </i>
                     </a>
                 </div>
                 <div class="nav-item ">
-                    <a class="nav-link" aria-current="page" href="user_profile.php">{{auth()->user()->name}}</a>
+                    <a class="nav-link" aria-current="page" href="user_profile">{{auth()->user()->name}}</a>
                 </div>
                 <div class="nav-item ">
                     <a class="nav-link" aria-current="page" href="{{route('logout')}}">Logout</a>

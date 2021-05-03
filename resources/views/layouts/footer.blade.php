@@ -5,7 +5,7 @@
         Copyright &copy; 2021
         <span>The first rule about Movie Club Is we do(n't) talk about Movie Club</span>
         <!--//todo correct link -->
-        <a class="text-white" href="about_us.php">About Us</a>
+        <a class="text-white" href="about_us">About Us</a>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" defer>

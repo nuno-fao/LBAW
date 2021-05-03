@@ -37,19 +37,23 @@ INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admi
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('feugiat','Mannix','Jerry Chapman','03-03-34','pede@sodalesat.net','mus.','False');
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('dui.','Callum','Justin Oliver','08-18-55','nisl.Maecenas.malesuada@nectellusNunc.edu','ipsum','False');
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('convallis','Hall','Beck Ochoa','05-10-72','lorem.luctus@neque.org','Fusce','False');
+INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('janeDoe','Jane Doe','1984-05-17','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','False');
 
 
 INSERT INTO "movie" (title,year,photo) VALUES ('Lion King','1994','img/lionkingposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Pulp Fiction','1994','img/pulpfiction.jpg');
-INSERT INTO "movie" (title,year,photo) VALUES ('The Lord of the Rings the Return of the King','2003','img/lordoftheringsposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('The Lord of the Rings','2003','img/lordoftheringsposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Forrest Gump','1995','img/forrestgumpposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Toy Story','1997','img/toystoryposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Interstellar','2012','img/interstellarposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Roma','2019','img/romaposter.jpg');
-INSERT INTO "movie" (title,year,photo) VALUES ('Star Wars The Rise of Skywalker','2019','img/starwarsposter.jpg');
+INSERT INTO "movie" (title,year,photo) VALUES ('Star Wars','2019','img/starwarsposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Coco','2018','img/cocoposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('Fight Club','1999','img/fightclubposter.jpg');
 INSERT INTO "movie" (title,year,photo) VALUES ('The Godfather ','1972','img/thegodfatherposter.jpg');
+
+
+
 
 INSERT INTO "genre" (genre) VALUES ('Action');
 INSERT INTO "genre" (genre) VALUES ('Drama');
