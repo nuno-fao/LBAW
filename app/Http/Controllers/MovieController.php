@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Review;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,14 @@ class MovieController extends Controller
       $this->movie = $r;
       $this->movie->genres = $this->getGenres($id);
       $this->movie->reviews = ReviewController::movieReviews($this->movie,0);
+      $revs = Review::where('movie',$id)->where('user_id',auth()->user()->id)->where('group')->first();
+      if($revs != null){
+        $this->movie->myReviews = $revs->id;
+      }
+      else{
+        $this->movie->myReviews = null;
+      }
+
       return view('pages.movie', ['movie' => $this->movie]);
     }
 

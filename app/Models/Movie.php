@@ -15,6 +15,7 @@ class Movie extends Model
     public $timestamps = false;
     public $genres;
     public $reviews;
+    public $myReviews;
     protected $fillable = [
         'title',
         'year',

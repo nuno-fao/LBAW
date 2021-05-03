@@ -19,6 +19,6 @@
     <script src="{{ asset('js/feed_selector.js') }}" defer></script>
     <script src="{{ asset('js/sticky.js') }}" defer></script>
     <script src="{{ asset("js/commentTextarea.js")}}" defer> </script>
-    <script src="{{ asset("js/movie_pagination.js")}}" defer> </script>
+    <script src="{{ asset("js/movie.js")}}" defer> </script>
     <script src="{{ asset("js/delete_review_onReview.js")}}" defer> </script>
 </div>

@@ -79,7 +79,7 @@ class ReviewController extends Controller
 
       $this->authorize('create', Review::class);
 
-      $r = Review::where('movie', $request->id)->where('user_id', $request->user()->id)->where('group')->get();
+      $r = Review::where('movie', $movie_id)->where('user_id', $request->user()->id)->where('group')->get();
       if(count($r) != 0 && $request->group == null){
         return back();
       }
@@ -108,8 +108,30 @@ class ReviewController extends Controller
 
       $this->authorize('delete', $r);
 
-      if($r != null && $r->user_id == auth()->user()->id){
+      if($r != null){
         $r->delete();
       }
+    }
+
+    public function getReview($review_id){
+      return Review::find($review_id);
+    }
+
+    public function edit(Request $request,$review_id){
+      $r = Review::find($review_id);
+
+      $this->validate($request, [
+        'title' => 'required',
+        'description' => 'required',
+      ]);
+      
+      $this->authorize('edit', $r);
+
+      if($r != null){
+        $r->text = $request->description;
+        $r->title = $request->title;    
+        $r->save();    
+      }
+      return back();
     }
 }

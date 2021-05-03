@@ -23,4 +23,10 @@ class ReviewPolicy
       // Only a card owner can delete it
       return $user->id == $review->user_id;
     }
+
+    public function edit(User $user, Review $review)
+    {
+      // Only a card owner can delete it
+      return $user->id == $review->user_id;
+    }
 }

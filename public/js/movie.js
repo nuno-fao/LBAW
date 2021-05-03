@@ -20,8 +20,27 @@ movie_pagination.onload = function() {
 if(nextPage != null){
     page += 1;
     nextPage.addEventListener('click', () => {
-        console.log("/api/movie/"+movie_id+"/feed/"+page)
         movie_pagination.open("GET", "/api/movie/"+movie_id+"/feed/"+page, true);
         movie_pagination.send();
+    });
+}
+
+let group_selector = document.getElementById("group-selector")
+let group_selector_ajax = new XMLHttpRequest();
+group_selector_ajax.onload = function() {
+    if(this.responseText.length > 0){
+        let json = JSON.parse(this.responseText);
+        document.getElementById("title").value = json.title;
+        document.getElementById("description").value = json.text;
+    }
+};
+
+if(group_selector != null){
+    group_selector_ajax.open("get", "/api/review/"+group_selector.value, true);
+    group_selector_ajax.send();
+    group_selector.addEventListener('change', () => {
+        group_selector_ajax = new XMLHttpRequest();
+        group_selector_ajax.open("get", "/api/review/"+group_selector.value, true);
+        group_selector_ajax.send();
     });
 }

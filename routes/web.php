@@ -24,9 +24,11 @@ Route::post('register', 'Auth\RegisterController@register');
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
-Route::get('/api/movie/{movie_id}/feed/{page}','MovieController@getPage');
+Route::get('api/movie/{movie_id}/feed/{page}','MovieController@getPage');
+Route::post('api/movie/{id}/review','ReviewController@create');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');
-Route::post('review/{id}','ReviewController@create');
+Route::get('api/review/{review_id}','ReviewController@getReview');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
+Route::patch('api/review/{review_id}', 'ReviewController@edit');

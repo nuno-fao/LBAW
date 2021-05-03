@@ -25,7 +25,6 @@
                             {{$genre->genre}} 
                           @endforeach
                         </p>
-
                     </div>
                     <img src="{{asset($movie->photo)}}" alt="movie photo" class="rounded ml-5" width="150">
 
@@ -34,19 +33,30 @@
         </div>
         @auth
         <section>
-          <form class="card mt-4" action="{{ route('review',$movie->id )}}" method="POST">
+        @if ($movie->myReviews === null)
+          <form class="card mt-4" action="{{ "/api/movie/".$movie->id."/review"}}" method="POST" id="review_form">
+        @else
+            <form class="card mt-4" action="{{ "/api/review/".$movie->myReviews}}" method="POST" id="review_form">
+            @method('patch')
+        @endif
             @csrf
               <div class="card-body ">
                   <div class=" align-items-start text-start ">
                       <div class="mt-0 ">
 
                           <div class="d-flex justify-content-between mx-auto">
-                              <h4 class="my-auto">Add a Review</h4>
-                              <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
-                                  aria-label=".form-select-lg example">
-                                  <option value="" selected>Public</option>
-                                  <option value="2">Fight Frenzy</option>
-                                  <option value="3">Yolo</option>
+                            @if ($movie->myReviews != null)
+                                <h4 class="my-auto">Edit a Review</h4>
+                                <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
+                                  aria-label=".form-select-lg example" id="group-selector">
+                                    <option value="{{$movie->myReviews}}" selected>Public</option>   
+                            @else
+                                <h4 class="my-auto">Add a Review</h4>
+                                <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
+                                      aria-label=".form-select-lg example" id="group-selector">
+                                    <option value="" selected>Public</option>                               
+                            @endif
+
                               </select>
                           </div>
 
