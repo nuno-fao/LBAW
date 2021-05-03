@@ -132,11 +132,20 @@ INSERT INTO "group_member" (group_id,user_id) VALUES (5,24);
 INSERT INTO "group_member" (group_id,user_id) VALUES (5,25);
 
 INSERT INTO "review" (title,text,movie,user_id) VALUES ('Great movie', 'Really good movie',1,1);
-INSERT INTO "review" (title,text,movie,user_id) VALUES ('Came for the fight scenes', 'Stayed for Samuel L Jackson',2,6);
-INSERT INTO "review" (title,text,movie,user_id) VALUES ('Best movie ever', 'Its really long tho',3,11);
-INSERT INTO "review" (title,text,movie,user_id) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,16);
-INSERT INTO "review" (title,text,movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
-INSERT INTO "review" (title,text,movie,user_id) VALUES ('My kids loved it', 'They saw it on Netflix and absolutely loved the Buzz',5,24);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Great movie', 'This is a film that can entertain anyone young or old, I usually dont care for animated movies but this film is the real deal, this is one of disney best animated movies. The animation is top notch and flawless. This film also features superb work from the vocal cast James Earl Jones, Jeremy Irons, Whoopi Goldberg. This is a standout.',1,2);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Wow', 'I rank this animated film among the great films I have ever seen. It was part of my childhood and it is a film experience I will never forget. And hopefully, you wont either. A++',1,3);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Great movie', 'Best thing ever',1,4);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Amazin movie', 'Amazing  movie',1,5);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Best movie', 'Is there any character called Nala??',1,6);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Yeah....', 'Better than the 2019 version',1,7);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Great movie', 'Why do theu need to fight?',1,8);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Old movie', 'My mother was 20 when it came out',1,9);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Nop', 'My bird likes it',1,10);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Awful movie', 'Awful',1,11);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Not Great', 'Liked toy story better',1,12);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Came for the fight scenes', 'Stayed for Samuel L Jackson',2,2);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Best movie ever', 'Its really long tho',3,3);
+INSERT INTO "review" (title,text,movie,user_id) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,4);
 
 INSERT INTO "like" ("user",review) VALUES (2,1);
 INSERT INTO "like" ("user",review) VALUES (3,1);

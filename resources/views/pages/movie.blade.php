@@ -34,7 +34,7 @@
         @auth
         <section>
         @if ($movie->myReviews === null)
-          <form class="card mt-4" action="{{ "/api/movie/".$movie->id."/review"}}" method="POST" id="review_form">
+        <form class="card mt-4" action="{{ "/api/movie/".$movie->id."/review"}}" method="POST" id="review_form">
         @else
             <form class="card mt-4" action="{{ "/api/review/".$movie->myReviews}}" method="POST" id="review_form">
             @method('patch')

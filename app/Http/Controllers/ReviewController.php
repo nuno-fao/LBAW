@@ -39,7 +39,7 @@ class ReviewController extends Controller
     static public function movieReviews(Movie $movie,int $page)
     {   
         
-        $r = Review::where('movie',$movie->id)->where('group')->orderBy('date', 'DESC')->skip($page*10)->take(10)->get();
+        $r = Review::where('movie',$movie->id)->where('group')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
         foreach($r as $aux){
             $aux->user = ReviewController::getUser($aux);
             $aux->likes = ReviewController::getLikes($aux->id);

@@ -18,8 +18,8 @@ movie_pagination.onload = function() {
     document.getElementById("review_section").innerHTML += this.responseText;
 };
 if(nextPage != null){
-    page += 1;
     nextPage.addEventListener('click', () => {
+        page += 1;
         movie_pagination.open("GET", "/api/movie/"+movie_id+"/feed/"+page, true);
         movie_pagination.send();
     });
