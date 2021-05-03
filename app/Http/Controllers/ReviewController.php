@@ -72,7 +72,12 @@ class ReviewController extends Controller
         return User::find($review->user_id);
     }
 
-    public function store(Request $request,$movie_id){
+    public function create(Request $request,$movie_id){
+
+
+      $n_review = new Review();
+
+      $this->authorize('create', Review::class);
 
       $r = Review::where('movie', $request->id)->where('user_id', $request->user()->id)->where('group')->get();
       if(count($r) != 0 && $request->group == null){
@@ -84,15 +89,15 @@ class ReviewController extends Controller
         'description' => 'required',
       ]);
 
+      
 
-      $request->user()->reviews()->create([
+      $n_review->create([
         'title' => $request->title,
         'text' => $request->description,
         'date' => date('Y-m-d H:i:s'),
         'movie' => $request->id,
         'group' => $request->group,
         'user_id' => $request->user()->id,
-       
       ]);
 
       return back();
@@ -100,6 +105,9 @@ class ReviewController extends Controller
 
     public function delete(Request $request,$review_id){
       $r = Review::find($review_id);
+
+      $this->authorize('delete', $r);
+
       if($r != null && $r->user_id == auth()->user()->id){
         $r->delete();
       }

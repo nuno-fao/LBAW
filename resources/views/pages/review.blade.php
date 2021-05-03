@@ -41,13 +41,11 @@
                     <a class="btn text-dark" href="#">{{--  REDIRECT TO USER PROFILE --}}
                         by {{$review->user->username}}
                     </a>
-                    @auth
-                        @if ($review->user_id == auth()->user()->id)
-                            <button class="btn btn-primary" id="deleteButton">
-                                Delete
-                            </button>
-                        @endif                        
-                    @endauth
+                    @can('delete',$review)
+                        <button class="btn btn-primary" id="deleteButton">
+                            Delete
+                        </button>                     
+                    @endcan
                 </div>
                 <div class="col col-12 no-padding">
                     <small col>
@@ -84,7 +82,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form>                    
                 @endauth
             </div>
             

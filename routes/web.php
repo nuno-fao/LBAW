@@ -28,5 +28,5 @@ Route::get('/api/movie/{movie_id}/feed/{page}','MovieController@getPage');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');
-Route::post('review/{id}','ReviewController@store');
+Route::post('review/{id}','ReviewController@create');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
