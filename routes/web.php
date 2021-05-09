@@ -32,3 +32,6 @@ Route::get('review/{id}','ReviewController@show')->name('review');
 Route::get('api/review/{review_id}','ReviewController@getReview');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
 Route::patch('api/review/{review_id}', 'ReviewController@edit');
+
+//User Profile
+Route::get('user/{user}','UserController@show')->name('user');
