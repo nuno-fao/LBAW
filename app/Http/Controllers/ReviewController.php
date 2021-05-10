@@ -55,7 +55,7 @@ class ReviewController extends Controller
 
     static public function getComments ($review)
     {   
-        $c = Comment::where('review',$review)->orderBy('date')->get();
+        $c = Comment::where('review_id',$review)->orderBy('date')->get();
         foreach($c as $comment){
             $comment->user = CommentController::getUser($comment->user_id);
         }
