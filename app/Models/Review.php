@@ -11,7 +11,8 @@ class Review extends Model
     protected $table = 'review';
     protected $primaryKey = 'id';
 
-   
+    public $incrementing = true;
+    public $timestamps = false;
     
 
     protected $fillable = [
