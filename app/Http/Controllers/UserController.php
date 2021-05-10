@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function show(User $user){
 
-        $reviews = Review::get();
+        $reviews = $user->reviews()->with(['user'])->paginate(10);
         
         return view('pages.user_profile', [
             'user' => $user,
