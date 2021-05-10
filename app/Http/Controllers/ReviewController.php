@@ -91,13 +91,12 @@ class ReviewController extends Controller
 
       
 
-      $n_review->create([
+      $request->user()->reviews()->create([
         'title' => $request->title,
         'text' => $request->description,
         'date' => date('Y-m-d H:i:s'),
         'movie' => $request->id,
-        'group' => $request->group,
-        'user_id' => $request->user()->id,
+        'group' => $request->group
       ]);
 
       return back();
@@ -134,4 +133,6 @@ class ReviewController extends Controller
       }
       return back();
     }
+
+  
 }
