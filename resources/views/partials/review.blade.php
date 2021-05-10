@@ -24,11 +24,11 @@
             </div>
             <a class="btn" data-toggle="collapse" href="#comments" role="button" aria-expanded="false"
                 aria-controls="comments0"> 
-                {{$review->comments->count()}} comments
+                {{-- {{$review->comments->count()}} comments --}}
             </a>
         </div>
         
-        <div class="comment-section mt-3 collapse" id="comments">
+        {{-- <div class="comment-section mt-3 collapse" id="comments">
             @if($review->comments->count() > 0)
                 @each('partials.comment',$review->comments,'comment')
             @endif
@@ -46,7 +46,7 @@
                 </div>
             </form>
             @endauth
-        </div>      
+        </div>       --}}
        
     </div>
 </div>
