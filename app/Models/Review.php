@@ -11,13 +11,8 @@ class Review extends Model
     protected $table = 'review';
     protected $primaryKey = 'id';
 
-    public $incrementing = true;
-    public $timestamps = false;
-
-    public $comments;
-    public $moviep;
-    public $likes;
-    public $user;
+   
+    
 
     protected $fillable = [
         'id',
@@ -28,4 +23,9 @@ class Review extends Model
         'group',
         'user_id'
     ];
+
+    public function user(){
+
+        return $this->belongsTo(User::class);
+    }
 }
