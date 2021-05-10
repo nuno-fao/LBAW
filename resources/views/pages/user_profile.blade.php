@@ -77,9 +77,8 @@
         <h4 class="text-center">
             Latest Reviews
         </h4>
-        <?php
-        //Meter reviews aqui
-        ?>
+         @each('partials.review', $reviews, 'review')
+        
     </section>
 </div>
 
