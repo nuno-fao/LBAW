@@ -158,14 +158,14 @@ CREATE TABLE comment
     id serial NOT NULL ,
     text text NOT NULL,
     user_id integer NOT NULL,
-    review integer NOT NULL,
+    review_id integer NOT NULL,
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT comment_pkey PRIMARY KEY (id),
     CONSTRAINT comment_user_id_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT comment_review_fkey FOREIGN KEY (review)
+    CONSTRAINT comment_review_fkey FOREIGN KEY (review_id)
         REFERENCES public.review (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE

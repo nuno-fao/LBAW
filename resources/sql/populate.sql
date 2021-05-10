@@ -159,10 +159,10 @@ INSERT INTO "like" ("user",review) VALUES (14,3);
 INSERT INTO "like" ("user",review) VALUES (16,4);
 INSERT INTO "like" ("user",review) VALUES (19,4);
 
-INSERT INTO "comment" (text,user_id,review) VALUES ('I Totally agree, but your review could be a little longer',5,1);
-INSERT INTO "comment" (text,user_id,review) VALUES ('How dare you make a review about Pulp Fiction and only mention Samuel L Jackson',8,2);
-INSERT INTO "comment" (text,user_id,review) VALUES ('I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat',14,3);
-INSERT INTO "comment" (text,user_id,review) VALUES ('Jenny is a complex character and i just cant understand the hate she gets in this site',18,3);
+INSERT INTO "comment" (text,user_id,review_id) VALUES ('I Totally agree, but your review could be a little longer',5,1);
+INSERT INTO "comment" (text,user_id,review_id) VALUES ('How dare you make a review about Pulp Fiction and only mention Samuel L Jackson',8,2);
+INSERT INTO "comment" (text,user_id,review_id) VALUES ('I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat',14,3);
+INSERT INTO "comment" (text,user_id,review_id) VALUES ('Jenny is a complex character and i just cant understand the hate she gets in this site',18,3);
 
 INSERT INTO "rating" (rating,movie,"user") VALUES (10,1,1);
 INSERT INTO "rating" (rating,movie,"user") VALUES (8,1,2);
