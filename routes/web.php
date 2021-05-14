@@ -11,7 +11,6 @@
 |
 */
 // Home
-
 Route::get('/', 'LandingController@index')->name('landing_page');
 
 
@@ -35,3 +34,6 @@ Route::patch('api/review/{review_id}', 'ReviewController@edit');
 
 //User Profile
 Route::get('user/{user}','UserController@show')->name('user');
+
+//Feed
+Route::get('feed', 'FeedController@index')->name('feed');

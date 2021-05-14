@@ -22,9 +22,9 @@
     </div>
 </div>
 <div class="container text-center">
-    <button type="button" class="btn btn-lg btn-block btn-primary my-3 mx-auto wide w-50">
-        Or check out the most popular movies
-    </button>
+    <a type="button" class="btn btn-lg btn-block btn-primary my-3 mx-auto wide w-50" href="{{route('feed')}}">
+        Or check out our user's most recent activity
+    </a>
 
     <div class=" row">
         @foreach($movies as $movie)
