@@ -15,7 +15,6 @@ class Comment extends Model
     public $incrementing = true;
     public $timestamps = false;
 
-    public $user;
 
     protected $fillable = [
         'text',
@@ -23,4 +22,8 @@ class Comment extends Model
         'review_id',
         'date',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

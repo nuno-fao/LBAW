@@ -26,8 +26,6 @@ class ReviewController extends Controller
       }
 
       $this->review = $r;
-      $this->review->moviep = $this->getMovie($r->movie);
-      $this->review->likes = $this->getLikes($id);
 
       //TODO ADD GROUP
 
@@ -38,11 +36,6 @@ class ReviewController extends Controller
     {   
         
         $r = Review::where('movie_id',$movie->id)->where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
-        foreach($r as $aux){
-            $aux->user = ReviewController::getUser($aux);
-            $aux->likes = ReviewController::getLikes($aux->id);
-            $aux->comments = ReviewController::getComments($aux->id);
-        }
         return $r;
     }
 

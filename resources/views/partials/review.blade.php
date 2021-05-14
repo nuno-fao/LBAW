@@ -20,7 +20,7 @@
         </div>
         <div class="card-footer d-flex d-flex justify-content-between review-footer">
             <div class="like_button no-padding">
-                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> {{$review->likes}}</i>
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"> {{$review->likes->count()}}</i>
             </div>
             <a class="btn" data-toggle="collapse" href="#comments{{$review->id}}" role="button" aria-expanded="false"
                 aria-controls="comments{{$review->id}}"> 

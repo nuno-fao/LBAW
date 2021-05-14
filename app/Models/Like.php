@@ -16,7 +16,7 @@ class Like extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'user',
-        'review',
+        'user_id',
+        'review_id',
     ];
 }

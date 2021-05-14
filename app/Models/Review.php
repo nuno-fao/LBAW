@@ -21,8 +21,8 @@ class Review extends Model
         'title',
         'text',
         'date',
-        'movie',
-        'group',
+        'movie_id',
+        'group_id',
         'user_id'
     ];
 
@@ -33,6 +33,14 @@ class Review extends Model
 
     public function comments() {
         return $this->hasMany(Comment::class);
+    }
+
+    public function likes() {
+        return $this->hasMany(Like::class);
+    }
+
+    public function movie() {
+        return $this->belongsTo(Movie::class);
     }
 
 }
