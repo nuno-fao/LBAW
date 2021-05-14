@@ -70,7 +70,7 @@ class ReviewController extends Controller
 
       $this->authorize('create', Review::class);
 
-      $r = Review::where('movie', $movie_id)->where('user_id', $request->user()->id)->where('group')->get();
+      $r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
       if(count($r) != 0 && $request->group == null){
         return back();
       }
@@ -86,8 +86,8 @@ class ReviewController extends Controller
         'title' => $request->title,
         'text' => $request->description,
         'date' => date('Y-m-d H:i:s'),
-        'movie' => $request->id,
-        'group' => $request->group
+        'movie_id' => $request->id,
+        'group_id' => $request->group
       ]);
 
       return back();

@@ -10,7 +10,7 @@
 </nav>
 
 
-<div id="feed-selector" class="d-flex me-auto justify-content-center mt-0 sticky-top bg-light">
+<div id="feed-selector" class="d-flex me-auto justify-content-center mt-0 sticky-top">
     <div class="mx-1" id="btn-public">
         <button class="btn btn-secondary rounded-0">
             Public Feed
@@ -27,15 +27,12 @@
     @endauth
 </div>
 <div class="feed mt-5" id="public_feed">
-    <h4 class="display-6 text-center">
-        Public Feed
-        @each('partials.review&movie',$reviews,'review')
-    </h4>
     
+    @each('partials.review&movie',$reviews,'review')
 </div>
 @auth
 <div class="feed mt-5" id="friends_feed">
-    <h4 class="display-6 text-center">Friends Feed</h4>
+    
     {{-- DRAW FRIENDS REVIEWS --}}
 </div>
 @endauth

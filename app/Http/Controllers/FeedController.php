@@ -9,7 +9,7 @@ class FeedController extends Controller
 {
     public function index(){
 
-        $reviews = Review::get();
+        $reviews = Review::orderBy('date','DESC')->get();
         return view('pages.feed', [
             'reviews' => $reviews,
         ]);

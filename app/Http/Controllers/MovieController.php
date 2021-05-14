@@ -26,7 +26,7 @@ class MovieController extends Controller
       $this->movie->genres = $this->getGenres($id);
       $this->movie->reviews = ReviewController::movieReviews($this->movie,0);
       if(auth()->user() != null){
-        $revs = Review::where('movie',$id)->where('user_id',auth()->user()->id)->where('group')->first();
+        $revs = Review::where('movie_id',$id)->where('user_id',auth()->user()->id)->where('group_id')->first();
       }
       else{ 
         $revs = null;
