@@ -82,6 +82,6 @@ class MovieController extends Controller
     }
 
     private function getGenres(int $id){
-      return DB::select('SELECT genre.genre FROM genre INNER JOIN movie_genre ON genre.id = movie_genre.genre INNER JOIN movie ON movie_genre.movie = movie.id WHERE (movie.id = :id) ',['id' => $this->movie->id]);
+      return DB::select('SELECT genre.genre FROM genre INNER JOIN movie_genre ON genre.id = movie_genre.genre_id INNER JOIN movie ON movie_genre.movie_id = movie.id WHERE (movie.id = :id) ',['id' => $this->movie->id]);
     }
 }

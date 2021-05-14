@@ -31,14 +31,14 @@ CREATE TABLE genre
 DROP TABLE IF EXISTS movie_genre CASCADE;
 CREATE TABLE movie_genre
 (
-    genre integer NOT NULL,
-    movie integer NOT NULL,
-    CONSTRAINT movie_genre_pkey PRIMARY KEY (genre, movie),
-    CONSTRAINT genre_key FOREIGN KEY (genre)
+    genre_id integer NOT NULL,
+    movie_id integer NOT NULL,
+    CONSTRAINT movie_genre_pkey PRIMARY KEY (genre_id, movie_id),
+    CONSTRAINT genre_key FOREIGN KEY (genre_id)
         REFERENCES genre (id) 
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT movie_key FOREIGN KEY (movie)
+    CONSTRAINT movie_key FOREIGN KEY (movie_id)
         REFERENCES public.movie (id) 
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -96,15 +96,15 @@ CREATE TABLE "group"
 DROP TABLE IF EXISTS "group_member" CASCADE;
 CREATE TABLE group_member
 (
-    "group_id" integer NOT NULL,
-    "user_id" integer NOT NULL,
+    group_id integer NOT NULL,
+    user_id integer NOT NULL,
     membership_state state NOT NULL DEFAULT 'pending',
-    CONSTRAINT group_member_pkey PRIMARY KEY ("group_id", "user_id"),
-    CONSTRAINT group_member_group_fkey FOREIGN KEY ("group_id")
+    CONSTRAINT group_member_pkey PRIMARY KEY (group_id, user_id),
+    CONSTRAINT group_member_group_fkey FOREIGN KEY (group_id)
         REFERENCES public."group" (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT group_member_user_fkey FOREIGN KEY ("user_id")
+    CONSTRAINT group_member_user_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -117,20 +117,20 @@ CREATE TABLE review
     title text  NOT NULL,
     text text NOT NULL,
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "group" integer,
-    movie integer NOT NULL,
+    group_id integer,
+    movie_id integer NOT NULL,
     user_id integer NOT NULL,
     CONSTRAINT review_pkey PRIMARY KEY (id),
-    CONSTRAINT review_group_movie_user_id_key UNIQUE ("group", movie, user_id),
+    CONSTRAINT review_group_movie_user_id_key UNIQUE (group_id, movie_id, user_id),
     CONSTRAINT review_user_id_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT review_group_fkey FOREIGN KEY ("group")
+    CONSTRAINT review_group_fkey FOREIGN KEY (group_id)
         REFERENCES public."group" (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT review_movie_fkey FOREIGN KEY (movie)
+    CONSTRAINT review_movie_fkey FOREIGN KEY (movie_id)
         REFERENCES public.movie (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -139,14 +139,14 @@ CREATE TABLE review
 DROP TABLE IF EXISTS "like" CASCADE;
 CREATE TABLE "like"
 (
-    "user" integer NOT NULL,
-    review integer NOT NULL,
-    CONSTRAINT like_pkey PRIMARY KEY ("user", review),
-    CONSTRAINT like_review_fkey FOREIGN KEY (review)
+    user_id integer NOT NULL,
+    review_id integer NOT NULL,
+    CONSTRAINT like_pkey PRIMARY KEY (user_id, review_id),
+    CONSTRAINT like_review_fkey FOREIGN KEY (review_id)
         REFERENCES public.review (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT like_user_fkey FOREIGN KEY ("user")
+    CONSTRAINT like_user_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -176,16 +176,16 @@ CREATE TABLE rating
 (
     id serial NOT NULL ,
     rating integer NOT NULL,
-    movie integer NOT NULL,
-    "user" integer NOT NULL,
+    movie_id integer NOT NULL,
+    user_id integer NOT NULL,
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT rating_pkey PRIMARY KEY (id),
-    CONSTRAINT rating_user_movie_key UNIQUE ("user", movie),
-    CONSTRAINT rating_movie_fkey FOREIGN KEY (movie)
+    CONSTRAINT rating_user_movie_key UNIQUE (user_id, movie_id),
+    CONSTRAINT rating_movie_fkey FOREIGN KEY (movie_id)
         REFERENCES public.movie (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT rating_user_fkey FOREIGN KEY ("user")
+    CONSTRAINT rating_user_fkey FOREIGN KEY (user_id)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
@@ -230,8 +230,8 @@ CREATE FUNCTION check_review_date() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT * FROM (SELECT * FROM review 
-        INNER JOIN movie ON movie.id = review.movie
-        WHERE NEW.movie = movie.id ) TMP where EXTRACT(YEAR FROM NEW.date) < year  ) THEN
+        INNER JOIN movie ON movie.id = review.movie_id
+        WHERE NEW.movie_id = movie.id ) TMP where EXTRACT(YEAR FROM NEW.date) < year  ) THEN
             RAISE EXCEPTION 'A Review cannot be published before the movie official debut';
     END IF;
     RETURN NEW;
@@ -250,8 +250,8 @@ CREATE FUNCTION check_rating_date() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT * FROM (SELECT * FROM rating 
-        INNER JOIN movie ON movie.id = rating.movie
-        WHERE NEW.movie = movie.id ) TMP where EXTRACT(YEAR FROM New.date) < year  ) THEN
+        INNER JOIN movie ON movie.id = rating.movie_id
+        WHERE NEW.movie_id = movie.id ) TMP where EXTRACT(YEAR FROM New.date) < year  ) THEN
             RAISE EXCEPTION 'A Movie cannot be rated before its official debut';
     END IF;
     RETURN NEW;
