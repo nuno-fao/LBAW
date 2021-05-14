@@ -22,13 +22,13 @@
             <div class="like_button no-padding">
                 <i onclick="myFunction(this)" class="fa fa-thumbs-up"> {{$review->likes}}</i>
             </div>
-            <a class="btn" data-toggle="collapse" href="#comments" role="button" aria-expanded="false"
-                aria-controls="comments0"> 
+            <a class="btn" data-toggle="collapse" href="#comments{{$review->id}}" role="button" aria-expanded="false"
+                aria-controls="comments{{$review->id}}"> 
                 {{$review->comments->count()}} comments 
             </a>
         </div>
         
-         <div class="comment-section mt-3 collapse" id="comments">
+         <div class="comment-section mt-3 collapse" id="comments{{$review->id}}">
             @if($review->comments->count() > 0)
                 @each('partials.comment',$review->comments,'comment')
             @endif
