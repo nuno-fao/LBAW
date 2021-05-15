@@ -39,29 +39,29 @@ class ReviewController extends Controller
         return $r;
     }
 
-    static public function getMovie($movie)
-    {   
-        return Movie::find($movie);
-    }
+    // static public function getMovie($movie)
+    // {   
+    //     return Movie::find($movie);
+    // }
 
-    static public function getComments ($review)
-    {   
-        $c = Comment::where('review_id',$review)->orderBy('date')->get();
-        foreach($c as $comment){
-            $comment->user = CommentController::getUser($comment->user_id);
-        }
-        return $c;
-    }
+    // static public function getComments ($review)
+    // {   
+    //     $c = Comment::where('review_id',$review)->orderBy('date')->get();
+    //     foreach($c as $comment){
+    //         $comment->user = CommentController::getUser($comment->user_id);
+    //     }
+    //     return $c;
+    // }
 
-    static public function getLikes ($review)
-    {   
-        return Like::where('review_id',$review)->count();
-    }
+    // static public function getLikes ($review)
+    // {   
+    //     return Like::where('review_id',$review)->count();
+    // }
 
-    static public function getUser ($review)
-    {   
-        return User::find($review->user_id);
-    }
+    // static public function getUser ($review)
+    // {   
+    //     return User::find($review->user_id);
+    // }
 
     public function create(Request $request,$movie_id){
 

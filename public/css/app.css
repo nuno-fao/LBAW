@@ -175,3 +175,7 @@ a.stretched-link.review-link {
 .comment-area {
   resize: none;
 }
+
+.background_color {
+  background-color: rgb(245, 245, 245);
+}

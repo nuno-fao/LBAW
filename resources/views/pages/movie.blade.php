@@ -2,6 +2,9 @@
 
 @section('content')
 
+<script src="{{ asset("js/movie.js")}}" defer> </script>
+
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>
