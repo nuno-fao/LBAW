@@ -57,7 +57,7 @@ class LoginController extends Controller
             return back()->with('status', 'Invalid login details');
         }
 
-        return redirect()->route('landing_page');
+        return redirect()->route('feed');
         
     }
 

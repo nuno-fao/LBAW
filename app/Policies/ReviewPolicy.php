@@ -21,7 +21,7 @@ class ReviewPolicy
     public function delete(User $user, Review $review)
     {
       // Only a card owner can delete it
-      return $user->id == $review->user_id;
+      return $user->id == $review->user_id || $user->admin == true ;
     }
 
     public function edit(User $user, Review $review)
