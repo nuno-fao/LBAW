@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="col-lg-12 col-12 mt-5 row mx-auto">
     <aside id="user_info" class="col-xl-4 col-lg-5 col-12 fixed sticky_left_aside">
-        <div class="card mx-auto">
+        <div class="card mx-3">
             <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                     <img src="{{asset($user->photo)}}" alt="Admin" class="rounded-circle" width="150">
@@ -22,13 +22,13 @@
                 </div>
             </div>
         </div>
-        <section id="collapsable_section">
+        <section id="collapsable_section ">
             <div class="text-center">
                 <h4 class="mt-3 text-center">Friends</h4>
                 <a class="nav-link py-0" href="friends_page.php">view all</a>
                 
             </div>
-            <section class="d-flex flex-lg-row flex-column" id="down_section">
+            <section class="d-flex flex-lg-row flex-column me-3" id="down_section">
                 <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
                     <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
