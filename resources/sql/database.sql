@@ -192,33 +192,33 @@ CREATE TABLE rating
     CONSTRAINT rating_rating_check CHECK (rating > 0 AND rating <= 10)
 );
 
-DROP TABLE IF EXISTS notifications CASCADE;
-CREATE TABLE notifications
+DROP TABLE IF EXISTS notification CASCADE;
+CREATE TABLE notification
 (
     id serial NOT NULL,
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    recipient integer NOT NULL,
-    group_invite integer,
-    friend_invite integer,
-    reported_review integer,
-    CONSTRAINT notifications_pkey PRIMARY KEY (id),
-    CONSTRAINT notifications_friend_invite_fkey FOREIGN KEY (friend_invite)
+    signed_user_id integer NOT NULL,
+    group_id integer,
+    friend_id integer,
+    review_id integer,
+    CONSTRAINT notification_pkey PRIMARY KEY (id),
+    CONSTRAINT notification_friend_id_fkey FOREIGN KEY (friend_id)
         REFERENCES public.signed_user (id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT notifications_group_invite_fkey FOREIGN KEY (group_invite)
+    CONSTRAINT notification_group_id_fkey FOREIGN KEY (group_id)
         REFERENCES public."group" (id) 
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT notifications_recipient_fkey FOREIGN KEY (recipient)
+    CONSTRAINT notification_signed_user_id_fkey FOREIGN KEY (signed_user_id)
         REFERENCES public.signed_user (id) 
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT notifications_reported_review_fkey FOREIGN KEY (reported_review)
+    CONSTRAINT notification_review_id_fkey FOREIGN KEY (review_id)
         REFERENCES public.review (id) 
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT notifications_check CHECK (group_invite IS NULL AND friend_invite IS NULL AND reported_review IS NOT NULL OR group_invite IS NULL AND friend_invite IS NOT NULL AND reported_review IS NULL OR group_invite IS NOT NULL AND friend_invite IS NULL AND reported_review IS NULL) NOT VALID
+    CONSTRAINT notification_check CHECK (group_id IS NULL AND friend_id IS NULL AND review_id IS NOT NULL OR group_id IS NULL AND friend_id IS NOT NULL AND review_id IS NULL OR group_id IS NOT NULL AND friend_id IS NULL AND review_id IS NULL) NOT VALID
 );
 
 -----------------------------------------
@@ -269,7 +269,7 @@ DROP FUNCTION IF EXISTS  add_auto_notification_friend  CASCADE;
 CREATE FUNCTION add_auto_notification_friend() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    INSERT INTO "notifications" (recipient,friend_invite) VALUES (NEW.signed_user_id1,NEW.signed_user_id2);
+    INSERT INTO "notification" (signed_user_id,friend_id) VALUES (NEW.signed_user_id1,NEW.signed_user_id2);
     RETURN NEW;
 END
 $BODY$
@@ -287,7 +287,7 @@ DROP FUNCTION IF EXISTS  add_auto_notification_group CASCADE;
 CREATE FUNCTION add_auto_notification_group() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    INSERT INTO "notifications" (recipient,group_invite) VALUES (NEW.user_id,NEW.group_id);
+    INSERT INTO "notification" (signed_user_id,group_id) VALUES (NEW.user_id,NEW.group_id);
     RETURN NEW;
 END
 $BODY$
@@ -321,8 +321,8 @@ CREATE TRIGGER friend_relation
 CREATE FUNCTION check_if_admin() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-	IF NEW.reported_review IS NOT NULL AND EXISTS (SELECT * FROM signed_user WHERE NEW.recipient = signed_user.id AND signed_user.admin = false) THEN
-            RAISE EXCEPTION 'Only Admin user can receive reported reviews notifications';
+	IF NEW.review_id IS NOT NULL AND EXISTS (SELECT * FROM signed_user WHERE NEW.signed_user_id = signed_user.id AND signed_user.admin = false) THEN
+            RAISE EXCEPTION 'Only Admin user can receive reported reviews notification';
     END IF;
     RETURN NEW;
 END
@@ -331,7 +331,7 @@ LANGUAGE plpgsql;
  
  
 CREATE TRIGGER is_admin
-    BEFORE INSERT OR UPDATE ON notifications
+    BEFORE INSERT OR UPDATE ON notification
     FOR EACH ROW
     EXECUTE PROCEDURE check_if_admin();
 

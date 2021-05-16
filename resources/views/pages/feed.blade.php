@@ -42,7 +42,7 @@
 @endauth
 
 <div class="d-flex justify-content-center">
-@if ($reviews->count() == 10)
+@if (count($reviews) == 10)
     <button class="btn btn-primary  " id="nextPage">
         Next Page
     </button>

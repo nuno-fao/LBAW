@@ -27,7 +27,7 @@
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
                 <div class="mt-auto mb-auto me-lg-3">
-                    <a class="" href="notifications_page">
+                    <a class="" href="{{route('notifications')}}">
                         <i class="fa fa-bell" id="notification-symbol">
                         </i>
                     </a>
