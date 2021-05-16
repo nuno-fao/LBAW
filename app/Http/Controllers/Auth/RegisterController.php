@@ -88,6 +88,7 @@ class RegisterController extends Controller
             'date_of_birth' => $request->birthday,
             'username' => $request->username,
             'password' => Hash::make($request->password),
+            'photo' => 'img/user_pic.png'
         ]);
 
         return redirect()->route('login');
