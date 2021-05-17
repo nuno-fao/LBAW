@@ -13,6 +13,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="{{asset('select2/dist/css/select2.min.css')}}">
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{asset('select2/dist/js/select2.min.js')}}" type="text/javascript"></script>
     <!-- Styles -->
     
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -22,11 +27,14 @@
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
         // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
+
+    
     </script>
     <script type="text/javascript" src={{ asset('js/app.js') }} defer>
   </script>
   </head>
   <body>
+    
     @if (!Auth::check())
       @include('layouts.navbar_visitor')
     @else
