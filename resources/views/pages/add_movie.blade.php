@@ -14,28 +14,28 @@
 <section class="container">
     <div class="d-flex justify-content-center ">
         
-        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" action="groups_list.php" method="post">
-
+        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" action="{{ route('add_movie') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="row">
 
                 <div class= "col">
-                    <label for="groupName" class="form-label mt-3 ">Movie Name</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " id="groupName" aria-describedby="groupName">
+                    <label for="movieName" class="form-label mt-3 ">Movie Name</label>
+                    <input type="text" class="col-7 form-control border border-1rounded-1 " name="movieName" id="movieName" aria-describedby="movieName">
                 </div>
 
                 <div class= "col">
                     <label for="year" class="form-label mt-3 ">Year</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " id="year" aria-describedby="year">
+                    <input type="text" class="col-7 form-control border border-1rounded-1 " name ="year" id="year" aria-describedby="year">
                 </div>
                 
                 
             </div>
             
-            <label for="groupName" class="form-label mt-3 ">Movie Description</label>
-            <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " id="groupName" aria-describedby="groupName"></textarea>
+            <label for="movieDescription" class="form-label mt-3 ">Movie Description</label>
+            <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription"></textarea>
 
-            <label class="form-label mt-3" for="customFile">Upload Movie Poster</label>
-            <input type="file" class="form-control" id="customFile" />
+            <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
+            <input type="file" class="form-control" id="moviePoster" name="moviePoster"/>
 
          
 

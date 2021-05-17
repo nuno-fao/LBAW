@@ -26,6 +26,7 @@ Route::get('movie/{id}', 'MovieController@show')->name('movie');
 Route::get('api/movie/{movie_id}/feed/{page}','MovieController@getPage');
 Route::post('api/movie/{id}/review','ReviewController@create');
 Route::get('add_movie', 'MovieController@add_page')->name('add_movie');
+Route::post('add_movie', 'MovieController@create');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');

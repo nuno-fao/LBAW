@@ -18,6 +18,7 @@ class Movie extends Model
     public $myReviews;
     protected $fillable = [
         'title',
+        'description',
         'year',
         'photo'
     ];

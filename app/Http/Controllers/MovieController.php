@@ -59,7 +59,7 @@ class MovieController extends Controller
 
     public function add_page(){
 
-      
+
       return view('pages.add_movie');
     }
 
@@ -69,12 +69,31 @@ class MovieController extends Controller
      * @return Movie The movie created.
      */
     public function create(Request $request)
-    {
-      $movie = new Movie();
-      $this->authorize('create', $movie);
-      $movie->save();
+    { 
 
-      return $movie;
+      $this->validate($request, [
+        'movieName' => 'required',
+        'year' => 'required',
+        'movieDescription' => 'required',
+        'moviePoster' => 'required|image'
+      ]);
+
+      $imageName = time().'.'.$request->moviePoster->extension();  
+     
+      $request->moviePoster->move(public_path('img'), $imageName);
+        
+        Movie::create([
+          'title' => $request->movieName,
+          'year' => $request->year,
+          'description' => $request->movieDescription,
+          'photo' => 'img/'.$imageName,
+      ]);
+      
+     
+
+      
+
+      return redirect()->route('landing_page');
     }
 
     public function delete(Request $request, $id)
