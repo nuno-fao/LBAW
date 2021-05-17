@@ -57,6 +57,12 @@ class MovieController extends Controller
       return view('pagination.movie', ['movie' => $this->movie]);
     }
 
+    public function add_page(){
+
+      
+      return view('pages.add_movie');
+    }
+
     /**
      * Creates a new movie.
      *
