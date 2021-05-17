@@ -13,6 +13,7 @@ CREATE TABLE movie
 (
     id serial NOT NULL,
     title text  NOT NULL,
+    description text,
     year integer NOT NULL,
     photo text ,
     CONSTRAINT movie_pkey PRIMARY KEY (id),
