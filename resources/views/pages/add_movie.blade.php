@@ -30,14 +30,28 @@
                 
                 
             </div>
-            
+
+    
             <label for="movieDescription" class="form-label mt-3 ">Movie Description</label>
             <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription"></textarea>
+
+            <label class="form-label mt-3" for="moviePoster">Movie Genres</label>
+            <select id="tags" class="form-control mt-3 " multiple="multiple">
+                <option value="Action" selected="selected">Action</option>
+                <option value="Adventure" selected="">Adventure</option>
+            </select>
 
             <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
             <input type="file" class="form-control" id="moviePoster" name="moviePoster"/>
 
-         
+            
+              
+            <script type="text/javascript">
+                $('#tags').select2({
+                    tags: true,
+                   
+                });
+            </script>
 
             <div class="row mt-3">
 
