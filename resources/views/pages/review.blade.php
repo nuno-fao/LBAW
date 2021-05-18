@@ -2,8 +2,12 @@
 
 @section('content')
 
-<script src="{{ asset("js/delete_review_onReview.js")}}" defer> </script>
 
+<script>
+    let review_id = {{$review->id}}
+</script>
+
+<script src="{{ asset("js/delete_review_onReview.js")}}" defer> </script>
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -12,9 +16,6 @@
     </ol>
 </nav>
 
-<script>
-    let review_id = {{$review->id}}
-</script>
 
 <div class="col-11 col-lg-10 my-auto mx-auto">
     <div class="row align-items-center my-4 review-section">

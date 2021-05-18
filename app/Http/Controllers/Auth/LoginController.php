@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -38,10 +40,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function getUser(){
-        return $request->user();
-    }
-
     public function home() {
         return redirect('login');
     }
@@ -53,9 +51,15 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+        $user = User::where('username',$request->username)->first();
+        if($user != null && $user->banned){
+            return back()->with('status', 'User has been banned');
+        }
+
         if(!auth()->attempt($request->only('username', 'password'))){
             return back()->with('status', 'Invalid login details');
         }
+
 
         return redirect()->route('feed');
         
