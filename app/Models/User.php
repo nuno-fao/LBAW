@@ -41,6 +41,10 @@ class User extends Authenticatable
 
     
     public function reviews() {
-      return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class);
+    }
+
+    public function notifications() {
+        return $this->hasMany(Notification::class,'signed_user_id')->orderBy('date','DESC');
     }
 }
