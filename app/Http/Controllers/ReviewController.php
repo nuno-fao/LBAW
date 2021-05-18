@@ -35,38 +35,10 @@ class ReviewController extends Controller
     static public function movieReviews(Movie $movie,int $page)
     {   
         
-        $r = Review::where('movie_id',$movie->id)->where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
-        return $r;
+        return Review::where('movie_id',$movie->id)->where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
     }
 
-    // static public function getMovie($movie)
-    // {   
-    //     return Movie::find($movie);
-    // }
-
-    // static public function getComments ($review)
-    // {   
-    //     $c = Comment::where('review_id',$review)->orderBy('date')->get();
-    //     foreach($c as $comment){
-    //         $comment->user = CommentController::getUser($comment->user_id);
-    //     }
-    //     return $c;
-    // }
-
-    // static public function getLikes ($review)
-    // {   
-    //     return Like::where('review_id',$review)->count();
-    // }
-
-    // static public function getUser ($review)
-    // {   
-    //     return User::find($review->user_id);
-    // }
-
     public function create(Request $request,$movie_id){
-
-
-      $n_review = new Review();
 
       $this->authorize('create', Review::class);
 
@@ -78,9 +50,7 @@ class ReviewController extends Controller
       $this->validate($request, [
         'title' => 'required',
         'description' => 'required',
-      ]);
-
-      
+      ]);      
 
       $request->user()->reviews()->create([
         'title' => $request->title,
@@ -89,7 +59,6 @@ class ReviewController extends Controller
         'movie_id' => $request->id,
         'group_id' => $request->group
       ]);
-
       return back();
     }
 
@@ -124,6 +93,4 @@ class ReviewController extends Controller
       }
       return back();
     }
-
-  
 }
