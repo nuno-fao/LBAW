@@ -36,7 +36,7 @@
             <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription"></textarea>
 
             <label class="form-label mt-3" for="moviePoster">Movie Genres</label>
-            <select id="tags" class="form-control mt-3 " multiple="multiple">
+            <select id="tags" name="tags" class="form-control mt-3 " multiple="multiple">
                 <option value="Action" selected="selected">Action</option>
                 <option value="Adventure" selected="">Adventure</option>
             </select>
