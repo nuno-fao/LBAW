@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Review;
-use App\Http\Controllers\ReviewController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ReviewController;
 
 class MovieController extends Controller
 {
@@ -69,8 +70,8 @@ class MovieController extends Controller
      * @return Movie The movie created.
      */
     public function create(Request $request)
-    { 
-
+    {   
+      
       $this->validate($request, [
         'movieName' => 'required',
         'year' => 'required',
@@ -82,17 +83,31 @@ class MovieController extends Controller
      
       $request->moviePoster->move(public_path('img'), $imageName);
         
-        Movie::create([
+      $movie = Movie::create([
           'title' => $request->movieName,
           'year' => $request->year,
           'description' => $request->movieDescription,
           'photo' => 'img/'.$imageName,
-      ]);
+        ]);
       
-     
+        if($movie)
+        {        
+            $tagNames = explode(',',$request->get('tags'));
+            $tagIds = [];
+            foreach($tagNames as $tagName)
+            {
+                
+                $tag = Genre::firstOrCreate(['genre'=>$tagName]);
+                if($tag)
+                {
+                  $tagIds[] = $tag->id;
+                }
+    
+            }
+            $movie->genres()->sync($tagIds);
+        }
 
-      
-
+    
       return redirect()->route('landing_page');
     }
 

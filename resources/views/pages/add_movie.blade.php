@@ -35,10 +35,10 @@
             <label for="movieDescription" class="form-label mt-3 ">Movie Description</label>
             <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription"></textarea>
 
-            <label class="form-label mt-3" for="moviePoster">Movie Genres</label>
+            <label class="form-label mt-3" for="tags">Movie Genres</label>
             <select id="tags" name="tags" class="form-control mt-3 " multiple="multiple">
-                <option value="Action" selected="selected">Action</option>
                 <option value="Adventure" selected="">Adventure</option>
+                <option value="Action" selected="">Action</option>
             </select>
 
             <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
@@ -49,7 +49,9 @@
             <script type="text/javascript">
                 $('#tags').select2({
                     tags: true,
-                   
+                    tokenSeparators: [','],
+                    selectOnClose: true, 
+                    closeOnSelect: false
                 });
             </script>
 
