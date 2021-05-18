@@ -26,7 +26,8 @@ class User extends Authenticatable
         'date_of_birth',
         'username', 
         'password',
-        'photo'
+        'photo',
+        'banned'
     ];
 
     /**

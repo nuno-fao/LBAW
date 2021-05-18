@@ -13,7 +13,6 @@
 // Home
 Route::get('/', 'LandingController@index')->name('landing_page');
 
-
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -36,6 +35,8 @@ Route::patch('api/review/{review_id}', 'ReviewController@edit');
 
 //User Profile
 Route::get('user/{user}','UserController@show')->name('user');
+Route::patch('/api/admin/users/{user}/ban','UserController@ban')->name('ban');
+Route::patch('/api/admin/users/{user}/unban','UserController@unban')->name('unban');
 
 //Feed
 Route::get('feed', 'FeedController@index')->name('feed');

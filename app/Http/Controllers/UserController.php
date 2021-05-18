@@ -17,4 +17,22 @@ class UserController extends Controller
             'reviews' => $reviews
         ]);
     }
+
+    public function ban(User $user){
+
+        $this->authorize('ban', $user);
+        if (!$user->banned){
+            $user->banned = true;
+            $user->save();
+        }
+    }
+
+    public function unban(User $user){
+
+        $this->authorize('ban', $user);
+        if ($user->banned){
+            $user->banned = false;
+            $user->save();
+        }
+    }
 }

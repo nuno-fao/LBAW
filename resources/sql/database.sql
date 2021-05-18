@@ -56,6 +56,7 @@ CREATE TABLE signed_user
     email text NOT NULL,
     password text NOT NULL,
     admin boolean NOT NULL DEFAULT false,
+    banned boolean NOT NULL DEFAULT false,
     CONSTRAINT signed_user_pkey PRIMARY KEY (id),
     CONSTRAINT email_unique UNIQUE (email),
     CONSTRAINT username_unique UNIQUE (username)
