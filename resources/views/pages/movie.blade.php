@@ -24,7 +24,7 @@
                         <p class="text-secondary mb-1 mt-3">{{ $movie->year }}</p>
                         <p class="text-secondary mb-1">8.7/10 stars</p>
                         <p class="text-secondary mb-1 mt-5">
-                          @foreach ($movie->genres as $genre)
+                          @foreach ($movie->genres()->get() as $genre)
                             {{$genre->genre}} 
                           @endforeach
                         </p>
@@ -48,11 +48,11 @@
                       <div class="mt-0 ">
 
                           <div class="d-flex justify-content-between mx-auto">
-                            @if ($movie->myReviews != null)
+                            @if ($user_review != null)
                                 <h4 class="my-auto">Edit a Review</h4>
                                 <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
                                   aria-label=".form-select-lg example" id="group-selector">
-                                    <option value="{{$movie->myReviews}}" selected>Public</option>   
+                                    <option value="{{$user_review}}" selected>Public</option>   
                             @else
                                 <h4 class="my-auto">Add a Review</h4>
                                 <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
@@ -88,10 +88,10 @@
             Reviews
         </h4>
         <section id="review_section">
-            @each('partials.review', $movie->reviews, 'review')
+            @each('partials.review', $reviews, 'review')
             
         </section>
-            @if (count($movie->reviews) == 10)
+            @if (count($reviews) == 10)
                 <button class="btn btn-primary ms-3" id="nextPage">
                     Next Page
                 </button>

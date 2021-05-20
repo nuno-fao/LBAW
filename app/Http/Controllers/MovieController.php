@@ -18,28 +18,26 @@ class MovieController extends Controller
       if(!ctype_digit($id)){
         return view(self::ERROR_404_PAGE);
       }
-      $r = Movie::find($id);
-      if ($r == null){
+
+      $movie = Movie::find($id);
+
+      if ($movie == null){
         return view(self::ERROR_404_PAGE);
         
       }
-      $this->movie = $r;
-      $this->movie->genres = $this->getGenres($id);
-      $this->movie->reviews = ReviewController::movieReviews($this->movie,0);
+      
+      $reviews = $movie->reviews()->paginate(10);
+
       if(auth()->user() != null){
-        $revs = Review::where('movie_id',$id)->where('user_id',auth()->user()->id)->where('group_id')->first();
-      }
-      else{ 
-        $revs = null;
-      }
-      if($revs != null){
-        $this->movie->myReviews = $revs->id;
-      }
-      else{
-        $this->movie->myReviews = null;
+        // $revs = Review::where('movie_id',$id)->where('user_id',auth()->user()->id)->where('group_id')->first();
+        $user_review = $movie->reviews()->where('user_id',auth()->user()->id)->first();
       }
 
-      return view('pages.movie', ['movie' => $this->movie]);
+      return view('pages.movie', [
+        'movie' => $movie,
+        'reviews' => $reviews,
+        'user_review' => $user_review
+        ]);
     }
 
     public function getPage($id,$page)
