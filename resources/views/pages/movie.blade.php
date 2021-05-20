@@ -36,10 +36,10 @@
         </div>
         @auth
         <section>
-        @if ($movie->myReviews === null)
+        @if ($user_review === null)
         <form class="card mt-4" action="{{ "/api/movie/".$movie->id."/review"}}" method="POST" id="review_form">
         @else
-            <form class="card mt-4" action="{{ "/api/review/".$movie->myReviews}}" method="POST" id="review_form">
+            <form class="card mt-4" action="{{ "/api/review/".$user_review}}" method="POST" id="review_form">
             @method('patch')
         @endif
             @csrf
@@ -52,7 +52,7 @@
                                 <h4 class="my-auto">Edit a Review</h4>
                                 <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
                                   aria-label=".form-select-lg example" id="group-selector">
-                                    <option value="{{$user_review}}" selected>Public</option>   
+                                    <option value="{{$user_review->group_id}}" selected>Public</option>   
                             @else
                                 <h4 class="my-auto">Add a Review</h4>
                                 <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"

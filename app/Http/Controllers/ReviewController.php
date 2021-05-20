@@ -18,18 +18,16 @@ class ReviewController extends Controller
       if(!ctype_digit($id)){
         return view('errors.404');
       }
-      $r = Review::find($id);
+      $review = Review::find($id);
 
-      if ($r == null){
+      if ($review == null){
         return redirect('/');
         
       }
 
-      $this->review = $r;
-
       //TODO ADD GROUP
 
-      return view('pages.review',['review'=>$this->review]);
+      return view('pages.review',['review'=>$review]);
     }
     
     static public function movieReviews(Movie $movie,int $page)
@@ -89,6 +87,7 @@ class ReviewController extends Controller
       if($r != null){
         $r->text = $request->description;
         $r->title = $request->title;    
+     
         $r->save();    
       }
       return back();
