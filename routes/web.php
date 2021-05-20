@@ -44,4 +44,4 @@ Route::get('api/public_feed/{page}', 'FeedController@getPublicPage');
 
 //Notifications
 Route::get('notifications', 'NotificationController@index')->name('notifications')->middleware('auth');
-Route::get('api/notifications/{page}', 'NotificationController@getPublicPage');
+Route::get('api/notifications/{page}', 'NotificationController@getNotificationPage');
