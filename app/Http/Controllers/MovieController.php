@@ -28,8 +28,9 @@ class MovieController extends Controller
       
       $reviews = $movie->reviews()->paginate(10);
 
+      $user_review = null;
+
       if(auth()->user() != null){
-        // $revs = Review::where('movie_id',$id)->where('user_id',auth()->user()->id)->where('group_id')->first();
         $user_review = $movie->reviews()->where('user_id',auth()->user()->id)->first();
       }
 
