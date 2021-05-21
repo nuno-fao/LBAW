@@ -47,4 +47,10 @@ class User extends Authenticatable
     public function notifications() {
         return $this->hasMany(Notification::class,'signed_user_id')->orderBy('date','DESC');
     }
+
+    function friends() {
+        return $this->belongsToMany(User::class, 'friend', 'signed_user_id1', 'signed_user_id2')
+        // if you want to rely on accepted field, then add this:
+        ->wherePivot('friendship_state', '=', "accepted");
+    }
 }
