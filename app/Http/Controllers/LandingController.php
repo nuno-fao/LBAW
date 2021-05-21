@@ -9,7 +9,7 @@ class LandingController extends Controller
 {
     public function index(){
 
-        $movies = Movie::get();
+        $movies = Movie::orderBy('id','asc')->get();
         return view('pages.landing_page', [
             'movies' => $movies,
         ]);
