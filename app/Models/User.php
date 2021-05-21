@@ -48,9 +48,26 @@ class User extends Authenticatable
         return $this->hasMany(Notification::class,'signed_user_id')->orderBy('date','DESC');
     }
 
-    function friends() {
+    function friendsOfMine() {
         return $this->belongsToMany(User::class, 'friend', 'signed_user_id1', 'signed_user_id2')
         // if you want to rely on accepted field, then add this:
         ->wherePivot('friendship_state', '=', "accepted");
     }
+
+    // friendship that I was invited to 
+    function friendOf(){
+        return $this->belongsToMany(User::class, 'friend', 'signed_user_id2', 'signed_user_id1')
+        ->wherePivot('friendship_state', '=', "accepted");
+    }
+
+    // accessor allowing you call $user->friends
+    public function getFriendsAttribute(){
+        if ( ! array_key_exists('friends', $this->relations)){
+            $friends = $this->friendsOfMine->merge($this->friendOf);
+            $this->setRelation('friends', $friends);
+        } 
+
+        return $this->getRelation('friends');
+    }
+
 }

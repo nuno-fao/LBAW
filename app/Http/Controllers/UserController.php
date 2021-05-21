@@ -12,6 +12,7 @@ class UserController extends Controller
 
         $reviews = $user->reviews()->with(['user'])->orderBy('date','DESC')->paginate(10);
         
+        dd($user->friends);
         return view('pages.user_profile', [
             'user' => $user,
             'reviews' => $reviews
