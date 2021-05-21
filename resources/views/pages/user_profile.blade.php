@@ -39,56 +39,26 @@
                 </div>
             </div>
         </div>
-        <section id="collapsable_section ">
+        <div id="collapsable_section ">
             <div class="text-center">
                 <h4 class="mt-3 text-center">Friends</h4>
                 <a class="nav-link py-0" href="friends_page.php">view all</a>
                 
             </div>
-            <section class="d-flex flex-lg-row flex-column me-3" id="down_section">
+            <div class="d-flex flex-lg-row flex-column me-3" id="down_section">
                 <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Mickey Mouse</h5>
-                        </div>
-                        <p class="mb-1">@the_real_mickey</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">The Beast</h5>
-                        </div>
-                        <p class="mb-1">@im_the_beast</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Beauty</h5>
-                        </div>
-                        <p class="mb-1">@im_a_beauty</p>
-                    </a>
-                </div>
-                <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
-                    <a href=" user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Sonic</h5>
-                        </div>
-                        <p class="mb-1">@fasterthanflash</p>
-                    </a>
-                    <a href=" user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Androis</h5>
-                        </div>
-                        <p class="mb-1">@imagreendroid</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Sleepy Beaty</h5>
-                        </div>
-                        <p class="mb-1">@sleep4ever</p>
-                    </a>
-                </div>
-            </section>
+                    @foreach ($user->friends as $friend)
+                        <a href="{{route('user',[$friend->id])}}" class="col list-group-item list-group-item-action" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{$friend->name}}</h5>
+                            </div>
+                            <p class="mb-1">{{$friend->name}}</p>
+                        </a>
+                    @endforeach
+                
+            </div>
             
-        </section>
+        </div>
     </aside>
     <section class="col-xl-8 col-lg-7 col-12 scrollit me-3 ms-auto">
         <h4 class="text-center">
