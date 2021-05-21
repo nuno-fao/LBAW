@@ -86,8 +86,7 @@ class ReviewController extends Controller
 
       if($r != null){
         $r->text = $request->description;
-        $r->title = $request->title;    
-     
+        $r->title = $request->title;       
         $r->save();    
       }
       return back();
