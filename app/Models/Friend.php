@@ -9,7 +9,7 @@ class Friend extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-
+    protected $table = 'friend';
     public $incrementing = true;
     public $timestamps = false;
     

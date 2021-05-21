@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Review;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Friend;
 
 class User extends Authenticatable
 {
@@ -49,14 +50,14 @@ class User extends Authenticatable
     }
 
     function friendsOfMine() {
-        return $this->belongsToMany(User::class, 'friend', 'signed_user_id1', 'signed_user_id2')
+        return $this->belongsToMany(User::class, Friend::class, 'signed_user_id1', 'signed_user_id2')
         // if you want to rely on accepted field, then add this:
         ->wherePivot('friendship_state', '=', "accepted");
     }
 
     // friendship that I was invited to 
     function friendOf(){
-        return $this->belongsToMany(User::class, 'friend', 'signed_user_id2', 'signed_user_id1')
+        return $this->belongsToMany(User::class, Friend::class, 'signed_user_id2', 'signed_user_id1')
         ->wherePivot('friendship_state', '=', "accepted");
     }
 
