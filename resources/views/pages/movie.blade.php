@@ -36,10 +36,10 @@
         </div>
         @auth
         <section>
-        @if ($user_review->group_id === null)
+        @if ($user_review === null)
         <form class="card mt-4" action="{{ "/api/movie/".$movie->id."/review"}}" method="POST" id="review_form">
         @else
-            <form class="card mt-4" action="{{ "/api/review/".$user_review->group_id}}" method="POST" id="review_form">
+            <form class="card mt-4" action="{{ "/api/review/".$user_review->id}}" method="POST" id="review_form">
             @method('patch')
         @endif
             @csrf
