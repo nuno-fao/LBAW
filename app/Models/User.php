@@ -74,7 +74,7 @@ class User extends Authenticatable
     function sentRequestTo($user) {
 
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id1', 'signed_user_id2')
-        ->wherePivot('friendship_state', '=', "pending")->wherePivot('signed_user_id2', '=', $user->id)->count() > 0;
+        ->wherePivot('friendship_state', '=', "pending")->orWhere('friendship_state', '=', "rejected")->wherePivot('signed_user_id2', '=', $user->id)->count() > 0;
     }
 
     function receivedRequestFrom($user) {
