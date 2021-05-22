@@ -32,7 +32,7 @@ class FeedController extends Controller
       if( !ctype_digit($page)){
         return view(self::ERROR_404_PAGE);
       }
-      $r = Review::where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
+      $r = Review::orderBy('date','desc')->skip($page*10)->take(10)->get();
       return view('pagination.feed', ['reviews' => $r]);
     }
 

@@ -5,6 +5,7 @@ let nextPage = document.getElementById("nextPage");
 let movie_pagination = new XMLHttpRequest();
 
 movie_pagination.onload = function() {
+    
     if(this.responseText.length == 0){
         let elem = document.getElementById('nextPage');
         
@@ -19,7 +20,7 @@ movie_pagination.onload = function() {
     if(selected==0){
         document.getElementById("public_reviews").innerHTML += this.responseText;
     }
-    else if(selected==0){
+    else if(selected==1){
         document.getElementById("friends_reviews").innerHTML += this.responseText;
     }
     
