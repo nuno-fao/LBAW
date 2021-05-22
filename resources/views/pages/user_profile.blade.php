@@ -34,7 +34,14 @@
                         <p class="font-size-sm">{{$user->email}}</p>
                         @if($user != auth()->user())
                             @if(auth()->user()->sentRequestTo($user))
-                                <div class="card ">Request Sent</div>
+                                <div class="sent card ">Request Sent</div>
+                                <div class="cancelbutton">
+                                    <form method="POST" action="{{route('cancel_friend_request',[$user->id,auth()->user()->id])}}" class="col">
+                                        @csrf
+                                        <button class="card bg-primary text-white w-100">Cancel Request</button>
+                                    </form>
+                                </div>
+                                
                             @elseif(auth()->user()->friends->contains($user))
                                 <div class="card ">Friend</div>
                             @elseif(auth()->user()->receivedRequestFrom($user))
