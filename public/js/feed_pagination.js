@@ -17,10 +17,10 @@ movie_pagination.onload = function() {
         return
     }
     if(selected==0){
-        document.getElementById("public_feed").innerHTML += this.responseText;
+        document.getElementById("public_reviews").innerHTML += this.responseText;
     }
     else if(selected==0){
-        document.getElementById("friends_feed").innerHTML += this.responseText;
+        document.getElementById("friends_reviews").innerHTML += this.responseText;
     }
     
 };

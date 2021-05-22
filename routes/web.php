@@ -41,6 +41,7 @@ Route::patch('/api/admin/users/{user}/unban','UserController@unban')->name('unba
 //Feed
 Route::get('feed', 'FeedController@index')->name('feed');
 Route::get('api/public_feed/{page}', 'FeedController@getPublicPage');
+Route::get('api/friends_feed/{page}', 'FeedController@getFriendPage');
 
 //Notifications
 Route::get('notifications', 'NotificationController@index')->name('notifications')->middleware('auth');

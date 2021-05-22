@@ -14,9 +14,9 @@ class Movie extends Model
 
     public $incrementing = true;
     public $timestamps = false;
-    public $genres;
-    public $reviews;
-    public $myReviews;
+    //public $genres;
+    //public $reviews;
+    //public $myReviews;
     protected $fillable = [
         'title',
         'description',
