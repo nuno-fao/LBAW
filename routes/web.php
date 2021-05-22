@@ -45,3 +45,6 @@ Route::get('api/public_feed/{page}', 'FeedController@getPublicPage');
 //Notifications
 Route::get('notifications', 'NotificationController@index')->name('notifications')->middleware('auth');
 Route::get('api/notifications/{page}', 'NotificationController@getNotificationPage');
+
+//Friendship
+Route::post('/api/users/{user_id}/friend_request/{asker_id}', 'FriendController@invite')->name('friend_request');
