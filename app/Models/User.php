@@ -77,4 +77,10 @@ class User extends Authenticatable
         ->wherePivot('friendship_state', '=', "pending")->wherePivot('signed_user_id2', '=', $user->id)->count() > 0;
     }
 
+    function receivedRequestFrom($user) {
+
+        return $this->belongsToMany(User::class, Friend::class, 'signed_user_id2', 'signed_user_id1')
+        ->wherePivot('friendship_state', '=', "pending")->wherePivot('signed_user_id1', '=', $user->id)->count() > 0;
+    }
+
 }

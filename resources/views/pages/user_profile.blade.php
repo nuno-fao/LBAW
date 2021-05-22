@@ -35,6 +35,21 @@
                         @if($user != auth()->user())
                             @if(auth()->user()->sentRequestTo($user))
                                 <div class="card ">Request Sent</div>
+                            @elseif(auth()->user()->friends->contains($user))
+                                <div class="card ">Friend</div>
+                            @elseif(auth()->user()->receivedRequestFrom($user))
+                                <div class="card mb-1">Request Received</div>
+                                <div class="row ">
+                                    <form method="POST" action="" class="col">
+                                        @csrf
+                                        <button  class="btn btn-primary">Reject</button>
+                                    </form>
+
+                                    <form method="POST" action="" class="col">
+                                        @csrf
+                                        <button  class="btn btn-primary">Accept</button>
+                                    </form>
+                                </div>
                             @else
                                 <form method="POST" action="{{route('friend_request',[$user->id,auth()->user()->id])}}">
                                     @csrf
