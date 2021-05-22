@@ -48,4 +48,4 @@ Route::get('api/notifications/{page}', 'NotificationController@getNotificationPa
 
 //Friendship
 Route::post('/api/users/{user_id}/friend_request/{asker_id}', 'FriendController@invite')->name('friend_request');
-Route::post('/api/users/{user_id}/request/friend/accept/{request_id}', 'FriendController@accept')->name('accept_friend_request')
+Route::post('/api/users/{user_id}/request/friend/accept/{asker_id}', 'FriendController@accept')->name('accept_friend_request');

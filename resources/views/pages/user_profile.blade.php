@@ -45,7 +45,7 @@
                                         <button  class="btn btn-primary">Reject</button>
                                     </form>
 
-                                    <form method="POST" action="" class="col">
+                                    <form method="POST" action="{{route('accept_friend_request',[auth()->user()->id, $user->id])}}" class="col">
                                         @csrf
                                         <button  class="btn btn-primary">Accept</button>
                                     </form>

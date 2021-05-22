@@ -25,15 +25,17 @@ class FriendController extends Controller
         //$this->authorize('create', Review::class);  
         //$this->authorize('edit', $r);  
 
-        $friendship = Friend::find()->where('signed_user_id1',$asker_id)->where('signed_user_id2',$user_id);
+        $friendship = Friend::where('signed_user_id1',$asker_id)
+        ->where('signed_user_id2',$user_id)->first();
+
         
-  
+        
         if($friendship != null){
           $friendship->friendship_state = 'accepted';
-             
           $friendship->save();    
         }
-        
+
+
         return back();
       }
 }
