@@ -272,7 +272,7 @@ DROP FUNCTION IF EXISTS  add_auto_notification_friend  CASCADE;
 CREATE FUNCTION add_auto_notification_friend() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    INSERT INTO "notification" (signed_user_id,friend_id) VALUES (NEW.signed_user_id1,NEW.signed_user_id2);
+    INSERT INTO "notification" (signed_user_id,friend_id) VALUES (NEW.signed_user_id2,NEW.signed_user_id1);
     RETURN NEW;
 END
 $BODY$
