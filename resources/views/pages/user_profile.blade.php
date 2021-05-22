@@ -33,7 +33,15 @@
                         <p class="text-muted font-size-sm">{{\Carbon\Carbon::parse($user->date_of_birth)->diff(\Carbon\Carbon::now())->format('%y Years Old')}}</p>
                         <p class="font-size-sm">{{$user->email}}</p>
                         @if($user != auth()->user())
-                        <button class="btn btn-primary">Send Request</button>
+                            @if(auth()->user()->sentRequestTo($user))
+                                <div class="card ">Request Sent</div>
+                            @else
+                                <form method="POST" action="{{route('friend_request',[$user->id,auth()->user()->id])}}">
+                                    @csrf
+                                    <button  class="btn btn-primary">Send Request</button>
+                                </form>
+                            @endif
+                            
                         @endif
                     </div>
                 </div>
