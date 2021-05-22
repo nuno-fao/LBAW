@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Friend;
 use Illuminate\Http\Request;
 
@@ -26,14 +27,17 @@ class FriendController extends Controller
         //$this->authorize('edit', $r);  
 
         $friendship = Friend::where('signed_user_id1',$asker_id)
-        ->where('signed_user_id2',$user_id)->first();
+        ->where('signed_user_id2',$user_id)->first();  
 
-        
-        
         if($friendship != null){
           $friendship->friendship_state = 'accepted';
           $friendship->save();    
+
+          $notification = User::find($user_id)->notifications()->where('friend_id',$asker_id);
+          $notification->delete();
         }
+
+
 
 
         return back();
