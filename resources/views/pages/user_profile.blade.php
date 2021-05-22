@@ -72,7 +72,7 @@
         <div id="collapsable_section ">
             <div class="text-center">
                 <h4 class="mt-3 text-center">Friends</h4>
-                <a class="nav-link py-0" href="friends_page.php">view all</a>
+                <a class="nav-link py-0" href="{{route('friends',[$user->id])}}">view all</a>
                 
             </div>
             <div class="d-flex flex-lg-row flex-column me-3" id="down_section">

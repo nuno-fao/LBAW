@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class FriendController extends Controller
 {
+
+      public function show_list($user_id){
+
+        $friends = User::find($user_id)->friends;
+
+        
+        return view('pages.friends_page', [
+            'friends' => $friends
+        ]);
+    }
+
+
     public function invite(Request $request, $user_id, $asker_id){
 
         //$this->authorize('create', Review::class);    

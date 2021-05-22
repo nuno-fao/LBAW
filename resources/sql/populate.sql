@@ -37,7 +37,7 @@ INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admi
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Mannix','Jerry Chapman','03-03-34','pede@sodalesat.net','mus.','False');
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Callum','Justin Oliver','08-18-55','nisl.Maecenas.malesuada@nectellusNunc.edu','ipsum','False');
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Hall','Beck Ochoa','05-10-72','lorem.luctus@neque.org','Fusce','False');
-INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Jane Doe','1984-05-17','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','False');
+INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('janeDoe','Jane Doe','1984-05-17','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','False');
 
 
 INSERT INTO "movie" (title,year,photo) VALUES ('Lion King','1994','img/lionkingposter.jpg');
