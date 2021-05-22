@@ -18,8 +18,15 @@
         @elseif($notification->friend != null)
         <p class="card-text my-auto"><a href="{{route('user',[$notification->friend])}}">{{$notification->friend->username}}</a> sent you a friend request</p>
         <div class="d-flex justify-content-end">
-            <a href="#" class="btn btn-primary ms-3 request_button" id="request_{{$notification->id}}_accept">Accept</a>
-            <a href="#" class="btn btn-primary ms-3 request_button" id="request_{{$notification->id}}_decline">Decline</a>
+            <form method="POST" action="{{route('reject_friend_request',[auth()->user()->id, $notification->friend_id])}}" class="col">
+                @csrf
+                <button id="request_{{$notification->id}}_decline" class="btn btn-primary ms-3 ">Reject</button>
+            </form>
+
+            <form method="POST" action="{{route('accept_friend_request',[auth()->user()->id, $notification->friend_id])}}" class="col">
+                @csrf
+                <button id="request_{{$notification->id}}_accept" class="btn btn-primary ms-3 ">Accept</button>
+            </form>
         </div>
 
         @endif
