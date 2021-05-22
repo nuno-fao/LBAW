@@ -40,7 +40,7 @@
                             @elseif(auth()->user()->receivedRequestFrom($user))
                                 <div class="card mb-1">Request Received</div>
                                 <div class="row ">
-                                    <form method="POST" action="" class="col">
+                                    <form method="POST" action="{{route('reject_friend_request',[auth()->user()->id, $user->id])}}" class="col">
                                         @csrf
                                         <button  class="btn btn-primary">Reject</button>
                                     </form>
