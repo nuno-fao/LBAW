@@ -11,10 +11,12 @@ class FriendController extends Controller
 
       public function show_list($user_id){
 
-        $friends = User::find($user_id)->friends;
+        $user = User::find($user_id);
+        $friends = $user->friends;
 
         
         return view('pages.friends_page', [
+            'user' => $user,
             'friends' => $friends
         ]);
     }
