@@ -64,11 +64,12 @@ CREATE TABLE signed_user
 
 DROP TABLE IF EXISTS friend CASCADE;
 CREATE TABLE friend --trigger
-(
+(   
+    id serial NOT NULL,
     signed_user_id1 integer NOT NULL,
     signed_user_id2 integer NOT NULL,
     friendship_state state NOT NULL DEFAULT 'pending',
-    CONSTRAINT friend_pkey PRIMARY KEY (signed_user_id1, signed_user_id2),
+    CONSTRAINT friend_pkey PRIMARY KEY (id),
     CONSTRAINT friend_id1_fkey FOREIGN KEY (signed_user_id1)
         REFERENCES public.signed_user (id) MATCH SIMPLE
         ON UPDATE CASCADE
