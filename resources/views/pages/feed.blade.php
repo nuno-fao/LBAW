@@ -33,6 +33,17 @@
     <div id="public_reviews">
         @each('partials.review&movie',$reviews,'review')
     </div>
+    <div class="d-flex justify-content-center">
+        @if (count($friend_reviews) == 10)
+            <button class="btn btn-primary  " id="nextPublicPage">
+                Next Page
+            </button>
+        @else
+            <p class="text-center">
+                Nothing else to show
+            </p>
+        @endif
+        </div>
 </div>
 
 
@@ -43,19 +54,20 @@
             @each('partials.review&movie',$friend_reviews,'review')
         @endif
     </div>    
+    <div class="d-flex justify-content-center">
+        @if (count($friend_reviews) == 10)
+            <button class="btn btn-primary  " id="nextFriendPage">
+                Next Page
+            </button>
+        @else
+            <p class="text-center">
+                Nothing else to show
+            </p>
+        @endif
+        </div>
 </div>
 @endauth
 
-<div class="d-flex justify-content-center">
-@if (count($friend_reviews) == 10)
-    <button class="btn btn-primary  " id="nextPage">
-        Next Page
-    </button>
-@else
-    <p class="text-center">
-        Nothing else to show
-    </p>
-@endif
-</div>
+
 
 @endsection
