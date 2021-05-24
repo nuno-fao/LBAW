@@ -12,9 +12,9 @@ class UserPolicy
 {
     use HandlesAuthorization;
     
-    public function ban(User $user)
+    public function ban(User $user,User $target)
     {
       // Only a admin  can ban it
-      return $user->admin ;
+      return $user->admin && $target != $user;
     }
 }
