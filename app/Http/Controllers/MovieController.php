@@ -15,6 +15,8 @@ class MovieController extends Controller
     const ERROR_404_PAGE = 'errors.404';
     public function show($id)
     {
+
+
       if(!ctype_digit($id)){
         return view(self::ERROR_404_PAGE);
       }
@@ -59,6 +61,7 @@ class MovieController extends Controller
 
     public function add_page(){
 
+      $this->authorize('show_add_page');
 
       return view('pages.add_movie');
     }
@@ -70,6 +73,8 @@ class MovieController extends Controller
      */
     public function create(Request $request)
     {   
+
+      $this->authorize('create');
       
       $this->validate($request, [
         'movieName' => 'required',
@@ -114,7 +119,7 @@ class MovieController extends Controller
     {
       $movie = Movie::find($id);
 
-      $this->authorize('delete', $movie);
+      $this->authorize('delete');
       $movie->delete();
 
       return $movie;
