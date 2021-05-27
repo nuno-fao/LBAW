@@ -36,6 +36,13 @@
             </div>
         </div>
         @auth
+
+        @if (auth()->user()->admin)
+            <div class="my-auto text-end text-danger mr-2">
+                <a class="text-danger" href="#">Edit Movie</a>
+            </div>
+        @endif
+
         <section>
         @if ($user_review === null)
         <form class="card mt-4" action="{{ "/api/movie/".$movie->id."/review"}}" method="POST" id="review_form">
