@@ -91,7 +91,12 @@ class MovieController extends Controller
       $movie->description = $request->movieDescription;  
 
       if($request->moviePoster != null){
-        //Por o poster a atualizar
+        
+        $imageName = time().'.'.$request->moviePoster->extension();  
+        $request->moviePoster->move(public_path('img'), $imageName);
+
+        $movie->photo = 'img/'.$imageName;  
+
       }
 
       if($request->moviePoster != null){
