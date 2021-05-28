@@ -224,6 +224,24 @@ CREATE TABLE notification
     CONSTRAINT notification_check CHECK (group_id IS NULL AND friend_id IS NULL AND review_id IS NOT NULL OR group_id IS NULL AND friend_id IS NOT NULL AND review_id IS NULL OR group_id IS NOT NULL AND friend_id IS NULL AND review_id IS NULL) NOT VALID
 );
 
+DROP TABLE IF EXISTS report CASCADE;
+CREATE TABLE report
+(
+    id serial NOT NULL,
+    signed_user_id integer NOT NULL,
+    review_id integer,
+    CONSTRAINT report_pkey PRIMARY KEY (id),
+
+    CONSTRAINT report_signed_user_id_fkey FOREIGN KEY (signed_user_id)
+        REFERENCES public.signed_user (id) 
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT report_review_id_fkey FOREIGN KEY (review_id)
+        REFERENCES public.review (id) 
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
 -----------------------------------------
 -- TRIGGERS
 -----------------------------------------
@@ -321,22 +339,24 @@ CREATE TRIGGER friend_relation
     EXECUTE PROCEDURE check_friend();  
 
  DROP FUNCTION IF EXISTS  check_if_admin CASCADE;
-CREATE FUNCTION check_if_admin() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-	IF NEW.review_id IS NOT NULL AND EXISTS (SELECT * FROM signed_user WHERE NEW.signed_user_id = signed_user.id AND signed_user.admin = false) THEN
-            RAISE EXCEPTION 'Only Admin user can receive reported reviews notification';
-    END IF;
-    RETURN NEW;
-END
-$BODY$
-LANGUAGE plpgsql;
+
+
+-- CREATE FUNCTION check_if_admin() RETURNS TRIGGER AS
+-- $BODY$
+-- BEGIN
+-- 	IF NEW.review_id IS NOT NULL AND EXISTS (SELECT * FROM signed_user WHERE NEW.signed_user_id = signed_user.id AND signed_user.admin = false) THEN
+--             RAISE EXCEPTION 'Only Admin user can receive reported reviews notification';
+--     END IF;
+--     RETURN NEW;
+-- END
+-- $BODY$
+-- LANGUAGE plpgsql;
  
  
-CREATE TRIGGER is_admin
-    BEFORE INSERT OR UPDATE ON notification
-    FOR EACH ROW
-    EXECUTE PROCEDURE check_if_admin();
+-- CREATE TRIGGER is_admin
+--     BEFORE INSERT OR UPDATE ON notification
+--     FOR EACH ROW
+--     EXECUTE PROCEDURE check_if_admin();
 
 -----------------------------------------
 -- INDEXES
