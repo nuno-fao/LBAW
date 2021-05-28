@@ -18,7 +18,7 @@
 <section class="container">
     <div class="d-flex justify-content-center ">
         
-        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" action="{{ route('add_movie') }}" method="POST" enctype="multipart/form-data">
+        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" @if ($movie != null) action="{{ route('edit_movie',['id'=>$movie->id]) }}" @else action="{{ route('add_movie') }}" @endif method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
 
@@ -68,11 +68,9 @@
                 <div class="col d-flex justify-content-end ">
                     <input class="btn btn-outline-secondary mt-3 mb-3 " type="submit" value="Add">
                 </div>
-                
+             
                 
             </div>
-            
-
         </form>
         
         

@@ -79,6 +79,32 @@ class MovieController extends Controller
       );
     }
 
+    public function edit(Request $request, $id){
+
+     // dd($request->get('tags'));
+
+     $movie = Movie::find($id);
+     
+     if($movie != null){
+      $movie->title = $request->movieName;   
+      $movie->year = $request->year;  
+      $movie->description = $request->movieDescription;  
+
+      if($request->moviePoster != null){
+        //Por o poster a atualizar
+      }
+
+      if($request->moviePoster != null){
+        //Por as tags a atualizar
+      }
+
+      $movie->save();    
+    }
+
+    return redirect('movie/'.$id);
+      
+    }
+
     /**
      * Creates a new movie.
      *
@@ -87,7 +113,7 @@ class MovieController extends Controller
     public function create(Request $request)
     {   
 
-      $this->authorize('create');
+     // $this->authorize('create');
       
       $this->validate($request, [
         'movieName' => 'required',
