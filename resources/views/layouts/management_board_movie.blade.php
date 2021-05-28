@@ -9,7 +9,7 @@
     <a class="btn btn-primary mt-3" href="users_board.php">
         <h4 class="">Users</h4>
     </a>
-    <button class="btn btn-primary mt-5">
+    <button class="btn btn-primary mt-5" disabled>
         <h4 class="">Get Movies Updates</h4>
     </button>
     <div class="d-flex flex-column">
@@ -18,14 +18,14 @@
         </button>
         <strong class="ms-auto me-3">0 Updates</strong>
     </div>
-    <a class="btn btn-primary mt-3" href="add_movie.php" >
+    <a class="btn btn-primary mt-3" href="{{route('add_movie')}}" >
         <h4 class="">Add a Movie</h4>
     </a>
     <div class="mt-3 d-flex flex-column container">
         <strong class="">Total Movies</strong>
         <span>
             <p class="mx-auto">
-                103
+                {{$movies->count()}}
             </p>
         </span>
     </div>
