@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->hasMany(Notification::class,'signed_user_id')->orderBy('date','DESC');
     }
 
+    public function reportedBy(){
+        return $this->belongsToMany(Review::class, 'report');
+    }
+
     function friendsOfMine() {
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id1', 'signed_user_id2')
         // if you want to rely on accepted field, then add this:

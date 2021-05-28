@@ -29,7 +29,7 @@ class AdministrationController extends Controller
 
     public function user_page(){
 
-        $users = User::all();
+        $users = User::all()->where('banned', true);
 
         return view('pages.user_dashboard', [
             'users' => $users
