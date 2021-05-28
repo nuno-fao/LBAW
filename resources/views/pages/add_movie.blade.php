@@ -40,9 +40,11 @@
             <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription">@if ($movie != null){{$movie->description}} @endif </textarea>
 
             <label class="form-label mt-3" for="tags">Movie Genres</label>
-            <select id="tags" name="tags" class="form-control mt-3 " multiple="multiple">
-                <option value="Adventure" selected="">Adventure</option>
-                <option value="Action" selected="">Action</option>
+            <select id="tags" name="tags[]" class="form-control mt-3 " multiple="multiple">
+                @foreach ($genres as $genre)
+                    <option value="{{$genre->genre}}" >{{$genre->genre}}</option>
+                @endforeach
+
             </select>
 
             <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
@@ -54,8 +56,8 @@
                 $('#tags').select2({
                     tags: true,
                     tokenSeparators: [','],
-                    selectOnClose: true, 
-                    closeOnSelect: false
+                    
+                    
                 });
             </script>
 

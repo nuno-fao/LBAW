@@ -61,9 +61,12 @@ class MovieController extends Controller
 
     public function add_page(){
 
+      $genres = Genre::all();
+
       return view('pages.add_movie',
       [
-        'movie' => null
+        'movie' => null,
+        'genres' => $genres,
       ]
       );
     }
@@ -71,17 +74,19 @@ class MovieController extends Controller
     public function edit_page($id){
 
       $movie = Movie::find($id);
+      $genres = Genre::all();
 
       return view('pages.add_movie',
       [
-        'movie' => $movie
+        'movie' => $movie,
+        'genres' => $genres,
       ]
       );
     }
 
     public function edit(Request $request, $id){
 
-     // dd($request->get('tags'));
+     dd($request->get('tags'));
 
      $movie = Movie::find($id);
      
