@@ -3,7 +3,7 @@
     <button class="btn btn-primary mt-3" disabled>
         <h4 class="">Movies</h4>
     </button>
-    <a class="btn btn-primary mt-3" href="review_board.php">
+    <a class="btn btn-primary mt-3" href="{{route('review_dashboard_page')}}">
         <h4 class="">Reported</h4>
     </a>
     <a class="btn btn-primary mt-3" href="users_board.php">
