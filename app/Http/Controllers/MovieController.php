@@ -86,7 +86,7 @@ class MovieController extends Controller
 
     public function edit(Request $request, $id){
 
-     dd($request->get('tags'));
+     //dd($request->get('tags'));
 
      $movie = Movie::find($id);
      
@@ -104,9 +104,19 @@ class MovieController extends Controller
 
       }
 
-      if($request->moviePoster != null){
-        //Por as tags a atualizar
+      $tagNames = $request->get('tags');
+      $tagIds = [];
+
+      foreach($tagNames as $tagName){
+              
+        $tag = Genre::firstOrCreate(['genre'=>$tagName]);
+
+        if($tag){
+          $tagIds[] = $tag->id;
+        }
       }
+      
+      $movie->genres()->sync($tagIds);
 
       $movie->save();    
     }
@@ -145,7 +155,7 @@ class MovieController extends Controller
       
         if($movie)
         {        
-            $tagNames = explode(',',$request->get('tags'));
+            $tagNames = $request->get('tags');
             $tagIds = [];
             foreach($tagNames as $tagName)
             {

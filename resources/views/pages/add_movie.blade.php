@@ -42,7 +42,7 @@
             <label class="form-label mt-3" for="tags">Movie Genres</label>
             <select id="tags" name="tags[]" class="form-control mt-3 " multiple="multiple">
                 @foreach ($genres as $genre)
-                    <option value="{{$genre->genre}}" >{{$genre->genre}}</option>
+                    <option value="{{$genre->genre}}" @if($movie->genres()->get()->contains($genre)) selected="selected" @endif>{{$genre->genre}}</option>
                 @endforeach
 
             </select>
