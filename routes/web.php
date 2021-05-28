@@ -60,3 +60,4 @@ Route::post('/api/users/{user_id}/request/friend/cancel/{asker_id}', 'FriendCont
 //Administrator Dashboard
 Route::get('/admin/movies/board', 'AdministrationController@movie_page')->name('movie_dashboard_page');
 Route::get('/admin/reviews/board', 'AdministrationController@review_page')->name('review_dashboard_page');
+Route::get('/admin/users/board', 'AdministrationController@user_page')->name('user_dashboard_page');

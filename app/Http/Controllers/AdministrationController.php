@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Movie;
 use App\Models\Review;
 use Illuminate\Http\Request;
@@ -23,6 +24,15 @@ class AdministrationController extends Controller
 
         return view('pages.reviews_dashboard', [
             'reviews' => $reviews
+        ]);
+    }
+
+    public function user_page(){
+
+        $users = User::all();
+
+        return view('pages.user_dashboard', [
+            'users' => $users
         ]);
     }
 }

@@ -6,7 +6,7 @@
     <a class="btn btn-primary mt-3" href="{{route('review_dashboard_page')}}">
         <h4 class="">Reported</h4>
     </a>
-    <a class="btn btn-primary mt-3" href="users_board.php">
+    <a class="btn btn-primary mt-3" href="{{route('user_dashboard_page')}}">
         <h4 class="">Users</h4>
     </a>
     <button class="btn btn-primary mt-5" disabled>
