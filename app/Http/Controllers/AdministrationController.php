@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class AdministrationController extends Controller
 {
-    public function movie_page()
-    {
+    public function movie_page(){
 
-      return view('pages.movies_dashboard');
+        $movies = Movie::all();
+
+        return view('pages.movies_dashboard', [
+            'movies' => $movies
+        ]);
     }
 }

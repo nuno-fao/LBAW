@@ -43,6 +43,9 @@
 
     {{-- @include('layouts.navbar') --}}
     <main>
+      <section id="sidebar">
+        @yield('sidebar')
+      </section>
       <section id="content">
         @yield('content')
       </section>
