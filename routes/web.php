@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // Home
 Route::get('/', 'LandingController@index')->name('landing_page');
 
@@ -24,8 +25,8 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
 Route::get('api/movie/{movie_id}/feed/{page}','MovieController@getPage');
 Route::post('api/movie/{id}/review','ReviewController@create');
-Route::get('add', 'MovieController@add_page')->name('add_movie');
-Route::post('add', 'MovieController@create');
+Route::get('/admin/movies/add', 'MovieController@add_page')->name('add_movie');
+Route::post('/admin/movies/add', 'MovieController@create');
 Route::get('/api/movie/{id}', 'MovieController@edit_page')->name('edit_movie');
 Route::post('/api/movie/{id}', 'MovieController@edit');
 

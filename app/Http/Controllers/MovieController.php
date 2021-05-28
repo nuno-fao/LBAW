@@ -61,9 +61,22 @@ class MovieController extends Controller
 
     public function add_page(){
 
-      $this->authorize('show_add_page');
+      return view('pages.add_movie',
+      [
+        'movie' => null
+      ]
+      );
+    }
 
-      return view('pages.add_movie');
+    public function edit_page($id){
+
+      $movie = Movie::find($id);
+
+      return view('pages.add_movie',
+      [
+        'movie' => $movie
+      ]
+      );
     }
 
     /**

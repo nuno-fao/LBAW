@@ -39,7 +39,7 @@
 
         @if (auth()->user()->admin)
             <div class="my-auto text-end text-danger mr-2">
-                <a class="text-danger" href="#">Edit Movie</a>
+                <a class="text-danger" method="GET" href="{{route('edit_movie',[$movie->id])}}">Edit Movie</a>
             </div>
         @endif
 
