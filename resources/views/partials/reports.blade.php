@@ -36,9 +36,17 @@
             <a class="btn text-dark" onclick="location.href='{{route('review',[$review->id])}}'">
                 View
             </a>
-            <a class="btn text-dark">
+
+            <form method="POST" action="{{route('discard_report',['review_id' => $review->id])}}">
+                @csrf
+                <button class="btn text-dark" >
+                    Discard
+                </button>  
+            </form>
+
+            {{-- <a class="btn text-dark" onclick="location.href='{{route('discard_report',[$review->id])}}'">
                 Discard
-            </a>
+            </a> --}}
             <button class="btn text-dark" id="deleteButton{{$review->id}}">
                 Delete
             </button>
