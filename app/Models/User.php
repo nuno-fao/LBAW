@@ -49,8 +49,8 @@ class User extends Authenticatable
         return $this->hasMany(Notification::class,'signed_user_id')->orderBy('date','DESC');
     }
 
-    public function reportedBy(){
-        return $this->belongsToMany(Review::class, 'report');
+    public function reported(){
+        return $this->belongsToMany(Review::class, 'report', 'signed_user_id', 'review_id');
     }
 
     function friendsOfMine() {

@@ -5,12 +5,21 @@
     <div class="col col-12 col-lg-3 review-author no-padding">
         <a class="btn text-dark" href="#">
             by {{$review->user->username}}
-        </a>
+        </a> 
         @can('delete',$review)
             <button class="btn btn-primary" id="deleteButton">
                 Delete
             </button>                     
+        @else 
+            <form method="POST" action="{{route('report_review',['id' => $review->id])}}">
+                @csrf
+                <button class="btn btn-primary" >
+                    Report
+                </button>  
+            </form>
+            
         @endcan
+        
     </div>
     <div class="col col-12 no-padding">
         <small col>
