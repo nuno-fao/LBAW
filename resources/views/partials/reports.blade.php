@@ -17,7 +17,7 @@
     <div class="d-flex justify-content-between">
         <div class="d-flex justify-content-end">
             <span class="text-dark my-auto ms-3">
-                Reported x times
+                Reported {{$review->reports()->count()}} times
             </span>
         </div>
         <div class="d-flex justify-content-end">
