@@ -25,11 +25,11 @@ class AdministrationController extends Controller
         $reports = Report::all();
 
         foreach($reports as $report){
-            $reviews->push($report->getReview());
+            $reviews[] = $report->review;
         }
 
         return view('pages.reviews_dashboard', [
-            'reviews' => $reviews
+            'reviews' => $reviews->unique()
         ]);
     }
 
