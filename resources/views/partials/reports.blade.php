@@ -32,7 +32,8 @@
             </span>
         </div>
         <div class="d-flex justify-content-end">
-            <a class="btn text-dark">
+            
+            <a class="btn text-dark" onclick="location.href='{{route('review',[$review->id])}}'">
                 View
             </a>
             <a class="btn text-dark">
