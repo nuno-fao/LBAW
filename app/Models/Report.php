@@ -19,6 +19,6 @@ class Report extends Model
     ];
 
     public function getReview(){
-        return Review::where('id',$this->review_id)->first();
+        return Review::find($this->review_id);
     }
 }

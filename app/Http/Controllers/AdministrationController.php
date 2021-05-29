@@ -28,8 +28,6 @@ class AdministrationController extends Controller
             $reviews->push($report->getReview());
         }
 
-        // dd($reviews);
-
         return view('pages.reviews_dashboard', [
             'reviews' => $reviews
         ]);

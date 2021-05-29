@@ -5,12 +5,12 @@
         </h4>
         <div class="col col-12 col-lg-3 review-author no-padding">
             <a class="btn text-dark" href="user_profile.php">
-                {{$review->user_id}}
+                {{$review->user->username}}
             </a>
         </div>
         <div class="col col-12 no-padding">
             <small col>
-                {{$review->movie_id}}
+                {{$review->movie->title}}
             </small>
         </div>
     </div>
