@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Report extends Model
 {
@@ -18,7 +20,13 @@ class Report extends Model
         'review_id'
     ];
 
-    public function getReview(){
-        return Review::find($this->review_id);
+    public function review()
+    {
+        return $this->belongsTo(Review::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'signed_user_id');
     }
 }

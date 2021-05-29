@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Friend;
+use App\Models\Report;
 use App\Models\Review;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Friend;
 
 class User extends Authenticatable
 {
@@ -50,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function reported(){
-        return $this->belongsToMany(Review::class, 'report', 'signed_user_id', 'review_id');
+        return $this->hasMany(Report::class, 'signed_user_id');
     }
 
     function friendsOfMine() {

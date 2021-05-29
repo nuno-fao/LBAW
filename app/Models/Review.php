@@ -43,8 +43,8 @@ class Review extends Model
         return $this->belongsTo(Movie::class);
     }
 
-    public function reportedBy(){
-        return $this->belongsToMany(User::class, 'report', 'signed_user_id', 'review_id');
+    public function reports(){
+        return $this->hasMany(Report::class);
     }
 
 }
