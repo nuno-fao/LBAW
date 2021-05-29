@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  
+<script src="{{ asset("js/delete_review_onReview.js")}}" defer> </script>
 
 <div class="col-lg-12 col-12 row mx-auto">
     @include('layouts.management_board_reviews', ['reviews' => $reviews])

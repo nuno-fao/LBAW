@@ -11,3 +11,18 @@ if (deleteButtonOnReview != null) {
         deleteButtonOnReview_ajax.send();
     });
 }
+
+
+let deleteButtonOnDashboard = document.getElementById("deleteButton" + review_id);
+let deleteButtonOnDashboard_ajax = new XMLHttpRequest();
+
+deleteButtonOnDashboard_ajax.onload = function() {
+    window.location.replace("/");
+};
+if (deleteButtonOnDashboard != null) {
+    deleteButtonOnDashboard.addEventListener('click', () => {
+        deleteButtonOnDashboard_ajax.open("DELETE", "/api/review/" + review_id, true);
+        deleteButtonOnDashboard_ajax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
+        deleteButtonOnDashboard_ajax.send();
+    });
+}

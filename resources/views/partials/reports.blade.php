@@ -1,3 +1,14 @@
+<script>
+    if(typeof review_id !== 'undefined'){
+        review_id = {{$review->id}}
+    }
+    else{
+        review_id = {{$review->id}}
+    }
+    
+</script>
+  
+
 <div class="review card mt-3 bg-light text-dark text-dark">
     <div class="card-header row review-header">
         <h4 class="col col-12 col-lg-9 no-padding">
@@ -27,9 +38,9 @@
             <a class="btn text-dark">
                 Discard
             </a>
-            <a class="btn text-dark">
+            <button class="btn text-dark" id="deleteButton{{$review->id}}">
                 Delete
-            </a>
+            </button>
         </div>
     </div>
 </div>
