@@ -13,7 +13,7 @@
         @else 
             <form method="POST" action="{{route('report_review',['id' => $review->id])}}">
                 @csrf
-                <button class="btn btn-primary" >
+                <button class="btn btn-primary" @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
                     Report
                 </button>  
             </form>
