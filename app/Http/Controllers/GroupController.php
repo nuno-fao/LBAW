@@ -17,4 +17,13 @@ class GroupController extends Controller
         // ]
     );
     }
+
+    public function add_group_page(){
+
+        // $reviews = $user->reviews()->with(['user'])->orderBy('date','DESC')->paginate(10);
+        
+        return view('pages.add_group');
+    }
+
+
 }

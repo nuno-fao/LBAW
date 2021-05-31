@@ -9,7 +9,7 @@
             Most Recent Groups
         </h4>
         <div class="align-middle">   
-            <a href="create_group.php" class="btn btn-primary">Create Group</a>
+            <a href="/groups/add" class="btn btn-primary">Create Group</a>
         </div>
     </div>
     
