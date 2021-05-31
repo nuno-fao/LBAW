@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -86,12 +87,30 @@ class UserController extends Controller
         ]);
     }
 
-    public function edit_password($user_id){
+    public function edit_password(Request $request, $user_id){
 
-        dd("Cenas");
+        $this->validate($request, [
+            'current_password' => 'required',
+            'new_password' => 'required|confirmed',
+            'new_password_confirmation' => 'required',
+        ]);
 
         $user = User::find($user_id);
+
+        if (!(Hash::check($request->get('current_password'), $user->password))) {
+            return response()->json(['errors' => ['current'=> ['Current password does not match']]], 422);
+        }
+
+        if(strcmp($request->get('current_password'), $request->get('new_password')) == 0){
+            return response()->json(['errors' => ['current'=> ['New Password cannot be same as your current password']]], 422);
+        }
+
+
         
+        $user->password = Hash::make($request->get('new_password'));
+        $user->save();
+        
+        return redirect('user/'.$user_id);
         
     }
 
