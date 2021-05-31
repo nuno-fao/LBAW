@@ -40,6 +40,8 @@ Route::patch('api/review/{review_id}', 'ReviewController@edit');
 Route::get('user/{user}','UserController@show')->name('user');
 Route::patch('/api/admin/users/{user}/ban','UserController@ban')->name('ban');
 Route::patch('/api/admin/users/{user}/unban','UserController@unban')->name('unban');
+Route::get('/api/users/{user_id}/edit','UserController@edit_page')->name('edit_user');
+
 
 //Feed
 Route::get('feed', 'FeedController@index')->name('feed');
