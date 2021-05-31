@@ -9,14 +9,11 @@ class GroupController extends Controller
 {
     public function list(){
 
-        // $reviews = $user->reviews()->with(['user'])->orderBy('date','DESC')->paginate(10);
+        $groups = Group::all();
         
-        return view('pages.groups_list'
-        // , [
-        //     'user' => $user,
-        //     'reviews' => $reviews
-        // ]
-    );
+        return view('pages.groups_list',[
+            'groups' => $groups
+        ]);
     }
 
     public function add_group_page(){
