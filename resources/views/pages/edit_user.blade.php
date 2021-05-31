@@ -5,11 +5,7 @@
 <section class="container">
     <div class="text-center my-4">
         <h3 class="display-7">
-            @if ($movie != null)
-                Edit a Movie
-            @else
-                Add a Movie
-            @endif
+                Edit your profile
         </h3>
         
     </div>
@@ -18,36 +14,35 @@
 <section class="container">
     <div class="d-flex justify-content-center ">
         
-        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" @if ($movie != null) action="{{ route('edit_movie',['id'=>$movie->id]) }}" @else action="{{ route('add_movie') }}" @endif method="POST" enctype="multipart/form-data">
+        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" action="{{ route('add_movie') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
 
                 <div class= "col">
-                    <label for="movieName" class="form-label mt-3 ">Movie Name</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " @if ($movie != null) value="{{$movie->title}}" @endif name="movieName" id="movieName" aria-describedby="movieName">
+                    <label for="name" class="form-label mt-3 ">Name</label>
+                    <input type="text" class="col-7 form-control border border-1rounded-1 " value="{{$user->name}}" name="name" id="name" aria-describedby="name">
                 </div>
 
                 <div class= "col">
-                    <label for="year" class="form-label mt-3 ">Year</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " @if ($movie != null) value="{{$movie->year}}" @endif name ="year" id="year" aria-describedby="year">
+                    <label for="username" class="form-label mt-3 ">Username</label>
+                    <input type="text" class="col-7 form-control border border-1rounded-1 " value="{{$user->username}}" name="name" id="name" aria-describedby="name">
+            
                 </div>
                 
-                
+    
             </div>
 
+            <label for="year" class="form-label mt-3 ">Email Address</label>
+            <input type="text" class="col-7 form-control border border-1rounded-1 " value="{{$user->email}}" name ="email" id="email" aria-describedby="email">
+
+
     
-            <label for="movieDescription" class="form-label mt-3 ">Movie Description</label>
-            <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription">@if ($movie != null){{$movie->description}} @endif </textarea>
+            <label for="movieDescription" class="form-label mt-3 ">Birthday</label>
+            <input type="date" value="{{$user->date_of_birth}}" name="birthday" id="birthday" class="form-control @error('birthday') border border-danger @enderror" name="birthday">
 
-            <label class="form-label mt-3" for="tags">Movie Genres</label>
-            <select id="tags" name="tags[]" class="form-control mt-3 " multiple="multiple">
-                @foreach ($genres as $genre)
-                    <option value="{{$genre->genre}}" @if($movie!= null) @if( $movie->genres()->get()->contains($genre)) selected="selected" @endif @endif>{{$genre->genre}}</option>
-                @endforeach
-
-            </select>
-
-            <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
+          
+            
+            <label class="form-label mt-3" for="moviePoster">Upload User Picture</label>
             <input type="file" class="form-control"  id="moviePoster" name="moviePoster"/>
 
             
