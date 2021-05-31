@@ -65,3 +65,6 @@ Route::get('/admin/users/board', 'AdministrationController@user_page')->name('us
 //Report
 Route::post('/api/review/{id}/report', 'ReportController@report_review')->name('report_review');
 Route::post('/api/admin/reviews/board/report/{review_id}', 'ReportController@discard')->name('discard_report');
+
+//Comments
+Route::post('/api/review/{id}/comment', 'CommentController@create')->name('create_comment');
