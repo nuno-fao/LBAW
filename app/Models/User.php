@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Group;
 use App\Models\Friend;
 use App\Models\Report;
 use App\Models\Review;
@@ -55,6 +56,10 @@ class User extends Authenticatable
 
     public function reported(){
         return $this->hasMany(Report::class, 'signed_user_id');
+    }
+
+    public function groups(){
+        return $this->belongsToMany(Group::class, 'group_member');
     }
 
     function friendsOfMine() {

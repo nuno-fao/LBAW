@@ -23,7 +23,11 @@ class Group extends Model
         'photo'
     ];
 
-    public function owner(){
+    public function admin(){
         return $this->belongsTo(User::class,'admin');
+    }
+
+    public function members(){
+        return $this->belongsToMany(User::class, 'group_member');
     }
 }
