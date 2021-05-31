@@ -42,6 +42,7 @@ Route::patch('/api/admin/users/{user}/ban','UserController@ban')->name('ban');
 Route::patch('/api/admin/users/{user}/unban','UserController@unban')->name('unban');
 Route::get('/api/users/{user_id}/edit','UserController@edit_page')->name('edit_user');
 Route::post('/api/users/{user_id}/edit','UserController@edit');
+Route::get('/users/{user_id}/edit_password','UserController@edit_password')->name('edit_password');
 
 
 //Feed
