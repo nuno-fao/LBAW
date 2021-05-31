@@ -77,15 +77,22 @@ class UserController extends Controller
         return redirect('user/'.$user_id);
     }
 
-    public function edit_password($user_id){
-
-        dd($user_id);
+    public function edit_password_page($user_id){
 
         $user = User::find($user_id);
         
-        return view('pages.edit_user', [
+        return view('pages.edit_password', [
             'user' => $user
         ]);
+    }
+
+    public function edit_password($user_id){
+
+        dd("Cenas");
+
+        $user = User::find($user_id);
+        
+        
     }
 
     
