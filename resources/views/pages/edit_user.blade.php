@@ -25,7 +25,7 @@
 
                 <div class= "col">
                     <label for="username" class="form-label mt-3 ">Username</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " value="{{$user->username}}" name="name" id="name" aria-describedby="name">
+                    <input type="text" class="col-7 form-control border border-1rounded-1 " value="{{$user->username}}" name="username" id="username" aria-describedby="username">
             
                 </div>
                 

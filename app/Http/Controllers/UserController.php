@@ -47,7 +47,25 @@ class UserController extends Controller
 
     public function edit(Request $request, $user_id){
 
-        dd($request);
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'birthday' => 'required',
+            'username' => 'required',
+        ]);
+
+        $user = User::find($user_id);
+
+        if($user != null){
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->date_of_birth = $request->birthday;
+            $user->username = $request->username;
+
+            $user->save();
+        }
+
+        return redirect('user/'.$user_id);
     }
 
     
