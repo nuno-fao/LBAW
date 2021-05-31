@@ -67,4 +67,4 @@ Route::post('/api/review/{id}/report', 'ReportController@report_review')->name('
 Route::post('/api/admin/reviews/board/report/{review_id}', 'ReportController@discard')->name('discard_report');
 
 //Comments
-Route::post('/api/review/{id}/comment', 'CommentController@create')->name('create_comment');
+Route::post('/api/review/{id}/comment', 'CommentController@create')->name('add_comment');

@@ -48,6 +48,7 @@
     @endif
     @auth
     <form class="add-comment" action="{{ route('add_comment',['id' => $review->id]) }}"  method="POST">
+    @csrf
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Add a commment</label>
             <div class=" d-flex ">
