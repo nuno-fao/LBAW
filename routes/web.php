@@ -78,3 +78,4 @@ Route::post('/api/review/{id}/comment', 'CommentController@create')->name('add_c
 //Groups
 Route::get('/groups/list', 'GroupController@list')->name('groups_list');
 Route::get('/groups/add', 'GroupController@add_group_page')->name('add_group');
+Route::post('/groups/add', 'GroupController@create');

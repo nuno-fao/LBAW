@@ -14,8 +14,8 @@
 <section class="container">
     <div class="d-flex justify-content-center ">
         
-        <form class="col-10 col-lg-3 border border-10  bg-white rounded-2 pl-3 action" action="groups_list.php" method="post">
-
+        <form class="col-10 col-lg-3 border border-10  bg-white rounded-2 pl-3 action" action="{{route('add_group')}}" method="post">
+            @csrf
             <label for="name" class="form-label mt-3 ">Group Name</label>
             <input type="text" class="col-7 form-control border border-1rounded-1 " id="name" aria-describedby="name">
 
