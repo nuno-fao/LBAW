@@ -45,5 +45,10 @@ class UserController extends Controller
         ]);
     }
 
+    public function edit(Request $request, $user_id){
+
+        dd($request);
+    }
+
     
 }

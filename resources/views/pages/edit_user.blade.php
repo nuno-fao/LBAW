@@ -14,7 +14,7 @@
 <section class="container">
     <div class="d-flex justify-content-center ">
         
-        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" action="{{ route('add_movie') }}" method="POST" enctype="multipart/form-data">
+        <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action" action="{{ route('edit_user', ['user_id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
 
