@@ -32,6 +32,11 @@
                             <form action="{{route('edit_password',['user_id' => $user->id ])}}">
                                 <button class="dropdown-item" >Change Password</button>
                             </form> 
+                            {{-- ESTE PROXIMO FORM DEVIA SER DELETE, MAS POR ALGUMA RAZAO OS DELETES NAO FUNCIONAM --}}
+                            <form action="{{route('delete_user',['user_id' => $user->id ])}}" method="POST"> 
+                                @csrf
+                                <button class="dropdown-item" >Delete Account</button>
+                            </form> 
                             
                           </div>
                     {{-- </form> --}}

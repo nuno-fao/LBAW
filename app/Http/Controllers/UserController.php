@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -112,6 +114,18 @@ class UserController extends Controller
         
         return redirect('user/'.$user_id);
         
+    }
+
+    public function delete($user_id){
+
+        $user = User::find($user_id);
+
+        Auth::logout();
+
+        if ($user->delete()) {
+
+            return redirect('/')->with('global', 'Your account has been deleted!');
+        }
     }
 
     

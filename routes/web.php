@@ -44,6 +44,7 @@ Route::get('/api/users/{user_id}/edit','UserController@edit_page')->name('edit_u
 Route::post('/api/users/{user_id}/edit','UserController@edit');
 Route::get('/users/{user_id}/edit_password','UserController@edit_password_page')->name('edit_password');
 Route::post('/users/{user_id}/edit_password','UserController@edit_password');
+Route::post('user/delete/{user_id}','UserController@delete')->name('delete_user');
 
 
 //Feed
