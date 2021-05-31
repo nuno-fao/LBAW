@@ -35,4 +35,15 @@ class UserController extends Controller
             $user->save();
         }
     }
+
+    public function edit_page($user_id){
+
+        $user = User::find($user_id);
+        
+        return view('pages.edit_user', [
+            'user' => $user
+        ]);
+    }
+
+    
 }
