@@ -42,8 +42,8 @@
 
           
             
-            <label class="form-label mt-3" for="moviePoster">Upload User Picture</label>
-            <input type="file" class="form-control"  id="moviePoster" name="moviePoster"/>
+            <label class="form-label mt-3" for="moviePoster">Upload New User Picture</label>
+            <input type="file" class="form-control"  id="userPhoto" name="userPhoto"/>
 
             
               

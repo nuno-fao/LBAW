@@ -62,6 +62,15 @@ class UserController extends Controller
             $user->date_of_birth = $request->birthday;
             $user->username = $request->username;
 
+            if($request->userPhoto != null){
+        
+                $imageName = time().'.'.$request->userPhoto->extension();  
+                $request->userPhoto->move(public_path('img'), $imageName);
+        
+                $user->photo = 'img/'.$imageName;  
+        
+            }
+
             $user->save();
         }
 
