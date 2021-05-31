@@ -20,12 +20,11 @@ class Group extends Model
         'id',
         'title',
         'description',
-        'photo'
+        'photo',
+        'admin'
     ];
 
-    public function admin(){
-        return $this->belongsTo(User::class,'admin');
-    }
+  
 
     public function members(){
         return $this->belongsToMany(User::class, 'group_member');

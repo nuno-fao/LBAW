@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -27,42 +28,32 @@ class GroupController extends Controller
     {   
 
      // $this->authorize('create');
-
-     dd("Create Group");
       
       $this->validate($request, [
-        'movieName' => 'required',
-        'year' => 'required',
-        'movieDescription' => 'required',
-        'moviePoster' => 'required|image'
+        'title' => 'required',
+        'description' => 'required',
+        'groupPhoto' => 'required|image'
       ]);
+      
 
-      $imageName = time().'.'.$request->moviePoster->extension();  
+      $imageName = time().'.'.$request->groupPhoto->extension();  
      
-      $request->moviePoster->move(public_path('img'), $imageName);
+      $request->groupPhoto->move(public_path('img'), $imageName);
         
-      $movie = Movie::create([
-          'title' => $request->movieName,
-          'year' => $request->year,
-          'description' => $request->movieDescription,
+      $group = Group::create([
+          'title' => $request->title,
+          'description' => $request->description,
           'photo' => 'img/'.$imageName,
+          'admin' => auth()->user()->id
         ]);
       
-        if($movie)
+        if($group)
         {        
-            $tagNames = $request->get('tags');
-            $tagIds = [];
-            foreach($tagNames as $tagName)
-            {
-                
-                $tag = Genre::firstOrCreate(['genre'=>$tagName]);
-                if($tag)
-                {
-                  $tagIds[] = $tag->id;
-                }
-    
-            }
-            $movie->genres()->sync($tagIds);
+        
+            $members = [];
+            $members[] = auth()->user()->id;
+            
+            $group->members()->sync($members);
         }
 
     
