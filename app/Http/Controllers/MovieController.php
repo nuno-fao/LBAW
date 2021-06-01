@@ -88,6 +88,13 @@ class MovieController extends Controller
 
      //dd($request->get('tags'));
 
+     $this->validate($request, [
+      'movieName' => 'required',
+      'year' => 'required|numeric|min:1900',
+      'movieDescription' => 'required',
+      'moviePoster' => 'required|image'
+    ]);
+
      $movie = Movie::find($id);
      
      if($movie != null){
@@ -137,7 +144,7 @@ class MovieController extends Controller
       
       $this->validate($request, [
         'movieName' => 'required',
-        'year' => 'required',
+        'year' => 'required|numeric',
         'movieDescription' => 'required',
         'moviePoster' => 'required|image'
       ]);
