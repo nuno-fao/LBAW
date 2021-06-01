@@ -73,7 +73,11 @@ class GroupController extends Controller
 
     public function invitation_page($group_id){
 
-        $friends = auth()->user()->friends;
+        $group = Group::find($group_id);
+
+        $group_members = $group->members()->where('membership_state', 'accepted')->pluck('id')->all();
+
+        $friends = auth()->user()->friends->whereNotIn('id', $group_members);
 
         return view('pages.group_invite',[
             'friends' => $friends,
@@ -86,7 +90,7 @@ class GroupController extends Controller
         $group = Group::find($group_id);
         $user = User::find($user_id);
 
-        $group->members()->sync($user);
+        $group->members()->attach($user);
         $group->save();
 
         return back();

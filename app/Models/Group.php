@@ -30,8 +30,9 @@ class Group extends Model
     }
 
     public function members(){
-        return $this->belongsToMany(User::class, 'group_member')->where('membership_state', 'pending');
+        return $this->belongsToMany(User::class, 'group_member');
     }
+
 
     public function reviews(){
         return $this->hasMany(Review::class);
