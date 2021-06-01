@@ -98,11 +98,12 @@ CREATE TABLE "group"
 
 DROP TABLE IF EXISTS "group_member" CASCADE;
 CREATE TABLE group_member
-(
+(   
+    id serial NOT NULL ,
     group_id integer NOT NULL,
     user_id integer NOT NULL,
     membership_state state NOT NULL DEFAULT 'pending',
-    CONSTRAINT group_member_pkey PRIMARY KEY (group_id, user_id),
+    CONSTRAINT group_member_pkey PRIMARY KEY (id),
     CONSTRAINT group_member_group_fkey FOREIGN KEY (group_id)
         REFERENCES public."group" (id) MATCH SIMPLE
         ON UPDATE CASCADE
