@@ -4,7 +4,14 @@
         <p class="card-text my-auto"><a href="#">{{$notification->group->title}}</a> invited you to join their group
         </p>
         <div class="d-flex justify-content-end">
-            <a href="#" class="btn btn-primary ms-3 request_button" id="request_{{$notification->id}}_accept">Join</a>
+
+            <form method="POST" action="{{route('accept_group_invite',[auth()->user()->id, $notification->group_id])}}" class="col">
+                @csrf
+                <button class="btn btn-primary ms-3 " id="request_{{$notification->id}}_accept">Join</button>
+            </form>
+
+            
+            
             <a href="#" class="btn btn-primary ms-3 request_button" id="request_{{$notification->id}}_decline">Decline</a>
         </div>
 
