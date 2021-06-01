@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Like;
+use App\Models\User;
+use App\Models\Group;
 use App\Models\Movie;
 use App\Models\Review;
 use App\Models\Comment;
-use App\Models\Like;
-use App\Models\User;
+use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
@@ -37,7 +38,7 @@ class ReviewController extends Controller
     }
 
     public function create(Request $request,$movie_id){
-
+    
       $this->authorize('create', Review::class);
 
       $r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
@@ -62,6 +63,8 @@ class ReviewController extends Controller
         $group = Group::find($request->group);
 
         $review->group()->associate($group);
+
+        $review->save();
       }
 
       return back();

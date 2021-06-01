@@ -65,7 +65,10 @@
                                 <h4 class="my-auto">Add a Review</h4>
                                 <select name="group" class="col-5 my-auto show form-select form-select-lg mb-3"
                                       aria-label=".form-select-lg example" id="group-selector">
-                                    <option value="" selected>Public</option>                               
+                                    <option value="" selected>Public</option>   
+                                    @foreach (auth()->user()->groups as $group)
+                                        <option value="{{$group->id}}">{{$group->title}}</option>   
+                                    @endforeach                            
                             @endif
 
                               </select>
