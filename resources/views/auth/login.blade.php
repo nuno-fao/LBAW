@@ -23,7 +23,7 @@
             @csrf
             <div class="form-group mb-3 mt-3 py-2">
                 <label class="text-light" for="username">Username</label>
-                <input type="text" name="username" class="form-control @error('username') border border-danger @enderror" placeholder="username" id="username">
+                <input type="text" name="username" class="form-control @error('username') border border-danger @enderror" placeholder="Username" id="username">
             
                 @error('username')
                     <div class="text-danger">
