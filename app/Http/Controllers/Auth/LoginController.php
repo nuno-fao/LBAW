@@ -47,11 +47,12 @@ class LoginController extends Controller
     public function login(Request $request) {
 
         $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required',
+            'username' => 'required|alpha_dash|max:255',
+            'password' => 'required|min:6',
         ]);
 
         $user = User::where('username',$request->username)->first();
+        
         if($user != null && $user->banned){
             return back()->with('status', 'User has been banned');
         }

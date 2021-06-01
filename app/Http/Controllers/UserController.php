@@ -52,9 +52,10 @@ class UserController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email',
-            'birthday' => 'required',
-            'username' => 'required',
+            'email' => 'required|email|max:255',
+            'birthday' => 'required|before:today',
+            'username' => 'required|alpha_dash|max:255',
+            'userPhoto' => 'image'
         ]);
 
         $user = User::find($user_id);
@@ -92,19 +93,21 @@ class UserController extends Controller
     public function edit_password(Request $request, $user_id){
 
         $this->validate($request, [
-            'current_password' => 'required',
-            'new_password' => 'required|confirmed',
-            'new_password_confirmation' => 'required',
+            'current_password' => 'required|min:6',
+            'new_password' => 'required|confirmed|min:6',
+            'new_password_confirmation' => 'required|min:6',
         ]);
 
         $user = User::find($user_id);
 
         if (!(Hash::check($request->get('current_password'), $user->password))) {
-            return response()->json(['errors' => ['current'=> ['Current password does not match']]], 422);
+            return back()->with('status', 'Current password does not match');
+            //return response()->json(['errors' => ['current'=> ['Current password does not match']]], 422);
         }
 
         if(strcmp($request->get('current_password'), $request->get('new_password')) == 0){
-            return response()->json(['errors' => ['current'=> ['New Password cannot be same as your current password']]], 422);
+            return back()->with('status', 'New Password cannot be same as your current password');
+            //return response()->json(['errors' => ['current'=> ['New Password cannot be same as your current password']]], 422);
         }
 
 
