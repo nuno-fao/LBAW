@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Group extends Model
 {
@@ -28,5 +29,9 @@ class Group extends Model
 
     public function members(){
         return $this->belongsToMany(User::class, 'group_member');
+    }
+
+    public function reviews(){
+        return $this->hasMany(Review::class);
     }
 }

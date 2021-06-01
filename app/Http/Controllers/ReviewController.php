@@ -50,13 +50,20 @@ class ReviewController extends Controller
         'description' => 'required',
       ]);      
 
-      $request->user()->reviews()->create([
+      $review = $request->user()->reviews()->create([
         'title' => $request->title,
         'text' => $request->description,
         'date' => date('Y-m-d H:i:s'),
-        'movie_id' => $request->id,
-        'group_id' => $request->group
+        'movie_id' => $request->id
       ]);
+
+      if($review != null && $request->group != null){
+
+        $group = Group::find($request->group);
+
+        $review->group()->associate($group);
+      }
+
       return back();
     }
 
