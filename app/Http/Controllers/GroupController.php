@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
+
+    public function show($id){
+
+        $group = Group::find($id);
+
+        $reviews = $group->reviews()->paginate(10);
+        
+        return view('pages.group_page',[
+            'group' => $group,
+            'reviews' => $reviews
+        ]);
+    }
+
     public function list(){
 
         $groups = Group::all();
