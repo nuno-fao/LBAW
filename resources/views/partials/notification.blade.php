@@ -10,9 +10,11 @@
                 <button class="btn btn-primary ms-3 " id="request_{{$notification->id}}_accept">Join</button>
             </form>
 
+            <form method="POST" action="{{route('reject_group_invite',[auth()->user()->id, $notification->group_id])}}" class="col">
+                @csrf
+                <button class="btn btn-primary ms-3 " id="request_{{$notification->id}}_decline">Decline</button>
+            </form>
             
-            
-            <a href="#" class="btn btn-primary ms-3 request_button" id="request_{{$notification->id}}_decline">Decline</a>
         </div>
 
         @elseif($notification->review != null)

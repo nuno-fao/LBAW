@@ -30,7 +30,7 @@ class Group extends Model
     }
 
     public function members(){
-        return $this->belongsToMany(User::class, 'group_member');
+        return $this->belongsToMany(User::class, 'group_member')->where('membership_state','!=', 'rejected');
     }
 
 

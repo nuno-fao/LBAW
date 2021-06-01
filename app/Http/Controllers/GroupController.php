@@ -107,8 +107,22 @@ class GroupController extends Controller
 
         $notification = User::find($user_id)->notifications()->where('group_id',$group_id);
         $notification->delete();
-     
 
+        return back();
+        
+    }
+
+    public function reject_invite($user_id, $group_id){
+
+        $group = Group::find($group_id);
+        $user = User::find($user_id);
+ 
+        $group->members()->updateExistingPivot($user_id, [
+            'membership_state' => 'rejected',
+        ]);
+
+        $notification = User::find($user_id)->notifications()->where('group_id',$group_id);
+        $notification->delete();
 
         return back();
         
