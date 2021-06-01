@@ -96,5 +96,23 @@ class GroupController extends Controller
         return back();
     }
 
+    public function accept_invite($user_id,$group_id){
+
+        $group = Group::find($group_id);
+        $user = User::find($user_id);
+ 
+        $group->members()->updateExistingPivot($user_id, [
+            'membership_state' => 'accepted',
+        ]);
+
+        $notification = User::find($user_id)->notifications()->where('group_id',$group_id);
+        $notification->delete();
+     
+
+
+        return back();
+        
+    }
+
 
 }
