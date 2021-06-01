@@ -75,8 +75,18 @@ class GroupController extends Controller
         $friends = auth()->user()->friends;
 
         return view('pages.group_invite',[
-            'friends' => $friends
+            'friends' => $friends,
+            'group_id' => $group_id,
         ]);
+    }
+
+    public function invite_user($group_id,$user_id){
+
+        dd("Convidei pessoas");
+
+        $friends = auth()->user()->friends;
+
+        
     }
 
 

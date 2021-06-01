@@ -21,8 +21,12 @@
                          ISTO FACILITA PARA CASO QUEIRAMOS CANCELAR O PEDIDO
                          --}}
                     <div class="d-flex ">
-                        <form class="my-auto" action="">
-                            <button class="btn btn-primary ms-3 request_button my-auto mr-5 " id="request_0_accept">Invite</button>
+                        <form class="my-auto" method="post" action="{{route('group_invite', ['group_id' => $group_id, 'user_id' => $friend->id])}}">
+                            @csrf
+                            <button class="btn btn-primary ms-3 request_button my-auto mr-5 " 
+                            {{-- id="request_0_accept" --}}
+                            >
+                            Invite</button>
                         </form>
                     
                     </div>

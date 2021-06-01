@@ -80,4 +80,5 @@ Route::get('/groups/list', 'GroupController@list')->name('groups_list');
 Route::get('/groups/add', 'GroupController@add_group_page')->name('add_group');
 Route::post('/groups/add', 'GroupController@create');
 Route::get('/groups/{group_id}', 'GroupController@show')->name('group');
-Route::get('/groups/{group_id}/invitation_page', 'GroupController@invitation_page')->name('invite');
+Route::get('/groups/{group_id}/invitation_page', 'GroupController@invitation_page')->name('invite_page');
+Route::post('/api/groups/{group_id}/invite/{user_id}', 'GroupController@invite_user')->name('group_invite');
