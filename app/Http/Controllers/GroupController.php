@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -82,11 +83,13 @@ class GroupController extends Controller
 
     public function invite_user($group_id,$user_id){
 
-        dd("Convidei pessoas");
+        $group = Group::find($group_id);
+        $user = User::find($user_id);
 
-        $friends = auth()->user()->friends;
+        $group->members()->sync($user);
+        $group->save();
 
-        
+        return back();
     }
 
 
