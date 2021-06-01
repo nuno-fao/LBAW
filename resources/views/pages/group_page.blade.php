@@ -9,11 +9,11 @@
             <div class="card-body ">
                 <div class="d-flex flex-row align-items-center text-start ">
                     <div class="mt-3 mr-3">
-                        <h4>Big Nerds</h4>
-                        <p class="font-size-sm">Group Dedicated to movie nerds</p>
+                        <h4>{{ $group->title }}</h4>
+                        <p class="font-size-sm">{{ $group->description }}</p>
                         <button class="btn btn-primary">Leave Group</button>
                     </div>
-                    <img src="images/basterds.png" alt="Admin" class="rounded" width="150">
+                    <img src="{{asset($group->photo)}}" alt="Admin" class="rounded" width="150">
                     
                 </div>
             </div>
@@ -26,57 +26,18 @@
             </div>
             <section class="d-flex flex-lg-row flex-column" id="down_section">
                 <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Mickey Mouse</h5>
-                        </div>
-                        <p class="mb-1">@the_real_mickey</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">The Beast</h5>
-                        </div>
-                        <p class="mb-1">@im_the_beast</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Beauty</h5>
-                        </div>
-                        <p class="mb-1">@im_a_beauty</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Donald Duck</h5>
-                        </div>
-                        <p class="mb-1">@quack_like_champ</p>
-                    </a>
+                    
+                    @foreach ($group->members as $member)
+                        <a href="{{route('user',[$member->id])}}" class="col list-group-item list-group-item-action" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{$member->name}}</h5>
+                            </div>
+                            <p class="mb-1">{{$member->name}}</p>
+                        </a>
+                    @endforeach
+                    
                 </div>
-                <div class="row ms-auto me-auto my-4 mx-1">
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Sonic</h5>
-                        </div>
-                        <p class="mb-1">@fasterthanflash</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Androis</h5>
-                        </div>
-                        <p class="mb-1">@imagreendroid</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Sleepy Beaty</h5>
-                        </div>
-                        <p class="mb-1">@sleep4ever</p>
-                    </a>
-                    <a href="user_profile.php" class="list-group-item list-group-item-action" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Snopy</h5>
-                        </div>
-                        <p class="mb-1">@hatelife</p>
-                    </a>
-                </div>
+                
             </section>
             <div class="text-right">   
                 <a href="group_invite.php" class="btn btn-primary">Invite Friends</a>
@@ -88,7 +49,7 @@
         <h4 class="text-center">
             Group Exclusive Reviews
         </h4>
-        {{-- @each('partials.review&movie', $reviews, 'review') --}}
+        @each('partials.review&movie', $reviews, 'review') 
     </section>
 </div>
 
