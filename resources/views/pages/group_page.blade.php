@@ -11,7 +11,13 @@
                     <div class="mt-3 mr-3">
                         <h4>{{ $group->title }}</h4>
                         <p class="font-size-sm">{{ $group->description }}</p>
-                        <button class="btn btn-primary">Leave Group</button>
+                        @if($group->members->contains(auth()->user()))
+                            @if(auth()->user()->isAdminOf($group))
+                                <button class="btn btn-primary">Delete Group</button>
+                            @else
+                                <button class="btn btn-primary">Leave Group</button>
+                            @endif
+                        @endif
                     </div>
                     <img src="{{asset($group->photo)}}" alt="Admin" class="rounded" width="150">
                     

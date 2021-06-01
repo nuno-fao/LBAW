@@ -25,7 +25,9 @@ class Group extends Model
         'admin'
     ];
 
-  
+    public function admin(){
+        return User::find($this->admin);
+    }
 
     public function members(){
         return $this->belongsToMany(User::class, 'group_member');
