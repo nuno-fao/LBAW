@@ -46,7 +46,7 @@
                 
             </section>
             <div class="text-right">   
-                <a href="group_invite.php" class="btn btn-primary">Invite Friends</a>
+                <a href="/groups/{{$group->id}}/invitation_page" class="btn btn-primary">Invite Friends</a>
             </div>
             
         </section>

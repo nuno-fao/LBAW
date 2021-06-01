@@ -70,5 +70,14 @@ class GroupController extends Controller
       return redirect()->route('landing_page');
     }
 
+    public function invitation_page($group_id){
+
+        $friends = auth()->user()->friends;
+
+        return view('pages.group_invite',[
+            'friends' => $friends
+        ]);
+    }
+
 
 }
