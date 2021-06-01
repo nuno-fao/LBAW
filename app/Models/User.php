@@ -66,6 +66,13 @@ class User extends Authenticatable
         return ($group->admin == $this->id);
     }
 
+    public function hasBeenInvitedToGroup($group_id){
+
+        $group= Group::find($group_id);
+
+        return ($group->members->contains($this));
+    }
+
     function friendsOfMine() {
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id1', 'signed_user_id2')
         // if you want to rely on accepted field, then add this:

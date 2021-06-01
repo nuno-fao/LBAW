@@ -15,7 +15,7 @@
                     <p class="card-text my-auto fs-4"><a href="/user/{{$friend->id}}">{{$friend->username}}</a> </p>
                     <p class="card-text my-auto fs-4"> {{$friend->name}}</p>
                     
-                    {{-- TODO: AQUI A CARD DESAPARECE DEPOIS DE CONVIDAR, NAO SEI SE FICA MELHOR ASSIM,
+                    {{-- TODO: AQUI A CARD DESAPARECIA DEPOIS DE CONVIDAR, NAO SEI SE FICA MELHOR ASSIM,
                          OU SIMPLESMENTE SUBTITUIR O BOTAO POR ALGO A DIZER "INVITED", E SO SE REMOVE
                          A CARD CASO ELE JA FAÇA PARTE DO GRUPO. 
                          ISTO FACILITA PARA CASO QUEIRAMOS CANCELAR O PEDIDO
@@ -23,7 +23,10 @@
                     <div class="d-flex ">
                         <form class="my-auto" method="post" action="{{route('group_invite', ['group_id' => $group_id, 'user_id' => $friend->id])}}">
                             @csrf
-                            <button class="btn btn-primary ms-3 request_button my-auto mr-5 " 
+                            <button class="btn btn-primary ms-3 request_button my-auto mr-5" 
+                            @if ($friend->hasBeenInvitedToGroup($group_id))
+                                disabled
+                            @endif
                             {{-- id="request_0_accept" --}}
                             >
                             Invite</button>
