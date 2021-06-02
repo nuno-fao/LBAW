@@ -19,20 +19,20 @@
                     <div class="mt-3 mr-3">
                         <h4>{{ $group->title }}</h4>
                         <p class="font-size-sm">{{ $group->description }}</p>
-                        @if($group->members->contains(auth()->user()))
-                            @if(auth()->user()->isAdminOf($group))
+
+                            @can('delete', $group)
                                 <form method="post" action="{{route('delete_group',['group_id' => $group->id])}}">
                                     @method('delete')
                                     @csrf
                                     <button class="btn btn-primary">Delete Group</button>
                                 </form>
-                            @else
+                            @elsecan('leave', $group)
                                 <form method="post" action="{{route('leave_group',['group_id' => $group->id, 'user_id' => auth()->user()->id])}}">
                                     @csrf
                                     <button class="btn btn-primary">Leave Group</button>
                                 </form>
-                            @endif
-                        @endif
+                            @endcan
+
                     </div>
                     <img src="{{asset($group->photo)}}" alt="Admin" class="rounded" width="150">
                     
