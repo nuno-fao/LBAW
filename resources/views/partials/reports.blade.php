@@ -28,12 +28,9 @@
                 View
             </a>
 
-            <form method="POST" action="{{route('discard_report',['review_id' => $review->id])}}">
-                @csrf
-                <button class="btn text-dark" >
+                <button class="btn text-dark" onclick="removeReport('report_{{$review->id}}',{{$review->id}})">
                     Discard
                 </button>  
-            </form>
 
             {{-- <a class="btn text-dark" onclick="location.href='{{route('discard_report',[$review->id])}}'">
                 Discard
