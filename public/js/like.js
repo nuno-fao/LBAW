@@ -5,10 +5,11 @@ like_buttons.forEach(button => {
         let like_clicked = new XMLHttpRequest();
         like_clicked.onload = function() {
             if (button.id.includes("clicked")) {
-                document.getElementById("likes_" + id).innerHTML = document.getElementById("likes_" + id).innerHTML - 1;
+                document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) - 1;
+                button.id = "like_button_" + id;
             } else {
-
-                document.getElementById("likes_" + id).innerHTML = document.getElementById("likes_" + id).innerHTML + 1;
+                document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) + 1;
+                button.id += "_clicked";
             }
         }
         like_clicked.open("POST", "/api/review/" + id + "/like", true);

@@ -7,6 +7,7 @@ use App\Models\User;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class ReviewPolicy
 {
@@ -34,5 +35,14 @@ class ReviewPolicy
     {
       // Only a card owner can delete it
       return Auth::check();
+    }
+
+    public function report()
+    {
+      // Only a card owner can delete it
+      return Auth::check();
+    }
+    public function see(){
+      return Route::currentRouteName() !== 'review';
     }
 }

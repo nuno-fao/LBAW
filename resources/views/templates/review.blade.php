@@ -1,43 +1,43 @@
-<div class="card-header row review-header " onclick="location.href='{{route('review',[$review->id])}}'">
-    <div class="col col-12 col-lg-9 no-padding">
+<div class="card-header row review-header ">
+    <span class="col col-12 col-lg-4 d-flex align-items-center">
         {{$review->title}}
-    </div>
-    <div class="col col-12 col-lg-3 review-author no-padding">
-        <a class="btn text-dark" href="{{route('user',['user' => $review->user->id])}}">
-            by {{$review->user->username}}
+    </span>
+    <div class="col col-12 col-lg-8 d-flex justify-content-end review-author no-padding">
+        <div class="text-dark d-flex align-items-center">
+            {{\Carbon\Carbon::now()->diffForHumans()}}
+        </div> 
+        <a class="btn" href="{{route('user',['user' => $review->user->id])}}">
+            by {{$review->user->username}} 
         </a> 
-        @can('delete',$review)
-            <button class="btn btn-primary" id="deleteButton">
-                Delete
-            </button>                     
-        @else 
-            <form method="POST" action="{{route('report_review',['id' => $review->id])}}">
-                @csrf
-                @if(Auth::check())
-                    <button class="btn btn-primary"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
-                        Report
-                    </button>  
-                @endif 
-            </form>
-            
-        @endcan
+
         
-    </div>
-    <div class="col col-12 no-padding">
-        <small col>
-            {{$review->date}}
-        </small>
+        @can('delete',$review)
+            <button class="btn btn-primary ms-1" id="deleteButton">
+                Delete
+            </button>    
+            
+        @endcan   
+        @can('report',$review)              
+            <button class="btn btn-primary ms-1"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
+                Report
+            </button>  
+        @endcan    
+        @can('see',$review)    
+        <button class="btn btn-primary ms-1"  onclick="location.href='{{route('review',[$review->id])}}'">
+            See 
+        </button>
+        @endcan  
     </div>
 </div>
-<div class="card-body d-flex flex-column " onclick="location.href='{{route('review',[$review->id])}}'">
+<div class="card-body d-flex flex-column ">
     {{$review->text}}
 </div>
-<div class="card-footer d-flex d-flex justify-content-between review-footer">
+<div class="card-footer d-flex justify-content-between review-footer">
     <div class="no-padding">
         <i id="like_button_{{$review->id}}" class="like_button fa fa-thumbs-up"> </i>
         <span id="likes_{{$review->id}}">{{$review->likes->count()}}</span>
     </div>
-    <a class="btn" data-toggle="collapse" href="#comments{{$review->id}}" role="button" aria-expanded="false"
+    <a class="btn py-0" data-toggle="collapse" href="#comments{{$review->id}}" role="button" aria-expanded="false"
         aria-controls="comments{{$review->id}}"> 
         {{$review->comments->count()}} comments 
     </a>
