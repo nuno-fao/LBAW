@@ -7,7 +7,7 @@
 </script>
 
 
-<div class="col-lg-12 col-12 row mx-auto" id="review_{{$review->id}}">
+<div class="col-lg-12 col-12 row mx-auto" >
     @include('layouts.management_board_reviews', ['reviews' => $reviews])
     <section class="col-xl-7 col-lg-6 col-12 scrollit me-auto ms-auto">
         <h4 class="mt-3 text-center mb-5">
