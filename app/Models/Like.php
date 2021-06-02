@@ -19,4 +19,8 @@ class Like extends Model
         'user_id',
         'review_id',
     ];
+
+    public function review(){
+        return $this->belongsTo(Review::class);
+    }
 }

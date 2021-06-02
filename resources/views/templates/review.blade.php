@@ -31,8 +31,9 @@
     {{$review->text}}
 </div>
 <div class="card-footer d-flex d-flex justify-content-between review-footer">
-    <div class="like_button no-padding">
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up"> {{$review->likes->count()}}</i>
+    <div class="no-padding">
+        <i id="like_button_{{$review->id}}" class="like_button fa fa-thumbs-up"> </i>
+        <span id="likes_{{$review->id}}">{{$review->likes->count()}}</span>
     </div>
     <a class="btn" data-toggle="collapse" href="#comments{{$review->id}}" role="button" aria-expanded="false"
         aria-controls="comments{{$review->id}}"> 

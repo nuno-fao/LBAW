@@ -30,6 +30,8 @@
 
     
     </script>
+
+    <script src="{{ asset("js/like.js")}}" defer> </script>
     <script type="text/javascript" src={{ asset('js/app.js') }} defer>
   </script>
   </head>
