@@ -10,6 +10,8 @@ class NotificationController extends Controller
     
     public function index(){
 
+      $this->authorize('view', Notification::class); 
+
         $notifs = Auth::user()->notifications()->orderBy('date','desc')->take(10)->get();
 
         return view('pages.notifications', [
@@ -19,6 +21,8 @@ class NotificationController extends Controller
 
     public function getNotificationPage($page)
     {
+
+
       if( !ctype_digit($page)){
         return view(self::ERROR_404_PAGE);
       }
