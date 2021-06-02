@@ -2,21 +2,28 @@
 
 namespace App\Policies;
 
-use App\Models\Review;
 use App\Models\User;
+use App\Models\Group;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ReviewPolicy
 {
     use HandlesAuthorization;
     
-    public function create()
+    public function create(User $user, $group_id)
     {
-      // Any user can list its own cards
-      return Auth::check();
+
+      if($group_id == null){
+        return Auth::check();
+      }
+      
+      $group = Group::find($group_id);
+
+      return $user->groups()->get()->contains($group);
     }
 
     public function delete(User $user, Review $review)
@@ -37,11 +44,16 @@ class ReviewPolicy
       return Auth::check();
     }
 
-    public function report()
+    public function report(User $user, $review_id)
     {
-      // Only a card owner can delete it
+
+      // $review = Review::find($review_id);
+      
+      // return ($review->user() != $user && !$user->admin);
+      
       return Auth::check();
     }
+
     public function see(){
       return Route::currentRouteName() !== 'review';
     }

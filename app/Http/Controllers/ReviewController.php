@@ -34,11 +34,12 @@ class ReviewController extends Controller
         return Review::where('movie_id',$movie->id)->where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
     }
 
-    public function create(Request $request,$movie_id){
+    public function create(Request $request, $movie_id){
     
-      $this->authorize('create', Review::class);
+      $this->authorize('create', [Review::class, $request->group]);
 
       $r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
+      
       if(count($r) != 0 && $request->group == null){
         return back();
       }

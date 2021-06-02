@@ -10,6 +10,8 @@ class ReportController extends Controller
 {
     public function report_review(Request $request, $id){
 
+        $this->authorize('report', [Review::class, $id]);
+
         $request->user()->reported()->create([
             'review_id' => $id
         ]);

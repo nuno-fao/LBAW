@@ -63,7 +63,7 @@ class MoviePolicy
      * @param  \App\Models\Movie  $movie
      * @return mixed
      */
-    public function delete(User $user, Movie $movie)
+    public function delete(User $user)
     {
         return $user->admin;
     }
