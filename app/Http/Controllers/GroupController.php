@@ -128,5 +128,15 @@ class GroupController extends Controller
         
     }
 
+    public function delete($group_id){
+
+        $group = Group::find($group_id);
+
+        $group->delete();
+
+        return redirect()->route('groups_list');
+
+    }
+
 
 }

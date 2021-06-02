@@ -13,7 +13,11 @@
                         <p class="font-size-sm">{{ $group->description }}</p>
                         @if($group->members->contains(auth()->user()))
                             @if(auth()->user()->isAdminOf($group))
-                                <button class="btn btn-primary">Delete Group</button>
+                                <form method="post" action="{{route('delete_group',['group_id' => $group->id])}}">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-primary">Delete Group</button>
+                                </form>
                             @else
                                 <button class="btn btn-primary">Leave Group</button>
                             @endif
