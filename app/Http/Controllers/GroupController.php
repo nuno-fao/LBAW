@@ -31,6 +31,8 @@ class GroupController extends Controller
     }
 
     public function add_group_page(){
+
+        $this->authorize('create', Group::class); 
         
         return view('pages.add_group');
     }
@@ -38,7 +40,7 @@ class GroupController extends Controller
     public function create(Request $request)
     {   
 
-     // $this->authorize('create');
+        $this->authorize('create', Group::class); 
       
       $this->validate($request, [
         'title' => 'required|max:255',
@@ -75,7 +77,9 @@ class GroupController extends Controller
 
         $group = Group::find($group_id);
 
-        $group_members = $group->members()->where('membership_state', 'accepted')->pluck('id')->all();
+        $this->authorize('invite', $group); 
+
+        $group_members = $group->members()->where('membership_state', 'accepted')->pluck('group_member.id')->all();
 
         $friends = auth()->user()->friends->whereNotIn('id', $group_members);
 
@@ -88,7 +92,10 @@ class GroupController extends Controller
     public function invite_user($group_id,$user_id){
 
         $group = Group::find($group_id);
+
         $user = User::find($user_id);
+
+        $this->authorize('invite_user', [$group,$user]); 
 
         $group->members()->attach($user);
         $group->save();
@@ -98,8 +105,12 @@ class GroupController extends Controller
 
     public function accept_invite($user_id,$group_id){
 
+    
         $group = Group::find($group_id);
+
         $user = User::find($user_id);
+
+        $this->authorize('accept_invite', [$group, $user]); 
  
         $group->members()->updateExistingPivot($user_id, [
             'membership_state' => 'accepted',
@@ -116,6 +127,8 @@ class GroupController extends Controller
 
         $group = Group::find($group_id);
         $user = User::find($user_id);
+
+        $this->authorize('reject_invite', [$group, $user]); 
  
         $group->members()->updateExistingPivot($user_id, [
             'membership_state' => 'rejected',
@@ -132,6 +145,8 @@ class GroupController extends Controller
 
         $group = Group::find($group_id);
 
+        $this->authorize('delete', $group); 
+
         $group->delete();
 
         return redirect()->route('groups_list');
@@ -140,7 +155,10 @@ class GroupController extends Controller
 
     public function leave($group_id, $user_id){
 
+
         $group = Group::find($group_id);
+
+        $this->authorize('leave', $group); 
 
         $group->members()->detach($user_id);
 

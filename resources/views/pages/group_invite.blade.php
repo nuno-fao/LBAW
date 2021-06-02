@@ -34,9 +34,10 @@
                         <form class="my-auto" method="post" action="{{route('group_invite', ['group_id' => $group_id, 'user_id' => $friend->id])}}">
                             @csrf
                             <button class="btn btn-primary ms-3 request_button my-auto mr-5" 
-                            @if ($friend->hasBeenInvitedToGroup($group_id))
+                            @cannot('invite_user', [App\Models\Group::class, App\Models\Group::find($group_id),$friend])
                                 disabled
-                            @endif
+                            @endcan
+                                
                             {{-- id="request_0_accept" --}}
                             >
                             Invite</button>
