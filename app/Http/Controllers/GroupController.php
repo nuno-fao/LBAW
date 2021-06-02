@@ -41,7 +41,7 @@ class GroupController extends Controller
      // $this->authorize('create');
       
       $this->validate($request, [
-        'title' => 'required|alpha_dash|max:255',
+        'title' => 'required|max:255',
         'description' => 'required',
         'groupPhoto' => 'required|image'
       ]);
