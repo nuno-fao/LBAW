@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
+use App\Models\Review;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,13 @@ class CommentController extends Controller
     }
 
     public function create(Request $request, $review_id){
+
+
+        $this->authorize('create', [Comment::class, $review_id]);
+
+        $review = Review::find($review_id);
+
+        // dd($review->group->id);
         
         try{
             $comment = $request->user()->comments()->create([
@@ -34,6 +42,8 @@ class CommentController extends Controller
     public function delete($comment_id){
        
         $comment = Comment::find($comment_id);
+
+        $this->authorize('delete', $comment);
 
         $comment->delete();
 
