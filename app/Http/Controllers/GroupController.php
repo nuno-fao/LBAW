@@ -138,5 +138,15 @@ class GroupController extends Controller
 
     }
 
+    public function leave($group_id, $user_id){
+
+        $group = Group::find($group_id);
+
+        $group->members()->detach($user_id);
+
+        return back();
+
+    }
+
 
 }

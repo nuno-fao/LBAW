@@ -19,7 +19,10 @@
                                     <button class="btn btn-primary">Delete Group</button>
                                 </form>
                             @else
-                                <button class="btn btn-primary">Leave Group</button>
+                                <form method="post" action="{{route('leave_group',['group_id' => $group->id, 'user_id' => auth()->user()->id])}}">
+                                    @csrf
+                                    <button class="btn btn-primary">Leave Group</button>
+                                </form>
                             @endif
                         @endif
                     </div>

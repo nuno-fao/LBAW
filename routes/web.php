@@ -87,3 +87,4 @@ Route::post('/api/groups/{group_id}/invite/{user_id}', 'GroupController@invite_u
 Route::post('/api/users/{user_id}/request/group/accept/{group_id}', 'GroupController@accept_invite')->name('accept_group_invite');
 Route::post('/api/users/{user_id}/request/group/reject/{group_id}', 'GroupController@reject_invite')->name('reject_group_invite');
 Route::delete('/groups/delete/{group_id}', 'GroupController@delete')->name('delete_group');
+Route::post('/groups/{group_id}/member/{user_id}/leave', 'GroupController@leave')->name('leave_group');
