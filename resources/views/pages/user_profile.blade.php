@@ -11,17 +11,10 @@
 <div class="col-lg-12 col-12 mt-5 row mx-auto">
     <aside id="user_info" class="col-xl-4 col-lg-5 col-12 fixed sticky_left_aside">
         <div class="card mx-3">
-            @can('ban',$user)
-                @if (!$user->banned)
-                    <button class="btn btn-primary" id="ban-button">Ban</button>                            
-                @else
-                    <button class="btn btn-primary" id="ban-button">Unban</button>                              
-                @endif
-            @endcan
             <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                     {{-- <form action="{{route('edit_user',['user_id' => $user->id ])}}"> --}}
-                        <button class="position-absolute btn top-0 end-0 " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="position-absolute btn top-0 start-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                                 <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                               </svg>
@@ -40,7 +33,7 @@
                                 <button class="dropdown-item" >Delete Account</button>
                             </form> 
                             
-                          </div>
+                        </div>
                     {{-- </form> --}}
                           
                     <div class="position-relative">
@@ -55,12 +48,12 @@
                         <p class="text-muted font-size-sm">{{\Carbon\Carbon::parse($user->date_of_birth)->diff(\Carbon\Carbon::now())->format('%y Years Old')}}</p>
                         <p class="font-size-sm">{{$user->email}}</p>
                         @if($user != auth()->user())
+                        <div class="d-flex justify-content-around">
                             @if(auth()->user()->sentRequestTo($user))
-                                <div class="sent card ">Request Sent</div>
-                                <div class="cancelbutton">
+                                <div class="">
                                     <form method="POST" action="{{route('cancel_friend_request',[$user->id,auth()->user()->id])}}" class="col">
                                         @csrf
-                                        <button class="card bg-primary text-white w-100">Cancel Request</button>
+                                        <button  class="btn btn-primary">Cancel Request</button>
                                     </form>
                                 </div>
                                 
@@ -68,7 +61,7 @@
                                 <div class="card ">Friend</div>
                             @elseif(auth()->user()->receivedRequestFrom($user))
                                 <div class="card mb-1">Request Received</div>
-                                <div class="row ">
+                                <div class="row">
                                     <form method="POST" action="{{route('reject_friend_request',[auth()->user()->id, $user->id])}}" class="col">
                                         @csrf
                                         <button  class="btn btn-primary">Reject</button>
@@ -85,7 +78,15 @@
                                     <button  class="btn btn-primary">Send Request</button>
                                 </form>
                             @endif
-                            
+
+                            @can('ban',$user)
+                                @if (!$user->banned)
+                                    <button class="btn btn-primary" id="ban-button">Ban</button>                            
+                                @else
+                                    <button class="btn btn-primary" id="ban-button">Unban</button>                              
+                                @endif
+                            @endcan
+                        </div>
                         @endif
                     </div>
                 </div>

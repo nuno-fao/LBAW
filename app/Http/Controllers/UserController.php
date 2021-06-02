@@ -28,6 +28,7 @@ class UserController extends Controller
             $user->banned = true;
             $user->save();
         }
+        return response('', 200)->header('Content-Type', 'text/plain');
     }
 
     public function unban(User $user){
@@ -37,6 +38,7 @@ class UserController extends Controller
             $user->banned = false;
             $user->save();
         }
+        return response('', 200)->header('Content-Type', 'text/plain');
     }
 
     public function edit_page($user_id){

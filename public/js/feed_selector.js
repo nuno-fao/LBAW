@@ -18,7 +18,7 @@ btn_public.addEventListener("click", () => {
         friends_feed.style.display = "none";
         let a = bar_friends.className.replace("bg-primary", "bg-secondary")
         let b = bar_public.className.replace("bg-secondary", "bg-primary")
-        console.log(a, b)
+
         bar_friends.className = a;
         bar_public.className = b;
         btn_public.blur()
@@ -33,7 +33,7 @@ btn_friends.addEventListener("click", () => {
         friends_feed.style.display = "block";
         let a = bar_public.className.replace("bg-primary", "bg-secondary")
         let b = bar_friends.className.replace("bg-secondary", "bg-primary")
-        console.log(a, b)
+
         bar_public.className = a;
         bar_friends.className = b;
         btn_friends.blur()

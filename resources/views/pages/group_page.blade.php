@@ -13,9 +13,16 @@
                         <p class="font-size-sm">{{ $group->description }}</p>
                         @if($group->members->contains(auth()->user()))
                             @if(auth()->user()->isAdminOf($group))
-                                <button class="btn btn-primary">Delete Group</button>
+                                <form method="post" action="{{route('delete_group',['group_id' => $group->id])}}">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-primary">Delete Group</button>
+                                </form>
                             @else
-                                <button class="btn btn-primary">Leave Group</button>
+                                <form method="post" action="{{route('leave_group',['group_id' => $group->id, 'user_id' => auth()->user()->id])}}">
+                                    @csrf
+                                    <button class="btn btn-primary">Leave Group</button>
+                                </form>
                             @endif
                         @endif
                     </div>
@@ -27,7 +34,7 @@
         <section>
             <div class="text-center">
                 <h4 class="mt-3">Group Members</h4>
-                <a class="nav-link py-0" href="group_members_page.php">view all</a>
+                <a class="nav-link py-0" href="/groups/{{$group->id}}/members">view all</a>
                 
             </div>
             <section class="d-flex flex-lg-row flex-column" id="down_section">

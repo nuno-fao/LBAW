@@ -12,13 +12,13 @@
 
         
         @can('delete',$review)
-            <button class="btn btn-primary ms-1" id="deleteButton">
+            <button class="btn btn-primary ms-1" onclick="deleteReview('review_{{$review->id}}',{{$review->id}})">
                 Delete
             </button>    
             
         @endcan   
         @can('report',$review)              
-            <button class="btn btn-primary ms-1"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
+            <button class="btn btn-primary ms-1 report_button"  onclick="reportReview('review_{{$review->id}}',{{$review->id}})"  @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
                 Report
             </button>  
         @endcan    
@@ -48,18 +48,15 @@
         @each('partials.comment',$review->comments,'comment')
     @endif
     @auth
-    <form class="add-comment" action="{{ route('add_comment',['id' => $review->id]) }}"  method="POST">
-    @csrf
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Add a commment</label>
+            <label for="addCommentArea_{{$review->id}}">Add a commment</label>
             <div class=" d-flex ">
-                <textarea class="form-control comment-textarea" name="text" id="exampleFormControlTextarea1"
+                <textarea class="form-control comment-textarea" name="text" id="addCommentArea_{{$review->id}}"
                     rows="1"></textarea>
-                <button class="btn btn-primary ms-3">
+                <button class="btn btn-primary ms-3" onclick="addComment({{$review->id}})">
                     Send
                 </button>
             </div>
         </div>
-    </form>
     @endauth
 </div>     

@@ -4,10 +4,9 @@
 
 
 <script>
-    let review_id = {{$review->id}}
+    let review_page = true;
 </script>
 
-<script src="{{ asset("js/delete_review_onReview.js")}}" defer> </script>
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -17,7 +16,7 @@
 </nav>
 
 
-<div class="col-11 col-lg-10 my-auto mx-auto">
+<div class="col-11 col-lg-10 my-auto mx-auto "  id="review_{{$review->id}}">
     <div class="row align-items-center my-4 review-section">
         <div class="col col-12 col-lg-1">
         </div>

@@ -14,8 +14,6 @@ class MoviePolicy
 
     public function show_add_page()
     {
-
-
       return $user->admin;
     }
 

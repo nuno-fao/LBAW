@@ -1,12 +1,3 @@
-<script>
-    if(typeof review_id !== 'undefined'){
-        review_id = {{$review->id}}
-    }
-    else{
-        review_id = {{$review->id}}
-    }
-    
-</script>
   
 
 <div class="review card mt-3 bg-light text-dark text-dark">

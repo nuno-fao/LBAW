@@ -35,7 +35,7 @@ Route::get('review/{id}','ReviewController@show')->name('review');
 Route::get('api/review/{review_id}','ReviewController@getReview');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
 Route::patch('api/review/{review_id}', 'ReviewController@edit');
-Route::get('api/review/{review_id}/like', 'ReviewController@like');
+Route::post('api/review/{review_id}/like', 'ReviewController@like');
 
 //User Profile
 Route::get('user/{user}','UserController@show')->name('user');
@@ -75,6 +75,7 @@ Route::post('/api/admin/reviews/board/report/{review_id}', 'ReportController@dis
 
 //Comments
 Route::post('/api/review/{id}/comment', 'CommentController@create')->name('add_comment');
+Route::delete('/api/review/comment/{comment_id}', 'CommentController@delete')->name('delete_comment');
 
 //Groups
 Route::get('/groups/list', 'GroupController@list')->name('groups_list');
@@ -85,3 +86,6 @@ Route::get('/groups/{group_id}/invitation_page', 'GroupController@invitation_pag
 Route::post('/api/groups/{group_id}/invite/{user_id}', 'GroupController@invite_user')->name('group_invite');
 Route::post('/api/users/{user_id}/request/group/accept/{group_id}', 'GroupController@accept_invite')->name('accept_group_invite');
 Route::post('/api/users/{user_id}/request/group/reject/{group_id}', 'GroupController@reject_invite')->name('reject_group_invite');
+Route::delete('/groups/delete/{group_id}', 'GroupController@delete')->name('delete_group');
+Route::post('/groups/{group_id}/member/{user_id}/leave', 'GroupController@leave')->name('leave_group');
+Route::get('/groups/{group_id}/members', 'GroupController@members_page')->name('members_page');
