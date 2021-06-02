@@ -24,6 +24,8 @@ Route::post('register', 'Auth\RegisterController@register');
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
 Route::get('api/movie/{movie_id}/feed/{page}','MovieController@getPage');
+Route::get('movie_list', 'MovieListController@show')->name('movie_list');
+Route::get('api/movie_list/{page}', 'MovieListController@getMovieListPage');
 Route::post('api/movie/{id}/review','ReviewController@create');
 Route::get('/admin/movies/add', 'MovieController@add_page')->name('add_movie');
 Route::post('/admin/movies/add', 'MovieController@create');
