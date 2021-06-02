@@ -5,7 +5,7 @@
 <section class="container">
     <div class="text-center my-5">
         <h3 class="display-5">
-            Justice League Members
+            {{$group->title}} Members
         </h3>
     </div>
 </section>
