@@ -23,7 +23,7 @@
                 <div class="card  no-padding">
                     <img src="{{asset($group->photo)}}" class="card-img-top" alt="...">
                     <div class="card-body d-flex flex-column d-flex justify-content-center">
-                        <a href="group_page.php" class="btn btn-primary mx-auto stretched-link">{{$group->title}}</a>
+                        <a href="/groups/{{$group->id}}" class="btn btn-primary mx-auto stretched-link">{{$group->title}}</a>
                         <p class="card-text text-center mt-3">{{$group->members()->count()}} members</p>
                     </div>
                 </div>
