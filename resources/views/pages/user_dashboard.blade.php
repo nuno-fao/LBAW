@@ -2,6 +2,13 @@
 
 @section('content')
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Users Dashboard</a></li>
+    </ol>
+</nav>
+
 <div class="col-lg-12 col-12 row mx-auto">
 
     @include('layouts.management_board_user')
