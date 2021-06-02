@@ -23,7 +23,6 @@ btn_public.addEventListener("click", () => {
         bar_public.className = b;
         btn_public.blur()
     }
-
 })
 
 btn_friends.addEventListener("click", () => {

@@ -1,14 +1,21 @@
 function deleteReview(rid, id) {
     let deleteAjax = new XMLHttpRequest();
+    let review = document.getElementById(rid)
 
     deleteAjax.onload = function() {
+        console.log(deleteAjax.status)
+        if (deleteAjax.status != 200) {
+            console.log("why")
+            toast("Error while deleing message", review.id)
+            return
+        }
         if (typeof review_page != "undefined" && review_page) {
             window.location.replace("/");
         }
+        console.log(review)
+        toast("Review Successfully Deleted", review.id)
         review.remove();
     };
-
-    let review = document.getElementById(rid)
     if (review != null) {
         deleteAjax.open("DELETE", "/api/review/" + id, true);
         deleteAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
