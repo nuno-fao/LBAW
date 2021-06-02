@@ -1,4 +1,4 @@
-<div class="card-header row review-header " onclick="location.href='{{route('review',[$review->id])}}'">
+<div class="card-header row review-header ">
     <div class="col col-12 col-lg-9 no-padding">
         {{$review->title}}
     </div>
@@ -9,18 +9,15 @@
         @can('delete',$review)
             <button class="btn btn-primary" id="deleteButton">
                 Delete
-            </button>                     
-        @else 
-            <form method="POST" action="{{route('report_review',['id' => $review->id])}}">
-                @csrf
-                @if(Auth::check())
-                    <button class="btn btn-primary"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
-                        Report
-                    </button>  
-                @endif 
-            </form>
+            </button>    
             
+        @endcan   
+        @can('report',$review)              
+            <button class="btn btn-primary"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
+                Report
+            </button>  
         @endcan
+            
         
     </div>
     <div class="col col-12 no-padding">
@@ -29,7 +26,7 @@
         </small>
     </div>
 </div>
-<div class="card-body d-flex flex-column " onclick="location.href='{{route('review',[$review->id])}}'">
+<div class="card-body d-flex flex-column ">
     {{$review->text}}
 </div>
 <div class="card-footer d-flex d-flex justify-content-between review-footer">

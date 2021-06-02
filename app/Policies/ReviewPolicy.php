@@ -35,4 +35,10 @@ class ReviewPolicy
       // Only a card owner can delete it
       return Auth::check();
     }
+
+    public function report()
+    {
+      // Only a card owner can delete it
+      return Auth::check();
+    }
 }

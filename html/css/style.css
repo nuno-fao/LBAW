@@ -32,7 +32,7 @@
     .review-header {
         width: 100%;
         margin: auto;
-        cursor: pointer;
+        /*cursor: pointer;*/
     }
     
     .review-footer {
@@ -169,7 +169,7 @@
     }
     
     .review-body {
-        cursor: pointer;
+        /*cursor: pointer;*/
     }
     
     .comment-area {
