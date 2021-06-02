@@ -19,6 +19,7 @@
     
     <script src="{{ asset('js/sticky.js') }}" defer></script>
     <script src="{{ asset("js/commentTextarea.js")}}" defer> </script>
+    <script src="{{ asset("js/toast.js")}}" defer> </script>
     <script src="{{ asset("js/reviewActions.js")}}" defer> </script>
     
 </div>
