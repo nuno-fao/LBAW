@@ -44,6 +44,8 @@ class UserController extends Controller
     public function edit_page($user_id){
 
         $user = User::find($user_id);
+
+        $this->authorize('edit', $user);
         
         return view('pages.edit_user', [
             'user' => $user
@@ -52,6 +54,10 @@ class UserController extends Controller
 
     public function edit(Request $request, $user_id){
 
+        $user = User::find($user_id);
+
+        $this->authorize('edit', $user);
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|max:255',
@@ -59,9 +65,7 @@ class UserController extends Controller
             'username' => 'required|alpha_dash|max:255',
             'userPhoto' => 'image'
         ]);
-
-        $user = User::find($user_id);
-
+        
         if($user != null){
             $user->name = $request->name;
             $user->email = $request->email;
@@ -86,6 +90,8 @@ class UserController extends Controller
     public function edit_password_page($user_id){
 
         $user = User::find($user_id);
+
+        $this->authorize('edit', $user);
         
         return view('pages.edit_password', [
             'user' => $user
@@ -94,13 +100,16 @@ class UserController extends Controller
 
     public function edit_password(Request $request, $user_id){
 
+        $user = User::find($user_id);
+
+        $this->authorize('edit', $user);
+
         $this->validate($request, [
             'current_password' => 'required|min:6',
             'new_password' => 'required|confirmed|min:6',
             'new_password_confirmation' => 'required|min:6',
         ]);
 
-        $user = User::find($user_id);
 
         if (!(Hash::check($request->get('current_password'), $user->password))) {
             return back()->with('status', 'Current password does not match');
@@ -124,6 +133,8 @@ class UserController extends Controller
     public function delete($user_id){
 
         $user = User::find($user_id);
+
+        $this->authorize('delete', $user);
 
         Auth::logout();
 
