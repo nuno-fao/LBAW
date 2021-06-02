@@ -111,6 +111,6 @@ class ReviewController extends Controller
       if($r != null){     
         $r->save();    
       }
-      return back();
+      return response('', 200)->header('Content-Type', 'text/plain');
     }
 }

@@ -10,11 +10,9 @@ function deleteReview(rid, id) {
 
     let review = document.getElementById(rid)
     if (review != null) {
-        review.addEventListener('click', () => {
-            deleteAjax.open("DELETE", "/api/review/" + id, true);
-            deleteAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
-            deleteAjax.send();
-        });
+        deleteAjax.open("DELETE", "/api/review/" + id, true);
+        deleteAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
+        deleteAjax.send();
     }
 }
 
@@ -28,12 +26,8 @@ function reportReview(rid, id) {
         }
     };
 
-    let review = document.getElementById(rid)
-    if (review != null) {
-        review.addEventListener('click', () => {
-            reportAjax.open("POST", "/api/review/" + id + "/report", true);
-            reportAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
-            reportAjax.send();
-        });
-    }
+    reportAjax.open("POST", "/api/review/" + id + "/report", true);
+    reportAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
+    reportAjax.send();
+
 }

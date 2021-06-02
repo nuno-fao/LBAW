@@ -48,18 +48,15 @@
         @each('partials.comment',$review->comments,'comment')
     @endif
     @auth
-    <form class="add-comment" action="{{ route('add_comment',['id' => $review->id]) }}"  method="POST">
-    @csrf
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Add a commment</label>
+            <label for="addCommentArea_{{$review->id}}">Add a commment</label>
             <div class=" d-flex ">
-                <textarea class="form-control comment-textarea" name="text" id="exampleFormControlTextarea1"
+                <textarea class="form-control comment-textarea" name="text" id="addCommentArea_{{$review->id}}"
                     rows="1"></textarea>
-                <button class="btn btn-primary ms-3">
+                <button class="btn btn-primary ms-3" onclick="addComment({{$review->id}})">
                     Send
                 </button>
             </div>
         </div>
-    </form>
     @endauth
 </div>     
