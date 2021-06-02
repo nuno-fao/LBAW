@@ -18,7 +18,12 @@
                         <a class="dropdown-item" aria-current="page" href="{{route('groups_list')}}">Groups</a>
                     </div>
                 </div>
+                @can('admin_actions', auth()->user())
+                    <a class="btn btn-secondary ml-4 me-lg-4 nav- item me-2 mb-2 mb-lg-auto" href="/admin/movies/board">Admin Mode </a>
+                @endcan
+                
             </div>
+            
             <form class="d-flex nav-item col-lg-5 col-12 ">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <!-- <button class="btn btn-secondary" type="submit">Search</button> stayings as link while there is no JS --> 
@@ -26,6 +31,7 @@
             </form>
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
+                
                 <div class="mt-auto mb-auto me-lg-3">
                     <a class="" href="{{route('notifications')}}">
                         <i class="fa fa-bell" id="notification-symbol">

@@ -12,6 +12,8 @@ class AdministrationController extends Controller
 {
     public function movie_page(){
 
+        $this->authorize('admin_actions', User::class);
+
         $movies = Movie::all();
 
         return view('pages.movies_dashboard', [
@@ -20,6 +22,8 @@ class AdministrationController extends Controller
     }
 
     public function review_page(){
+
+        $this->authorize('admin_actions', User::class);
 
         $reviews = collect();
         $reports = Report::all();
@@ -34,6 +38,8 @@ class AdministrationController extends Controller
     }
 
     public function user_page(){
+
+        $this->authorize('admin_actions', User::class);
 
         $users = User::all()->where('banned', true);
 
