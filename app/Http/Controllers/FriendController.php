@@ -24,7 +24,9 @@ class FriendController extends Controller
 
     public function invite(Request $request, $user_id, $asker_id){
 
-        //$this->authorize('create', Review::class);    
+        $asker = User::find($asker_id);
+
+        $this->authorize('invite', [Friend::class,$asker]);    
 
        Friend::create([
           'signed_user_id1' => $asker_id,
@@ -37,8 +39,9 @@ class FriendController extends Controller
 
       public function accept(Request $request, $user_id, $asker_id){
 
-        //$this->authorize('create', Review::class);  
-        //$this->authorize('edit', $r);  
+        $asker = User::find($asker_id);
+
+        $this->authorize('accept', [Friend::class,$asker]); 
 
         $friendship = Friend::where('signed_user_id1',$asker_id)
         ->where('signed_user_id2',$user_id)->first();  
@@ -56,8 +59,9 @@ class FriendController extends Controller
 
       public function reject(Request $request, $user_id, $asker_id){
 
-        //$this->authorize('create', Review::class);  
-        //$this->authorize('edit', $r);  
+        $asker = User::find($asker_id);
+
+        $this->authorize('reject', [Friend::class,$asker]); 
 
         $friendship = Friend::where('signed_user_id1',$asker_id)
         ->where('signed_user_id2',$user_id)->first();  
@@ -73,10 +77,11 @@ class FriendController extends Controller
         return back();
       }
 
-      public function cancel(Request $request, $user_id, $asker_id){
+      public function cancel(Request $request, $asker_id, $user_id){
 
-        //$this->authorize('create', Review::class);  
-        //$this->authorize('edit', $r);  
+        $asker = User::find($user_id);
+
+        $this->authorize('cancel', [Friend::class,$asker]); 
         
 
         $friendship = Friend::where('signed_user_id1',$asker_id)
