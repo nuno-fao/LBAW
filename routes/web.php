@@ -41,6 +41,12 @@ Route::get('api/review/{review_id}/like', 'ReviewController@like');
 Route::get('user/{user}','UserController@show')->name('user');
 Route::patch('/api/admin/users/{user}/ban','UserController@ban')->name('ban');
 Route::patch('/api/admin/users/{user}/unban','UserController@unban')->name('unban');
+Route::get('/api/users/{user_id}/edit','UserController@edit_page')->name('edit_user');
+Route::post('/api/users/{user_id}/edit','UserController@edit');
+Route::get('/users/{user_id}/edit_password','UserController@edit_password_page')->name('edit_password');
+Route::post('/users/{user_id}/edit_password','UserController@edit_password');
+Route::post('user/delete/{user_id}','UserController@delete')->name('delete_user');
+
 
 //Feed
 Route::get('feed', 'FeedController@index')->name('feed');
@@ -66,3 +72,16 @@ Route::get('/admin/users/board', 'AdministrationController@user_page')->name('us
 //Report
 Route::post('/api/review/{id}/report', 'ReportController@report_review')->name('report_review');
 Route::post('/api/admin/reviews/board/report/{review_id}', 'ReportController@discard')->name('discard_report');
+
+//Comments
+Route::post('/api/review/{id}/comment', 'CommentController@create')->name('add_comment');
+
+//Groups
+Route::get('/groups/list', 'GroupController@list')->name('groups_list');
+Route::get('/groups/add', 'GroupController@add_group_page')->name('add_group');
+Route::post('/groups/add', 'GroupController@create');
+Route::get('/groups/{group_id}', 'GroupController@show')->name('group');
+Route::get('/groups/{group_id}/invitation_page', 'GroupController@invitation_page')->name('invite_page');
+Route::post('/api/groups/{group_id}/invite/{user_id}', 'GroupController@invite_user')->name('group_invite');
+Route::post('/api/users/{user_id}/request/group/accept/{group_id}', 'GroupController@accept_invite')->name('accept_group_invite');
+Route::post('/api/users/{user_id}/request/group/reject/{group_id}', 'GroupController@reject_invite')->name('reject_group_invite');

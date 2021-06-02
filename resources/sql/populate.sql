@@ -37,7 +37,7 @@ INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admi
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Mannix','Jerry Chapman','03-03-34','pede@sodalesat.net','mus.','False');
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Callum','Justin Oliver','08-18-55','nisl.Maecenas.malesuada@nectellusNunc.edu','ipsum','False');
 INSERT INTO "signed_user" (photo,username,name,date_of_birth,email,password,admin) VALUES ('img/user_pic.png','Hall','Beck Ochoa','05-10-72','lorem.luctus@neque.org','Fusce','False');
-INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('janeDoe','Jane Doe','1984-05-17','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','False');
+INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('janeDoe','Jane Doe','1984-05-17','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','True');
 
 
 INSERT INTO "movie" (title,year,photo) VALUES ('Lion King','1994','img/lionkingposter.jpg');
@@ -159,10 +159,10 @@ INSERT INTO "like" (user_id,review_id) VALUES (14,3);
 INSERT INTO "like" (user_id,review_id) VALUES (16,4);
 INSERT INTO "like" (user_id,review_id) VALUES (19,4);
 
-INSERT INTO "comment" (text,user_id,review_id) VALUES ('I Totally agree, but your review could be a little longer',5,1);
-INSERT INTO "comment" (text,user_id,review_id) VALUES ('How dare you make a review about Pulp Fiction and only mention Samuel L Jackson',8,2);
-INSERT INTO "comment" (text,user_id,review_id) VALUES ('I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat',14,3);
-INSERT INTO "comment" (text,user_id,review_id) VALUES ('Jenny is a complex character and i just cant understand the hate she gets in this site',18,3);
+INSERT INTO "comment" (text,signed_user_id,review_id) VALUES ('I Totally agree, but your review could be a little longer',5,1);
+INSERT INTO "comment" (text,signed_user_id,review_id) VALUES ('How dare you make a review about Pulp Fiction and only mention Samuel L Jackson',8,2);
+INSERT INTO "comment" (text,signed_user_id,review_id) VALUES ('I totally fell asleep while watching it. xD. lol. #aintgotnotimeforthat',14,3);
+INSERT INTO "comment" (text,signed_user_id,review_id) VALUES ('Jenny is a complex character and i just cant understand the hate she gets in this site',18,3);
 
 INSERT INTO "rating" (rating,movie_id,user_id) VALUES (10,1,1);
 INSERT INTO "rating" (rating,movie_id,user_id) VALUES (8,1,2);

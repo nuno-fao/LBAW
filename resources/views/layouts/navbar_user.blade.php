@@ -14,7 +14,7 @@
                         Menu
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" aria-current="page" href="movie_list">Movies</a>
+                        <a class="dropdown-item" aria-current="page" href="/groups/list">Movies</a>
                         <a class="dropdown-item" aria-current="page" href="groups_list">Groups</a>
                     </div>
                 </div>

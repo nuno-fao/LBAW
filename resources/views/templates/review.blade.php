@@ -13,9 +13,11 @@
         @else 
             <form method="POST" action="{{route('report_review',['id' => $review->id])}}">
                 @csrf
-                <button class="btn btn-primary" @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
-                    Report
-                </button>  
+                @if(Auth::check())
+                    <button class="btn btn-primary"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
+                        Report
+                    </button>  
+                @endif 
             </form>
             
         @endcan
@@ -46,11 +48,12 @@
         @each('partials.comment',$review->comments,'comment')
     @endif
     @auth
-    <form class="add-comment">
+    <form class="add-comment" action="{{ route('add_comment',['id' => $review->id]) }}"  method="POST">
+    @csrf
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Add a commment</label>
             <div class=" d-flex ">
-                <textarea class="form-control comment-textarea" id="exampleFormControlTextarea1"
+                <textarea class="form-control comment-textarea" name="text" id="exampleFormControlTextarea1"
                     rows="1"></textarea>
                 <button class="btn btn-primary ms-3">
                     Send

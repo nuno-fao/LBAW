@@ -180,6 +180,9 @@ a.stretched-link.review-link {
   background-color: rgb(245, 245, 245);
 }
 
+
+
 div .cancelbutton { display: none; }
 div:hover .sent { display: none; }
 div:hover .cancelbutton { display:contents; }
+

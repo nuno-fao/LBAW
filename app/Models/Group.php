@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Group extends Model
 {
@@ -20,10 +21,20 @@ class Group extends Model
         'id',
         'title',
         'description',
-        'photo'
+        'photo',
+        'admin'
     ];
 
-    public function owner(){
-        return $this->belongsTo(User::class,'admin');
+    public function admin(){
+        return User::find($this->admin);
+    }
+
+    public function members(){
+        return $this->belongsToMany(User::class, 'group_member')->where('membership_state','!=', 'rejected');
+    }
+
+
+    public function reviews(){
+        return $this->hasMany(Review::class);
     }
 }

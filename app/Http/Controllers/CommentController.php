@@ -12,4 +12,15 @@ class CommentController extends Controller
     {   
         return User::find($author);
     }
+
+    public function create(Request $request, $review_id){
+        
+        $request->user()->comments()->create([
+            'text' => $request->text,
+            'date' => date('Y-m-d H:i:s'),
+            'review_id' => $review_id
+        ]);
+
+        return back();
+    }
 }

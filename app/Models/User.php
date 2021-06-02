@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Group;
 use App\Models\Friend;
 use App\Models\Report;
 use App\Models\Review;
@@ -41,6 +42,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function comments() {
+        return $this->hasMany(Comment::class,'signed_user_id');
+    }
     
     public function reviews() {
         return $this->hasMany(Review::class);
@@ -52,6 +56,21 @@ class User extends Authenticatable
 
     public function reported(){
         return $this->hasMany(Report::class, 'signed_user_id');
+    }
+
+    public function groups(){
+        return $this->belongsToMany(Group::class, 'group_member');
+    }
+
+    public function isAdminOf($group){
+        return ($group->admin == $this->id);
+    }
+
+    public function hasBeenInvitedToGroup($group_id){
+
+        $group= Group::find($group_id);
+
+        return ($group->members->contains($this));
     }
 
     function friendsOfMine() {
