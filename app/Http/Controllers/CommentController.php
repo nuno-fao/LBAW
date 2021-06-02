@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\User;
+
+use App\Models\Comment;
+use Illuminate\Http\Request;
 
 Use Exception;
 
@@ -28,5 +29,14 @@ class CommentController extends Controller
             return response('text too short', 500)->header('Content-Type', 'text/plain');
         }
       return view('partials.comment',['comment'=>$comment]);
+    }
+
+    public function delete($comment_id){
+       
+        $comment = Comment::find($comment_id);
+
+        $comment->delete();
+
+        return back();
     }
 }

@@ -18,7 +18,9 @@
         </button>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <form action="">
+            <form method="post" action="{{route('delete_comment',['comment_id' => $comment->id])}}">
+                @method('delete')
+                @csrf
                 <button class="dropdown-item">Delete Comment</button>
             </form>   
             

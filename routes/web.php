@@ -75,6 +75,7 @@ Route::post('/api/admin/reviews/board/report/{review_id}', 'ReportController@dis
 
 //Comments
 Route::post('/api/review/{id}/comment', 'CommentController@create')->name('add_comment');
+Route::delete('/api/review/comment/{comment_id}', 'CommentController@delete')->name('delete_comment');
 
 //Groups
 Route::get('/groups/list', 'GroupController@list')->name('groups_list');
