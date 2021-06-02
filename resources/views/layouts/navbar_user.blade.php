@@ -14,8 +14,8 @@
                         Menu
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" aria-current="page" href="/groups/list">Movies</a>
-                        <a class="dropdown-item" aria-current="page" href="groups_list">Groups</a>
+                        <a class="dropdown-item" aria-current="page" href="{{route('movie_list')}}">Movies</a>
+                        <a class="dropdown-item" aria-current="page" href="{{route('groups_list')}}">Groups</a>
                     </div>
                 </div>
             </div>
