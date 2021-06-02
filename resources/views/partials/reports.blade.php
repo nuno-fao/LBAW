@@ -1,6 +1,6 @@
   
 
-<div class="review card mt-3 bg-light text-dark text-dark">
+<div class="review card mt-3 bg-light text-dark text-dark" id="report_{{$review->id}}">
     <div class="card-header row review-header">
         <h4 class="col col-12 col-lg-9 no-padding">
             {{$review->title}}
@@ -38,7 +38,7 @@
             {{-- <a class="btn text-dark" onclick="location.href='{{route('discard_report',[$review->id])}}'">
                 Discard
             </a> --}}
-            <button class="btn text-dark" id="deleteButton{{$review->id}}">
+            <button class="btn text-dark" onclick="deleteReview('report_{{$review->id}}',{{$review->id}})">
                 Delete
             </button>
         </div>
