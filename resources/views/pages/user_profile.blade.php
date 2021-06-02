@@ -33,7 +33,7 @@
                                 <button class="dropdown-item" >Delete Account</button>
                             </form> 
                             
-                          </div>
+                        </div>
                     {{-- </form> --}}
                           
                     <div class="position-relative">
