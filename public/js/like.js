@@ -7,9 +7,11 @@ like_buttons.forEach(button => {
             if (button.id.includes("clicked")) {
                 document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) - 1;
                 button.id = "like_button_" + id;
+                button.classList.remove("clickedLike");
             } else {
                 document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) + 1;
                 button.id += "_clicked";
+                button.className += "clickedLike";
             }
         }
         like_clicked.open("POST", "/api/review/" + id + "/like", true);

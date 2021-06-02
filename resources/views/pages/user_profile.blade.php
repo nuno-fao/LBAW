@@ -11,13 +11,6 @@
 <div class="col-lg-12 col-12 mt-5 row mx-auto">
     <aside id="user_info" class="col-xl-4 col-lg-5 col-12 fixed sticky_left_aside">
         <div class="card mx-3">
-            @can('ban',$user)
-                @if (!$user->banned)
-                    <button class="btn btn-primary" id="ban-button">Ban</button>                            
-                @else
-                    <button class="btn btn-primary" id="ban-button">Unban</button>                              
-                @endif
-            @endcan
             <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                     {{-- <form action="{{route('edit_user',['user_id' => $user->id ])}}"> --}}
@@ -55,12 +48,13 @@
                         <p class="text-muted font-size-sm">{{\Carbon\Carbon::parse($user->date_of_birth)->diff(\Carbon\Carbon::now())->format('%y Years Old')}}</p>
                         <p class="font-size-sm">{{$user->email}}</p>
                         @if($user != auth()->user())
+                        <div class="d-flex justify-content-around">
                             @if(auth()->user()->sentRequestTo($user))
                                 <div class="sent card ">Request Sent</div>
                                 <div class="cancelbutton">
                                     <form method="POST" action="{{route('cancel_friend_request',[$user->id,auth()->user()->id])}}" class="col">
                                         @csrf
-                                        <button class="card bg-primary text-white w-100">Cancel Request</button>
+                                        <button  class="btn btn-primary">Cancel Request</button>
                                     </form>
                                 </div>
                                 
@@ -85,7 +79,15 @@
                                     <button  class="btn btn-primary">Send Request</button>
                                 </form>
                             @endif
-                            
+
+                            @can('ban',$user)
+                                @if (!$user->banned)
+                                    <button class="btn btn-primary" id="ban-button">Ban</button>                            
+                                @else
+                                    <button class="btn btn-primary" id="ban-button">Unban</button>                              
+                                @endif
+                            @endcan
+                        </div>
                         @endif
                     </div>
                 </div>

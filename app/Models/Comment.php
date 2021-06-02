@@ -18,12 +18,12 @@ class Comment extends Model
 
     protected $fillable = [
         'text',
-        'signed_user_id',
+        'user_id',
         'review_id',
         'date',
     ];
 
     public function user(){
-        return $this->belongsTo(User::class, 'signed_user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
