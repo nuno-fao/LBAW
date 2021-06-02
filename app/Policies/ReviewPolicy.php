@@ -29,4 +29,10 @@ class ReviewPolicy
       // Only a card owner can delete it
       return $user->id == $review->user_id;
     }
+
+    public function like()
+    {
+      // Only a card owner can delete it
+      return Auth::check();
+    }
 }

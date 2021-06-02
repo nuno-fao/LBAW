@@ -12,8 +12,6 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    
-    private Review $review;
     public function show($id)
     {
       if(!ctype_digit($id)){
@@ -33,7 +31,6 @@ class ReviewController extends Controller
     
     static public function movieReviews(Movie $movie,int $page)
     {   
-        
         return Review::where('movie_id',$movie->id)->where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
     }
 
@@ -97,6 +94,21 @@ class ReviewController extends Controller
       if($r != null){
         $r->text = $request->description;
         $r->title = $request->title;       
+        $r->save();    
+      }
+      return back();
+    }
+
+    public function like($review_id){
+      $r = Review::find($review_id);
+
+      if(!ctype_digit($review_id)){
+        return view('errors.404');
+      }
+      
+      $this->authorize('like', $r);
+
+      if($r != null){     
         $r->save();    
       }
       return back();
