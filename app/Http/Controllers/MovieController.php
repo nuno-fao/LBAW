@@ -61,6 +61,8 @@ class MovieController extends Controller
 
     public function add_page(){
 
+      $this->authorize('create', Movie::class);
+
       $genres = Genre::all();
 
       return view('pages.add_movie',
@@ -72,6 +74,8 @@ class MovieController extends Controller
     }
 
     public function edit_page($id){
+
+      $this->authorize('update', Movie::class);
 
       $movie = Movie::find($id);
       $genres = Genre::all();
@@ -86,7 +90,7 @@ class MovieController extends Controller
 
     public function edit(Request $request, $id){
 
-     //dd($request->get('tags'));
+     $this->authorize('update', Movie::class);
 
      $this->validate($request, [
       'movieName' => 'required',
@@ -140,7 +144,7 @@ class MovieController extends Controller
     public function create(Request $request)
     {   
 
-     // $this->authorize('create');
+      $this->authorize('create', Movie::class);
       
       $this->validate($request, [
         'movieName' => 'required',
@@ -183,9 +187,11 @@ class MovieController extends Controller
 
     public function delete(Request $request, $id)
     {
+
+      $this->authorize('delete', Movie::class);
+
       $movie = Movie::find($id);
 
-      $this->authorize('delete');
       $movie->delete();
 
       return $movie;
