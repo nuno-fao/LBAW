@@ -29,4 +29,11 @@ class UserPolicy
       // Only a user can delete its own account
       return $target == $user;
     }
+
+    public function admin_actions(User $user)
+    {
+      return $user->admin;
+    }
+
+
 }
