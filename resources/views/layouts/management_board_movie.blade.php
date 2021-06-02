@@ -9,15 +9,6 @@
     <a class="btn btn-primary mt-3" href="{{route('user_dashboard_page')}}">
         <h4 class="">Users</h4>
     </a>
-    <button class="btn btn-primary mt-5" disabled>
-        <h4 class="">Get Movies Updates</h4>
-    </button>
-    <div class="d-flex flex-column">
-        <button class="btn btn-primary mt-3" disabled>
-            <h4 class="">Update Movies</h4>
-        </button>
-        <strong class="ms-auto me-3">0 Updates</strong>
-    </div>
     <a class="btn btn-primary mt-3" href="{{route('add_movie')}}" >
         <h4 class="">Add a Movie</h4>
     </a>

@@ -2,6 +2,15 @@
 
 @section('content')
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{route('groups_list')}}">Group List</a></li>
+      <li class="breadcrumb-item"><a href="{{route('group',['group_id'=>$group->id])}}">Group</a></li>
+      <li class="breadcrumb-item"><a href="#">Group Members</a></li>
+    </ol>
+</nav>
+
 <section class="container">
     <div class="text-center my-5">
         <h3 class="display-5">

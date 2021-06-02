@@ -2,6 +2,14 @@
 
 @section('content')
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{route('groups_list')}}">Group List</a></li>
+      <li class="breadcrumb-item"><a href="#">Group</a></li>
+    </ol>
+</nav>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="col-lg-12 col-12 mt-5 row mx-auto">
     <aside id="user_info" class="col-xl-4 col-lg-5 col-12 fixed">

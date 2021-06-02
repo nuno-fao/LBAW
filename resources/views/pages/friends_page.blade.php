@@ -2,6 +2,14 @@
 
 @section('content')
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{route('user',['user'=>Auth::user()->id])}}">User Profile</a></li>
+      <li class="breadcrumb-item"><a href="#">User Friends</a></li>
+    </ol>
+</nav>
+
 <section class="container">
     <div class="text-center my-5">
         <h4 class="display-5">
