@@ -2,10 +2,6 @@
 
 @section('content')
 
-<script>
-    let review_page = true;
-</script>
-
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>

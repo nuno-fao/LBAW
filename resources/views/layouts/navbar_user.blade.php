@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 @can('admin_actions', auth()->user())
-                    <a class="btn btn-secondary ml-4 me-lg-4 nav- item me-2 mb-2 mb-lg-auto" href="/admin/movies/board">Admin Mode </a>
+                    <a class="btn btn-secondary ml-4 me-lg-4 nav- item me-2 mb-2 mb-lg-auto" href="/admin/movies/board">Admin Dashboard </a>
                 @endcan
                 
             </div>
