@@ -3,7 +3,7 @@
         {{$review->title}}
     </div>
     <div class="col col-12 col-lg-3 review-author no-padding">
-        <a class="btn text-dark" href="#">
+        <a class="btn text-dark" href="{{route('user',['user' => $review->user->id])}}">
             by {{$review->user->username}}
         </a> 
         @can('delete',$review)

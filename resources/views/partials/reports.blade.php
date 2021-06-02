@@ -15,7 +15,7 @@
             {{$review->title}}
         </h4>
         <div class="col col-12 col-lg-3 review-author no-padding">
-            <a class="btn text-dark" href="user_profile.php">
+            <a class="btn text-dark" href="#">
                 {{$review->user->username}}
             </a>
         </div>
