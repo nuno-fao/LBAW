@@ -34,7 +34,7 @@
         <section>
             <div class="text-center">
                 <h4 class="mt-3">Group Members</h4>
-                <a class="nav-link py-0" href="group_members_page.php">view all</a>
+                <a class="nav-link py-0" href="/groups/{{$group->id}}/members">view all</a>
                 
             </div>
             <section class="d-flex flex-lg-row flex-column" id="down_section">

@@ -88,3 +88,4 @@ Route::post('/api/users/{user_id}/request/group/accept/{group_id}', 'GroupContro
 Route::post('/api/users/{user_id}/request/group/reject/{group_id}', 'GroupController@reject_invite')->name('reject_group_invite');
 Route::delete('/groups/delete/{group_id}', 'GroupController@delete')->name('delete_group');
 Route::post('/groups/{group_id}/member/{user_id}/leave', 'GroupController@leave')->name('leave_group');
+Route::get('/groups/{group_id}/members', 'GroupController@members_page')->name('members_page');

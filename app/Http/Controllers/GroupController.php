@@ -149,4 +149,18 @@ class GroupController extends Controller
     }
 
 
+    public function members_page($group_id){
+
+        $group = Group::find($group_id);
+
+        $members = $group->members;
+
+        return view('pages.group_members',[
+            'group' => $group,
+            'members' => $members
+        ]);
+
+    }
+
+
 }
