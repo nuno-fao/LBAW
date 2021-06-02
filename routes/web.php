@@ -27,7 +27,7 @@ Route::get('api/movie/{movie_id}/feed/{page}','MovieController@getPage');
 Route::post('api/movie/{id}/review','ReviewController@create');
 Route::get('/admin/movies/add', 'MovieController@add_page')->name('add_movie');
 Route::post('/admin/movies/add', 'MovieController@create');
-Route::get('/api/movie/{id}', 'MovieController@edit_page')->name('edit_movie');
+Route::get('movie/{id}/edit', 'MovieController@edit_page')->name('edit_movie');
 Route::post('/api/movie/{id}', 'MovieController@edit');
 
 //Reviews
@@ -39,13 +39,13 @@ Route::get('api/review/{review_id}/like', 'ReviewController@like');
 
 //User Profile
 Route::get('user/{user}','UserController@show')->name('user');
-Route::patch('/api/admin/users/{user}/ban','UserController@ban')->name('ban');
-Route::patch('/api/admin/users/{user}/unban','UserController@unban')->name('unban');
-Route::get('/api/users/{user_id}/edit','UserController@edit_page')->name('edit_user');
-Route::post('/api/users/{user_id}/edit','UserController@edit');
-Route::get('/users/{user_id}/edit_password','UserController@edit_password_page')->name('edit_password');
-Route::post('/users/{user_id}/edit_password','UserController@edit_password');
-Route::post('user/delete/{user_id}','UserController@delete')->name('delete_user');
+Route::patch('/api/admin/user/{user}/ban','UserController@ban')->name('ban');
+Route::patch('/api/admin/user/{user}/unban','UserController@unban')->name('unban');
+Route::get('user/{user_id}/edit','UserController@edit_page')->name('edit_user');
+Route::post('/api/user/{user_id}/edit','UserController@edit');
+Route::get('/user/{user_id}/edit_password','UserController@edit_password_page')->name('edit_password');
+Route::post('/user/{user_id}/edit_password','UserController@edit_password');
+Route::post('user/{user_id}/delete','UserController@delete')->name('delete_user');
 
 
 //Feed
@@ -58,11 +58,11 @@ Route::get('notifications', 'NotificationController@index')->name('notifications
 Route::get('api/notifications/{page}', 'NotificationController@getNotificationPage');
 
 //Friendship
-Route::get('/api/users/{user_id}/friends/', 'FriendController@show_list')->name('friends');
-Route::post('/api/users/{user_id}/friend_request/{asker_id}', 'FriendController@invite')->name('friend_request');
-Route::post('/api/users/{user_id}/request/friend/accept/{asker_id}', 'FriendController@accept')->name('accept_friend_request');
-Route::post('/api/users/{user_id}/request/friend/reject/{asker_id}', 'FriendController@reject')->name('reject_friend_request');
-Route::post('/api/users/{user_id}/request/friend/cancel/{asker_id}', 'FriendController@cancel')->name('cancel_friend_request');
+Route::get('/user/{user_id}/friends/', 'FriendController@show_list')->name('friends');
+Route::post('/api/user/{user_id}/friend_request/{asker_id}', 'FriendController@invite')->name('friend_request');
+Route::post('/api/user/{user_id}/request/friend/accept/{asker_id}', 'FriendController@accept')->name('accept_friend_request');
+Route::post('/api/user/{user_id}/request/friend/reject/{asker_id}', 'FriendController@reject')->name('reject_friend_request');
+Route::post('/api/user/{user_id}/request/friend/cancel/{asker_id}', 'FriendController@cancel')->name('cancel_friend_request');
 
 //Administrator Dashboard
 Route::get('/admin/movies/board', 'AdministrationController@movie_page')->name('movie_dashboard_page');

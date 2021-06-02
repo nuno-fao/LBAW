@@ -24,12 +24,22 @@
 
                 <div class= "col">
                     <label for="movieName" class="form-label mt-3 ">Movie Name</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " @if ($movie != null) value="{{$movie->title}}" @endif name="movieName" id="movieName" aria-describedby="movieName">
+                    <input type="text" class="col-7 form-control border border-1rounded-1 @error('movieName') border-danger @enderror" @if ($movie != null) value="{{$movie->title}}" @endif name="movieName" id="movieName" aria-describedby="movieName">
+                    @error('movieName')
+                        <div class="text-danger">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class= "col">
                     <label for="year" class="form-label mt-3 ">Year</label>
-                    <input type="text" class="col-7 form-control border border-1rounded-1 " @if ($movie != null) value="{{$movie->year}}" @endif name ="year" id="year" aria-describedby="year">
+                    <input type="text" class="col-7 form-control border border-1rounded-1 @error('year') border-danger @enderror" @if ($movie != null) value="{{$movie->year}}" @endif name ="year" id="year" aria-describedby="year">
+                    @error('year')
+                        <div class="text-danger">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
                 
                 
@@ -37,7 +47,12 @@
 
     
             <label for="movieDescription" class="form-label mt-3 ">Movie Description</label>
-            <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 " name="movieDescription" id="movieDescription" aria-describedby="movieDescription">@if ($movie != null){{$movie->description}} @endif </textarea>
+            <textarea type="text" rows="3" class="row-4 form-control border border-1rounded-1 @error('movieDescription') border-danger @enderror" name="movieDescription" id="movieDescription" aria-describedby="movieDescription">@if ($movie != null){{$movie->description}} @endif </textarea>
+            @error('movieDescription')
+                <div class="text-danger">
+                    {{$message}}
+                </div>
+            @enderror
 
             <label class="form-label mt-3" for="tags">Movie Genres</label>
             <select id="tags" name="tags[]" class="form-control mt-3 " multiple="multiple">
@@ -48,8 +63,12 @@
             </select>
 
             <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
-            <input type="file" class="form-control"  id="moviePoster" name="moviePoster"/>
-
+            <input type="file" class="form-control @error('moviePoster') border  border-danger @enderror"  id="moviePoster" name="moviePoster"/>
+            @error('moviePoster')
+                <div class="text-danger">
+                    {{$message}}
+                </div>
+            @enderror
             
               
             <script type="text/javascript">
