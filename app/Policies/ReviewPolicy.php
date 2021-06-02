@@ -44,14 +44,10 @@ class ReviewPolicy
       return Auth::check();
     }
 
-    public function report(User $user, $review_id)
+    public function report(User $user, $review)
     {
-
-      // $review = Review::find($review_id);
-      
-      // return ($review->user() != $user && !$user->admin);
-      
-      return Auth::check();
+      return ($review->user() != $user);
+      //return Auth::check();
     }
 
     public function see(){
