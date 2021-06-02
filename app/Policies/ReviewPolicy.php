@@ -13,6 +13,17 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class ReviewPolicy
 {
     use HandlesAuthorization;
+
+    public function see_review(User $user, $review){
+
+        if($review->group == null){
+          return Auth::check();
+        }
+    
+        $group = Group::find($review->group->id);
+
+        return $user->groups()->get()->contains($group);
+    }
     
     public function create(User $user, $group_id)
     {

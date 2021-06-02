@@ -58,18 +58,16 @@
                         <p class="font-size-sm">{{$user->email}}</p>
                         @cannot('edit', $user)
                         <div class="d-flex justify-content-around">
-                            @if(auth()->user()->sentRequestTo($user))
+                            @can('cancel', [App\Models\Friend::class,$user])
                                 <div class="">
-                                    <form method="POST" action="{{route('cancel_friend_request',[$user->id,auth()->user()->id])}}" class="col">
+                                    <form method="POST" action="{{route('cancel_friend_request',[auth()->user()->id,$user->id])}}" class="col">
                                         @csrf
                                         <button  class="btn btn-primary">Cancel Request</button>
                                     </form>
                                 </div>
                                 
-                            @elseif(auth()->user()->friends->contains($user))
-                                <div class="card ">Friend</div>
-                            @elseif(auth()->user()->receivedRequestFrom($user))
-                                <div class="card mb-1">Request Received</div>
+                            @elsecan('accept', [App\Models\Friend::class,$user])
+                        
                                 <div class="row">
                                     <form method="POST" action="{{route('reject_friend_request',[auth()->user()->id, $user->id])}}" class="col">
                                         @csrf
@@ -81,12 +79,14 @@
                                         <button  class="btn btn-primary">Accept</button>
                                     </form>
                                 </div>
-                            @else
+                            @elsecan('invite', [App\Models\Friend::class,$user])
                                 <form method="POST" action="{{route('friend_request',[$user->id,auth()->user()->id])}}">
                                     @csrf
                                     <button  class="btn btn-primary">Send Request</button>
                                 </form>
-                            @endif
+                            @else
+                                <div class="card ">Friend</div>
+                            @endcan
 
                             @can('ban',$user)
                                 @if (!$user->banned)
