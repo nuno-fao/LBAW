@@ -37,7 +37,7 @@
         </div>
         @auth
 
-        @if (auth()->user()->admin)
+        @can('edit',$movie)
             <div class="my-auto text-end text-danger mr-2">
                 <a class="text-danger" method="GET" href="{{route('edit_movie',[$movie->id])}}">Edit Movie</a>
             </div>
