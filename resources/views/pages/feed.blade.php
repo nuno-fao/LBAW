@@ -43,9 +43,27 @@
                 Nothing else to show
             </p>
         @endif
-        </div>
+    </div>
 </div>
 
+@auth
+<div class="feed mt-5" id="friends_feed">
+    <div id="public_reviews">
+        @each('partials.review&movie',$friend_reviews,'review')
+    </div>
+    <div class="d-flex justify-content-center">
+        @if (count($friend_reviews) == 10)
+            <button class="btn btn-primary  " id="nextFriendPage">
+                Next Page
+            </button>
+        @else
+            <p class="text-center">
+                Nothing else to show
+            </p>
+        @endif
+    </div>
+</div>
+@endauth
 
 
 @endsection
