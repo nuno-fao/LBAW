@@ -12,13 +12,13 @@
 
         
         @can('delete',$review)
-            <button class="btn btn-primary ms-1" id="deleteButton">
+            <button class="btn btn-primary ms-1" onclick="deleteReview('review_{{$review->id}}',{{$review->id}})">
                 Delete
             </button>    
             
         @endcan   
         @can('report',$review)              
-            <button class="btn btn-primary ms-1"   @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
+            <button class="btn btn-primary ms-1 report_button"  onclick="reportReview('review_{{$review->id}}',{{$review->id}})"  @if(auth()->user()->reported()->get()->contains('review_id',$review->id) && auth()->user()->reported()->get()->contains('signed_user_id',auth()->user()->id)) disabled @endif>
                 Report
             </button>  
         @endcan    

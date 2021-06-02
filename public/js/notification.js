@@ -1,6 +1,6 @@
 let buttons = document.querySelectorAll(".request_button");
 buttons.forEach(button => {
-    console.log(button)
+
     button.addEventListener("click", (event) => {
         let id = event.target.id;
         var r = /\d+/;

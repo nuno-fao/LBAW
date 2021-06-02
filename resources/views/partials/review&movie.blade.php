@@ -1,4 +1,4 @@
-<div class="row align-items-center my-4">
+<div class="row align-items-center my-4" id="review_{{$review->id}}">
     <div class="col col-12 col-lg-1">
     </div>
 
