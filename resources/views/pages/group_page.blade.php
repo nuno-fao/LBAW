@@ -41,27 +41,29 @@
                 </div>
             </div>
             <section>
-                <div class="text-center">
-                    <h4 class="mt-3">Group Members</h4>
-                    <a class="nav-link py-0" href="/groups/{{ $group->id }}/members">view all</a>
 
-                </div>
-                <section class="d-flex flex-lg-row flex-column" id="down_section">
-                    <div class="row col-md-6 col-12 ms-auto me-auto my-4 mx-1">
-
-                        @foreach ($group->members as $member)
-                            <a href="{{ route('user', [$member->id]) }}"
-                                class="col list-group-item list-group-item-action" aria-current="true">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">{{ $member->name }}</h5>
-                                </div>
-                                <p class="mb-1">{{ $member->name }}</p>
-                            </a>
-                        @endforeach
-
+                <div id="collapsable_section">
+                    <div class="text-center">
+                        <h4 class="mt-3 text-center">Group Members</h4>
+                        <a class="nav-link py-0" href="{{ route('members_page', [$group->id]) }}">view all</a>
                     </div>
+                    <div class="d-flex flex-column me-3 mt-3" id="down_section">
+                        @foreach ($group->members->chunk(2) as $chunk)
+                            <div class="row">
+                                @foreach ($chunk as $add)
+                                    <div class="mx-auto col-6">
+                                        <a href="{{ route('user', [$add->id]) }}"
+                                            class="col list-group-item list-group-item-action" aria-current="true">
+                                            <h5 class="mb-1">{{ $add->name }}</h5>
+                                            <p class="mb-1">{{ '@' }}{{ $add->username }}</p>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
-                </section>
                 <div class="text-right">
                     <a href="/groups/{{ $group->id }}/invitation_page" class="btn btn-primary">Invite Friends</a>
                 </div>
