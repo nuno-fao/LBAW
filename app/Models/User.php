@@ -110,4 +110,9 @@ class User extends Authenticatable
         ->wherePivot('friendship_state', '=', "pending")->wherePivot('signed_user_id1', '=', $user->id)->count() > 0;
     }
 
+    function previewFriends($user)
+    {
+        # code...
+    }
+
 }

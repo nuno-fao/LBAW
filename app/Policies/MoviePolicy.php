@@ -11,7 +11,6 @@ class MoviePolicy
     use HandlesAuthorization;
 
 
-
     /**
      * Determine whether the user can create models.
      *
@@ -43,11 +42,6 @@ class MoviePolicy
      * @return mixed
      */
     public function delete(User $user)
-    {
-        return $user->admin;
-    }
-
-    public function edit(Movie $movie, User $user)
     {
         return $user->admin;
     }

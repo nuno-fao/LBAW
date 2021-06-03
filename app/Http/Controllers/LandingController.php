@@ -14,7 +14,7 @@ class LandingController extends Controller
             return redirect()->route('feed');
         }
 
-        $movies = Movie::orderBy('id','asc')->get();
+        $movies = Movie::orderBy('id','asc')->take(4)->get();
         return view('pages.landing_page', [
             'movies' => $movies,
         ]);
