@@ -12,7 +12,7 @@
     <section class="container">
         <div class="text-center my-4">
             <h3 class="display-7">
-                Search Results For "Fight Club"
+                Search Results For "{{ $query }}"
             </h3>
         </div>
     </section>
@@ -39,7 +39,7 @@
                 <button type="button"
                     class="btn btn-secondary rounded-1 mb-3 d-flex align-items-center justify-content-between">
                     <span class="fs-5 ">Review</span>
-                    <div><span class="fs-6 badge badge-primary badge-pill">0</span></div>
+                    <div><span class="fs-6 badge badge-primary badge-pill">{{ $reviews_count }}</span></div>
                 </button>
             </div>
         </aside>
@@ -51,6 +51,10 @@
 
             <div id="groups_section" class=" d-flex justify-content-between flex-wrap">
                 @each('partials.group_result',$groups,'group')
+            </div>
+
+            <div id="reviews_section" class=" d-flex justify-content-between flex-wrap">
+                @each('partials.reviews_result',$reviews,'review')
             </div>
         </div>
 

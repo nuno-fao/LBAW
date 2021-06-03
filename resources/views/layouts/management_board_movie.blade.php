@@ -3,20 +3,20 @@
     <button class="btn btn-primary mt-3" disabled>
         <h4 class="">Movies</h4>
     </button>
-    <a class="btn btn-primary mt-3" href="{{route('review_dashboard_page')}}">
+    <a class="btn btn-primary mt-3" href="{{ route('review_dashboard_page') }}">
         <h4 class="">Reported</h4>
     </a>
-    <a class="btn btn-primary mt-3" href="{{route('user_dashboard_page')}}">
+    <a class="btn btn-primary mt-3" href="{{ route('user_dashboard_page') }}">
         <h4 class="">Users</h4>
     </a>
-    <a class="btn btn-primary mt-3" href="{{route('add_movie')}}" >
+    <a class="btn btn-primary mt-3" href="{{ route('add_movie') }}">
         <h4 class="">Add a Movie</h4>
     </a>
     <div class="mt-3 d-flex flex-column container">
         <strong class="">Total Movies</strong>
         <span>
             <p class="mx-auto">
-                {{$movies->count()}}
+                {{ $movies->count() }}
             </p>
         </span>
     </div>

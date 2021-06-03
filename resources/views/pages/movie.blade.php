@@ -13,6 +13,7 @@
     </nav>
     <script>
         var movie_id = {{ $movie->id }}
+        }
 
     </script>
     <div class="col-lg-12 col-12 mt-2 row  mx-auto">
