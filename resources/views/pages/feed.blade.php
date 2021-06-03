@@ -8,7 +8,7 @@
 <nav aria-label="breadcrumb" id="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('landing_page')}}">Home</a></li>
-      <li class="breadcrumb-item"><a href="#" onclick="toast('BEM JOVEM')">Feed</a></li>
+      <li class="breadcrumb-item"><a href="#">Feed</a></li>
     </ol>
 </nav>
 

@@ -1,7 +1,6 @@
 var toastIterator = 1;
 
-function toast(message) {
-    console.log("out");
+function toast(message, type) {
     let option = {
         animation: true,
         delay: 2000
@@ -12,30 +11,42 @@ function toast(message) {
 
     let maindiv = document.createElement("div");
     maindiv.id = toastId;
-    maindiv.className = "toast align-items-center"
+
+    if(type=="s"){
+        maindiv.className = "toast bg-success text-light"
+    }
+    else if(type=="w"){
+        maindiv.className = "toast bg-warning text-light"
+    }
+    else if(type=="d"){
+        maindiv.className = "toast bg-danger text-light"
+    }
+    
     maindiv.setAttribute("role", "alert");
     maindiv.setAttribute("aria-live", "assertive");
     maindiv.setAttribute("aria-atomic", "true");
     maindiv.style.position = 'absolute';
+    maindiv.style.right = '1px';
 
     let seconddiv = document.createElement("div");
-    seconddiv.className = "d-flex";
+    seconddiv.className = "d-flex justify-content-between";
 
-    let body = document.createElement("div");
+    let body = document.createElement("b");
     body.className = "toast-body";
+
 
     let text = document.createTextNode(message);
     body.appendChild(text);
 
     seconddiv.appendChild(body);
 
-    let close = document.createElement("button");
-    close.type = "button";
-    close.className = "btn-close me-2 m-auto";
-    close.setAttribute("data-bs-dismiss", "toast");
-    close.setAttribute("aria-label", "Close");
+    // let close = document.createElement("button");
+    // close.type = "button";
+    // close.className = "btn-close my-auto me-2 ";
+    // close.setAttribute("data-bs-dismiss", "toast");
+    // close.setAttribute("aria-label", "Close");
 
-    seconddiv.appendChild(close);
+    // seconddiv.appendChild(close);
 
     maindiv.appendChild(seconddiv);
 
