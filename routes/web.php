@@ -35,7 +35,7 @@ Route::post('api/movie/{id}/review','ReviewController@create');
 Route::get('/admin/movies/add', 'MovieController@add_page')->name('add_movie');
 Route::post('/admin/movies/add', 'MovieController@create');
 Route::get('movie/{id}/edit', 'MovieController@edit_page')->name('edit_movie');
-Route::post('/api/movie/{id}', 'MovieController@edit');
+Route::post('/api/movie/{id}', 'MovieController@edit')->name('edit_movie_form');
 
 //Reviews
 Route::get('review/{id}','ReviewController@show')->name('review');
@@ -49,7 +49,7 @@ Route::get('user/{user}','UserController@show')->name('user');
 Route::patch('/api/admin/user/{user}/ban','UserController@ban')->name('ban');
 Route::patch('/api/admin/user/{user}/unban','UserController@unban')->name('unban');
 Route::get('user/{user_id}/edit','UserController@edit_page')->name('edit_user');
-Route::post('/api/user/{user_id}/edit','UserController@edit');
+Route::post('/api/user/{user_id}/edit','UserController@edit')->name('edit_user_form');
 Route::get('/user/{user_id}/edit_password','UserController@edit_password_page')->name('edit_password');
 Route::post('/user/{user_id}/edit_password','UserController@edit_password');
 Route::post('user/{user_id}/delete','UserController@delete')->name('delete_user');
