@@ -6,13 +6,13 @@ function deleteReview(rid, id) {
         console.log(deleteAjax.status)
         if (deleteAjax.status != 200) {
             console.log("why")
-            toast("Error while deleing message", review.id)
+            toast("Error while deleing message", "d")
             return
         }
         if (typeof review_page != "undefined" && review_page) {
             window.location.replace("/");
         }
-        toast("Review Successfully Deleted", review.id)
+        toast("Review Successfully Deleted", "s")
         review.remove();
         if(typeof inDashboard !== 'undefined'){
             decrementCount();

@@ -25,10 +25,14 @@ function addComment(rid) {
         sendAjaxRequest("POST", "/api/review/" + rid + "/comment", { 'text': textArea.value },
             (request) => {
                 if (request.status == 200) {
+                    toast("Comment submitted", "s");
                     textArea.value = "";
                     let div = document.createElement('div');
                     div.innerHTML = request.responseText
                     document.getElementById("comments" + rid).insertBefore(div, document.querySelector("#comments" + rid + " .form-group"))
+                }
+                else{
+                    toast("Error adding comment", "d");
                 }
             })
     }

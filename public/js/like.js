@@ -6,8 +6,11 @@ like_buttons.forEach(button => {
     button.addEventListener("click", (event) => {
         let like_ajax = new XMLHttpRequest();
         like_ajax.onload = function() {
-            if (like_ajax.status == 200)
+            if (like_ajax.status == 200){
                 if (button.classList.contains("clicked")) {
+                    
+                    toast("Like removed", "s");
+                    
                     document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) - 1 + " likes";
                     button.classList.remove("clicked")
 
@@ -18,6 +21,7 @@ like_buttons.forEach(button => {
                     not_liked.classList.add("invisible")
 
                 } else {
+                    toast("Liked!", "s");
                     document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) + 1 + " likes";
                     button.classList.add("clicked")
 
@@ -26,7 +30,12 @@ like_buttons.forEach(button => {
                     not_liked.classList.add("visible")
                     not_liked.classList.remove("invisible")
                 }
+            }
+            else{
+                toast("Error liking/disliking", "d");
+            }
         }
+        
         like_ajax.open("POST", "/api/review/" + id + "/like", true);
         like_ajax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
         like_ajax.send();

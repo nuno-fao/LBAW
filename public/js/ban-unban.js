@@ -16,13 +16,13 @@ function unban(id) {
     sendAjaxRequest("PATCH", "/api/admin/user/" + id + "/unban", "",
         (request) => {
             if (request.status == 200) {
-                toast("Successfully re-integrated user", document.getElementById("banned_" + id));
+                toast("Successfully re-integrated user", "s");
                 document.getElementById("banned_" + id).remove()
                 if(typeof inDashboard !== 'undefined'){
                     decrementCount();
                 }
             } else {
-                toast("Error re-integrating user", document.getElementById("banned_" + id));
+                toast("Error re-integrating user", "d");
             }
         })
         
