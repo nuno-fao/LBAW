@@ -20,6 +20,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+Route::get('password/email', 'ForgotPasswordController@forgot_page')->name('forgot_password_page');
+Route::post('password/email', 'ForgotPasswordController@forgot')->name('forgot_password');
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');

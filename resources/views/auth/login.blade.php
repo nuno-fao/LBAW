@@ -48,6 +48,11 @@
 
                 <input type="submit" value="Login" class="btn btn-block btn-secondary">
             </form>
+
+            <div class="mt-2 d-flex justify-content-between">
+                <a href="{{route('forgot_password_page')}}"> Forgot password?</a>
+                <a href=""> New here? Signup now</a>
+            </div>
         </div>
     </div>
 @endsection
