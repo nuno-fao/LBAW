@@ -13,13 +13,27 @@ class UserController extends Controller
 {
     public function show(User $user){
 
-        $reviews = $user->reviews()->with(['user'])->orderBy('date','DESC')->paginate(10);
+        $reviews = $user->reviews()->with(['user'])->orderBy('date','DESC')->take(10)->get();
         
         return view('pages.user_profile', [
             'user' => $user,
             'reviews' => $reviews
         ]);
     }
+
+    public function getPage($id, $page)
+  {
+    if (!ctype_digit($id) || !ctype_digit($page)) {
+      return view(self::ERROR_404_PAGE);
+    }
+    $u = User::find($id);
+    if ($u == null) {
+      return view(self::ERROR_404_PAGE);
+    }
+    
+    $reviews = $u->reviews()->with(['user'])->orderBy('date','DESC')->skip($page*10)->take(10)->get();
+    return view('pagination.feed', ['reviews' => $reviews]);
+  }
 
     public function ban(User $user){
 
