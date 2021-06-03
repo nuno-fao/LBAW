@@ -88,6 +88,7 @@ Route::delete('/api/review/comment/{comment_id}', 'CommentController@delete')->n
 //Groups
 Route::get('/groups/list', 'GroupController@list')->name('groups_list');
 Route::get('/groups/add', 'GroupController@add_group_page')->name('add_group');
+Route::get('api/group/{group_id}/feed/{page}','GroupController@getPage');
 Route::post('/groups/add', 'GroupController@create');
 Route::get('/groups/{group_id}', 'GroupController@show')->name('group');
 Route::get('/groups/{group_id}/invitation_page', 'GroupController@invitation_page')->name('invite_page');

@@ -241,11 +241,18 @@ INSERT INTO "group" (title,description,photo,admin) VALUES ('Gatinhos','Cute cat
 
 --GROUP MEMBERSHIP
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,6,'accepted');
-INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,1,'pending');
+INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,1,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,2,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,3,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,4,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,5,'accepted');
+
+INSERT INTO "review" (title,text,date,movie_id,group_id,user_id) VALUES ('A Classic', 'What can I say about this movie that hasnt already been said? On every level, it is perfect until Simba is exiled, then I believe the film devolves only slighting. The character development, plot, humor, and animation are all on point. I only issue, which is small, is the predictability of the plot after Simba leaves, destined to return. The message is clear and good: Do not forget who you are/where you came from. 9/10 (almost perfect)','2021-06-02 19:04:11.245091',1,1,2);
+INSERT INTO "review" (title,text,date,movie_id,group_id,user_id) VALUES ('Its a 10', 'That was the first movie Ive ever watched in a cinema. I was a kid and I remember crying while watching - I was in love with the characters and I was feeling them. They felt so real to me. Now... actually, as a grown person, now is the same. Characters are so believable and so realistic. Watching the movie as an adult brings a whole new meaning. The good and the bad characters from the movie are like the people I meet everyday in real life. The story is full of morals which I think are really important for young kids these days. I think that The Lion King is a must for every child and adult! With its characters and plot, it can really move you and the kids might actually learn something from it. It is far better than modern cartoons full of meaningless action and dialogue.','2021-06-02 22:08:11.245091',2,1,5);
+INSERT INTO "review" (title,text,date,movie_id,group_id,user_id) VALUES ('The pinnacle of animated movies.  ', 'The Lion King is absolutely Disneys greatest achievement to date and will long be hailed as such. The story is classic, but better yet are both the stunning animation and the inspirational score by Hans Zimmer. The songs are brilliantly written with music by Elton John (with help from Zimmer) and Lyrics by Andrew Lloyd Webbers long-time partner, Tim Rice. If you arent among the millions that have purchased the video DO IT (if you can find it anywhere)!','2021-04-02 22:04:11.245091',1,1,6);
+INSERT INTO "review" (title,text,date,movie_id,group_id,user_id) VALUES ('An animated film can be just as good or if not better than a real life film.', 'This is in my top 3 animation films of all time. I dont think that any animation film before it managed to enter the hearts of both children and adults at once like this one. An ensemble cast with such a gripping tale, great music and superb animation, made this one of the all time greats. The characters are so well flushed out and each scene is so memorable. I cannot stress just how good this film is. Without a doubt the peak of Disney and to this day they have not made anything this original and so influential. The creators gave us such a good villain and great heros that in my opinion shows that an animated film can be just as good or if not better than a real life film.','2021-06-02 12:09:11.245091',4,1,3);
+INSERT INTO "review" (title,text,date,movie_id,group_id,user_id) VALUES ('The pinnacle. ', 'This is peak Disney. All other Disney films since are measured by how they compare to this one, and so far nothing Disney has done has come particularly close. The only other animated films of the last 30 years that deserve a seat at the table with this behemoth is Studio Ghiblis Spirited Away and Pixars Toy Story, with The Lion King still being the best of the three. What puts this film above all others is its engagement factor there isnt an age group that wont be just as entertained and intrigued by this film as another. Its heart-wrenching, hilarious, romantic, exciting, dramatic and at times even a bit scary. It never hits a lull, and--so far--never gets old. This film is, by every measure, a masterpiece.','2021-06-02 12:04:11.245091',5,1,4);
+
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (2,10,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (2,6,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (2,7,'accepted');
@@ -253,7 +260,7 @@ INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (2,8,'acce
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (2,9,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (2,11,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (3,12,'accepted');
-INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (3,1,'accepted');
+INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (3,1,'pending');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (3,11,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (3,13,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (3,16,'accepted');

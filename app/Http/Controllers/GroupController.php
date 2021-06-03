@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
+use Auth;
+
 class GroupController extends Controller
 {
 
@@ -13,7 +15,7 @@ class GroupController extends Controller
 
         $group = Group::find($id);
 
-        $reviews = $group->reviews()->paginate(10);
+        $reviews = $group->reviews()->take(3)->get();
         
         return view('pages.group_page',[
             'group' => $group,
@@ -21,9 +23,26 @@ class GroupController extends Controller
         ]);
     }
 
+    public function getPage($id, $page)
+  {
+    if (!ctype_digit($id) || !ctype_digit($page)) {
+      return view(self::ERROR_404_PAGE);
+    }
+    $u = Group::find($id);
+    if ($u == null) {
+      return view(self::ERROR_404_PAGE);
+    }
+    
+    $reviews = $u->reviews()->skip($page*3)->take(3)->get();
+    return view('pagination.feed', ['reviews' => $reviews]);
+  }
+
+
     public function list(){
 
-        $groups = Group::all();
+        $this->authorize('view', Group::class);
+
+        $groups = Auth::user()->groups;
         
         return view('pages.groups_list',[
             'groups' => $groups

@@ -13,7 +13,7 @@
 
         <div class="text-center my-5">
             <h4 class="display-5">
-                Most Recent Groups
+                Your Groups
             </h4>
             <div class="align-middle">
                 <a href="/groups/add" class="btn btn-primary">Create Group</a>

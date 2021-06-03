@@ -9,6 +9,12 @@
             <li class="breadcrumb-item"><a href="#">Group</a></li>
         </ol>
     </nav>
+    <script src="{{ asset('js/group_pagination.js') }}" defer> </script>
+
+    <script>
+        var group_id = {{ $group->id }}
+
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="col-lg-12 col-12 mt-5 row mx-auto">
@@ -85,7 +91,20 @@
                     <h4 class="text-center">
                         Group Exclusive Reviews
                     </h4>
-                    @each('partials.review&movie', $reviews, 'review')
+                    <div id="group_review_section">
+                        @each('partials.review&movie', $reviews, 'review')
+                    </div>
+                    
+                    @if (count($reviews) == 3)
+                        <button class="btn btn-primary ms-3" id="nextPage">
+                            Next Page
+                        </button>
+                    @else
+                        <p class="text-center">
+                            Nothing else to show
+                        </p>
+                    @endif
+                    
                 </section>
             @endcan
     </div>

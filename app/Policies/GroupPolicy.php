@@ -57,4 +57,8 @@ class GroupPolicy
 
         return $group->members()->where('membership_state', 'accepted')->get()->contains($user);
     }
+
+    public function view(){
+        return Auth::check();
+    }
 }
