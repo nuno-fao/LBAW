@@ -53,7 +53,7 @@
                 @each('partials.group_result',$groups,'group')
             </div>
 
-            <div id="reviews_section" class=" d-flex justify-content-between flex-wrap">
+            <div id="reviews_section" class=" d-flex justify-content-between flex-column">
                 @each('partials.reviews_result',$reviews,'review')
             </div>
         </div>
