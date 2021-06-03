@@ -15,5 +15,17 @@ function start_ban() {
         })
 }
 
+function unban(id) {
+    sendAjaxRequest("PATCH", "/api/admin/user/" + user_id + "/unban", "",
+        () => {
+            if (request.status == 200) {
+                toast("Successfully re-integrated user", document.getElementById("banned_" + id));
+                document.getElementById("banned_" + id).remove()
+            } else {
+                toast("Error re-integrating user", document.getElementById("banned_" + id));
+            }
+        })
+}
+
 
 start_ban()

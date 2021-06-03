@@ -36,7 +36,6 @@
                 </div>
             </div>
             @auth
-
                 @can('update', App\Models\Movie::class)
                     <div class="my-auto text-end text-danger mr-2">
                         <a class="text-danger" method="GET" href="{{ route('edit_movie', [$movie->id]) }}">Edit Movie</a>
