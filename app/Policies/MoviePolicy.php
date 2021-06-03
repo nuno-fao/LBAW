@@ -47,5 +47,9 @@ class MoviePolicy
         return $user->admin;
     }
 
+    public function edit(Movie $movie, User $user)
+    {
+        return $user->admin;
+    }
   
 }

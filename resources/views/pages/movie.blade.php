@@ -22,7 +22,6 @@
                     <div class="mt-3 gap-5">
                         <h4 class="mt-0">{{ $movie->title }}</h4>
                         <p class="text-secondary mb-1 mt-3">{{ $movie->year }}</p>
-                        <p class="text-secondary mb-2">8.7/10 stars</p>
                         <p class="text-secondary mb-1">{{ $movie->description }}</p>
                         <p class="text-secondary mb-1 mt-4">
                           @foreach ($movie->genres()->get() as $genre)
@@ -37,7 +36,7 @@
         </div>
         @auth
 
-        @can('edit',$movie)
+        @can('delete',Movie::class)
             <div class="my-auto text-end text-danger mr-2">
                 <a class="text-danger" method="GET" href="{{route('edit_movie',[$movie->id])}}">Edit Movie</a>
             </div>
