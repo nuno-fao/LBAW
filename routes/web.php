@@ -20,6 +20,11 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+Route::get('password/email', 'ForgotPasswordController@forgot_page')->name('forgot_password_page');
+Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('forgot_password');
+Route::view('forgot_password', 'auth.reset_page')->name('password.reset');
+Route::post('password/reset', 'ForgotPasswordController@reset')->name('reset_password');
+Route::get('password/confirmation_email', 'ForgotPasswordController@confirmation_page')->name('confirmation_page');
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');

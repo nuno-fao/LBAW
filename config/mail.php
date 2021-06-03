@@ -12,6 +12,7 @@ return [
     | and used as needed; however, this mailer will be used by default.
     |
     */
+    
 
     'default' => env('MAIL_MAILER', 'smtp'),
 
@@ -38,6 +39,7 @@ return [
             'transport' => 'smtp',
             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
             'port' => env('MAIL_PORT', 587),
+            'from' => ['address' => 'noreply@movieclub.com', 'name' => 'Movie Club'],
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
@@ -106,5 +108,6 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+    
 
 ];
