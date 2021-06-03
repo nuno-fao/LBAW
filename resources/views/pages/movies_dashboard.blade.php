@@ -27,7 +27,8 @@
                                         <p class="card-text text-center mb-0 text-truncate">{{ $movie->title }}</p>
                                         <p class="card-text text-center mt-0">{{ $movie->year }}</p>
                                     </div>
-                                    <img src="{{ asset($movie->photo) }}" class="card-img-top" alt="...">
+                                    <img src="{{ asset($movie->photo) }}" class="card-img-top" alt="..."
+                                        style="height:380px;">
 
                                 </a>
                             </div>

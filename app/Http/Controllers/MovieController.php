@@ -165,6 +165,10 @@ class MovieController extends Controller
       'photo' => 'img/' . $imageName,
     ]);
 
+    $im = new ImageManipulator($imageName);
+    $im->resample(640, 480); // resize to 640x480
+    $im->save($imageName, IMAGETYPE_JPEG);
+
     if ($movie) {
       $tagNames = $request->get('tags');
       $tagIds = [];

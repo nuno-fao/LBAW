@@ -12,56 +12,58 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ReviewPolicy
 {
-    use HandlesAuthorization;
+  use HandlesAuthorization;
 
-    public function see_review(User $user, $review){
+  public function see_review(User $user, $review)
+  {
 
-        if($review->group == null){
-          return Auth::check();
-        }
-    
-        $group = Group::find($review->group->id);
-
-        return $user->groups()->get()->contains($group);
-    }
-    
-    public function create(User $user, $group_id)
-    {
-
-      if($group_id == null){
-        return Auth::check();
-      }
-      
-      $group = Group::find($group_id);
-
-      return $user->groups()->get()->contains($group);
-    }
-
-    public function delete(User $user, Review $review)
-    {
-      // Only a card owner can delete it
-      return $user->id == $review->user_id || $user->admin ;
-    }
-
-    public function edit(User $user, Review $review)
-    {
-      // Only a card owner can delete it
-      return $user->id == $review->user_id;
-    }
-
-    public function like()
-    {
-      // Only a card owner can delete it
+    if ($review->group == null) {
       return Auth::check();
     }
 
-    public function report(User $user, $review)
-    {
-      return ($review->user() != $user);
-      //return Auth::check();
+    $group = Group::find($review->group->id);
+
+    return $user->groups()->get()->contains($group);
+  }
+
+  public function create(User $user, $group_id)
+  {
+
+    if ($group_id == null) {
+      return Auth::check();
     }
 
-    public function see(){
-      return Route::currentRouteName() !== 'review';
-    }
+    $group = Group::find($group_id);
+
+    return $user->groups()->get()->contains($group);
+  }
+
+  public function delete(User $user, Review $review)
+  {
+    // Only a card owner can delete it
+    return $user->id == $review->user_id || $user->admin;
+  }
+
+  public function edit(User $user, Review $review)
+  {
+    // Only a card owner can delete it
+    return $user->id == $review->user_id;
+  }
+
+  public function like()
+  {
+    // Only a card owner can delete it
+    return Auth::check();
+  }
+
+  public function report(User $user, $review)
+  {
+    return ($review->user() != $user) && !$user->admin;
+    //return Auth::check();
+  }
+
+  public function see()
+  {
+    return Route::currentRouteName() !== 'review';
+  }
 }

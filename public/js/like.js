@@ -9,7 +9,7 @@ like_buttons.forEach(button => {
         like_ajax.onload = function() {
             if (like_ajax.status == 200)
                 if (button.classList.contains("clicked")) {
-                    document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) - 1;
+                    document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) - 1 + " likes";
                     button.classList.remove("clicked")
 
 
@@ -19,7 +19,7 @@ like_buttons.forEach(button => {
                     not_liked.classList.add("invisible")
 
                 } else {
-                    document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) + 1;
+                    document.getElementById("likes_" + id).innerHTML = parseInt(document.getElementById("likes_" + id).innerHTML) + 1 + " likes";
                     button.classList.add("clicked")
 
                     liked.classList.remove("visible")
