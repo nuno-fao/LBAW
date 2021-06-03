@@ -1,6 +1,6 @@
   
 
-<div class="review card mt-3 bg-light text-dark text-dark" id="report_{{$review->id}}">
+<div class="review card border-secondary mb-3" id="report_{{$review->id}}">
     <div class="card-header row review-header">
         <h4 class="col col-12 col-lg-9 no-padding">
             {{$review->title}}

@@ -60,6 +60,7 @@ INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VAL
 INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('cheiromesmobem','Linic Formen','1975-06-18','wantsome@gmail.com','$2y$10$1imFMcD65895OjPcREwo4.PsWK0nNXHB6nBvjWRoElgW5BRfKCwBi','False'); --ilikeanime
 INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin) VALUES ('nightlurker','Yoro Ishati','1965-06-17','night11@gmail.com','$2y$10$PinrWKJ2vjsGZjzNe2CC7On2FsI62DgP0xBRQsN6NnEhtWWaRCIhq','False'); --ihateanime
 INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin,banned) VALUES ('dreamer','El Dream','1965-07-19','dreamealways@gmail.com','$2y$10$rDGv.ISBsJ.RTRomKfk5auFLI8MvMNuSqgvOIQnIuqjVMxXb6fYg6','False','True'); --veracidade11
+INSERT INTO "signed_user" (username,name,date_of_birth,email,password,admin,banned) VALUES ('animehater','John Failure','1965-07-19','animehater@gmail.com','$2y$10$PinrWKJ2vjsGZjzNe2CC7On2FsI62DgP0xBRQsN6NnEhtWWaRCIhq','False','True'); --ihateanime
 
 --GENRES
 INSERT INTO "genre" (genre) VALUES ('Action');
