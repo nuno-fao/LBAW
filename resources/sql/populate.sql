@@ -159,8 +159,8 @@ INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (
 INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (1,9,'accepted');
 INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (1,10,'accepted');
 INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (1,11,'accepted');
-INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (1,14,'pending');
-INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (1,15,'pending');
+INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (14,1,'pending');
+INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (15,1,'pending');
 
 INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (2,5,'accepted');
 INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (2,3,'accepted');
