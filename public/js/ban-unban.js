@@ -16,7 +16,7 @@ function start_ban() {
 }
 
 function unban(id) {
-    sendAjaxRequest("PATCH", "/api/admin/user/" + user_id + "/unban", "",
+    sendAjaxRequest("PATCH", "/api/admin/user/" + id + "/unban", "",
         () => {
             if (request.status == 200) {
                 toast("Successfully re-integrated user", document.getElementById("banned_" + id));

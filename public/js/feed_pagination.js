@@ -26,17 +26,20 @@ function loadPublicFeed() {
     public_pagination.send();
 
     public_pagination.onload = function() {
+        if (public_pagination.status == 200 || public_pagination.status == 300)
+            if (this.responseText.length == 0) {
+                let elem = document.getElementById('nextPublicPage');
+                if (elem == null) {
+                    return
+                }
 
-        if (this.responseText.length == 0) {
-            let elem = document.getElementById('nextPublicPage');
+                let p = document.createElement('p');
+                p.className = "text-center"
+                p.innerHTML = 'Nothing else to show';
+                elem.parentNode.appendChild(p);
 
-            let p = document.createElement('p');
-            p.className = "text-center"
-            p.innerHTML = 'Nothing else to show';
-            elem.parentNode.appendChild(p);
-
-            elem.parentNode.removeChild(elem);
-        }
+                elem.parentNode.removeChild(elem);
+            }
 
         document.getElementById("public_reviews").innerHTML += this.responseText;
     };
@@ -50,19 +53,32 @@ function loadFriendFeed() {
     friend_pagination.send();
 
     friend_pagination.onload = function() {
-        if (this.responseText.length == 0) {
-            let elem = document.getElementById('nextFriendPage');
+        if (friend_pagination.status == 200 || friend_pagination.status == 300)
+            if (this.responseText.length == 0) {
+                let elem = document.getElementById('nextFriendPage');
+                if (elem == null) {
+                    return
+                }
 
-            let p = document.createElement('p');
-            p.className = "text-center"
-            p.innerHTML = 'Nothing else to show';
-            elem.parentNode.appendChild(p);
+                let p = document.createElement('p');
+                p.className = "text-center"
+                p.innerHTML = 'Nothing else to show';
+                elem.parentNode.appendChild(p);
 
-            elem.parentNode.removeChild(elem);
-        }
+                elem.parentNode.removeChild(elem);
+            }
 
         document.getElementById("friends_reviews").innerHTML += this.responseText;
     };
 }
 
 start_feed_listeners()
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        if (selected === 0)
+            loadPublicFeed();
+        else if (selected == 1)
+            loadFriendFeed();
+    }
+};

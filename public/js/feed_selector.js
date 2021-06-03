@@ -10,9 +10,14 @@ let bar_friends = document.querySelector("#btn-friends > div")
 
 
 let selected = 0;
+let public_scroll = 0;
+let private_scroll = 0;
 
 btn_public.addEventListener("click", () => {
     if (selected !== 0) {
+
+        private_scroll = document.documentElement.scrollTop
+
         selected = 0;
         public_feed.style.display = "block";
         friends_feed.style.display = "none";
@@ -22,11 +27,22 @@ btn_public.addEventListener("click", () => {
         bar_friends.className = a;
         bar_public.className = b;
         btn_public.blur()
+
+        setTimeout(function() {
+            document.documentElement.scrollTop = public_scroll
+        }, 200);
+
+    } else {
+        document.documentElement.scrollTop = 0;
+        public_scroll = 0
     }
 })
 
 btn_friends.addEventListener("click", () => {
     if (selected !== 1) {
+
+        public_scroll = document.documentElement.scrollTop
+
         selected = 1;
         public_feed.style.display = "none";
         friends_feed.style.display = "block";
@@ -36,5 +52,12 @@ btn_friends.addEventListener("click", () => {
         bar_public.className = a;
         bar_friends.className = b;
         btn_friends.blur()
+
+        setTimeout(function() {
+            document.documentElement.scrollTop = private_scroll
+        }, 200);
+    } else {
+        document.documentElement.scrollTop = 0;
+        private_scroll = 0
     }
 })

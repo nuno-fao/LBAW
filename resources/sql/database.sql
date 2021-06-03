@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS signed_user CASCADE;
 CREATE TABLE signed_user
 (
     id serial NOT NULL,
-    photo text ,
+    photo text DEFAULT 'img/user_pic.png',
     username text NOT NULL,
     name text NOT NULL,
     date_of_birth date,

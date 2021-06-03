@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Group;
+
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -14,7 +16,12 @@ class SearchController extends Controller
         if($request->has('query')){
             $query = $request->input('query');
         }
-        $users = User::where("username", "like" ,"%".$query."%" )->take(10)->get();
-        return view("pages/search",["users" => $users]);
+        $users_count = User::where("username", "ilike" ,"%".$query."%" )->orWhere("name", "ilike" ,"%".$query."%" )->count();
+        $groups_count = Group::where("title", "ilike" ,"%".$query."%" )->count();
+
+        $users = User::where("username", "ilike" ,"%".$query."%" )->orWhere("name", "ilike" ,"%".$query."%" )->take(10)->get();
+        $groups = Group::where("title", "ilike" ,"%".$query."%" )->take(10)->get();
+        
+        return view("pages/search",["users" => $users,'groups' => $groups,'users_count' => $users_count,'groups_count' => $groups_count]);
     }
 }
