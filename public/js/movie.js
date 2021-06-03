@@ -4,9 +4,9 @@ let nextPage = document.getElementById("nextPage");
 let movie_pagination = new XMLHttpRequest();
 
 movie_pagination.onload = function() {
-    if(this.responseText.length == 0){
+    if (this.responseText.length == 0) {
         let elem = document.getElementById('nextPage');
-        
+
         let p = document.createElement('p');
         p.className = "text-center"
         p.innerHTML = 'Nothing else to show';
@@ -17,10 +17,10 @@ movie_pagination.onload = function() {
     }
     document.getElementById("review_section").innerHTML += this.responseText;
 };
-if(nextPage != null){
+if (nextPage != null) {
     nextPage.addEventListener('click', () => {
         page += 1;
-        movie_pagination.open("GET", "/api/movie/"+movie_id+"/feed/"+page, true);
+        movie_pagination.open("GET", "/api/movie/" + movie_id + "/feed/" + page, true);
         movie_pagination.send();
     });
 }
@@ -28,19 +28,19 @@ if(nextPage != null){
 let group_selector = document.getElementById("group-selector")
 let group_selector_ajax = new XMLHttpRequest();
 group_selector_ajax.onload = function() {
-    if(this.responseText.length > 0){
+    /*if (this.responseText.length > 0) {
         let json = JSON.parse(this.responseText);
         document.getElementById("title").value = json.title;
         document.getElementById("description").value = json.text;
-    }
+    }*/
 };
 
-if(group_selector != null){
-    group_selector_ajax.open("get", "/api/review/"+group_selector.value, true);
+/*if (group_selector != null) {
+    group_selector_ajax.open("get", "/api/review/" + group_selector.value, true);
     group_selector_ajax.send();
     group_selector.addEventListener('change', () => {
         group_selector_ajax = new XMLHttpRequest();
-        group_selector_ajax.open("get", "/api/review/"+group_selector.value, true);
+        group_selector_ajax.open("get", "/api/review/" + group_selector.value, true);
         group_selector_ajax.send();
     });
-}
+}*/

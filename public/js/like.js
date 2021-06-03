@@ -2,7 +2,6 @@ let like_buttons = document.querySelectorAll(".like_button");
 like_buttons.forEach(button => {
     let liked = document.querySelector("#" + button.id + " .liked")
     let not_liked = document.querySelector("#" + button.id + " .not-liked")
-    console.log(liked)
     let id = button.id.replace(/\D/g, '');
     button.addEventListener("click", (event) => {
         let like_ajax = new XMLHttpRequest();

@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <script src="{{ asset('js/search.js') }}" defer> </script>
+
     <nav aria-label="breadcrumb" id="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('landing_page') }}">Home</a></li>
@@ -9,15 +11,8 @@
         </ol>
     </nav>
 
-    <section class="container">
-        <div class="text-center my-4">
-            <h3 class="display-7">
-                Search Results For "{{ $query }}"
-            </h3>
-        </div>
-    </section>
 
-    <container class="row justify-content-center container-fluid">
+    <container class="row justify-content-between container-fluid">
         <aside id="user_info" class="bg-light border col-xl-2 col-lg-2 col-8 mx-lg-3 mx-auto d-flex flex-column">
             <h5 class="mx-auto mt-3 mb-3">Filter By Type</h5>
             <div class="btn-group-vertical">
@@ -44,17 +39,26 @@
             </div>
         </aside>
 
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
+            <section class="container">
+                <div class="text-center my-4">
+                    <h3 class="display-7">
+                        Search Results For "{{ $query }}"
+                    </h3>
+                </div>
+            </section>
             <div id="users_section" class=" d-flex justify-content-between flex-wrap">
                 @each('partials.user_result',$users,'user')
             </div>
 
-            <div id="groups_section" class=" d-flex justify-content-between flex-wrap">
+            <div id="groups_section" class=" d-flex justify-content-between flex-wrap hideElement" style="display: none">
                 @each('partials.group_result',$groups,'group')
             </div>
 
-            <div id="reviews_section" class=" d-flex justify-content-between flex-column">
+            <div id="reviews_section" class=" d-flex justify-content-between flex-column hideElement">
                 @each('partials.reviews_result',$reviews,'review')
+            </div>
+            <div id="movies_section" class=" d-flex justify-content-between flex-column hideElement">
             </div>
         </div>
 
