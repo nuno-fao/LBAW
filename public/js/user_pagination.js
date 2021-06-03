@@ -24,3 +24,9 @@ if(nextPage != null){
         user_pagination.send();
     });
 }
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        nextPage.click();
+    }
+};

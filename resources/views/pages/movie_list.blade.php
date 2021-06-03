@@ -26,7 +26,7 @@
     </div>
 
     <div class="d-flex justify-content-center mt-3">
-        @if (count($movies) == 20)
+        @if (count($movies) == 12)
             <button class="btn btn-primary  " id="nextPage">
                 Next Page
             </button>
