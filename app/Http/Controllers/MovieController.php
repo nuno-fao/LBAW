@@ -99,7 +99,7 @@ class MovieController extends Controller
       'movieName' => 'required',
       'year' => 'required|numeric|min:1900',
       'movieDescription' => 'required',
-      'moviePoster' => 'required|image'
+      'moviePoster' => 'image'
     ]);
 
     $movie = Movie::find($id);
