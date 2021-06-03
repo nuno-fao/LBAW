@@ -3,7 +3,7 @@ function ban(user_id) {
 
     if (button != null)
         sendAjaxRequest("PATCH", "/api/admin/user/" + user_id + "/" + button.innerHTML.trim().toLowerCase(), "",
-            () => {
+            (request) => {
                 if (button.innerHTML.trim() === "Ban") {
                     button.innerHTML = "Unban";
                 } else {
