@@ -23,7 +23,7 @@
         <div class="d-flex justify-content-center ">
 
             <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action"
-                action="{{ route('edit_user', ['user_id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
+                action="{{ route('edit_user_form', ['user_id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 
