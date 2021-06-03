@@ -9,15 +9,8 @@
         </ol>
     </nav>
 
-    <section class="container">
-        <div class="text-center my-4">
-            <h3 class="display-7">
-                Search Results For "{{ $query }}"
-            </h3>
-        </div>
-    </section>
 
-    <container class="row justify-content-center container-fluid">
+    <container class="row justify-content-between container-fluid">
         <aside id="user_info" class="bg-light border col-xl-2 col-lg-2 col-8 mx-lg-3 mx-auto d-flex flex-column">
             <h5 class="mx-auto mt-3 mb-3">Filter By Type</h5>
             <div class="btn-group-vertical">
@@ -44,7 +37,14 @@
             </div>
         </aside>
 
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
+            <section class="container">
+                <div class="text-center my-4">
+                    <h3 class="display-7">
+                        Search Results For "{{ $query }}"
+                    </h3>
+                </div>
+            </section>
             <div id="users_section" class=" d-flex justify-content-between flex-wrap">
                 @each('partials.user_result',$users,'user')
             </div>
