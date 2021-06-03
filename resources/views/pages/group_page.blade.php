@@ -87,7 +87,7 @@
                 </section>
             </aside>
             @can('see', $group)
-                <section class="col-xl-8 col-lg-7 col-12 scrollit me-3 ms-auto">
+                <section class="col-xl-8 col-lg-7 col-12 scrollit me-3 ms-auto d-flex flex-column">
                     <h4 class="text-center">
                         Group Exclusive Reviews
                     </h4>
@@ -96,7 +96,7 @@
                     </div>
                     
                     @if (count($reviews) == 3)
-                        <button class="btn btn-primary ms-3" id="nextPage">
+                        <button class="btn btn-primary mx-auto" id="nextPage">
                             Next Page
                         </button>
                     @else
