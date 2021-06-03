@@ -11,8 +11,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{{ asset('js/ban-unban.js') }}" defer> </script>
+    <script src="{{ asset('js/user_pagination.js') }}" defer> </script>
     <script>
-        let user_id = {{ $user->id }}
+        var user_id = {{ $user->id }}
 
     </script>
     <div class="col-lg-12 col-12 mt-5 row mx-auto">
@@ -145,8 +146,23 @@
             <h4 class="text-center">
                 Latest Reviews
             </h4>
-            @each('partials.review&movie', $reviews, 'review')
+            <div id="user_review_section">
+                @each('partials.review&movie', $reviews, 'review')
+            </div>
+            <div class="d-flex justify-content-center">
+                @if (count($reviews) == 10)
+                    <button class="btn btn-primary  " id="nextPage">
+                        Next Page
+                    </button>
+                @else
+                    <p class="text-center">
+                        Nothing else to show
+                    </p>
+                @endif
+            </div>
         </section>
+
+        
     </div>
 
 @endsection

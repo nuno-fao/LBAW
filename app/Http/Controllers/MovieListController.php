@@ -12,7 +12,7 @@ class MovieListController extends Controller
     public function show()
     {
 
-        $ms = Movie::take(20)->get();
+        $ms = Movie::take(12)->get();
 
         return view('pages.movie_list', [
         'movies' => $ms
@@ -25,7 +25,7 @@ class MovieListController extends Controller
       if( !ctype_digit($page)){
         return view(self::ERROR_404_PAGE);
       }
-      $ms =  Movie::skip($page*20)->take(20)->get();
+      $ms =  Movie::skip($page*12)->take(12)->get();
       
       return view('pagination.movie_list', ['movies' => $ms]);
     }

@@ -46,6 +46,7 @@ Route::post('api/review/{review_id}/like', 'LikeController@create');
 
 //User Profile
 Route::get('user/{user}','UserController@show')->name('user');
+Route::get('api/user/{user}/feed/{page}','UserController@getPage');
 Route::patch('/api/admin/user/{user}/ban','UserController@ban')->name('ban');
 Route::patch('/api/admin/user/{user}/unban','UserController@unban')->name('unban');
 Route::get('user/{user_id}/edit','UserController@edit_page')->name('edit_user');
