@@ -16,6 +16,8 @@
 
         @include('layouts.management_board_user')
 
+        
+
         <section class="col-xl-7 col-lg-6 col-12 scrollit me-auto ms-auto">
             <h4 class="mt-3 text-center mb-5">
                 Banned Users

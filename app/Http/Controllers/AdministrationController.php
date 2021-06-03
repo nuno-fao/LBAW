@@ -41,10 +41,13 @@ class AdministrationController extends Controller
 
         $this->authorize('admin_actions', User::class);
 
-        $users = User::all()->where('banned', true);
+        $query = User::all();
+        $users = $query->where('banned', true);
+        $total = $query->count();
 
         return view('pages.user_dashboard', [
-            'users' => $users
+            'users' => $users,
+            'total_users' => $total
         ]);
     }
 }

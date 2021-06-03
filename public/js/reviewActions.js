@@ -12,15 +12,18 @@ function deleteReview(rid, id) {
         if (typeof review_page != "undefined" && review_page) {
             window.location.replace("/");
         }
-        console.log(review)
         toast("Review Successfully Deleted", review.id)
         review.remove();
+        if(typeof inDashboard !== 'undefined'){
+            decrementCount();
+        }
     };
     if (review != null) {
         deleteAjax.open("DELETE", "/api/review/" + id, true);
         deleteAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
         deleteAjax.send();
     }
+    
 }
 
 function reportReview(rid, id) {
@@ -50,5 +53,9 @@ function removeReport(rid, id) {
         deleteAjax.open("DELETE", "/api/admin/reviews/board/report/" + id, true);
         deleteAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
         deleteAjax.send();
+    }
+
+    if(typeof inDashboard !== 'undefined'){
+        decrementCount();
     }
 }

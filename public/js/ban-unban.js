@@ -18,8 +18,12 @@ function unban(id) {
             if (request.status == 200) {
                 toast("Successfully re-integrated user", document.getElementById("banned_" + id));
                 document.getElementById("banned_" + id).remove()
+                if(typeof inDashboard !== 'undefined'){
+                    decrementCount();
+                }
             } else {
                 toast("Error re-integrating user", document.getElementById("banned_" + id));
             }
         })
+        
 }
