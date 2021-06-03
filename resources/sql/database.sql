@@ -288,11 +288,19 @@ CREATE TRIGGER rating_date
     FOR EACH ROW
     EXECUTE PROCEDURE check_rating_date();
 
+
+
+
+
+
+
 DROP FUNCTION IF EXISTS  add_auto_notification_friend  CASCADE;
 CREATE FUNCTION add_auto_notification_friend() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    INSERT INTO "notification" (signed_user_id,friend_id) VALUES (NEW.signed_user_id2,NEW.signed_user_id1);
+    IF (state(NEW.friendship_state) = state('pending')) THEN
+        INSERT INTO "notification" (signed_user_id,friend_id) VALUES (NEW.signed_user_id2,NEW.signed_user_id1);
+    END IF;
     RETURN NEW;
 END
 $BODY$
@@ -310,17 +318,21 @@ DROP FUNCTION IF EXISTS  add_auto_notification_group CASCADE;
 CREATE FUNCTION add_auto_notification_group() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    INSERT INTO "notification" (signed_user_id,group_id) VALUES (NEW.user_id,NEW.group_id);
+    IF (state(NEW.membership_state) = state('pending')) THEN
+        INSERT INTO "notification" (signed_user_id,group_id) VALUES (NEW.user_id,NEW.group_id);
+    END IF;
     RETURN NEW;
 END
 $BODY$
 LANGUAGE plpgsql;
  
- 
 CREATE TRIGGER auto_notification_group
     AFTER INSERT OR UPDATE ON group_member
     FOR EACH ROW
     EXECUTE PROCEDURE add_auto_notification_group(); 
+
+
+
 
 DROP FUNCTION IF EXISTS  check_friend  CASCADE;
 CREATE FUNCTION check_friend() RETURNS TRIGGER AS

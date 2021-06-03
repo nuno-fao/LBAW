@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <script src="{{ asset('js/search.js') }}" defer> </script>
+
     <nav aria-label="breadcrumb" id="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('landing_page') }}">Home</a></li>
@@ -49,12 +51,14 @@
                 @each('partials.user_result',$users,'user')
             </div>
 
-            <div id="groups_section" class=" d-flex justify-content-between flex-wrap">
+            <div id="groups_section" class=" d-flex justify-content-between flex-wrap hideElement" style="display: none">
                 @each('partials.group_result',$groups,'group')
             </div>
 
-            <div id="reviews_section" class=" d-flex justify-content-between flex-column">
+            <div id="reviews_section" class=" d-flex justify-content-between flex-column hideElement">
                 @each('partials.reviews_result',$reviews,'review')
+            </div>
+            <div id="movies_section" class=" d-flex justify-content-between flex-column hideElement">
             </div>
         </div>
 

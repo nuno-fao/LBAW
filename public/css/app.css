@@ -193,3 +193,7 @@ div:hover .sent {
 div:hover .cancelbutton {
     display: contents;
 }
+
+.hideElement {
+    display: none !important;
+}
