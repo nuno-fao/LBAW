@@ -1,6 +1,7 @@
 var toastIterator = 1;
 
-function toast(message, element) {
+function toast(message) {
+    console.log("out");
     let option = {
         animation: true,
         delay: 2000
@@ -15,6 +16,7 @@ function toast(message, element) {
     maindiv.setAttribute("role", "alert");
     maindiv.setAttribute("aria-live", "assertive");
     maindiv.setAttribute("aria-atomic", "true");
+    maindiv.style.position = 'absolute';
 
     let seconddiv = document.createElement("div");
     seconddiv.className = "d-flex";
@@ -37,7 +39,7 @@ function toast(message, element) {
 
     maindiv.appendChild(seconddiv);
 
-    let target = document.getElementById(element);
+    let target = document.getElementById("breadcrumb");
 
     target.parentElement.insertBefore(maindiv, target);
 

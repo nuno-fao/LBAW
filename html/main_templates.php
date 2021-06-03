@@ -114,7 +114,7 @@ function draw_navbar_visitor(){ ?>
 }
 
 function draw_breadcrumb($arr){ ?>
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" id="breadcrumb">
     <ol class="breadcrumb mb-0">
         <?php
     foreach ($arr as &$breadcrumb) { 
