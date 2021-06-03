@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Group;
 use App\Models\Comment;
+use App\Models\Like;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

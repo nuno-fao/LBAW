@@ -37,7 +37,7 @@ Route::get('review/{id}','ReviewController@show')->name('review');
 Route::get('api/review/{review_id}','ReviewController@getReview');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
 Route::patch('api/review/{review_id}', 'ReviewController@edit');
-Route::post('api/review/{review_id}/like', 'ReviewController@like');
+Route::post('api/review/{review_id}/like', 'LikeController@create');
 
 //User Profile
 Route::get('user/{user}','UserController@show')->name('user');

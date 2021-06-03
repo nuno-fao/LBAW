@@ -100,18 +100,5 @@ class ReviewController extends Controller
       return back();
     }
 
-    public function like($review_id){
-      $r = Review::find($review_id);
-
-      if(!ctype_digit($review_id)){
-        return view('errors.404');
-      }
-      
-      $this->authorize('like', $r);
-
-      if($r != null){     
-        $r->save();    
-      }
-      return response('', 200)->header('Content-Type', 'text/plain');
-    }
+    
 }
