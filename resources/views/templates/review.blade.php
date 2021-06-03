@@ -37,7 +37,7 @@
 <div class="card-footer d-flex justify-content-between review-footer">
     <div class="no-padding d-flex">
         <span id="like_button_{{ $review->id }}" data-balloon="size: 2x" data-balloon-pos="up"
-            class="db color-inherit link hover-orange like_button">
+            class="db color-inherit link hover-orange like_button" role="button">
             <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="thumbs-up" role="img"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                 class="svg-inline--fa fa-thumbs-up fa-w-16 fa-2x my-auto " style="max-width: 17px">

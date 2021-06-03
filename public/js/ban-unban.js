@@ -1,18 +1,15 @@
-function start_ban() {
+function ban(user_id) {
     let button = document.getElementById("ban-button");
 
-
     if (button != null)
-        button.addEventListener('click', () => {
-            sendAjaxRequest("PATCH", "/api/admin/user/" + user_id + "/" + button.innerHTML.toLowerCase(), "",
-                () => {
-                    if (button.innerHTML === "Ban") {
-                        button.innerHTML = "Unban";
-                    } else {
-                        button.innerHTML = "Ban";
-                    }
-                })
-        })
+        sendAjaxRequest("PATCH", "/api/admin/user/" + user_id + "/" + button.innerHTML.trim().toLowerCase(), "",
+            () => {
+                if (button.innerHTML.trim() === "Ban") {
+                    button.innerHTML = "Unban";
+                } else {
+                    button.innerHTML = "Ban";
+                }
+            })
 }
 
 function unban(id) {
@@ -26,6 +23,3 @@ function unban(id) {
             }
         })
 }
-
-
-start_ban()
