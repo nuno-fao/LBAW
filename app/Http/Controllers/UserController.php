@@ -139,10 +139,7 @@ class UserController extends Controller
         Auth::logout();
 
         if ($user->delete()) {
-
             return redirect('/')->with('global', 'Your account has been deleted!');
         }
     }
-
-    
 }

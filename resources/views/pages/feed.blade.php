@@ -29,8 +29,9 @@
     </div>
     @endauth
 </div>
+
 <div class="feed mt-5" id="public_feed">
-    <div id="public_reviews">
+    <div>
         @each('partials.review&movie',$reviews,'review')
     </div>
     <div class="d-flex justify-content-center">
@@ -48,7 +49,7 @@
 
 @auth
 <div class="feed mt-5" id="friends_feed">
-    <div id="public_reviews">
+    <div >
         @each('partials.review&movie',$friend_reviews,'review')
     </div>
     <div class="d-flex justify-content-center">

@@ -24,10 +24,9 @@
                 
             </div>
             
-            <form class="d-flex nav-item col-lg-5 col-12 ">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <!-- <button class="btn btn-secondary" type="submit">Search</button> stayings as link while there is no JS --> 
-                <a class="btn btn-secondary" href="search_result">Search</a>
+            <form class="d-flex nav-item col-lg-5 col-12 " action="{{route('search')}}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                <button class="btn btn-secondary" type="submit">Search</button>
             </form>
 
             <div class="navbar-nav col-lg-4 col-12 d-flex justify-content-end my-lg-auto mt-4 text-center">
