@@ -95,7 +95,7 @@
                 </section>
             @endauth
         </section>
-        <section class="col-xl-8 col-lg-7 col-12 scrollit mt-2">
+        <section class="col-xl-8 col-lg-7 col-12 scrollit mt-2 d-flex flex-column">
             <h4 class="text-center">
                 Reviews
             </h4>
@@ -104,7 +104,7 @@
 
             </section>
             @if (count($reviews) == 10)
-                <button class="btn btn-primary ms-3" id="nextPage">
+                <button class="btn btn-primary mx-auto" id="nextPage">
                     Next Page
                 </button>
             @else

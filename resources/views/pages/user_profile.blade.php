@@ -14,7 +14,6 @@
     <script src="{{ asset('js/user_pagination.js') }}" defer> </script>
     <script>
         var user_id = {{ $user->id }}
-
     </script>
     <div class="col-lg-12 col-12 mt-5 row mx-auto">
         <aside id="user_info" class="col-xl-4 col-lg-5 col-12 fixed sticky_left_aside">

@@ -25,6 +25,12 @@ if (nextPage != null) {
     });
 }
 
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        nextPage.click();
+    }
+};
+
 let group_selector = document.getElementById("group-selector")
 let group_selector_ajax = new XMLHttpRequest();
 group_selector_ajax.onload = function() {
