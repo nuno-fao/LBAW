@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +21,8 @@ class Like extends Model
         'review_id',
     ];
 
-    public function review(){
+    public function review()
+    {
         return $this->belongsTo(Review::class);
     }
 }
