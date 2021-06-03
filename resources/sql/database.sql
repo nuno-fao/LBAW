@@ -118,6 +118,7 @@ DROP TABLE IF EXISTS review CASCADE;
 CREATE TABLE review
 (
     id serial NOT NULL ,
+    tt tsvector,
     title text  NOT NULL,
     text text NOT NULL,
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

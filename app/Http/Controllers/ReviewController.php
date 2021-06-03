@@ -12,93 +12,94 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function show($id)
-    {
-      if(!ctype_digit($id)){
-        return view('errors.404');
-      }
-      $review = Review::find($id);
-
-      if ($review == null){
-        return redirect('/');
-        
-      }
-
-      //TODO ADD GROUP
-
-      return view('pages.review',['review'=>$review]);
+  public function show($id)
+  {
+    if (!ctype_digit($id)) {
+      return view('errors.404');
     }
-    
-    static public function movieReviews(Movie $movie,int $page)
-    {   
-        return Review::where('movie_id',$movie->id)->where('group_id')->orderBy('date','desc')->orderBy('title')->orderBy('text')->skip($page*10)->take(10)->get();
+    $review = Review::find($id);
+
+    if ($review == null) {
+      return redirect('/');
     }
 
-    public function create(Request $request, $movie_id){
-    
-      $this->authorize('create', [Review::class, $request->group]);
+    //TODO ADD GROUP
 
-      $r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
-      
-      if(count($r) != 0 && $request->group == null){
-        return back();
-      }
+    return view('pages.review', ['review' => $review]);
+  }
 
-      $this->validate($request, [
-        'title' => 'required',
-        'description' => 'required',
-      ]);      
+  static public function movieReviews(Movie $movie, int $page)
+  {
+    return Review::where('movie_id', $movie->id)->where('group_id')->orderBy('date', 'desc')->orderBy('title')->orderBy('text')->skip($page * 10)->take(10)->get();
+  }
 
-      $review = $request->user()->reviews()->create([
-        'title' => $request->title,
-        'text' => $request->description,
-        'date' => date('Y-m-d H:i:s'),
-        'movie_id' => $request->id
-      ]);
+  public function create(Request $request, $movie_id)
+  {
 
-      if($review != null && $request->group != null){
+    $this->authorize('create', [Review::class, $request->group]);
 
-        $group = Group::find($request->group);
+    $r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
 
-        $review->group()->associate($group);
-
-        $review->save();
-      }
-
+    if (count($r) != 0 && $request->group == null) {
       return back();
     }
 
-    public function delete(Request $request,$review_id){
-      $r = Review::find($review_id);
+    $this->validate($request, [
+      'title' => 'required',
+      'description' => 'required',
+    ]);
 
-      $this->authorize('delete', $r);
+    $review = $request->user()->reviews()->create([
+      'title' => $request->title,
+      'text' => $request->description,
+      'date' => date('Y-m-d H:i:s'),
+      'movie_id' => $request->id
+    ]);
 
-      if($r != null){
-        $r->delete();
-      }
+    if ($review != null && $request->group != null) {
+
+      $group = Group::find($request->group);
+
+      $review->group()->associate($group);
+
+      $review->save();
     }
 
-    public function getReview($review_id){
-      return Review::find($review_id);
+    return back();
+  }
+
+  public function delete(Request $request, $review_id)
+  {
+    $r = Review::find($review_id);
+
+    $this->authorize('delete', $r);
+
+    if ($r != null) {
+      $r->delete();
     }
+  }
 
-    public function edit(Request $request,$review_id){
-      $r = Review::find($review_id);
+  public function getReview($review_id)
+  {
+    return Review::find($review_id);
+  }
 
-      $this->validate($request, [
-        'title' => 'required',
-        'description' => 'required',
-      ]);
-      
-      $this->authorize('edit', $r);
+  public function edit(Request $request, $review_id)
+  {
+    $r = Review::find($review_id);
 
-      if($r != null){
-        $r->text = $request->description;
-        $r->title = $request->title;       
-        $r->save();    
-      }
-      return back();
+    $this->validate($request, [
+      'title' => 'required',
+      'description' => 'required',
+    ]);
+
+    $this->authorize('edit', $r);
+
+    if ($r != null) {
+      $r->text = $request->description;
+      $r->title = $request->title;
+      $r->save();
     }
-
-    
+    return back();
+  }
 }
