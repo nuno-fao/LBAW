@@ -94,6 +94,10 @@ class GroupController extends Controller
             $members[] = auth()->user()->id;
 
             $group->members()->sync($members);
+
+            $group->members()->updateExistingPivot(auth()->user()->id, [
+                'membership_state' => 'accepted',
+            ]);
         }
 
 
