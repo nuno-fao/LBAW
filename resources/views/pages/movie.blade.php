@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>'Movie Page'])
+@extends('layouts.app',['title'=>'Movie Page/'.$movie->title])
 
 @section('content')
 
