@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['title'=>'Reviews Dashboard'])
 
 @section('content')
 
