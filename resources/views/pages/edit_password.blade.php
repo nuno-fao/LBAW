@@ -37,7 +37,7 @@
                 <label for="current_password" class="form-label mt-3">Current Password *</label>
                 <input type="password"
                     class="col-7 form-control border border-1rounded-1 m-auto text-center @error('current_password') border-danger @enderror"
-                    name="current_password" id="current_password" aria-describedby="current_password">
+                    name="current_password" id="current_password" aria-describedby="current_password" required>
 
                 @error('current_password')
                     <div class="text-danger">
@@ -48,7 +48,7 @@
                 <label for="new_password" class="form-label mt-3 ">New Password *</label>
                 <input type="password"
                     class="col-7 form-control border border-1rounded-1 m-auto text-center @error('new_password') border-danger @enderror"
-                    name="new_password" id="new_password" aria-describedby="new_password">
+                    name="new_password" id="new_password" aria-describedby="new_password" required>
 
                 @error('new_password')
                     <div class="text-danger">
@@ -60,7 +60,7 @@
                 <input type="password"
                     class="col-7 form-control border border-1rounded-1 m-auto text-center @error('new_password_confirmation') border-danger @enderror"
                     name="new_password_confirmation" id="new_password_confirmation"
-                    aria-describedby="new_password_confirmation">
+                    aria-describedby="new_password_confirmation" required>
 
                 @error('new_password_confirmation')
                     <div class="text-danger">

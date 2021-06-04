@@ -35,7 +35,7 @@
                         <input type="text"
                             class="col-7 form-control border border-1rounded-1 @error('movieName') border-danger @enderror"
                             @if ($movie != null) value="{{ $movie->title }}" @endif name="movieName" id="movieName" aria-describedby="movieName"
-                            value="{{ old('movieName') }}">
+                            value="{{ old('movieName') }}" required>
                         @error('movieName')
                             <div class="text-danger">
                                 {{ $message }}
@@ -46,7 +46,7 @@
                     <div class="col">
                         <label for="year" class="form-label mt-3 ">Year *</label>
                         <input type="text"
-                            class="col-7 form-control border border-1rounded-1 @error('year') border-danger @enderror" @if ($movie != null) value="{{ $movie->year }}" @endif name="year" id="year" aria-describedby="year" value="{{ old('year') }}">
+                            class="col-7 form-control border border-1rounded-1 @error('year') border-danger @enderror" @if ($movie != null) value="{{ $movie->year }}" @endif name="year" id="year" aria-describedby="year" value="{{ old('year') }}" required>
                         @error('year')
                             <div class=" text-danger">
                                 {{ $message }}
@@ -85,7 +85,7 @@
 
                 <label class="form-label mt-3" for="moviePoster">Upload Movie Poster *</label>
                 <input type="file" class="form-control @error('moviePoster') border  border-danger @enderror"
-                    id="moviePoster" name="moviePoster" />
+                    id="moviePoster" name="moviePoster" required>
                 @error('moviePoster')
                     <div class="text-danger">
                         {{ $message }}

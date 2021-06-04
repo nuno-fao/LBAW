@@ -28,7 +28,7 @@
                 <label for="title" class="form-label mt-3 ">Group Name *</label>
                 <input type="text"
                     class="col-7 form-control border border-1rounded-1 @error('title') border-danger @enderror" name="title"
-                    id="title" aria-describedby="title" value="{{old('title')}}">
+                    id="title" aria-describedby="title" value="{{old('title')}}" required>
                 @error('title')
                     <div class="text-danger">
                         {{ $message }}
