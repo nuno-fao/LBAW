@@ -26,7 +26,7 @@
 
             </div>
 
-            <form class="d-flex nav-item col-lg-5 col-12 " action="{{ route('search') }}">
+            <form class="d-flex nav-item col-lg-5 col-12 " action="{{ route('search_user') }}">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
