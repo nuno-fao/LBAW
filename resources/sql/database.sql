@@ -376,7 +376,7 @@ LANGUAGE plpgsql;
  
 CREATE TRIGGER review_edit
     BEFORE INSERT OR UPDATE ON review
-    FOR EACH ROW
+    FOR ROW
     EXECUTE PROCEDURE reviewtt();  
 
 
@@ -395,7 +395,7 @@ LANGUAGE plpgsql;
  
 CREATE TRIGGER movie_edit
     BEFORE INSERT OR UPDATE ON movie
-    FOR EACH ROW
+    FOR ROW
     EXECUTE PROCEDURE moviett();
 
 

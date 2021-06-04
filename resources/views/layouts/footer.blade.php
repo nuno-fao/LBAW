@@ -8,8 +8,6 @@
         <a class="text-white" href="about_us">About Us</a>
     </div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" defer>
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" defer>
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" defer>

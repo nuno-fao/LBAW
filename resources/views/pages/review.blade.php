@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <a href="{{ route('movie', [$review->movie]) }}"><img class="card-img-top img-responsive review-poster"
-                        src="{{ asset($review->movie->photo) }}" alt="{{ $movie->title }} Photo poster"></a>
+                        src="{{ asset($review->movie->photo) }}" alt="{{ $review->movie->title }} Photo poster"></a>
             </div>
             <div class="review card mt-3 col-12 col-lg-8 px-0">
                 @include('templates.review')
