@@ -26,6 +26,10 @@ function addComment(rid) {
             (request) => {
                 if (request.status == 200) {
                     toast("Comment submitted", "s");
+                    let total_comments = document.getElementById('total_comments');
+                    let stringArray = total_comments.innerHTML.trim().split(' ');
+                    console.log(stringArray);
+                    total_comments.innerHTML = (parseInt(stringArray[0])+1).toString() + " comments";
                     textArea.value = "";
                     let div = document.createElement('div');
                     div.innerHTML = request.responseText
