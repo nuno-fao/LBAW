@@ -106,3 +106,4 @@ Route::get('/search/user', 'SearchController@user')->name('search_user');
 Route::get('/search/movie', 'SearchController@movie')->name('search_movie');
 Route::get('/search/review', 'SearchController@review')->name('search_review');
 Route::get('/search/group', 'SearchController@group')->name('search_group');
+Route::get('/about_us', 'AboutUsController@show')->name('about_us');
