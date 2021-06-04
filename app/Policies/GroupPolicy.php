@@ -25,7 +25,7 @@ class GroupPolicy
 
     public function invite_user(User $user, Group $group, User $target)
     {
-        return ($group->members->contains($user) && (!$group->members->get()->contains($target)));
+        return ($group->members->contains($user) && (!$group->members->contains($target)));
     }
 
     public function accept_invite(User $user, Group $group, User $target)

@@ -63,8 +63,8 @@ class GroupController extends Controller
       
       $this->validate($request, [
         'title' => 'required|max:255',
-        'description' => 'required',
-        'groupPhoto' => 'required|image'
+        'description' => 'string',
+        'groupPhoto' => 'image'
       ]);
       
 

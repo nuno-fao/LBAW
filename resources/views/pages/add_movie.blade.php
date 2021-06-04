@@ -31,7 +31,7 @@
                 <div class="row">
 
                     <div class="col">
-                        <label for="movieName" class="form-label mt-3 ">Movie Name</label>
+                        <label for="movieName" class="form-label mt-3 ">Movie Name *</label>
                         <input type="text"
                             class="col-7 form-control border border-1rounded-1 @error('movieName') border-danger @enderror"
                             @if ($movie != null) value="{{ $movie->title }}" @endif name="movieName" id="movieName" aria-describedby="movieName"
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="col">
-                        <label for="year" class="form-label mt-3 ">Year</label>
+                        <label for="year" class="form-label mt-3 ">Year *</label>
                         <input type="text"
                             class="col-7 form-control border border-1rounded-1 @error('year') border-danger @enderror" @if ($movie != null) value="{{ $movie->year }}" @endif name="year" id="year" aria-describedby="year" value="{{ old('year') }}">
                         @error('year')
@@ -69,7 +69,7 @@
                     </div>
                 @enderror
 
-                <label class="form-label mt-3" for="tags">Movie Genres</label>
+                <label class="form-label mt-3" for="tags">Movie Genres *</label>
                 <select id="tags" name="tags[]" class="form-control mt-3 " multiple="multiple">
                     @foreach ($genres as $genre)
                         <option value="{{ $genre->genre }}" @if ($movie != null)  @if ($movie->genres()->get()->contains($genre))
@@ -83,7 +83,7 @@
 
                 </select>
 
-                <label class="form-label mt-3" for="moviePoster">Upload Movie Poster</label>
+                <label class="form-label mt-3" for="moviePoster">Upload Movie Poster *</label>
                 <input type="file" class="form-control @error('moviePoster') border  border-danger @enderror"
                     id="moviePoster" name="moviePoster" />
                 @error('moviePoster')

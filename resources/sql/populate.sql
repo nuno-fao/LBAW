@@ -233,11 +233,10 @@ INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (
 INSERT INTO "friend" (signed_user_id1,signed_user_id2,friendship_state) VALUES (10,19,'accepted');
 
 --GROUP
-INSERT INTO "group" (title,description,photo,admin) VALUES ('Nice People','Really nice group','img/1622475891.png',39);
-INSERT INTO "group" (title,description,photo,admin) VALUES ('Theodens Riders','Trying to find out where Gondor was when the westfold fell','img/1622475891.png',38);
-INSERT INTO "group" (title,description,photo,admin) VALUES ('SIMBAlino','I just cant wait.. to be admin','img/1622475891.png',37);
-INSERT INTO "group" (title,description,photo,admin) VALUES ('Os Padrinhos (De Crisma)','Were gonna make you an offer you cant refuse','img/1622499075.png',36);
-INSERT INTO "group" (title,description,photo,admin) VALUES ('Gatinhos','Cute cat pics','img/1622475891.png',35);
+INSERT INTO "group" (title,description,photo,admin) VALUES ('Nice People','Really nice group','img/1622475891.png',1);
+INSERT INTO "group" (title,description,photo,admin) VALUES ('Theodens Riders','Trying to find out where Gondor was when the westfold fell','img/1622475891.png',10);
+INSERT INTO "group" (title,description,photo,admin) VALUES ('SIMBAlino','I just cant wait.. to be admin','img/1622475891.png',11);
+INSERT INTO "group" (title,description,photo,admin) VALUES ('Os Padrinhos (De Crisma)','Were gonna make you an offer you cant refuse','img/1622499075.png',4);
 
 --GROUP MEMBERSHIP
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (1,6,'accepted');

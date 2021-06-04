@@ -25,8 +25,9 @@ function toast(message, type) {
     maindiv.setAttribute("role", "alert");
     maindiv.setAttribute("aria-live", "assertive");
     maindiv.setAttribute("aria-atomic", "true");
-    maindiv.style.position = 'absolute';
+    maindiv.style.position = 'fixed';
     maindiv.style.right = '1px';
+    maindiv.style.zIndex = '99';
 
     let seconddiv = document.createElement("div");
     seconddiv.className = "d-flex justify-content-between";
