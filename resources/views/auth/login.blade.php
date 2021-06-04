@@ -25,7 +25,7 @@
                     <label class="text-light" for="username">Username</label>
                     <input type="text" name="username"
                         class="form-control @error('username') border border-danger @enderror" placeholder="Username"
-                        id="username" value="{{old('username')}}" required>
+                        id="username" value="{{ old('username') }}" required>
 
                     @error('username')
                         <div class="text-danger">
@@ -50,8 +50,8 @@
             </form>
 
             <div class="mt-2 d-flex justify-content-between">
-                <a href="{{route('forgot_password_page')}}"> Forgot password?</a>
-                <a href=""> New here? Signup now</a>
+                <a href="{{ route('forgot_password_page') }}"> Forgot password?</a>
+                <a href="{{ route('register') }}"> New here? Signup now</a>
             </div>
         </div>
     </div>

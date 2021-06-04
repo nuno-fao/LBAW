@@ -10,19 +10,20 @@ use Illuminate\Support\Facades\Password;
 class ForgotPasswordController extends Controller
 {
 
-    public function forgot_page() {
-       
+    public function forgot_page()
+    {
+
         return view('auth.password_recovery');
-
     }
 
-    public function reset_page() {
-       
+    public function reset_page()
+    {
+
         return view('auth.reset_password');
-
     }
 
-    public function sendResetLinkEmail(Request $request) {
+    public function sendResetLinkEmail(Request $request)
+    {
 
         $user = User::where('email', $request->get('email'))->first();
 
@@ -39,9 +40,10 @@ class ForgotPasswordController extends Controller
             : response()->json($response);
     }
 
-    public function reset() {
+    public function reset()
+    {
 
-    
+
         $credentials = request()->validate([
             'email' => 'required|email',
             'token' => 'required|string',
@@ -61,9 +63,9 @@ class ForgotPasswordController extends Controller
         return redirect()->route('login');
     }
 
-    public function confirmation_page(){
+    public function confirmation_page()
+    {
 
         return view('auth.confirmation_page');
     }
-
 }

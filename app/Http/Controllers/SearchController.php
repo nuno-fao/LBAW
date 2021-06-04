@@ -30,16 +30,18 @@ class SearchController extends Controller
         $reviews_count = $r_query->count();
         $movies_count = $m_query->count();
 
+        $r = "search_user";
+
         if ($users_count != 0) {
-            return redirect()->route('search_user');
+            $r = "search_user";
         } elseif ($groups_count != 0) {
-            return redirect()->route('search_user');
+            $r = 'search_group';
         } elseif ($reviews_count != 0) {
-            return redirect()->route('search_review');
+            $r = 'search_review';
         } elseif ($movies_count != 0) {
-            return redirect()->route('search_movie');
+            $r = 'search_movie';
         }
-        redirect()->route('search_user');
+        return redirect()->route($r, ['query' => $query]);
     }
 
     public function user(Request $request)

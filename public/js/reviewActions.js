@@ -14,7 +14,7 @@ function deleteReview(rid, id) {
         }
         toast("Review Successfully Deleted", "s")
         review.remove();
-        if(typeof inDashboard !== 'undefined'){
+        if (typeof inDashboard !== 'undefined') {
             decrementCount();
         }
     };
@@ -23,16 +23,21 @@ function deleteReview(rid, id) {
         deleteAjax.setRequestHeader('X-CSRF-TOKEN', document.head.querySelector("[name~=csrf-token][content]").content)
         deleteAjax.send();
     }
-    
+
 }
 
 function reportReview(rid, id) {
     let reportAjax = new XMLHttpRequest();
 
     reportAjax.onload = function() {
-        let button = document.querySelector("#" + rid + " .report_button");
-        if (button != null) {
-            button.disabled = true;
+        if (reportAjax.status == 200) {
+            let button = document.querySelector("#" + rid + " .report_button");
+            if (button != null) {
+                button.disabled = true;
+            }
+            toast("Review Successfully reported", "s")
+        } else {
+            toast("Error Reporting Review", "d")
         }
     };
 
@@ -45,7 +50,12 @@ function removeReport(rid, id) {
     let deleteAjax = new XMLHttpRequest();
 
     deleteAjax.onload = function() {
-        review.remove();
+        if (deleteAjax.status == 200) {
+            review.remove();
+            toast("Report Successfully Deleted", "s")
+        } else {
+            toast("Error Discarding Report", "d")
+        }
     };
 
     let review = document.getElementById(rid)
@@ -55,7 +65,7 @@ function removeReport(rid, id) {
         deleteAjax.send();
     }
 
-    if(typeof inDashboard !== 'undefined'){
+    if (typeof inDashboard !== 'undefined') {
         decrementCount();
     }
 }

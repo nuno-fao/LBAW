@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>'Movie Page/'.$movie->title])
+@extends('layouts.app',['title'=>'Movie Page - '.$movie->title])
 
 @section('content')
 
@@ -79,11 +79,13 @@
                                 <label for="title" class="form-label mt-1 ">Title</label>
                                 <div class="row">
                                     @if ($user_review != null)
-                                    <input type="text" name="title" class="col-7 form-control border border-1 rounded-1 ml-3 @error('title') border-danger @enderror"
-                                        id="title" aria-describedby="title" value="{{$user_review->title}}">
+                                        <input type="text" name="title"
+                                            class="col-7 form-control border border-1 rounded-1 ml-3 @error('title') border-danger @enderror"
+                                            id="title" aria-describedby="title" value="{{ $user_review->title }}">
                                     @else
-                                    <input type="text" name="title" class="col-7 form-control border border-1 rounded-1 ml-3 @error('title') border-danger @enderror"
-                                        id="title" aria-describedby="title">
+                                        <input type="text" name="title"
+                                            class="col-7 form-control border border-1 rounded-1 ml-3 @error('title') border-danger @enderror"
+                                            id="title" aria-describedby="title">
                                     @endif
                                     @error('title')
                                         <div class="text-danger">
@@ -94,13 +96,14 @@
 
                                 <label for="description" class="form-label mt-3 ">Description</label>
                                 @if ($user_review != null)
-                                <textarea type="text" rows="3"
-                                    class="row-4 form-control border border-1rounded-1 mt-0 comment-area @error('description') border-danger @enderror" name="description"
-                                    id="description" aria-describedby="description" >{{$user_review->text}}</textarea>
+                                    <textarea type="text" rows="3"
+                                        class="row-4 form-control border border-1rounded-1 mt-0 comment-area @error('description') border-danger @enderror"
+                                        name="description" id="description"
+                                        aria-describedby="description">{{ $user_review->text }}</textarea>
                                 @else
-                                <textarea type="text" rows="3"
-                                    class="row-4 form-control border border-1rounded-1 mt-0 comment-area @error('description') border-danger @enderror" name="description"
-                                    id="description" aria-describedby="description"></textarea>
+                                    <textarea type="text" rows="3"
+                                        class="row-4 form-control border border-1rounded-1 mt-0 comment-area @error('description') border-danger @enderror"
+                                        name="description" id="description" aria-describedby="description"></textarea>
                                 @endif
                                 @error('description')
                                     <div class="text-danger">

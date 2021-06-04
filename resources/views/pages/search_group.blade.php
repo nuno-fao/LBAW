@@ -50,8 +50,16 @@
                     </h3>
                 </div>
             </section>
-            <div id="users_section" class=" d-flex justify-content-between flex-wrap">
-                @each('partials.group_result',$groups,'group')
+            <div class="d-flex">
+                @if ($groups_count > 0)
+                    <div id="users_section" class=" d-flex justify-content-between flex-wrap mx-auto">
+                        @each('partials.group_result',$groups,'group')
+                    </div>
+                @else
+                    <h5 class="display-7 mx-auto mt-5">
+                        No results to show
+                    </h5>
+                @endif
             </div>
         </div>
 

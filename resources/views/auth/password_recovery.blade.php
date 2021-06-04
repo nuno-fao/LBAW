@@ -10,7 +10,7 @@
     </nav>
     <div class="mt-lg-5 mt-3 container d-flex flex-column">
         <div class="text-center mb-4">
-            <b>Personal Details</b> > Account Setup
+            <b>Password Recovery</b>
         </div>
         <div>
             <div class="bg-primary col-lg-6 col-md-8 col-12 mx-auto py-5 px-5 login_form">
@@ -21,18 +21,16 @@
                     @csrf
                     <div class="form-group mb-3  text-light">
                         <label for="email">Email Address</label>
-                        <input type="text" name="email" class="form-control"
-                            {{-- @error('email') border border-danger @enderror" --}}
-                            id="email" 
-                            placeholder="johndoe@example.com" >
-                            
+                        <input type="text" name="email" class="form-control" {{-- @error('email') border border-danger @enderror" --}} id="email"
+                            placeholder="johndoe@example.com">
+
                         {{-- @error('email') --}}
-                            {{-- <div class="text-danger">
+                        {{-- <div class="text-danger">
                                 {{ $message }}
                             </div> --}}
                         {{-- @enderror --}}
                     </div>
-                    
+
                     <input type="submit" value="Submit" class="btn btn-block btn-secondary wide mt-5">
                 </form>
             </div>
