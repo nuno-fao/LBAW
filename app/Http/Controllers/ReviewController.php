@@ -52,7 +52,7 @@ class ReviewController extends Controller
 
 	static public function movieReviews(Movie $movie, int $page)
 	{
-		return Review::where('movie_id', $movie->id)->where('group_id')->orderBy('date', 'desc')->orderBy('title')->orderBy('text')->skip($page * 10)->take(10)->get();
+		return Review::where('movie_id', $movie->id)->orderBy('date', 'desc')->skip($page * 10)->take(10)->get();
 	}
 
 	public function create(Request $request, $movie_id)
