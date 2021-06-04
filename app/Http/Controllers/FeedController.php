@@ -52,10 +52,9 @@ class FeedController extends Controller
       $friend_reviews = collect();
       $aux = Auth::user()->getFriendsAttribute();
       foreach ($aux as $friend) {
-        $friend_reviews = $temp->concat($friend->reviews);
-        $temp = $friend_reviews;
+        $friend_reviews = $friend_reviews->merge($friend->reviews);
       }
-      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->sortByDesc('title')->take(10);
+      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->sortByDesc('title')->skip($page * 10)->take(10);
     }
     if ($friend_reviews->count() == 0) {
       return response('', 300)->header('Content-Type', 'text/plain');

@@ -25,9 +25,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email', 
+        'email',
         'date_of_birth',
-        'username', 
+        'username',
         'password',
         'photo',
         'banned'
@@ -42,77 +42,87 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function comments() {
-        return $this->hasMany(Comment::class,'user_id');
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id');
     }
-    
-    public function reviews() {
+
+    public function reviews()
+    {
         return $this->hasMany(Review::class);
     }
 
-    public function notifications() {
-        return $this->hasMany(Notification::class,'signed_user_id')->orderBy('date','DESC');
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class, 'signed_user_id')->orderBy('date', 'DESC');
     }
 
-    public function reported(){
+    public function reported()
+    {
         return $this->hasMany(Report::class, 'signed_user_id');
     }
 
-    public function groups(){
+    public function groups()
+    {
         return $this->belongsToMany(Group::class, 'group_member');
     }
 
-    public function isAdminOf($group){
+    public function isAdminOf($group)
+    {
         return ($group->admin == $this->id);
     }
 
-    public function hasBeenInvitedToGroup($group_id){
+    public function hasBeenInvitedToGroup($group_id)
+    {
 
-        $group= Group::find($group_id);
+        $group = Group::find($group_id);
 
         return ($group->members->contains($this));
     }
 
-    function friendsOfMine() {
+    function friendsOfMine()
+    {
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id1', 'signed_user_id2')
-        // if you want to rely on accepted field, then add this:
-        ->wherePivot('friendship_state', '=', "accepted");
+            // if you want to rely on accepted field, then add this:
+            ->wherePivot('friendship_state', '=', "accepted");
     }
 
     // friendship that I was invited to 
-    function friendOf(){
+    function friendOf()
+    {
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id2', 'signed_user_id1')
-        ->wherePivot('friendship_state', '=', "accepted");
+            ->wherePivot('friendship_state', '=', "accepted");
     }
 
     // accessor allowing you call $user->friends
-    public function getFriendsAttribute(){
-        if ( ! array_key_exists('friends', $this->relations)){
+    public function getFriendsAttribute()
+    {
+        if (!array_key_exists('friends', $this->relations)) {
             $friends = $this->friendsOfMine->merge($this->friendOf);
             $this->setRelation('friends', $friends);
-        } 
-
+        }
         return $this->getRelation('friends');
     }
 
-    function sentRequestTo($user) {
+    function sentRequestTo($user)
+    {
 
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id1', 'signed_user_id2')
-        ->wherePivot('friendship_state', '=', "pending")
-        ->wherePivot('signed_user_id2', '=', $user->id)
-        ->orWhere('friendship_state', '=', "rejected")
-        ->wherePivot('signed_user_id2', '=', $user->id)->count() > 0;
+            ->wherePivot('friendship_state', '=', "pending")
+            ->wherePivot('signed_user_id2', '=', $user->id)
+            ->orWhere('friendship_state', '=', "rejected")
+            ->wherePivot('signed_user_id2', '=', $user->id)->count() > 0;
     }
 
-    function receivedRequestFrom($user) {
+    function receivedRequestFrom($user)
+    {
 
         return $this->belongsToMany(User::class, Friend::class, 'signed_user_id2', 'signed_user_id1')
-        ->wherePivot('friendship_state', '=', "pending")->wherePivot('signed_user_id1', '=', $user->id)->count() > 0;
+            ->wherePivot('friendship_state', '=', "pending")->wherePivot('signed_user_id1', '=', $user->id)->count() > 0;
     }
 
     function previewFriends($user)
     {
         # code...
     }
-
 }
