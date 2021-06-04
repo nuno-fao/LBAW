@@ -23,10 +23,9 @@
                     <a class="btn btn-secondary ml-4 me-lg-4 nav- item me-2 mb-2 mb-lg-auto"
                         href="/admin/movies/board">Admin Dashboard </a>
                 @endcan
-
             </div>
 
-            <form class="d-flex nav-item col-lg-5 col-12 " action="{{ route('search_user') }}">
+            <form class="d-flex nav-item col-lg-5 col-12 " action="{{ route('search') }}" method="get">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>

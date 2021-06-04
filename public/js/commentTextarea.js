@@ -29,16 +29,21 @@ function addComment(rid) {
                     let total_comments = document.getElementById('total_comments');
                     let stringArray = total_comments.innerHTML.trim().split(' ');
                     console.log(stringArray);
-                    total_comments.innerHTML = (parseInt(stringArray[0])+1).toString() + " comments";
+                    total_comments.innerHTML = (parseInt(stringArray[0]) + 1).toString() + " comments";
                     textArea.value = "";
                     let div = document.createElement('div');
                     div.innerHTML = request.responseText
                     document.getElementById("comments" + rid).insertBefore(div, document.querySelector("#comments" + rid + " .form-group"))
-                }
-                else{
+                } else {
                     toast("Error adding comment", "d");
                 }
             })
+    } else {
+        textArea.classList.add("apply-shake")
+        textArea.addEventListener("animationend", (e) => {
+            textArea.classList.remove("apply-shake");
+        });
+
     }
 }
 

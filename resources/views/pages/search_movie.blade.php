@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <script src="{{ asset('js/search.js') }}" defer> </script>
 
     <nav aria-label="breadcrumb" id="breadcrumb">
         <ol class="breadcrumb">

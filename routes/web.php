@@ -100,11 +100,9 @@ Route::post('/groups/{group_id}/member/{user_id}/leave', 'GroupController@leave'
 Route::get('/groups/{group_id}/members', 'GroupController@members_page')->name('members_page');
 
 //public
+
+Route::get('/search', 'SearchController@index')->name('search');
 Route::get('/search/user', 'SearchController@user')->name('search_user');
 Route::get('/search/movie', 'SearchController@movie')->name('search_movie');
 Route::get('/search/review', 'SearchController@review')->name('search_review');
 Route::get('/search/group', 'SearchController@group')->name('search_group');
-Route::get('api/search/user/{page}', 'SearchController@user_paginate')->name('search_user_p');
-Route::get('api/search/movie/{page}', 'SearchController@movie_paginate')->name('search_movie_p');
-Route::get('api/search/review/{page}', 'SearchController@review_paginate')->name('search_review_p');
-Route::get('api/search/group/{page}', 'SearchController@group_paginate')->name('search_group_p');
