@@ -17,6 +17,9 @@ class UserController extends Controller
             abort(404);
         }
         $user = User::find($id);
+        if ($user == null) {
+            abort(404);
+        }
         $reviews = $user->reviews()->with(['user'])->orderBy('date', 'DESC')->take(10)->get();
 
         return view('pages.user_profile', [
@@ -71,7 +74,9 @@ class UserController extends Controller
             abort(404);
         }
         $user = User::find($user_id);
-
+        if ($user == null) {
+            abort(404);
+        }
         $this->authorize('edit', $user);
 
         return view('pages.edit_user', [
