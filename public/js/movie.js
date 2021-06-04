@@ -16,6 +16,8 @@ movie_pagination.onload = function() {
         return
     }
     document.getElementById("review_section").innerHTML += this.responseText;
+    start_likes();
+
 };
 if (nextPage != null) {
     nextPage.addEventListener('click', () => {
@@ -26,9 +28,10 @@ if (nextPage != null) {
 }
 
 window.onscroll = function(ev) {
-    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        nextPage.click();
-    }
+    if (nextPage != null)
+        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+            nextPage.click();
+        }
 };
 
 let group_selector = document.getElementById("group-selector")

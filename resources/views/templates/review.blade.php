@@ -6,7 +6,7 @@
         <div class="text-dark d-flex align-items-center">
             {{ \Carbon\Carbon::parse($review->date)->diffForHumans() }}
         </div>
-        <a class="btn" href="{{ route('user', ['user' => $review->user->id]) }}">
+        <a class="btn my-auto" href="{{ route('user', ['user' => $review->user->id]) }}">
             by {{ $review->user->username }}
         </a>
 
@@ -66,8 +66,8 @@
         @endauth
         <span class="my-auto mx-3" id="likes_{{ $review->id }}">{{ $review->likes->count() }} likes</span>
     </div>
-    <a class="btn py-0" id="total_comments" data-toggle="collapse" href="#comments{{ $review->id }}" role="button" aria-expanded="false"
-        aria-controls="comments{{ $review->id }}">
+    <a class="btn py-0" id="total_comments" data-toggle="collapse" href="#comments{{ $review->id }}" role="button"
+        aria-expanded="false" aria-controls="comments{{ $review->id }}">
         {{ $review->comments->count() }} comments
     </a>
 </div>

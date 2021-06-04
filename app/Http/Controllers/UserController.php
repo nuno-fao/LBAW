@@ -11,10 +11,14 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-    public function show(User $user){
+    public function show($id)
+    {
+        if (!ctype_digit($id)) {
+            abort(404);
+        }
+        $user = User::find($id);
+        $reviews = $user->reviews()->with(['user'])->orderBy('date', 'DESC')->take(10)->get();
 
-        $reviews = $user->reviews()->with(['user'])->orderBy('date','DESC')->take(10)->get();
-        
         return view('pages.user_profile', [
             'user' => $user,
             'reviews' => $reviews
@@ -22,52 +26,65 @@ class UserController extends Controller
     }
 
     public function getPage($id, $page)
-  {
-    if (!ctype_digit($id) || !ctype_digit($page)) {
-      return view(self::ERROR_404_PAGE);
-    }
-    $u = User::find($id);
-    if ($u == null) {
-      return view(self::ERROR_404_PAGE);
-    }
-    
-    $reviews = $u->reviews()->with(['user'])->orderBy('date','DESC')->skip($page*10)->take(10)->get();
-    return view('pagination.feed', ['reviews' => $reviews]);
-  }
+    {
+        if (!ctype_digit($id)) {
+            abort(404);
+        }
+        if (!ctype_digit($id) || !ctype_digit($page)) {
+            return view(self::ERROR_404_PAGE);
+        }
+        $u = User::find($id);
+        if ($u == null) {
+            return view(self::ERROR_404_PAGE);
+        }
 
-    public function ban(User $user){
+        $reviews = $u->reviews()->with(['user'])->orderBy('date', 'DESC')->skip($page * 10)->take(10)->get();
+        return view('pagination.feed', ['reviews' => $reviews]);
+    }
+
+    public function ban(User $user)
+    {
 
         $this->authorize('ban', $user);
-        if (!$user->banned){
+        if (!$user->banned) {
             $user->banned = true;
             $user->save();
         }
         return response('', 200)->header('Content-Type', 'text/plain');
     }
 
-    public function unban(User $user){
+    public function unban(User $user)
+    {
 
         $this->authorize('ban', $user);
-        if ($user->banned){
+        if ($user->banned) {
             $user->banned = false;
             $user->save();
         }
         return response('', 200)->header('Content-Type', 'text/plain');
     }
 
-    public function edit_page($user_id){
+    public function edit_page($user_id)
+    {
 
+        if (!ctype_digit($user_id)) {
+            abort(404);
+        }
         $user = User::find($user_id);
 
         $this->authorize('edit', $user);
-        
+
         return view('pages.edit_user', [
             'user' => $user
         ]);
     }
 
-    public function edit(Request $request, $user_id){
+    public function edit(Request $request, $user_id)
+    {
 
+        if (!ctype_digit($user_id)) {
+            abort(404);
+        }
         $user = User::find($user_id);
 
         $this->authorize('edit', $user);
@@ -79,40 +96,47 @@ class UserController extends Controller
             'username' => 'required|alpha_dash|max:255',
             'userPhoto' => 'image'
         ]);
-        
-        if($user != null){
+
+        if ($user != null) {
             $user->name = $request->name;
             $user->email = $request->email;
             $user->date_of_birth = $request->birthday;
             $user->username = $request->username;
 
-            if($request->userPhoto != null){
-        
-                $imageName = time().'.'.$request->userPhoto->extension();  
+            if ($request->userPhoto != null) {
+
+                $imageName = time() . '.' . $request->userPhoto->extension();
                 $request->userPhoto->move(public_path('img'), $imageName);
-        
-                $user->photo = 'img/'.$imageName;  
-        
+
+                $user->photo = 'img/' . $imageName;
             }
 
             $user->save();
         }
 
-        return redirect('user/'.$user_id);
+        return redirect('user/' . $user_id);
     }
 
-    public function edit_password_page($user_id){
+    public function edit_password_page($user_id)
+    {
 
+        if (!ctype_digit($user_id)) {
+            abort(404);
+        }
         $user = User::find($user_id);
 
         $this->authorize('edit', $user);
-        
+
         return view('pages.edit_password', [
             'user' => $user
         ]);
     }
 
-    public function edit_password(Request $request, $user_id){
+    public function edit_password(Request $request, $user_id)
+    {
+        if (!ctype_digit($user_id)) {
+            abort(404);
+        }
 
         $user = User::find($user_id);
 
@@ -130,22 +154,24 @@ class UserController extends Controller
             //return response()->json(['errors' => ['current'=> ['Current password does not match']]], 422);
         }
 
-        if(strcmp($request->get('current_password'), $request->get('new_password')) == 0){
+        if (strcmp($request->get('current_password'), $request->get('new_password')) == 0) {
             return back()->with('status', 'New Password cannot be same as your current password');
             //return response()->json(['errors' => ['current'=> ['New Password cannot be same as your current password']]], 422);
         }
 
 
-        
+
         $user->password = Hash::make($request->get('new_password'));
         $user->save();
-        
-        return redirect('user/'.$user_id);
-        
+
+        return redirect('user/' . $user_id);
     }
 
-    public function delete($user_id){
-
+    public function delete($user_id)
+    {
+        if (!ctype_digit($user_id)) {
+            abort(404);
+        }
         $user = User::find($user_id);
 
         $this->authorize('delete', $user);

@@ -8,98 +8,146 @@ use App\Models\Group;
 use App\Models\Movie;
 use App\Models\Review;
 use App\Models\Comment;
+use Exception;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-  public function show($id)
-  {
-    if (!ctype_digit($id)) {
-      return view('errors.404');
-    }
-    $review = Review::find($id);
 
-    if ($review == null) {
-      return redirect('/');
-    }
+	public function getInfo(Request $request)
+	{
+		$group_id = $request->get("group");
+		$movie_id = $request->get("movie");
 
-    //TODO ADD GROUP
+		if (!is_numeric($group_id)) {
+			return view('errors.404');
+		}
+		if ($group_id == -1) {
+			$r = Review::where('user_id', auth()->user()->id)->where('group_id')->where("movie_id", $movie_id)->first();
+		} else {
+			$r = Review::where('user_id', auth()->user()->id)->where('group_id', $group_id)->where("movie_id", $movie_id)->first();
+		}
 
-    return view('pages.review', ['review' => $review]);
-  }
+		if ($r == null) {
+			return response('notFound', 200)->header('Content-Type', 'text/plain');
+		}
+		return $r;
+	}
 
-  static public function movieReviews(Movie $movie, int $page)
-  {
-    return Review::where('movie_id', $movie->id)->where('group_id')->orderBy('date', 'desc')->orderBy('title')->orderBy('text')->skip($page * 10)->take(10)->get();
-  }
+	public function show($id)
+	{
+		if (!ctype_digit($id)) {
+			return view('errors.404');
+		}
+		$review = Review::find($id);
 
-  public function create(Request $request, $movie_id)
-  {
+		if ($review == null) {
+			return redirect('/');
+		}
 
-    $this->authorize('create', [Review::class, $request->group]);
+		//TODO ADD GROUP
 
-    $r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
+		return view('pages.review', ['review' => $review]);
+	}
 
-    if (count($r) != 0 && $request->group == null) {
-      return back();
-    }
+	static public function movieReviews(Movie $movie, int $page)
+	{
+		return Review::where('movie_id', $movie->id)->where('group_id')->orderBy('date', 'desc')->orderBy('title')->orderBy('text')->skip($page * 10)->take(10)->get();
+	}
 
-    $this->validate($request, [
-      'title' => 'required',
-      'description' => 'required',
-    ]);
+	public function create(Request $request, $movie_id)
+	{
 
-    $review = $request->user()->reviews()->create([
-      'title' => $request->title,
-      'text' => $request->description,
-      'date' => date('Y-m-d H:i:s'),
-      'movie_id' => $request->id
-    ]);
+		if (!ctype_digit($movie_id)) {
+			abort(404);
+		}
+		if ($request->group != -1) {
+			$this->authorize('create', [Review::class, $request->group]);
+		} else {
+			$this->authorize('create', [Review::class, null]);
+		}
 
-    if ($review != null && $request->group != null) {
+		if ($request->group != -1) {
+			if (!is_numeric($request->group)) {
+				abort(404);
+			}
+			$r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id', $request->group)->get();
+		} else {
+			$r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id')->get();
+		}
 
-      $group = Group::find($request->group);
+		if (count($r) != 0) {
+			return response('alreadyExists', 200)->header('Content-Type', 'text/plain');
+		}
 
-      $review->group()->associate($group);
+		$this->validate($request, [
+			'title' => 'required',
+			'description' => 'required',
+		]);
 
-      $review->save();
-    }
+		$review = $request->user()->reviews()->create([
+			'title' => $request->title,
+			'text' => $request->description,
+			'date' => date('Y-m-d H:i:s'),
+			'movie_id' => $request->id
+		]);
 
-    return back();
-  }
+		if ($review != null && $request->group != null && $request->group != -1) {
 
-  public function delete(Request $request, $review_id)
-  {
-    $r = Review::find($review_id);
+			$group = Group::find($request->group);
 
-    $this->authorize('delete', $r);
+			$review->group()->associate($group);
 
-    if ($r != null) {
-      $r->delete();
-    }
-  }
+			$review->save();
+		}
+		return view("partials.review", ["review" => $review]);
+	}
 
-  public function getReview($review_id)
-  {
-    return Review::find($review_id);
-  }
+	public function delete(Request $request, $review_id)
+	{
+		if (!ctype_digit($review_id)) {
+			abort(404);
+		}
+		$r = Review::find($review_id);
 
-  public function edit(Request $request, $review_id)
-  {
-    $r = Review::find($review_id);
+		$this->authorize('delete', $r);
 
-    $this->validate($request, [
-      'title' => 'required',
-      'description' => 'required',
-    ]);
+		if ($r != null) {
+			$r->delete();
+		}
+	}
 
-    $this->authorize('edit', $r);
+	public function getReview($review_id)
+	{
+		if (!ctype_digit($review_id)) {
+			abort(404);
+		}
+		return Review::find($review_id);
+	}
 
-    if ($r != null) {
-      $r->text = $request->description;
-      $r->title = $request->title;
-      $r->save();
-    }
-    return back();
-  }
+	public function edit(Request $request, $review_id)
+	{
+		if (!is_numeric($review_id)) {
+			abort(404);
+		}
+		$r = Review::find($review_id);
+
+		try {
+			$this->validate($request, [
+				'title' => 'required',
+				'description' => 'required',
+			]);
+		} catch (Exception $e) {
+			return response('error', 200)->header('Content-Type', 'text/plain');
+		}
+
+		$this->authorize('edit', $r);
+
+		if ($r != null) {
+			$r->text = $request->description;
+			$r->title = $request->title;
+			$r->save();
+		}
+		return view("partials.review", ["review" => $r]);
+	}
 }
