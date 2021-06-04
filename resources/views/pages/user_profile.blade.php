@@ -54,8 +54,8 @@
                             <img src="{{ asset($user->photo) }}" alt="{{ $user->name }} Photo"
                                 class="rounded-circle d-block" width="150px">
                             <!-- <svg href="#" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="position-absolute top-0 end-0 bi bi-pencil" viewBox="0 0 16 16">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </svg> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </svg> -->
                         </div>
                         <div class="mt-3">
                             <h4>{{ $user->name }}</h4>
@@ -67,46 +67,42 @@
                             @cannot('edit', $user)
                                 <div class="d-flex justify-content-around">
                                     @can('cancel', [App\Models\Friend::class, $user])
-                                        <div class="">
-                                            <form method="POST"
-                                                action="{{ route('cancel_friend_request', [auth()->user()->id, $user->id]) }}"
-                                                class="col">
-                                                @csrf
-                                                <button class="btn btn-primary">Cancel Request</button>
-                                            </form>
-                                        </div>
+                                        <form method="POST"
+                                            action="{{ route('cancel_friend_request', [auth()->user()->id, $user->id]) }}"
+                                            class="col p-0 mx-1">
+                                            @csrf
+                                            <button class="btn btn-primary">Cancel Request</button>
+                                        </form>
 
                                     @elsecan('accept', [App\Models\Friend::class,$user])
 
-                                        <div class="row">
-                                            <form method="POST"
-                                                action="{{ route('reject_friend_request', [auth()->user()->id, $user->id]) }}"
-                                                class="col">
-                                                @csrf
-                                                <button class="btn btn-primary">Reject</button>
-                                            </form>
+                                        <form method="POST"
+                                            action="{{ route('reject_friend_request', [auth()->user()->id, $user->id]) }}"
+                                            class="col p-0 mx-1">
+                                            @csrf
+                                            <button class="btn btn-primary">Reject</button>
+                                        </form>
 
-                                            <form method="POST"
-                                                action="{{ route('accept_friend_request', [auth()->user()->id, $user->id]) }}"
-                                                class="col">
-                                                @csrf
-                                                <button class="btn btn-primary">Accept</button>
-                                            </form>
-                                        </div>
+                                        <form method="POST"
+                                            action="{{ route('accept_friend_request', [auth()->user()->id, $user->id]) }}"
+                                            class="col p-0 mx-1">
+                                            @csrf
+                                            <button class="btn btn-primary">Accept</button>
+                                        </form>
                                     @elsecan('invite', [App\Models\Friend::class,$user])
-                                        <form method="POST" class="mx-2"
+                                        <form method="POST" class=" p-0 mx-1"
                                             action="{{ route('friend_request', [$user->id, auth()->user()->id]) }}">
                                             @csrf
                                             <button class="btn btn-primary">Send Request</button>
                                         </form>
                                     @else
                                         <span class="badge badge-secondary d-flex flex-column">
-                                            <span class="my-auto h6">Friend</span>
+                                            <span class="my-auto h6 mx-1">Friend</span>
                                         </span>
                                     @endcan
 
                                     @can('ban', $user)
-                                        <button class="btn btn-primary" id="ban-button" onclick="ban({{ $user->id }})">
+                                        <button class="btn btn-primary mx-1" id="ban-button" onclick="ban({{ $user->id }})">
                                             @if (!$user->banned)
                                                 {{ 'Ban' }}
                                             @else
