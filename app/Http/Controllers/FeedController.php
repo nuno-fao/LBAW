@@ -11,7 +11,7 @@ class FeedController extends Controller
   public function index()
   {
 
-    $reviews = Review::where("group_id")->orderBy('date', 'DESC')->take(10)->get();
+    $reviews = Review::where("group_id")->orderBy('date', 'DESC')->orderBy('title', 'DESC')->take(10)->get();
     $friend_reviews = null;
     $temp = collect();
     if (Auth::check()) {
@@ -21,7 +21,7 @@ class FeedController extends Controller
         $friend_reviews = $temp->concat($friend->reviews);
         $temp = $friend_reviews;
       }
-      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->take(10);
+      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->sortByDesc('title')->take(10);
     }
     return view('pages.feed', [
       'reviews' => $reviews, 'friend_reviews' => $friend_reviews
@@ -33,7 +33,7 @@ class FeedController extends Controller
     if (!ctype_digit($page)) {
       return view(self::ERROR_404_PAGE);
     }
-    $r = Review::where("group_id")->orderBy('date', 'desc')->skip($page * 10)->take(10)->get();
+    $r = Review::where("group_id")->orderBy('date', 'DESC')->orderBy('title', 'DESC')->skip($page * 10)->take(10)->get();
     if ($r->count() == 0) {
       return response('', 300)->header('Content-Type', 'text/plain');
     }
@@ -54,7 +54,7 @@ class FeedController extends Controller
         $friend_reviews = $temp->concat($friend->reviews);
         $temp = $friend_reviews;
       }
-      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->skip($page * 10)->take(10);
+      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->sortByDesc('title')->skip($page * 10)->take(10);
     }
     if ($friend_reviews->count() == 0) {
       return response('', 300)->header('Content-Type', 'text/plain');
