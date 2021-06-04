@@ -52,7 +52,8 @@ function start_group_selector() {
                             } else {
                                 sec_t.innerHTML = "Edit a review"
                                 toast("Successfully added the review", "s");
-                                document.getElementById("review_section").innerHTML += ev.responseText
+                                document.getElementById("review_section").innerHTML = ev.responseText + document.getElementById("review_section").innerHTML
+                                start_likes()
                                 sendAjaxRequest("GET", "/api/review?" + encodeForAjax({ "group": selector.value, "movie": movie_id }), "",
                                     (ev) => {
                                         if (ev.status == 200) {
@@ -84,7 +85,10 @@ function start_group_selector() {
                                 toast("Couldn't edit the review", "d");
                             } else {
                                 toast("Successfully edited the review", "s");
-                                //todo replace
+                                let d = document.getElementById("review_" + editing_review_id)
+                                d.parentNode.insertBefore(new DOMParser().parseFromString(ev.responseText, 'text/html').body.childNodes[0], d)
+                                d.remove()
+                                start_likes()
                             }
                         } else {
                             toast("Couldn't edit the review", "d");
