@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>'Add Movie'])
+@extends('layouts.app',['title'=>'Add/Edit Movie'])
 
 @section('content')
 
