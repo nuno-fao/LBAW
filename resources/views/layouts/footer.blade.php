@@ -5,7 +5,7 @@
         Copyright &copy; 2021
         <span>The first rule about Movie Club Is we do(n't) talk about Movie Club</span>
         <!--//todo correct link -->
-        <a class="text-white" href="about_us">About Us</a>
+        <a class="text-white btn btn-link" href="{{route('about_us')}}">About Us</a>
     </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" defer>
