@@ -26,10 +26,10 @@
 
 | Type          | Username  | Password |
 | ------------- | --------- | -------- |
-| basic account | super_tga    | qwertyuiop |
+| basic account | janeDoe    | blindspot |
 | basic account | robert    | ihateanime |
 |  banned  |  dreamer   | veracidade11 |
-| admin | janeDoe    | blindspot |
+| admin | super_tga    | qwertyuiop |
 | admin | alanYo    | arrozdefrango |
 
 > More credentials can be found [in this file](resources/sql/populate.sql). Username is first entry in each row and password is commented at the end.
