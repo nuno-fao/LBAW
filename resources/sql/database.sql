@@ -245,6 +245,14 @@ CREATE TABLE report
         ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS password_resets CASCADE;
+CREATE TABLE password_resets
+(
+    email text NOT NULL,
+    token text NOT NULL,
+    created_at date
+);
+
 -----------------------------------------
 -- TRIGGERS
 -----------------------------------------
