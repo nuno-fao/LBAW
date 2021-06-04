@@ -25,7 +25,7 @@
                     <label class="text-light" for="username">Username</label>
                     <input type="text" name="username"
                         class="form-control @error('username') border border-danger @enderror" placeholder="Username"
-                        id="username">
+                        id="username" value="{{old('username')}}">
 
                     @error('username')
                         <div class="text-danger">
