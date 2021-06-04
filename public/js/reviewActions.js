@@ -52,7 +52,7 @@ function removeReport(rid, id) {
     deleteAjax.onload = function() {
         if (deleteAjax.status == 200) {
             review.remove();
-            toast("Report Successfully Deleted", "s")
+            toast("Report Successfully Discarded", "s")
         } else {
             toast("Error Discarding Report", "d")
         }
