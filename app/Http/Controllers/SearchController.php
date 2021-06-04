@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     const ERROR_404_PAGE = 'errors.404';
+
     public function user(Request $request)
     {
         $query = "";
@@ -20,14 +21,17 @@ class SearchController extends Controller
         $r_query = Review::selectRaw("*, ts_rank_cd(tt, plainto_tsquery(?)) AS rank", [$query])->whereRaw("plainto_tsquery(?) @@ tt", [$query])->orderBy('rank', 'DESC');
         $g_query = Group::where("title", "ilike", "%" . $query . "%");
         $u_query = User::where("username", "ilike", "%" . $query . "%")->orWhere("name", "ilike", "%" . $query . "%");
+        $m_query = Movie::selectRaw("*, ts_rank_cd(tt, plainto_tsquery(?)) AS rank", [$query])->whereRaw("plainto_tsquery(?) @@ tt", [$query])->orderBy('rank', 'DESC');
+
 
         $users_count = $u_query->count();
         $groups_count = $g_query->count();
         $reviews_count = $r_query->count();
+        $movies_count = $m_query->count();
 
-        $users = $u_query->take(10)->get();
+        $users = $u_query->get();
 
-        return view("pages/search_user", ["query" => $query, "users" => $users, 'users_count' => $users_count, 'groups_count' => $groups_count, 'reviews_count' => $reviews_count]);
+        return view("pages/search_user", ["query" => $query, "users" => $users, 'users_count' => $users_count, 'groups_count' => $groups_count, 'reviews_count' => $reviews_count, 'movies_count' => $movies_count]);
     }
 
     public function group(Request $request)
@@ -47,8 +51,51 @@ class SearchController extends Controller
         $reviews_count = $r_query->count();
         $movies_count = $m_query->count();
 
-        $groups = $g_query->take(10)->get();
+        $groups = $g_query->get();
 
         return view("pages/search_group", ["query" => $query, "groups" => $groups, 'users_count' => $users_count, 'groups_count' => $groups_count, 'reviews_count' => $reviews_count, 'movies_count' => $movies_count]);
+    }
+
+    public function movie(Request $request)
+    {
+        $query = "";
+        if ($request->has('query')) {
+            $query = $request->input('query');
+        }
+        $r_query = Review::selectRaw("*, ts_rank_cd(tt, plainto_tsquery(?)) AS rank", [$query])->whereRaw("plainto_tsquery(?) @@ tt", [$query])->orderBy('rank', 'DESC');
+        $g_query = Group::where("title", "ilike", "%" . $query . "%");
+        $u_query = User::where("username", "ilike", "%" . $query . "%")->orWhere("name", "ilike", "%" . $query . "%");
+        $m_query = Movie::selectRaw("*, ts_rank_cd(tt, plainto_tsquery(?)) AS rank", [$query])->whereRaw("plainto_tsquery(?) @@ tt", [$query])->orderBy('rank', 'DESC');
+
+        $users_count = $u_query->count();
+        $groups_count = $g_query->count();
+        $reviews_count = $r_query->count();
+        $movies_count = $m_query->count();
+
+        $movies = $m_query->get();
+
+        return view("pages/search_movie", ["query" => $query, "movies" => $movies, 'users_count' => $users_count, 'groups_count' => $groups_count, 'reviews_count' => $reviews_count, 'movies_count' => $movies_count]);
+    }
+
+    public function review(Request $request)
+    {
+        $query = "";
+        if ($request->has('query')) {
+            $query = $request->input('query');
+        }
+        $r_query = Review::selectRaw("*, ts_rank_cd(tt, plainto_tsquery(?)) AS rank", [$query])->whereRaw("plainto_tsquery(?) @@ tt", [$query])->orderBy('rank', 'DESC');
+        $g_query = Group::where("title", "ilike", "%" . $query . "%");
+        $u_query = User::where("username", "ilike", "%" . $query . "%")->orWhere("name", "ilike", "%" . $query . "%");
+        $m_query = Movie::selectRaw("*, ts_rank_cd(tt, plainto_tsquery(?)) AS rank", [$query])->whereRaw("plainto_tsquery(?) @@ tt", [$query])->orderBy('rank', 'DESC');
+
+
+        $users_count = $u_query->count();
+        $groups_count = $g_query->count();
+        $reviews_count = $r_query->count();
+        $movies_count = $m_query->count();
+
+        $reviews = $r_query->get();
+
+        return view("pages/search_review", ["query" => $query, "reviews" => $reviews, 'users_count' => $users_count, 'groups_count' => $groups_count, 'reviews_count' => $reviews_count, 'movies_count' => $movies_count]);
     }
 }

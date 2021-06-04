@@ -19,7 +19,7 @@
 
         @foreach ($friends as $friend)
             <div class="row d-flex justify-content-center">
-                <img src="{{ asset($friend->photo) }}" class="card-img-top col-lg-2" alt="...">
+                <img src="{{ asset($friend->photo) }}" class="card-img-top col-lg-2" alt="{{ $friends->name }} Photo">
                 <div class="card no-padding mt-3 col-12 col-lg-7 " id="request_0">
                     <div class="card-body d-flex justify-content-between">
                         <p class="card-text my-auto fs-4"><a href="/user/{{ $friend->id }}">{{ $friend->username }}</a>

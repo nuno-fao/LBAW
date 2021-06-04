@@ -28,7 +28,7 @@
 
                 <div class="col-lg-3 col-6 mx-auto mt-1">
                     <div class="card  no-padding">
-                        <img src="{{ asset($group->photo) }}" class="card-img-top" alt="...">
+                        <img src="{{ asset($group->photo) }}" class="card-img-top" alt="{{ $group->title }} Photo">
                         <div class="card-body d-flex flex-column d-flex justify-content-center">
                             <a href="/groups/{{ $group->id }}"
                                 class="btn btn-primary mx-auto stretched-link">{{ $group->title }}</a>

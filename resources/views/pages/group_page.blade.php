@@ -54,7 +54,7 @@
                                 </div>
 
                             </div>
-                            <img src="{{ asset($group->photo) }}" alt="Admin" class="rounded" width="150">
+                            <img src="{{ asset($group->photo) }}" alt="Admin photo" class="rounded" width="150">
 
                         </div>
 
@@ -94,7 +94,7 @@
                     <div id="group_review_section">
                         @each('partials.review&movie', $reviews, 'review')
                     </div>
-                    
+
                     @if (count($reviews) == 3)
                         <button class="btn btn-primary mx-auto" id="nextPage">
                             Next Page
@@ -104,7 +104,7 @@
                             Nothing else to show
                         </p>
                     @endif
-                    
+
                 </section>
             @endcan
     </div>

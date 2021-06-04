@@ -1,6 +1,6 @@
 <div class="comment">
     <div class="comment-author d-flex">
-        <img class="card-img-top img-responsive user-pic" src="{{ asset('img/user_pic.png') }}" alt="user">
+        <img class="card-img-top img-responsive user-pic" src="{{ asset('img/user_pic.png') }}" alt="user photo">
         {{-- REDIRECT TO USER PROFILE --}}
         <span class="mt-auto mb-auto">
             {{ $comment->user->username }}

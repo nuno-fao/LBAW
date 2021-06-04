@@ -18,22 +18,25 @@
             <div class="btn-group-vertical">
                 <button type="button"
                     class="btn btn-secondary rounded-1 mb-3 d-flex align-items-center justify-content-between"
-                    onclick="window.location.href='{{ route('search_group', $query) }}'">
+                    onclick="window.location.href='{{ route('search_user', 'query=' . $query) }}'">
                     <span class=" fs-5 ">User</span>
-                    <div><span class="fs-6 badge badge-secondary badge-pill">{{ $users_count }}</span></div>
+                    <div><span class="fs-6 badge badge-primary badge-pill">{{ $users_count }}</span></div>
                 </button>
                 <button type="button"
-                    class="btn btn-secondary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    class="btn btn-secondary rounded-1 mb-3 d-flex align-items-center justify-content-between"
+                    onclick="window.location.href='{{ route('search_movie', 'query=' . $query) }}'">
                     <span class="fs-5 ">Movie</span>
                     <div><span class="fs-6 badge badge-primary badge-pill">{{ $movies_count }}</span></div>
                 </button>
                 <button type="button"
-                    class="btn btn-primary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    class="btn btn-primary rounded-1 mb-3 d-flex align-items-center justify-content-between"
+                    onclick="window.location.href='{{ route('search_group', 'query=' . $query) }}'">
                     <span class=" fs-5 ">Group</span>
-                    <div><span class="fs-6 badge badge-primary badge-pill">{{ $groups_count }}</span></div>
+                    <div><span class="fs-6 badge badge-secondary badge-pill">{{ $groups_count }}</span></div>
                 </button>
                 <button type="button"
-                    class="btn btn-secondary rounded-1 mb-3 d-flex align-items-center justify-content-between">
+                    class="btn btn-secondary rounded-1 mb-3 d-flex align-items-center justify-content-between"
+                    onclick="window.location.href='{{ route('search_review', 'query=' . $query) }}'">
                     <span class="fs-5 ">Review</span>
                     <div><span class="fs-6 badge badge-primary badge-pill">{{ $reviews_count }}</span></div>
                 </button>
@@ -49,7 +52,7 @@
                 </div>
             </section>
             <div id="users_section" class=" d-flex justify-content-between flex-wrap">
-                @each('partials.user_result',$users,'user')
+                @each('partials.group_result',$groups,'group')
             </div>
         </div>
 
