@@ -68,7 +68,7 @@ class ReviewController extends Controller
 		}
 
 		if ($request->group != -1) {
-			if (!ctype_digit($request->group)) {
+			if (!is_numeric($request->group)) {
 				abort(404);
 			}
 			$r = Review::where('movie_id', $movie_id)->where('user_id', $request->user()->id)->where('group_id', $request->group)->get();

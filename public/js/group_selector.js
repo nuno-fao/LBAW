@@ -53,7 +53,7 @@ function start_group_selector() {
                                 sec_t.innerHTML = "Edit a review"
                                 toast("Successfully added the review", "s");
                                 document.getElementById("review_section").innerHTML += ev.responseText
-                                sendAjaxRequest("GET", "/api/review?" + encodeForAjax({ "group": event.target.value, "movie": movie_id }), "",
+                                sendAjaxRequest("GET", "/api/review?" + encodeForAjax({ "group": selector.value, "movie": movie_id }), "",
                                     (ev) => {
                                         if (ev.status == 200) {
                                             if (ev.responseText == "notFound") {
@@ -84,6 +84,7 @@ function start_group_selector() {
                                 toast("Couldn't edit the review", "d");
                             } else {
                                 toast("Successfully edited the review", "s");
+                                //todo replace
                             }
                         } else {
                             toast("Couldn't edit the review", "d");
@@ -92,7 +93,7 @@ function start_group_selector() {
             }
         }
         selector.addEventListener('change', (event) => {
-            sendAjaxRequest("GET", "/api/review?" + encodeForAjax({ "group": event.target.value, "movie": movie_id }), "",
+            sendAjaxRequest("GET", "/api/review?" + encodeForAjax({ "group": selector.value, "movie": movie_id }), "",
                 (ev) => {
                     if (ev.status == 200) {
                         if (ev.responseText == "notFound") {

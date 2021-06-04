@@ -117,7 +117,6 @@
             </h4>
             <section id="review_section">
                 @each('partials.review', $reviews, 'review')
-
             </section>
             @if (count($reviews) == 10)
                 <button class="btn btn-primary mx-auto" id="nextPage">

@@ -25,7 +25,7 @@ class MovieController extends Controller
 			return view(self::ERROR_404_PAGE);
 		}
 
-		$reviews = $movie->reviews()->paginate(10);
+		$reviews = $movie->reviews()->orderBy("date", "DESC")->paginate(10);
 
 		$user_review = null;
 
