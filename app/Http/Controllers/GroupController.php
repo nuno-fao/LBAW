@@ -95,9 +95,14 @@ class GroupController extends Controller
 
             $group->members()->sync($members);
 
+            $notification = User::find(auth()->user()->id)->notifications()->where('group_id', $group->id);
+            $notification->delete();
+
             $group->members()->updateExistingPivot(auth()->user()->id, [
                 'membership_state' => 'accepted',
             ]);
+
+            
 
             return redirect()->route('group', ['group_id' => $group->id]);
         }
