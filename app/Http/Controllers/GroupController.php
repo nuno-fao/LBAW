@@ -98,6 +98,8 @@ class GroupController extends Controller
             $group->members()->updateExistingPivot(auth()->user()->id, [
                 'membership_state' => 'accepted',
             ]);
+
+            return redirect()->route('group', ['group_id' => $group->id]);
         }
 
 
