@@ -1,7 +1,7 @@
 <nav class=" navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
     <div class="container-fluid d-flex">
         <a class="navbar-brand" href="{{ route('landing_page') }}"><img id="logo-img"
-                src="{{ asset('img/logo.png') }}" alt="Movie Club"></a>
+                src="{{ asset('img/logo.png') }}" alt="Movie Club Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

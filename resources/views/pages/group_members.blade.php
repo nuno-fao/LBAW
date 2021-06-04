@@ -24,7 +24,7 @@
 
                 <div class="col-lg-3 col-6 mx-auto mt-1">
                     <div class="card  no-padding">
-                        <img src="{{ asset($member->photo) }}" class="card-img-top" alt="...">
+                        <img src="{{ asset($member->photo) }}" class="card-img-top" alt="{{ $member->name }} Photo">
                         <div class="card-body d-flex flex-column d-flex justify-content-center">
                             <p class="card-text text-center">{{ $member->name }}</p>
 

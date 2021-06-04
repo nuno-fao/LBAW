@@ -30,7 +30,8 @@
                                 @endforeach
                             </p>
                         </div>
-                        <img src="{{ asset($movie->photo) }}" alt="movie photo" class="rounded ml-5" width="150">
+                        <img src="{{ asset($movie->photo) }}" alt="{{ $movie->title }} Photo" class="rounded ml-5"
+                            width="150">
 
                     </div>
                 </div>

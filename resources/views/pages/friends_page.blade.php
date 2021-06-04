@@ -23,10 +23,9 @@
             @foreach ($friends as $friend)
                 <div class="col-lg-3 col-6 mx-auto mt-1">
                     <div class="card  no-padding">
-                        <img src="{{ asset($friend->photo) }}" class="card-img-top" alt="...">
+                        <img src="{{ asset($friend->photo) }}" class="card-img-top" alt="{{ $friend->username }} photo">
                         <div class="card-body d-flex flex-column d-flex justify-content-center">
                             <p class="card-text text-center">{{ $friend->name }}</p>
-
                             <a href="{{ url("/user/{$friend->id}") }}"
                                 class="btn btn-primary mx-auto stretched-link">{{ $friend->username }}</a>
                         </div>
