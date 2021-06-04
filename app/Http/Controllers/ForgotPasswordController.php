@@ -37,7 +37,7 @@ class ForgotPasswordController extends Controller
 
         return $response == Password::RESET_LINK_SENT
             ? redirect()->route('confirmation_page')
-            : response()->json($response);
+            : redirect()->route('failed_page');
     }
 
     public function reset()
@@ -67,5 +67,11 @@ class ForgotPasswordController extends Controller
     {
 
         return view('auth.confirmation_page');
+    }
+
+    public function failed_page()
+    {
+
+        return view('auth.failed_page');
     }
 }

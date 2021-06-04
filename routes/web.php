@@ -25,6 +25,7 @@ Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->na
 Route::view('forgot_password', 'auth.reset_page')->name('password.reset');
 Route::post('password/reset', 'ForgotPasswordController@reset')->name('reset_password');
 Route::get('password/confirmation_email', 'ForgotPasswordController@confirmation_page')->name('confirmation_page');
+Route::get('password/failed_email', 'ForgotPasswordController@failed_page')->name('failed_page');
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
