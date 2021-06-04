@@ -22,8 +22,7 @@
             We believe that a movie specific social network allows people to connect and talk about their passion
             without the usual disturbance of general purpose social networks so in this context our website will be
             closer towards the IMDb type of product. With this in mind our users will be able to review movies and alike
-            but we also offer the possibility to make the reviews private and to create named groups and our main page
-            will focus around seeing all the latest reviews.
+            but we also offer the possibility to create named groups and our main page will focus around seeing all the latest reviews.
         </h6>
         <div class="lead col-12 col-lg-4">
             <img class="card-img-top img-responsive" src="img/main_page_print.png" alt="main_page">
@@ -31,7 +30,7 @@
     </div>
     <div class=" row my-5">
         <div class="col card col-lg-3 col-md-6 col-12 card mb-3 no-padding">
-            <img class="card-img-top img-responsive" src="img/rocas777.jpeg" alt="fight club poster">
+            <img class="card-img-top img-responsive" src="img/rocas777.jpeg" alt="poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
                     <button href="#" class="btn btn-primary wide">Miguel Pinto</button>
@@ -40,7 +39,7 @@
             </div>
         </div>
         <div class="col card col-lg-3 col-md-6 col-12 card mb-3 no-padding">
-            <img class="card-img-top img-responsive" src="img/nunation.png" alt="fight club poster">
+            <img class="card-img-top img-responsive" src="img/nunation.png" alt="poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
                     <button href="#" class="btn btn-primary wide">Nuno Oliveira</buttona>
@@ -49,10 +48,10 @@
             </div>
         </div>
         <div class="col  card col-lg-3 col-md-6  col-12 card mb-3 no-padding">
-            <img class="card-img-top img-responsive" src="img/luis.png" alt="fight club poster">
+            <img class="card-img-top img-responsive" src="img/luis.png" alt="poster">
             <div class="card-body">
                 <h5 class="card-title text-nowrap">
-                    <button class="btn btn-primary wide">Luí­s Miranda</button>
+                    <button class="btn btn-primary wide">Luí­s Marques</button>
                 </h5>
                 <button class="btn btn-primary wide">up201704093@fe.up.pt</button>
             </div>
