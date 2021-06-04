@@ -353,9 +353,53 @@ CREATE TRIGGER friend_relation
     FOR EACH ROW
     EXECUTE PROCEDURE check_friend();  
 
- DROP FUNCTION IF EXISTS  check_if_admin CASCADE;
+
+ 
 
 
+
+
+
+
+
+
+DROP FUNCTION IF EXISTS  reviewtt  CASCADE;
+CREATE FUNCTION reviewtt() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    NEW.tt :=  setweight(to_tsvector(coalesce(NEW.title,'')), 'A')    ||     setweight(to_tsvector(coalesce(NEW.text,'')), 'C');
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER review_edit
+    BEFORE INSERT OR UPDATE ON review
+    FOR EACH ROW
+    EXECUTE PROCEDURE reviewtt();  
+
+
+
+
+DROP FUNCTION IF EXISTS  moviett  CASCADE;
+CREATE FUNCTION moviett() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    NEW.tt :=  setweight(to_tsvector(coalesce(NEW.title,'')), 'A')    ||     setweight(to_tsvector(coalesce(NEW.description,'')), 'B');
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+ 
+CREATE TRIGGER movie_edit
+    BEFORE INSERT OR UPDATE ON movie
+    FOR EACH ROW
+    EXECUTE PROCEDURE moviett();
+
+
+--DROP FUNCTION IF EXISTS  check_if_admin CASCADE;
 -- CREATE FUNCTION check_if_admin() RETURNS TRIGGER AS
 -- $BODY$
 -- BEGIN

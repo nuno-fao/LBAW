@@ -298,9 +298,3 @@ INSERT INTO "like" (user_id,review_id) VALUES (19,4);
 INSERT INTO "report" (signed_user_id,review_id) VALUES(5,1);
 INSERT INTO "report" (signed_user_id,review_id) VALUES(5,2);
 INSERT INTO "report" (signed_user_id,review_id) VALUES(5,3);
-
-
-UPDATE review SET tt =  setweight(to_tsvector(coalesce(title,'')), 'A')    ||     setweight(to_tsvector(coalesce(text,'')), 'C');
-
-UPDATE movie SET tt =  setweight(to_tsvector(coalesce(title,'')), 'A')    ||     setweight(to_tsvector(coalesce(description,'')), 'B');
-
