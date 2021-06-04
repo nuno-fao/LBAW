@@ -15,7 +15,7 @@
         <div>
             <div class="bg-primary col-lg-6 col-md-8 col-12 mx-auto py-5 px-5 login_form">
                 <div class="text-center mb-5 text-light pb-2">
-                    <h3>Password Recovery</h3>
+                    <h3>Password Recoveryy</h3>
                 </div>
                 <form action="{{ route('forgot_password') }}" method="POST">
                     @csrf
