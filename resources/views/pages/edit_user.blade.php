@@ -23,7 +23,8 @@
         <div class="d-flex justify-content-center ">
 
             <form class="col-10 col-lg-7 border border-10  bg-white rounded-2 pl-3 action"
-                action="{{ route('edit_user_form', ['user_id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
+                action="{{ route('edit_user_form', ['user_id' => $user->id]) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 
@@ -43,7 +44,8 @@
                         <label for="username" class="form-label mt-3 ">Username</label>
                         <input type="text"
                             class="col-7 form-control border border-1rounded-1 @error('username') border-danger @enderror"
-                            value="{{ $user->username }}" name="username" id="username" aria-describedby="username" required>
+                            value="{{ $user->username }}" name="username" id="username" aria-describedby="username"
+                            required>
                         @error('username')
                             <div class="text-danger">
                                 {{ $message }}
@@ -67,7 +69,7 @@
 
                 <label for="movieDescription" class="form-label mt-3 ">Birthday</label>
                 <input type="date" value="{{ $user->date_of_birth }}" name="birthday" id="birthday"
-                    class="form-control @error('birthday') border border-danger @enderror" name="birthday" required> 
+                    class="form-control @error('birthday') border border-danger @enderror" name="birthday" required>
                 @error('birthday')
                     <div class="text-danger">
                         {{ $message }}
@@ -77,7 +79,7 @@
 
                 <label class="form-label mt-3" for="moviePoster">Upload New User Picture</label>
                 <input type="file" class="form-control @error('userPhoto') border border-danger @enderror" id="userPhoto"
-                    name="userPhoto" required>
+                    name="userPhoto">
                 @error('userPhoto')
                     <div class="text-danger">
                         {{ $message }}
@@ -87,7 +89,8 @@
                 <div class="row mt-3">
 
                     <div class="col d-flex  ">
-                        <input class="btn btn-outline-secondary mt-3 mb-3 " type="button" value="Cancel">
+                        <input class="btn btn-outline-secondary mt-3 mb-3 " type="button" value="Cancel"
+                            onclick="window.location.replace('{{ route('user', $user->id) }}')">
                     </div>
 
                     <div class="col d-flex justify-content-end ">

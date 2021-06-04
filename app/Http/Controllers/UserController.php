@@ -94,7 +94,6 @@ class UserController extends Controller
             'email' => 'required|email|max:255',
             'birthday' => 'required|before:today',
             'username' => 'required|alpha_dash|max:255',
-            'userPhoto' => 'image'
         ]);
 
         if ($user != null) {
@@ -104,6 +103,13 @@ class UserController extends Controller
             $user->username = $request->username;
 
             if ($request->userPhoto != null) {
+                $this->validate($request, [
+                    'name' => 'required',
+                    'email' => 'required|email|max:255',
+                    'birthday' => 'required|before:today',
+                    'username' => 'required|alpha_dash|max:255',
+                    'userPhoto' => 'image'
+                ]);
 
                 $imageName = time() . '.' . $request->userPhoto->extension();
                 $request->userPhoto->move(public_path('img'), $imageName);

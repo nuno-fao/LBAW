@@ -46,18 +46,15 @@
                     <div class="col">
                         <label for="year" class="form-label mt-3 ">Year *</label>
                         <input type="text"
-                            class="col-7 form-control border border-1rounded-1 @error('year') border-danger @enderror" @if ($movie != null) value="{{ $movie->year }}" @endif name="year" id="year" aria-describedby="year" value="{{ old('year') }}" required>
+                            class="col-7 form-control border border-1rounded-1 @error('year') border-danger @enderror" @if ($movie != null) value="{{ $movie->year }}" @endif name="year" id="year" aria-describedby="year" value="{{ old('year') }}"
+                            required>
                         @error('year')
                             <div class=" text-danger">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-
-
                 </div>
-
-
                 <label for="movieDescription" class="form-label mt-3 ">Movie Description</label>
                 <textarea type="text" rows="3"
                     class="row-4 form-control border border-1rounded-1 @error('movieDescription') border-danger @enderror"
@@ -83,9 +80,9 @@
 
                 </select>
 
-                <label class="form-label mt-3" for="moviePoster">Upload Movie Poster *</label>
+                <label class="form-label mt-3" for="moviePoster">Upload Movie Poster @if ($movie == null) * @endif</label>
                 <input type="file" class="form-control @error('moviePoster') border  border-danger @enderror"
-                    id="moviePoster" name="moviePoster" required>
+                    id="moviePoster" name="moviePoster" @if ($movie == null) required @endif>
                 @error('moviePoster')
                     <div class="text-danger">
                         {{ $message }}
@@ -94,7 +91,9 @@
 
                 <div class="row mt-3">
                     <div class="col d-flex  ">
-                        <input class="btn btn-outline-secondary mt-3 mb-3 " type="button" value="Cancel">
+                        <input class="btn btn-outline-secondary mt-3 mb-3 " type="button" value="Cancel" @if ($movie != null) onclick="window.location.replace('{{ route('movie', $movie->id) }}')"      
+                        @else                                       
+                                onclick="window.location.replace('{{ route('movie_dashboard_page') }}')" @endif>
                     </div>
 
                     <div class="col d-flex justify-content-end ">
@@ -102,9 +101,6 @@
                     </div>
                 </div>
             </form>
-
-
-
         </div>
     </section>
 

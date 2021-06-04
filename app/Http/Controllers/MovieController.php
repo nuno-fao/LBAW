@@ -102,8 +102,7 @@ class MovieController extends Controller
 		$this->validate($request, [
 			'movieName' => 'required',
 			'year' => 'required|numeric|min:1900',
-			'movieDescription' => 'string',
-			'moviePoster' => 'required|image'
+			'movieDescription' => 'string'
 		]);
 
 		$movie = Movie::find($id);
@@ -114,6 +113,12 @@ class MovieController extends Controller
 			$movie->description = $request->movieDescription;
 
 			if ($request->moviePoster != null) {
+				$this->validate($request, [
+					'movieName' => 'required',
+					'year' => 'required|numeric|min:1900',
+					'movieDescription' => 'string',
+					'moviePoster' => 'image'
+				]);
 
 				$imageName = time() . '.' . $request->moviePoster->extension();
 				$request->moviePoster->move(public_path('img'), $imageName);
