@@ -125,30 +125,108 @@ INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Quality film ma
 
 
 INSERT INTO "movie" (title,year,photo,description) VALUES ('The Lord of the Rings','2003','img/lordoftheringsposter.jpg','Gandalf and Aragorn lead the World of Men against Saurons army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Forest Gump','1995','img/forrestgumpposter.jpg','The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Toy Story','1997','img/toystoryposter.jpg','A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boys room.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Interstellar','2012','img/interstellarposter.jpg','A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Roma','2018','img/romaposter.jpg','A year in the life of a middle-class familys maid in Mexico City in the early 1970s.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Star Wars','2019','img/starwarsposter.jpg','The surviving members of the Resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak, bringing the Skywalker saga to its end.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Coco','2017','img/cocoposter.jpg','Aspiring musician Miguel, confronted with his familys ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Fight Club','1999','img/fightclubposter.jpg','An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('The Godfather','1972','img/thegodfatherposter.jpg','An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('Avengers: Endgame','2019','img/avengers_endgame.png','After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.');
-INSERT INTO "movie" (title,year,photo,description) VALUES ('American Pie','1999','img/americanpieposter.png','Four teenage boys enter a pact to lose their virginity by prom night.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (5,3);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('All Good Things come to an End!', 'All the threads of Tolkiens magnum opus come together in the most elegant of fashions in the final part of Peter Jacksons adaptation. Humanity makes a last stand at Minas Tirith, the Hobbits travel through Mordor, our heroes try to by time for Frodo to complete his mission and the Evil Sauron gets tired of the whole game and lashes out with all his might and fury."Return of the King" is 4 hours of payoff, a third act in a gigantic epic rather than a mere film of its own. As such it is intensely dramatic and dynamic and you can very much sense that though peter Jackson spared no effort on the previous episodes, this is clearly his favorite. the film floats by at a thunderous pace, taking us through unforgettable moments such as the battle of Minas Tirith itself, a marvel of seamless animation and epic film-making, it demands to be seen, as it has too many jaw-dropping moments to choose from. The quieter character moments keep gaining in potency and the full weight of the stakes and their heartbreaking consequences is never in doubt.The cast of these films have played their parts to perfection and again Jackson deserves overall credit for choosing actors that so perfectly match Tlolkiens creations: Ian McKellen and Christopher Lee are their own usually excellent selves, and the hobbits remain endearing, but of all the uniformly great cast, the true standouts are Viggo Mortensen and David Wenham as the tragic Faramir, whose relationship with his brutish father is the most traumatic of the film. Jackson pushes them even further by having them sing at a few key moments (a practice employed to powerful effect by Tolkien in the books), a daring undertaking that works wonders. And though he may offer one ending too many, he does have the decency to show off each surviving character with the appropriate screen time and respect.Now that the trilogy is complete, it can be viewed as one big film, as it should be. After 8 years, Jackson has done the impossible: he has taken Tolkiens huge legend and made films that stand on their own and have revolutionized film-making, setting the new benchmark for cinematic epics. Changes have been made to Tolkiens source novels, but they make for better, more fluid films, more faithful in spirit to Tolkiens myth than anyone had the right to hope for.A masterpiece, whether as part of a bigger whole or on its own. Well deserving of all the high praise thrown at it, and then some...','2021-02-02 21:04',3,2);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('15 years on... Still the greatest ', 'Ive just re-watched The Lord of the Rings trilogy for the 1000th time tonight... nearly 15 years since the Fellowship of the Rings was released... I still havent seen a movie thats better, nor close, to any of these three films. The casting is perfection as well as the incredible acting by everyone in the movie. I can still watch these movies back to back and not get bored. They are a light to this world and wouldnt be the same without them.I miss the good old LOTRs days. The best movies ever created. The Return of the King was the best way to end a thrilling journey through middle earth!','2021-01-02 22:04',3,5);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('A Timeless Classic ', 'This movie, and trilogy in general, is a cinematic (and literary) masterpiece, and simply refuses to get old. I love this movie so much its become a tradition to watch the Lord of the Rings series at least once a year! Its just as good as Christmas','2021-04-02 22:04',3,6);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Brilliant. Simply brilliant ', 'Where to start with this masterpiece? Quite simply one of the greatest movies ever made. A fitting end to a stunning trilogy. The acting as it has been is brilliant again. Special mention must go to Sean Austin, for his performance as Sam. In this one he gets his big moment in the trilogy, and he nails it perfectly. His scenes with Elijah Wood (Frodo) on Mount Doom, as Frodo weakens are full of emotion and very powerful. As for the rest of the movie? It has one of the greatest scenes EVER in a movie : the riders of Rohan charging into battle outside Minas Tirith. You simply cannot tell where the real riders end, and the CGI begins. The battles again are well done, and not simply a repeat of the siege at Helms Deep in The Two Towers.As I said, the acting is again first rate from the entire cast. And it was nice to see Andy Serkis getting his face on screen as Smeagol, before his transformation into Gollum.By the end of the movie, there were more than a few tears as the boat left the Grey Havens, as the movie ended on a quiet emotional note, after the epic battles before.I could happily have sat through this again and again. Well done to everyone, both in front and behind the cameras for such a brilliant work, but of course special mention has to go to Peter Jackson. He deserves every award hes received for this.One last point. If you only seen the theatrical release, then go get the extended version of this film. Its even better!!','2021-02-03 22:04',3,8);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Meh it was alright ', 'Sike this is the movie to rule them all. T Here is nothing much to say other than go watch this masterpiece of a movie. An end to the best trilogy there ever was and probably will be. All the Oscars are well deserved and you will see why when you watch this film','2021-02-05 22:04',3,9);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Quite Literally the Greatest Trilogy Ever Made ', 'Im not sure what could be said about LOTR that hasnt already been said, other than that I personally think its best trilogy ever put to screen, and I really cant think of anything close. Peter Jackson took on the most demanding project imaginable and created a series that will be remembered forever. He respected Tolkiens literature and stuck so incredibly close to the source material and translated it so effortlessly in such grand fashion. I highly recommend the extended editions, as they devote more time to building Middle Earth and developing their incredible characters ever further. 20 years later and the series still looks incredible, especially in 4K. What Jackson did here could never be replicated; he created the best trilogy ever made.','2021-02-06 22:04',3,12);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('The Greatest Fantasy Trilogy of All Time', 'Ive lost count of how many times Ive watched this gorgeous trilogy, every time I rewatch it I find something new.','2021-02-07 22:04',3,14);
 
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Forrest Gump','1995','img/forrestgumpposter.jpg','The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (3,4);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Lifes Lessons in one Movie... ', 'When I first saw this movie I didnt appreciate it like I do now. I think it may have been because I was so young when I first saw it. Just recently I saw the movie again. What an amazing story and moving meaning. That movie teaches you so much about life and the meaning of it. That life isnt as bad as most people make it seem. That an innocent man can impact so many lives with his innocence. The meaning of the movie to me is that everyone needs to have a better outlook on life. That we need to appreciate more of the little things and not let the big things hold us back. That truly although life may throw us trials and tribulations like a box of chocolates but that we have to just bite into it and get through it even if we dont like it. That we all need to hold true to our values and not sink into a place that feels like theres no hope... I just love this movie. And anyone who hasnt seen it or who thinks that dont like it I seriously suggest seeing it or seeing it again. It truly is amazing...','2021-02-02 21:04',4,1);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('In my opinion, no film has touched me more than this one..... ', 'Quite simply, the greatest film ever made.Humour, sadness, action, drama and a Vietnam film all rolled into one.Im not a stone cold, heartless villain, but it takes a lot to make me cry when I watch a movie. Bambis mother, I couldnt care less. Jimmy Stewart in, "Oh, what a wonderful life," - yeah right! The Lion King, when Mufasa bites the big one - on the verge.But seriously - I bawled my big brown eyes out, on several occasions in this film. A real tear-jerker, and a wonderful character, played to perfection by Tom Hanks. Every bit as worthy for the Oscar as Rooney was to win the Premiership in 2007.I cannot say it enough: This is THE film of all time. Watch it, and youll see.','2021-01-02 22:04',4,2);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('The zen of Forrest Gump. ', 'This is a powerful yet charming movie; fun for its special effects and profound in how it keeps you thinking long after its over. Like others, Ive seen this movie more than once. One comment Ive never heard is that Forrests simplicity is almost zen-like. I should read the novel to get the authors intention (I remember some people preferring the book and complaining that no one at the Academy Awards gave him any credit.) But rather than an implication that you should do what youre supposed to do and believe in God and youll win in the end, I see it as zen-like, i.e., living in the moment and not having expectations or particular cravings (other than his loving Jenny.) So he ends up just stumbling into all the major historical events of the time. Granted, he achieves this only because he doesnt have the brains to think otherwise and actually have expectations, but so many of our problems are because we do have higher intellect and desires, which ironically makes us unhappy because we know what we are missing. We love our cats and dogs for the same simplicity and always being in the moment. Theres a line in the movie wondering if everything is predestined or happens randomly or its a combination of both. It is something to mull over for a long time.','2021-04-02 22:04',4,15);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Purity and innocence retained ', 'I have seen this movie easily a half a dozen times, and I find that the beauty of the film is how Forrest Gump not only shares his innocence and purity with others, including the audience, he also manages to retain that innocence and purity through some very difficult times. As a Viet Nam veteran, and a college graduate of the late Sixties, I could of course personally relate to the various periods that Forrest Gump endures. I would only mention that the skillful and seamless blending of music, action, and period costume was enthralling. And yet it was so perfectly understated that Forrest Gumps travels through thirty five years of the stormiest and most meaningful years of American history only became clearly defined for the viewer. Even more so than the well known chocolates quote as a metaphor for life, I felt that the remark that stupid is what you do is probably more workable for most of us.','2021-02-03 22:04',4,8);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('Forrest Gump is a movie masterpiece that wont be forgotten and will continue to inspire ', 'He may have been good in Philadelphia but be is excellent in Forrest Gump.Tom Hanks delivers another great performance in his career by portraying the lovable,king yet not so intelligent character Forrest Gump.It is also Tom Hanks second straight win for the Best Actor Oscar which he becomes the second man to do said accomplishment after Spencer Tracy.Whilst not as dramatic as Philadelphia,Tom Hanks performance is just as great in this movie and this movie could possibly be the film of Tom Hanks career as he used to be a comedy guy who turned to drama in a way which would paved for future stars such as Jim Carrey(The Truman Show),Reese Witherspoon(Walk the Line) and Will Ferrell(Stranger Than Fiction) to name a few.Also staring in this great movie classic are Robin Wright-Penn who plays Jenny,Gary Sinise who was nominated for an Academy Award for his portrayal of Lieutenant Dan Taylor,Mykelti Williamson as Forrests best friend and shrimper Benjamin Buford"Bubba" Blue and Sally Field as Mrs.Gump.This film was nominated for a total of thirteen Academy Awards but won six of them which include Best Film Editing,Best Visual Effects,Best Adapted Screenplay,Best Picture,Best Director-Robert Zemeckis and Best Actor-Tom Hanks.This is one masterpiece of a movie that will not be forgotten about in a long time.Bravo!','2021-02-05 22:04',4,7);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('7 Year-Olds Give The Best Movie Reviews Ever ', 'Cant take credit for this gem. Even if I am her mother.Forest Gump: Movie review by Josephine. So, its about this really stupid grown-up and theres blood and stuff and its not appropriate for anyone else in my class, probably, but, you know, you guys let me watch stuff like this. What is up with that? And theres this really bad girl named Jenny, and I hated her clothes. But once she cuts her hair she turns good again. And a guy with no legs, who was weird. He made shrimp, which is gross, except for the popcorn kind. He got a lot better when he cut his hair, too. I liked it. It was funny. Can I watch it again tonight','2021-02-06 22:04',4,13);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Toy Story','1997','img/toystoryposter.jpg','A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boys room.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (3,5);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',5,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',5,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',5,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',5,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',5,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Interstellar','2012','img/interstellarposter.jpg','A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,6);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',6,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',6,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',6,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',6,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',6,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Roma','2018','img/romaposter.jpg','A year in the life of a middle-class familys maid in Mexico City in the early 1970s.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (6,7);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',7,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',7,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',7,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',7,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',7,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Star Wars','2019','img/starwarsposter.jpg','The surviving members of the Resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak, bringing the Skywalker saga to its end.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (5,8);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',8,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',8,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',8,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',8,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',8,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Coco','2017','img/cocoposter.jpg','Aspiring musician Miguel, confronted with his familys ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (3,9);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',9,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',9,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',9,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',9,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',9,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Fight Club','1999','img/fightclubposter.jpg','An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,10);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',10,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',10,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',10,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',10,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',10,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('The Godfather','1972','img/thegodfatherposter.jpg','An organized crime dynastys aging patriarch transfers control of his clandestine empire to his reluctant son.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,11);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('Avengers: Endgame','2019','img/avengers_endgame.png','After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,12);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+
+INSERT INTO "movie" (title,year,photo,description) VALUES ('American Pie','1999','img/americanpieposter.png','Four teenage boys enter a pact to lose their virginity by prom night.');
+INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,13);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
+INSERT INTO "review" (title,text,date,movie_id,user_id) VALUES ('', '','2021-02-07 22:04',4,17);
 
 --MOVIE GENRES
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (5,3);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (3,4);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (3,5);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,6);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (6,7);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (5,8);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (3,9);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,10);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,11);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,12);
-INSERT INTO "movie_genre" (genre_id,movie_id) VALUES (1,13);
+
+
+
+
+
+
+
+
+
+
+
 
 
 --FRIENDS
@@ -271,22 +349,6 @@ INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (4,15,'acc
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (4,12,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (4,19,'accepted');
 INSERT INTO "group_member" (group_id,user_id,membership_state) VALUES (4,8,'accepted');
-
-
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Great movie', 'This is a film that can entertain anyone young or old, I usually dont care for animated movies but this film is the real deal, this is one of disney best animated movies. The animation is top notch and flawless. This film also features superb work from the vocal cast James Earl Jones, Jeremy Irons, Whoopi Goldberg. This is a standout.',1,2);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Wow', 'I rank this animated film among the great films I have ever seen. It was part of my childhood and it is a film experience I will never forget. And hopefully, you wont either. A++',1,3);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Great movie', 'Best thing ever',1,4);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Amazin movie', 'Amazing  movie',1,5);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Best movie', 'Is there any character called Nala??',1,6);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Yeah....', 'Better than the 2019 version',1,7);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Great movie', 'Why do theu need to fight?',1,8);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Old movie', 'My mother was 20 when it came out',1,9);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Nop', 'My bird likes it',1,10);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Awful movie', 'Awful',1,11);
--- INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Not Great', 'Liked toy story better',1,12);
-INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Came for the fight scenes', 'Stayed for Samuel L Jackson',2,2);
-INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Best movie ever', 'Its really long tho',3,3);
-INSERT INTO "review" (title,text,movie_id,user_id) VALUES ('Perfect movie except for Jenny', 'Forrest is really funny',4,4);
 
 
 INSERT INTO "like" (user_id,review_id) VALUES (7,2);
