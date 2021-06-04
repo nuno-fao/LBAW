@@ -18,7 +18,6 @@
     ./upload_image.sh
     docker run -it -p 8000:80 -e DB_DATABASE="lbaw21gg" -e DB_USERNAME="lbaw21gg" -e DB_PASSWORD="PASSWORD" <DOCKER_USERNAME>/lbaw21gg
     docker run -it lbaw21gg/lbaw21gg bash
-
  -->
 
 - Product running location : http://lbaw2125.lbaw-prod.fe.up.pt/ (feup vpn is needed)
