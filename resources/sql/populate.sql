@@ -40,7 +40,7 @@
 
 -- USERS
 
-INSERT INTO "signed_user" (username,name,date_of_birth,photo,email,password,admin) VALUES ('janeDoe','Jane Doe','1984-05-17','img/user_pic.png','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','False'); --blindspot
+INSERT INTO "signed_user" (username,name,date_of_birth,photo,email,password,admin) VALUES ('janeDoe','Jane Doe','1984-05-17','img/user_pic.png','mymotherisacriminal@gmail.com','$2y$10$nyBfGFHpBpKC8d4TSajYXe1il9GoKNT2SbpSVE7DIpXE4vc5piADi','True'); --blindspot
 INSERT INTO "signed_user" (username,name,date_of_birth,photo,email,password,admin) VALUES ('alanYo','Alan Yo','1984-05-23','img/user_pic.png','hello123@gmail.com','$2y$10$3lYnXaFDKyIJ0aow8rzZIOUT4ZXhwlVsZKIkGmQVaddn2Psw51bue','True'); --arrozdefrango
 INSERT INTO "signed_user" (username,name,date_of_birth,photo,email,password,admin) VALUES ('super_tga','Super Tga','1974-05-23','img/user_pic.png','super@gmail.com','$2y$10$AdUyxZOViPd2n1roI8VtveoAefOk6PkEoHKT67sqinlDK35TndUS2','False'); --qwertyuiop
 INSERT INTO "signed_user" (username,name,date_of_birth,photo,email,password,admin) VALUES ('antisportinguita','Sadro Mongo','1998-09-18','img/user_pic.png','antisportinguista@gmail.com','$2y$10$hIiptRPpD7J0zN6joV1TA.cq376V9K2i.UV0VL1Gt7mptwnvKLsfK','False'); --batatasfritas

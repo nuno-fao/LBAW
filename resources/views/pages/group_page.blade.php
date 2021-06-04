@@ -25,7 +25,7 @@
                 @endcan
                 <div class="card ">
                     <div class="card-body ">
-                        <div class="d-flex flex-row align-items-center text-start ">
+                        <div class="d-flex flex-row justify-content-between text-start ">
                             <div class="mt-3 mr-3">
                                 <h4>{{ $group->title }}</h4>
                                 <p class="font-size-sm">{{ $group->description }}</p>
@@ -35,13 +35,13 @@
                                         <form method="post" action="{{ route('delete_group', ['group_id' => $group->id]) }}">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-primary">Delete Group</button>
+                                            <button class="btn btn-primary mx-4">Delete Group</button>
                                         </form>
                                     @elsecan('leave', $group)
                                         <form method="post"
                                             action="{{ route('leave_group', ['group_id' => $group->id, 'user_id' => auth()->user()->id]) }}">
                                             @csrf
-                                            <button class="btn btn-primary">Leave Group</button>
+                                            <button class="btn btn-primary mx-4">Leave Group</button>
                                         </form>
                                     @endcan
                                     @can('invite', $group)
