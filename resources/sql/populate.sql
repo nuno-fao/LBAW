@@ -303,4 +303,5 @@ INSERT INTO "report" (signed_user_id,review_id) VALUES(5,3);
 
 UPDATE review SET tt =  setweight(to_tsvector(coalesce(title,'')), 'A')    ||     setweight(to_tsvector(coalesce(text,'')), 'C');
 
+UPDATE movie SET tt =  setweight(to_tsvector(coalesce(title,'')), 'A')    ||     setweight(to_tsvector(coalesce(description,'')), 'B');
 

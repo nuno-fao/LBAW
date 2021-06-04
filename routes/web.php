@@ -28,32 +28,32 @@ Route::get('password/confirmation_email', 'ForgotPasswordController@confirmation
 
 //Movies
 Route::get('movie/{id}', 'MovieController@show')->name('movie');
-Route::get('api/movie/{movie_id}/feed/{page}','MovieController@getPage');
+Route::get('api/movie/{movie_id}/feed/{page}', 'MovieController@getPage');
 Route::get('movie_list', 'MovieListController@show')->name('movie_list');
 Route::get('api/movie_list/{page}', 'MovieListController@getMovieListPage');
-Route::post('api/movie/{id}/review','ReviewController@create');
+Route::post('api/movie/{id}/review', 'ReviewController@create');
 Route::get('/admin/movies/add', 'MovieController@add_page')->name('add_movie');
 Route::post('/admin/movies/add', 'MovieController@create');
 Route::get('movie/{id}/edit', 'MovieController@edit_page')->name('edit_movie');
 Route::post('/api/movie/{id}', 'MovieController@edit')->name('edit_movie_form');
 
 //Reviews
-Route::get('review/{id}','ReviewController@show')->name('review');
-Route::get('api/review/{review_id}','ReviewController@getReview');
+Route::get('review/{id}', 'ReviewController@show')->name('review');
+Route::get('api/review/{review_id}', 'ReviewController@getReview');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
 Route::patch('api/review/{review_id}', 'ReviewController@edit');
 Route::post('api/review/{review_id}/like', 'LikeController@create');
 
 //User Profile
-Route::get('user/{user}','UserController@show')->name('user');
-Route::get('api/user/{user}/feed/{page}','UserController@getPage');
-Route::patch('/api/admin/user/{user}/ban','UserController@ban')->name('ban');
-Route::patch('/api/admin/user/{user}/unban','UserController@unban')->name('unban');
-Route::get('user/{user_id}/edit','UserController@edit_page')->name('edit_user');
-Route::post('/api/user/{user_id}/edit','UserController@edit')->name('edit_user_form');
-Route::get('/user/{user_id}/edit_password','UserController@edit_password_page')->name('edit_password');
-Route::post('/user/{user_id}/edit_password','UserController@edit_password');
-Route::post('user/{user_id}/delete','UserController@delete')->name('delete_user');
+Route::get('user/{user}', 'UserController@show')->name('user');
+Route::get('api/user/{user}/feed/{page}', 'UserController@getPage');
+Route::patch('/api/admin/user/{user}/ban', 'UserController@ban')->name('ban');
+Route::patch('/api/admin/user/{user}/unban', 'UserController@unban')->name('unban');
+Route::get('user/{user_id}/edit', 'UserController@edit_page')->name('edit_user');
+Route::post('/api/user/{user_id}/edit', 'UserController@edit')->name('edit_user_form');
+Route::get('/user/{user_id}/edit_password', 'UserController@edit_password_page')->name('edit_password');
+Route::post('/user/{user_id}/edit_password', 'UserController@edit_password');
+Route::post('user/{user_id}/delete', 'UserController@delete')->name('delete_user');
 
 
 //Feed
@@ -88,7 +88,7 @@ Route::delete('/api/review/comment/{comment_id}', 'CommentController@delete')->n
 //Groups
 Route::get('/groups/list', 'GroupController@list')->name('groups_list');
 Route::get('/groups/add', 'GroupController@add_group_page')->name('add_group');
-Route::get('api/group/{group_id}/feed/{page}','GroupController@getPage');
+Route::get('api/group/{group_id}/feed/{page}', 'GroupController@getPage');
 Route::post('/groups/add', 'GroupController@create');
 Route::get('/groups/{group_id}', 'GroupController@show')->name('group');
 Route::get('/groups/{group_id}/invitation_page', 'GroupController@invitation_page')->name('invite_page');
@@ -101,4 +101,11 @@ Route::get('/groups/{group_id}/members', 'GroupController@members_page')->name('
 
 
 //public
-Route::get('/search','SearchController@index')->name('search');
+Route::get('/search/user', 'SearchController@user')->name('search_user');
+Route::get('/search/movie', 'SearchController@movie')->name('search_movie');
+Route::get('/search/review', 'SearchController@review')->name('search_review');
+Route::get('/search/group', 'SearchController@group')->name('search_group');
+Route::get('api/search/user/{page}', 'SearchController@user_paginate')->name('search_user_p');
+Route::get('api/search/movie/{page}', 'SearchController@movie_paginate')->name('search_movie_p');
+Route::get('api/search/review/{page}', 'SearchController@review_paginate')->name('search_review_p');
+Route::get('api/search/group/{page}', 'SearchController@group_paginate')->name('search_group_p');

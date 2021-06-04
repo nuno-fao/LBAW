@@ -16,6 +16,7 @@ CREATE TABLE movie
     description text,
     year integer NOT NULL,
     photo text ,
+    tt tsvector,
     CONSTRAINT movie_pkey PRIMARY KEY (id),
     CONSTRAINT year_contraint CHECK (year > 1800)
 );
