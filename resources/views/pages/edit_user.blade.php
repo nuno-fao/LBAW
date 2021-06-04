@@ -31,7 +31,7 @@
                         <label for="name" class="form-label mt-3 ">Name</label>
                         <input type="text"
                             class="col-7 form-control border border-1rounded-1 @error('name') border-danger @enderror "
-                            value="{{ $user->name }}" name="name" id="name" aria-describedby="name">
+                            value="{{ $user->name }}" name="name" id="name" aria-describedby="name" required>
                         @error('name')
                             <div class="text-danger">
                                 {{ $message }}
@@ -43,7 +43,7 @@
                         <label for="username" class="form-label mt-3 ">Username</label>
                         <input type="text"
                             class="col-7 form-control border border-1rounded-1 @error('username') border-danger @enderror"
-                            value="{{ $user->username }}" name="username" id="username" aria-describedby="username">
+                            value="{{ $user->username }}" name="username" id="username" aria-describedby="username" required>
                         @error('username')
                             <div class="text-danger">
                                 {{ $message }}
@@ -57,7 +57,7 @@
                 <label for="year" class="form-label mt-3 ">Email Address</label>
                 <input type="text"
                     class="col-7 form-control border border-1rounded-1 @error('email') border-danger @enderror"
-                    value="{{ $user->email }}" name="email" id="email" aria-describedby="email">
+                    value="{{ $user->email }}" name="email" id="email" aria-describedby="email" required>
                 @error('email')
                     <div class="text-danger">
                         {{ $message }}
@@ -67,7 +67,7 @@
 
                 <label for="movieDescription" class="form-label mt-3 ">Birthday</label>
                 <input type="date" value="{{ $user->date_of_birth }}" name="birthday" id="birthday"
-                    class="form-control @error('birthday') border border-danger @enderror" name="birthday">
+                    class="form-control @error('birthday') border border-danger @enderror" name="birthday" required> 
                 @error('birthday')
                     <div class="text-danger">
                         {{ $message }}
@@ -77,7 +77,7 @@
 
                 <label class="form-label mt-3" for="moviePoster">Upload New User Picture</label>
                 <input type="file" class="form-control @error('userPhoto') border border-danger @enderror" id="userPhoto"
-                    name="userPhoto" />
+                    name="userPhoto" required>
                 @error('userPhoto')
                     <div class="text-danger">
                         {{ $message }}

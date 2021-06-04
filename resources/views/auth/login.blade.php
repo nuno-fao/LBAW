@@ -25,7 +25,7 @@
                     <label class="text-light" for="username">Username</label>
                     <input type="text" name="username"
                         class="form-control @error('username') border border-danger @enderror" placeholder="Username"
-                        id="username">
+                        id="username" value="{{old('username')}}" required>
 
                     @error('username')
                         <div class="text-danger">
@@ -37,7 +37,7 @@
                     <label class="text-light" for="password">Password</label>
                     <input type="password" name="password"
                         class="form-control @error('password') border border-danger @enderror" placeholder="Your Password"
-                        id="password">
+                        id="password" required>
 
                     @error('password')
                         <div class="text-danger">
