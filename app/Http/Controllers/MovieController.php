@@ -122,7 +122,7 @@ class MovieController extends Controller
 					'moviePoster' => 'image'
 				]);
 
-				$imageName = time() . '.' . $request->moviePoster->extension();
+				$imageName = time() . '_' . auth()->user()->username . '.' . $request->moviePoster->extension();
 				$request->moviePoster->move(public_path('img'), $imageName);
 
 				$movie->photo = 'img/' . $imageName;
@@ -165,7 +165,7 @@ class MovieController extends Controller
 			'moviePoster' => 'required|image'
 		]);
 
-		$imageName = time() . '.' . $request->moviePoster->extension();
+		$imageName = time() . '_' . auth()->user()->username . '.' . $request->moviePoster->extension();
 
 		$request->moviePoster->move(public_path('img'), $imageName);
 
@@ -176,9 +176,7 @@ class MovieController extends Controller
 			'photo' => 'img/' . $imageName,
 		]);
 
-		$im = new ImageManipulator($imageName);
-		$im->resample(640, 480); // resize to 640x480
-		$im->save($imageName, IMAGETYPE_JPEG);
+
 
 		if ($movie) {
 			$tagNames = $request->get('tags');

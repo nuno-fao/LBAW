@@ -116,7 +116,7 @@ class UserController extends Controller
                     'userPhoto' => 'image'
                 ]);
 
-                $imageName = time() . '.' . $request->userPhoto->extension();
+                $imageName = time() . '_' . auth()->user()->username . '.' . $request->userPhoto->extension();
                 $request->userPhoto->move(public_path('img'), $imageName);
 
                 $user->photo = 'img/' . $imageName;
