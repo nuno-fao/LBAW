@@ -39,6 +39,7 @@ Route::post('/api/movie/{id}', 'MovieController@edit')->name('edit_movie_form');
 
 //Reviews
 Route::get('review/{id}', 'ReviewController@show')->name('review');
+Route::get('api/review', 'ReviewController@getInfo')->name('review_json');
 Route::get('api/review/{review_id}', 'ReviewController@getReview');
 Route::delete('api/review/{review_id}', 'ReviewController@delete');
 Route::patch('api/review/{review_id}', 'ReviewController@edit');

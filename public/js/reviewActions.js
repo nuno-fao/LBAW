@@ -1,7 +1,6 @@
 function deleteReview(rid, id) {
     let deleteAjax = new XMLHttpRequest();
     let review = document.getElementById(rid)
-
     deleteAjax.onload = function() {
         console.log(deleteAjax.status)
         if (deleteAjax.status != 200) {
@@ -17,6 +16,7 @@ function deleteReview(rid, id) {
         if (typeof inDashboard !== 'undefined') {
             decrementCount();
         }
+        start_group_selector()
     };
     if (review != null) {
         deleteAjax.open("DELETE", "/api/review/" + id, true);

@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function report_review(Request $request, $id){
+    public function report_review(Request $request, $id)
+    {
 
+        if (!ctype_digit($id)) {
+            abort(404);
+        }
         $this->authorize('report', [Review::class, Review::find($id)]);
 
         $request->user()->reported()->create([
@@ -17,12 +21,15 @@ class ReportController extends Controller
         ]);
     }
 
-    public function discard(Request $request, $id){
-        $this->authorize('discardReport',[Report::class,$request->user()]);
+    public function discard(Request $request, $id)
+    {
+        if (!ctype_digit($id)) {
+            abort(404);
+        }
+        $this->authorize('discardReport', [Report::class, $request->user()]);
 
         $reports = Report::where('review_id', $id);
 
-        $reports->delete();   
+        $reports->delete();
     }
-
 }

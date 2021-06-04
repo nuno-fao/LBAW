@@ -40,8 +40,8 @@ function loadPublicFeed() {
 
                 elem.parentNode.removeChild(elem);
             }
-
         document.getElementById("public_reviews").innerHTML += this.responseText;
+        start_likes();
     };
 }
 
@@ -69,6 +69,7 @@ function loadFriendFeed() {
             }
 
         document.getElementById("friends_reviews").innerHTML += this.responseText;
+        start_likes();
     };
 }
 

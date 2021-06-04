@@ -10,6 +10,10 @@ class LikeController extends Controller
 {
     public function create($review_id)
     {
+        if (!ctype_digit($review_id)) {
+            abort(404);
+        }
+
         $r = Review::find($review_id);
 
         if (!ctype_digit($review_id)) {
