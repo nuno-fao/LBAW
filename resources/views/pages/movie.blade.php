@@ -78,14 +78,25 @@
 
                                 <label for="title" class="form-label mt-1 ">Title</label>
                                 <div class="row">
+                                    @if ($user_review != null)
+                                    <input type="text" name="title" class="col-7 form-control border border-1 rounded-1 ml-3"
+                                        id="title" aria-describedby="title" value="{{$user_review->title}}">
+                                    @else
                                     <input type="text" name="title" class="col-7 form-control border border-1 rounded-1 ml-3"
                                         id="title" aria-describedby="title">
+                                    @endif
                                 </div>
 
                                 <label for="description" class="form-label mt-3 ">Description</label>
+                                @if ($user_review != null)
+                                <textarea type="text" rows="3"
+                                    class="row-4 form-control border border-1rounded-1 mt-0 comment-area" name="description"
+                                    id="description" aria-describedby="description" >{{$user_review->text}}</textarea>
+                                @else
                                 <textarea type="text" rows="3"
                                     class="row-4 form-control border border-1rounded-1 mt-0 comment-area" name="description"
                                     id="description" aria-describedby="description"></textarea>
+                                @endif
                                 <div class="d-flex justify-content-end ">
                                     <input class="btn btn-outline-secondary mt-3 mb-3 " type="submit" value="Submit">
                                 </div>
