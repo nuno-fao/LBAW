@@ -9,7 +9,8 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 
 class AdministrationController extends Controller
-{
+{   
+    //Returns "movie dashboard" page 
     public function movie_page(){
 
         $this->authorize('admin_actions', User::class);
@@ -21,6 +22,7 @@ class AdministrationController extends Controller
         ]);
     }
 
+    //Returns "review dashboard" page 
     public function review_page(){
 
         $this->authorize('admin_actions', User::class);
@@ -37,6 +39,7 @@ class AdministrationController extends Controller
         ]);
     }
 
+    //Returns "user dashboard" page 
     public function user_page(){
 
         $this->authorize('admin_actions', User::class);

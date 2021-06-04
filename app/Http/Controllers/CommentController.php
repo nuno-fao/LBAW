@@ -17,6 +17,7 @@ class CommentController extends Controller
         return User::find($author);
     }
 
+    //Adds a comment in a review
     public function create(Request $request, $review_id)
     {
         if (!ctype_digit($review_id)) {
@@ -40,6 +41,7 @@ class CommentController extends Controller
         return view('partials.comment', ['comment' => $comment]);
     }
 
+    //Deletes a comment in a review
     public function delete($comment_id)
     {
         if (!ctype_digit($comment_id)) {

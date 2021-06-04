@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
-{
+{   
+    //Returns a page with the information of a user
     public function show($id)
     {
         if (!ctype_digit($id)) {
@@ -66,7 +67,7 @@ class UserController extends Controller
         }
         return response('', 200)->header('Content-Type', 'text/plain');
     }
-
+    
     public function edit_page($user_id)
     {
 

@@ -13,6 +13,7 @@ class MovieController extends Controller
 {
 	private Movie $movie;
 	const ERROR_404_PAGE = 'errors.404';
+	//Returns a page with the information of a movie
 	public function show($id)
 	{
 		if (!ctype_digit($id)) {
@@ -55,6 +56,7 @@ class MovieController extends Controller
 		return view('pagination.movie', ['movie' => $this->movie]);
 	}
 
+	//Returns a page with a form to add a movie
 	public function add_page()
 	{
 
@@ -71,6 +73,7 @@ class MovieController extends Controller
 		);
 	}
 
+	//Returns a page with a form to edit a movie
 	public function edit_page($id)
 	{
 
@@ -94,6 +97,7 @@ class MovieController extends Controller
 		);
 	}
 
+	//Edits a movie
 	public function edit(Request $request, $id)
 	{
 		if (!ctype_digit($id)) {
@@ -195,6 +199,7 @@ class MovieController extends Controller
 		return redirect()->route('landing_page');
 	}
 
+	//Deletes a movie
 	public function delete(Request $request, $id)
 	{
 		if (!ctype_digit($id)) {

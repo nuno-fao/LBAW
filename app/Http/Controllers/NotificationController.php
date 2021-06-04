@@ -7,7 +7,7 @@ use App\Models\Notification;
 use Auth;
 class NotificationController extends Controller
 {
-    
+    //Returns a page with a notification list
     public function index(){
 
       $this->authorize('view', Notification::class); 

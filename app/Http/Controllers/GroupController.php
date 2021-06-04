@@ -10,7 +10,7 @@ use Auth;
 
 class GroupController extends Controller
 {
-
+    //Returns a page with the informations of a group
     public function show($id)
     {
 
@@ -44,7 +44,7 @@ class GroupController extends Controller
         return view('pagination.feed', ['reviews' => $reviews]);
     }
 
-
+    //Returns a page with a list of all the groups
     public function list()
     {
 
@@ -57,6 +57,7 @@ class GroupController extends Controller
         ]);
     }
 
+    //Returns a page with a form to add a group
     public function add_group_page()
     {
 
@@ -65,6 +66,7 @@ class GroupController extends Controller
         return view('pages.add_group');
     }
 
+    //Creates a group
     public function create(Request $request)
     {
 
@@ -111,6 +113,7 @@ class GroupController extends Controller
         return redirect()->route('landing_page');
     }
 
+    //Returns a list of users that can be invited
     public function invitation_page($group_id)
     {
 
@@ -131,6 +134,7 @@ class GroupController extends Controller
         ]);
     }
 
+    //Invites a user to a group
     public function invite_user($group_id, $user_id)
     {
 
@@ -152,6 +156,7 @@ class GroupController extends Controller
         return back();
     }
 
+    //Accepts a group invitation
     public function accept_invite($user_id, $group_id)
     {
 
@@ -177,6 +182,7 @@ class GroupController extends Controller
         return back();
     }
 
+    //Rejects a group invitation
     public function reject_invite($user_id, $group_id)
     {
 
@@ -201,6 +207,7 @@ class GroupController extends Controller
         return back();
     }
 
+    //Deletes a group
     public function delete($group_id)
     {
 
@@ -216,6 +223,7 @@ class GroupController extends Controller
         return redirect()->route('groups_list');
     }
 
+    //Allows user to leave a group
     public function leave($group_id, $user_id)
     {
         if (!ctype_digit($group_id)) {
@@ -234,7 +242,7 @@ class GroupController extends Controller
         return back();
     }
 
-
+    //Returns a page with list of users in that group
     public function members_page($group_id)
     {
         if (!ctype_digit($group_id)) {

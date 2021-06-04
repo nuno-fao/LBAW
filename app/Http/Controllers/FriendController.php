@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class FriendController extends Controller
 {
 
+  //Returns a page with a list of the friends of the user
   public function show_list($user_id)
   {
 
@@ -22,7 +23,7 @@ class FriendController extends Controller
     ]);
   }
 
-
+  //Sends a friend request to a user
   public function invite(Request $request, $user_id, $asker_id)
   {
 
@@ -44,7 +45,7 @@ class FriendController extends Controller
     return back();
   }
 
-
+  //Accept a friend request
   public function accept(Request $request, $user_id, $asker_id)
   {
 
@@ -72,6 +73,7 @@ class FriendController extends Controller
     return back();
   }
 
+  //Rejects a friend request
   public function reject(Request $request, $user_id, $asker_id)
   {
 
@@ -99,6 +101,7 @@ class FriendController extends Controller
     return back();
   }
 
+  //Cancels a friend request
   public function cancel(Request $request, $asker_id, $user_id)
   {
 

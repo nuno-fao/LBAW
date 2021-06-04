@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
+    //Reports review
     public function report_review(Request $request, $id)
     {
 
@@ -21,6 +22,7 @@ class ReportController extends Controller
         ]);
     }
 
+    //Discards review
     public function discard(Request $request, $id)
     {
         if (!ctype_digit($id)) {

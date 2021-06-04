@@ -8,6 +8,8 @@ use Auth;
 
 class FeedController extends Controller
 {
+
+  //Returns feed page
   public function index()
   {
 
@@ -26,6 +28,7 @@ class FeedController extends Controller
     ]);
   }
 
+  //Returns public feed page
   public function getPublicPage($page)
   {
     if (!ctype_digit($page)) {

@@ -12,7 +12,7 @@ class SearchController extends Controller
 {
     const ERROR_404_PAGE = 'errors.404';
 
-
+    //Returns search result page
     public function index(Request $request)
     {
         $query = "";

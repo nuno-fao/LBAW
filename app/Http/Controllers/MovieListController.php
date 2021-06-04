@@ -9,6 +9,7 @@ class MovieListController extends Controller
 
   const ERROR_404_PAGE = 'errors.404';
 
+  //Returns a page with a list of movies
   public function show()
   {
 

@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-
+	//Gets review info
 	public function getInfo(Request $request)
 	{
 		$group_id = $request->get("group");
@@ -34,6 +34,7 @@ class ReviewController extends Controller
 		return $r;
 	}
 
+	//Shows a review
 	public function show($id)
 	{
 		if (!ctype_digit($id)) {
@@ -55,6 +56,7 @@ class ReviewController extends Controller
 		return Review::where('movie_id', $movie->id)->orderBy('date', 'desc')->skip($page * 10)->take(10)->get();
 	}
 
+	//Creates a review
 	public function create(Request $request, $movie_id)
 	{
 
@@ -103,6 +105,7 @@ class ReviewController extends Controller
 		return view("partials.review", ["review" => $review]);
 	}
 
+	//Deletes a review
 	public function delete(Request $request, $review_id)
 	{
 		if (!ctype_digit($review_id)) {
@@ -125,6 +128,7 @@ class ReviewController extends Controller
 		return Review::find($review_id);
 	}
 
+	//Edits a review
 	public function edit(Request $request, $review_id)
 	{
 		if (!is_numeric($review_id)) {

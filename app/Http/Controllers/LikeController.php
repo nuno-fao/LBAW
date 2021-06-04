@@ -7,7 +7,8 @@ use App\Models\Review;
 use App\Models\Like;
 
 class LikeController extends Controller
-{
+{   
+    //Likes a review
     public function create($review_id)
     {
         if (!ctype_digit($review_id)) {

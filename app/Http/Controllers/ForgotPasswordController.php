@@ -10,18 +10,22 @@ use Illuminate\Support\Facades\Password;
 class ForgotPasswordController extends Controller
 {
 
+    //Returns initial page for password recovery
     public function forgot_page()
     {
 
         return view('auth.password_recovery');
     }
 
+    //Page whose url is sent in the email
     public function reset_page()
     {
 
         return view('auth.reset_password');
     }
 
+
+    //Send an email with a link for password reset
     public function sendResetLinkEmail(Request $request)
     {
 
@@ -40,10 +44,9 @@ class ForgotPasswordController extends Controller
             : redirect()->route('failed_page');
     }
 
+    //Resets the user's password
     public function reset()
     {
-
-
         $credentials = request()->validate([
             'email' => 'required|email',
             'token' => 'required|string',
@@ -63,12 +66,14 @@ class ForgotPasswordController extends Controller
         return redirect()->route('login');
     }
 
+    //Returns page confirming that the email was sent
     public function confirmation_page()
     {
 
         return view('auth.confirmation_page');
     }
 
+    //Returns page informing that the email could not be sent
     public function failed_page()
     {
 
