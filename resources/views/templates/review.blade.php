@@ -6,9 +6,14 @@
         <div class="text-dark d-flex align-items-center">
             {{ \Carbon\Carbon::parse($review->date)->diffForHumans() }}
         </div>
-        <a class="btn my-auto" href="{{ route('user', ['user' => $review->user->id]) }}">
+        <a class="btn my-auto mr-0" href="{{ route('user', ['user' => $review->user->id]) }}">
             by {{ $review->user->username }}
         </a>
+        @if($review->group != null)
+            <a class="btn ml-0 my-auto" href="{{ route('group', ['group_id' => $review->group->id]) }}">
+                in {{$review->group->title}} 
+            </a>
+        @endif
 
 
         @can('delete', $review)
