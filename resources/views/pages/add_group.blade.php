@@ -25,7 +25,7 @@
             <form class="col-10 col-lg-3 border border-10  bg-white rounded-2 pl-3 action" enctype="multipart/form-data"
                 action="{{ route('add_group') }}" method="POST">
                 @csrf
-                <label for="title" class="form-label mt-3 ">Group Name</label>
+                <label for="title" class="form-label mt-3 ">Group Name *</label>
                 <input type="text"
                     class="col-7 form-control border border-1rounded-1 @error('title') border-danger @enderror" name="title"
                     id="title" aria-describedby="title">
@@ -35,7 +35,7 @@
                     </div>
                 @enderror
 
-                <label for="description" class="form-label mt-3 ">Group Description</label>
+                <label for="description" class="form-label mt-3 ">Group Description </label>
                 <textarea type="text" rows="3"
                     class="row-4 form-control border border-1rounded-1 @error('description') border-danger @enderror"
                     name="description" id="description" aria-describedby="description"></textarea>
