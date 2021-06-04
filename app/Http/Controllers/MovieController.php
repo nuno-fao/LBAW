@@ -82,7 +82,9 @@ class MovieController extends Controller
 
 		$movie = Movie::find($id);
 		$genres = Genre::all();
-
+		if ($movie == null) {
+			abort(404);
+		}
 		return view(
 			'pages.add_movie',
 			[
