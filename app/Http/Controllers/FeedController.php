@@ -16,12 +16,10 @@ class FeedController extends Controller
     $temp = collect();
     if (Auth::check()) {
       $friend_reviews = collect();
-      $aux = Auth::user()->getFriendsAttribute();
-      foreach ($aux as $friend) {
-        $friend_reviews = $temp->concat($friend->reviews);
-        $temp = $friend_reviews;
+      foreach (auth()->user()->friends as $friend) {
+        $friend_reviews =  $friend_reviews->concat($friend->reviews);
       }
-      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->sortByDesc('title')->take(10);
+      $friend_reviews = $friend_reviews->sortByDesc('title')->sortByDesc('date')->where('group_id', null)->take(10);
     }
     return view('pages.feed', [
       'reviews' => $reviews, 'friend_reviews' => $friend_reviews
@@ -47,14 +45,12 @@ class FeedController extends Controller
     }
 
     $friend_reviews = null;
-    $temp = collect();
     if (Auth::check()) {
       $friend_reviews = collect();
-      $aux = Auth::user()->getFriendsAttribute();
-      foreach ($aux as $friend) {
-        $friend_reviews = $friend_reviews->merge($friend->reviews);
+      foreach (auth()->user()->friends as $friend) {
+        $friend_reviews = $friend_reviews->concat($friend->reviews);
       }
-      $friend_reviews = $temp->where("group_id")->sortByDesc('date')->sortByDesc('title')->skip($page * 10)->take(10);
+      $friend_reviews = $friend_reviews->sortByDesc('title')->sortByDesc('date')->where('group_id', null)->skip($page * 10)->take(10);
     }
     if ($friend_reviews->count() == 0) {
       return response('', 300)->header('Content-Type', 'text/plain');
